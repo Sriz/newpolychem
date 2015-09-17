@@ -118,7 +118,7 @@
 
 
     function fetchdata() {
-        var qty
+        var qty;
         var department = document.getElementById('department').value;
         var x = document.getElementsByClassName('type');
         for (i = 0; i < x.length; i++) {
@@ -171,13 +171,15 @@
             echo $this->Form->input('type', array('id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('please select' => 'please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour'), 'onchange' => 'fetchdata()'));
             echo $this->Form->input('reasons', array('id' => 'reasons', 'options' => $type, 'class' => array('reason', 'form-control input-sm')));
             echo $this->Form->input('time', array('id' => 'starttime', 'class' => 'form-control input-sm', 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'Start Time')));
+            echo "<p class='text-danger' id='p_starttime'></p>";
             echo $this->Form->input('wk_hrs', array('label' => array('class' => 'col-sm-2 control-label', 'text' => 'End Time'), 'class' => 'form-control input-sm', 'type' => 'text', 'id' => 'endtime', 'onchange' => 'calculate()'));
+            echo "<p class='text-danger' id='p_endtime'></p>";
             //echo $form->input('Contact.name', array('label' => array('class' => 'Your-Class', 'text' => 'Name<span style="color:#f89e01">*</span> :'), 'size' => '25'));
-            echo $this->Form->input('totalloss', array('label' => array('class' => 'col-sm-2 control-label', 'text' => 'Total Loss'), 'id' => 'totalloss', 'readonly', 'class' => array('totalloss', 'form-control input-sm')));
+            echo $this->Form->input('totalloss', array('id'=>'totalloss','label' => array('class' => 'col-sm-2 control-label', 'text' => 'Total Loss'), 'id' => 'totalloss', 'readonly', 'class' => array('totalloss', 'form-control input-sm')));
 
             ?>
             <div style="margin-left: 10px;">
-                <?php echo $this->Form->end(__('Submit')); ?>
+                <?php echo $this->Form->end(__('Submit'), ['id' => 'btn_submit']); ?>
             </div>
         </fieldset>
 
