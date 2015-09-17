@@ -88,7 +88,7 @@
         var endtime = $('#endtime').val();
         starttime = remove_ampm(starttime);
         endtime = remove_ampm(endtime);
-        if(endtime<10*60*60 && starttime >=18*60*60)
+        if(endtime<starttime)
         {
             endtime=endtime+24*60*60;
         }
