@@ -46,21 +46,6 @@ class CalenderCprsController extends AppController
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock")[0][0]['sum'];
             $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock WHERE  length is not null and ntwt is not null");
         endif;
-        
-        // $material_total=$this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate ='$lastDate' order by nepalidate desc limit 1");
-        // $mix_id = $this->MixingMaterials->query("select id from mixing_materials");        
-        // $total=0;
-        // foreach($mix_id as $m):
-        //     foreach($material_total as $ma):
-        //         $materials = json_decode($ma['tbl_consumption_stock']['materials']);
-        //         $total +=$materials->$m['mixing_materials']['id'];
-        //     endforeach;
-        // endforeach;
-        
-        
-        // $this->set('total',$total);
-
-
 
         //Raw Materials
         $this->loadModel('CategoryMaterial');
@@ -104,41 +89,47 @@ class CalenderCprsController extends AppController
     {
         $this->loadModel('TblConsumptionStock');
         $this->loadModel('MixingMaterials');
+
         $lastDate = $this->TblConsumptionStock->query("SELECT nepalidate from tbl_consumption_stock order by nepalidate desc limit 1")[0]['tbl_consumption_stock']['nepalidate'];
         $newItemAdded = $this->TblConsumptionStock->query("select DISTINCT(count(nepalidate)) as count from tbl_consumption_stock where nepalidate='$lastDate' AND length IS  null and ntwt IS NULL")[0][0]['count'];
         $materials = $this->MixingMaterials->query("select * from mixing_materials");
+
         // Custom pagination
         $pagination = new stdClass();
         $pagination->limit = 20;
         $pagination->currentPage = isset($_GET['page_id'])?$_GET['page_id']<=0?1:$_GET['page_id']:1;
         $pagination->offset =($pagination->currentPage-1)*$pagination->limit;
+
         $searchDate = isset($_GET['search'])?$_GET['search']:null;
         if ($searchDate):
             $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
             $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
-            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$searchDate'");
+            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$searchDate'  and length is not null and ntwt is not null");
         else:
             $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
             $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock")[0][0]['sum'];
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock")[0][0]['sum'];
-            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock");
+            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where length is not null and ntwt is not null");
         endif;
         //Raw Materials
         $this->loadModel('CategoryMaterial');
-        $this->loadModel('MixingMaterials');
+        $this->loadModel('MixingMaterial');
+
         $mixingMaterialLists = $this->MixingMaterial->query("Select * from mixing_materials");
         $materialCategory = $this->CategoryMaterial->query("Select * from category_materials");
         if($searchDate):
-            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock WHERE nepalidate ='$searchDate'");
+            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock WHERE nepalidate ='$searchDate' and length is not null and ntwt is not null");
         else:
-            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock");
+            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock where length is not null and ntwt is not null");
         endif;
+
         $this->set('mixingMaterialLists', $mixingMaterialLists);
         $this->set('materialCategory', $materialCategory);
         $this->set('consumptionMaterials', $consumptionMaterials);
+
         //calender scrap
         $this->loadModel('CalenderScrap');
         if($searchDate):
@@ -147,6 +138,7 @@ class CalenderCprsController extends AppController
             $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap");
         endif;
         $this->set('calenderScraps',$calenderScraps);
+
         //send to view
         $this->set('lastDate',$lastDate);
         $this->set('newItemAdded',$newItemAdded);
@@ -156,6 +148,9 @@ class CalenderCprsController extends AppController
         $this->set('material_lists', $materials);
         $this->set('totalMaterials', $totalMaterials);
         $this->set('pagination', $pagination);
+
+
+
         $this->layout = 'pdf';
     }
     public function add()
