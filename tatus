@@ -1,0 +1,35 @@
+[33mcommit f37634fd8c1649664e5b3c97597216679bbaa545[m
+Author: Dhurba Baral <dhurba87@gmail.com>
+Date:   Thu Aug 27 06:50:45 2015 +0545
+
+    Losshour starttime and endtime validation fixed
+
+[33mcommit 8f182215cdc0495e075158f0541a221d13a502a6[m
+Author: Dhurba Baral <dhurba87@gmail.com>
+Date:   Wed Aug 26 21:16:38 2015 +0545
+
+    validation of NTWT & Total fixed in CalenderCprs/edit
+
+[33mcommit 7300c0a4ad1aa917271f797c48cf763827676365[m
+Author: Dhurba Baral <dhurba87@gmail.com>
+Date:   Wed Aug 26 20:57:06 2015 +0545
+
+    error on total of calender_cpr fixed with removing comma(,) as blank
+
+[33mcommit fb2316c3a18e950356dbc9461b0fb414f0ec158d[m
+Author: Dhurba Baral <dhurba87@gmail.com>
+Date:   Wed Aug 26 20:33:31 2015 +0545
+
+    Total of Current Data is added on CalenderCrps table
+
+[33mcommit bc4ac26e55bf5c0380e5ab073401aef11916b79c[m
+Author: Dhurba Baral <dhurba87@gmail.com>
+Date:   Wed Aug 26 18:31:09 2015 +0545
+
+    Initial Project
+
+[33mcommit 8f2184980d137e14bcd3d6fb7c909289e1cac91d[m
+Author: Dhurba baral <dhurba87@gmail.com>
+Date:   Wed Aug 26 18:28:40 2015 +0545
+
+    Initial commit
