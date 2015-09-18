@@ -230,6 +230,141 @@ public function t()
     }
 
 
+     public function monthly_report()
+    {
+        ob_end_clean();
+        //$d= array("orange", "banana");
+        $d = array();
+        $startday = "01";
+        $endday = "32";
+        $getmonth = $_POST['id'];
+        $this->loadModel('TblConsumptionStock');
+        $date = $this->TblConsumptionStock->query("select nepalidate from tbl_consumption_stock order by nepalidate desc limit 1");
+        foreach ($date as $n):
+            $nepdte = $n['tbl_consumption_stock']['nepalidate'];
+        endforeach;
+        $nepdate = explode('-', $nepdte);
+        $year = $nepdate[0];
+
+
+        $startmonth = $year . "-" . $getmonth . "-" . $startday;
+        $endmonth = $year . "-" . $getmonth . "-" . $endday;
+        //echo $startmonth;echo $endmonth;die;
+        $this->set('date1', $endmonth);
+        $users = $this->User->find('all');
+        $this->set(compact('users'));
+        //$this->loadModel('TblConsumptionStock');
+
+        //$raws=$this->ConsumptionStock->query("SELECT material_id,sum(quantity) as sum from consumption_stock where material_id!='Scrap Unprinted' and material_id !='Scrap Laminated' and material_id !='Scrap Printed' and material_id !='Scrap Plain' and material_id!='Scrap CT' and date BETWEEN '$startmonth' and '$endmonth' group by material_id order by consumption_id");
+        $material = $this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate between '$startmonth' and '$endmonth'");
+        //echo'<pre>';print_r($material);die;
+       // $material_one_d=$this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate='$latest_date'");
+        //print_r($material_one_d);die;
+        $this->loadModel('MixingMaterial');
+        $mix_id = $this->MixingMaterial->query("select id from mixing_materials where category_id!=13 and category_id!=14");        
+        //$total_raw=0;
+
+        foreach($mix_id as $material_id):   
+            echo'<pre>';print_r($material_id);die;
+            $total['mixing_materials']['id']=
+        endforeach;
+
+
+        foreach($material as $mater):
+            $materials = json_decode($mater['tbl_consumption_stock']['materials'],true);
+            $i=0;
+            foreach($mix_id as $m):
+                $material1[$i] = $materials[$m['mixing_materials']['id']];
+                $i++;
+            endforeach;
+
+            echo'<pre>';print_r($material1);die;
+
+        endforeach;
+
+        
+        
+
+       
+
+
+
+        $mix_id = $this->MixingMaterial->query("select id,name from mixing_materials where category_id!=13 and category_id!=14");        
+        $i=0;
+        foreach($mix_id as $m):
+            foreach($material_one_d as $md):
+                $materials = json_decode($md['tbl_consumption_stock']['materials']);
+                $total_raw_indi[$i] = $materials->$m['mixing_materials']['id'];
+            endforeach;
+            $i++;
+        endforeach;
+
+        
+        
+        $this->set('raw_materials_d',$total_raw);
+//echo'<pre>';print_r($raws)die;
+
+
+
+
+
+        $total = $this->ConsumptionStock->query("SELECT  sum(quantity) as total FROM polychem.consumption_stock
+where material_id<>'Bought Scrap' and material_id<>'Scrap Laminated' and material_id<>'Scrap Printed'
+and material_id<>'Scrap Unprinted' and material_id<>'Scrap Plain' and material_id<>'Scrap CT' and nepalidate BETWEEN '$startmonth' and '$endmonth'");
+        foreach ($total as $t):
+            $totalinput = $t['0']['total'];
+        endforeach;
+
+        $scrap = $this->ConsumptionStock->query("SELECT sum(quantity) as total FROM polychem.consumption_stock where material_id='Bought Scrap' OR material_id='Scrap Laminated' OR material_id='Scrap Printed' OR material_id='Scrap Unprinted' OR material_id='Scrap Plain' OR material_id='Scrap CT' and nepalidate BETWEEN '$startmonth' and '$endmonth' ");
+
+        foreach ($scrap as $sc):
+            $totalscrap = $sc['0']['total'];
+        endforeach;
+
+        echo "<table>";
+        foreach ($raws as $r):
+            echo "<tr>";
+            echo "<td align='left'>" . $r['consumption_stock']['material_id'] . "</td>";
+            echo "<td align='right'>&nbsp;&nbsp;" . number_format($r['0']['total'], 2) . "</td>";
+            echo "<td align='right'>&nbsp;&nbsp;&nbsp;" . number_format($r['0']['rawpercentage'], 2) . "%</td>";
+
+            echo "</tr>";
+        endforeach;
+        if (empty($raws)) {
+            echo "<tr>";
+            echo "<td><strong>Total</strong></td>";
+            echo "<td align='right'>" . number_format(0, 2) . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><strong>Total Scrap</strong></td>";
+            echo "<td align='right'>" . number_format(0, 2) . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><strong>Total Input</strong></td>";
+            echo "<td align='right'>" . number_format(0, 2) . "</td>";
+            echo "</tr>";
+
+            echo "</table>";
+        } else {
+            echo "<tr>";
+            echo "<td><strong>Total</strong></td>";
+            echo "<td align='right'>" . number_format($totalinput, 2) . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><strong>Total Scrap</strong></td>";
+            echo "<td align='right'>" . number_format($totalscrap, 2) . "</td>";
+            echo "</tr>";
+            echo "<tr>";
+            echo "<td><strong>Total Input</strong></td>";
+            echo "<td align='right'>" . number_format($totalinput + $totalscrap, 2) . "</td>";
+            echo "</tr>";
+
+            echo "</table>";
+        }
+    }
+
+
+
 
     
 
