@@ -370,7 +370,12 @@
             <?php if (AuthComponent::user('id') and AuthComponent::user('role') == 'calender') { ?>
             <h1>Welcome to Calendar Department</h1>
 
-           
+            <div class="alert alert-info fade in">
+                <?php if ($ct['0']['0']['count'] > 0)
+
+                    echo 'New Item Being added by Mixing Section';
+                ?>
+            </div>
             <ol class="breadcrumb">
                 <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
             </ol>
@@ -809,146 +814,150 @@
                     <div class="panel panel-primary">
                         <div class="panel-heading">BreakDown Reasons %</div>
                        <div class="panel-body">
-                            <div class="container-fluid">
-                                <table class="table">
-                                    <tr class="success">
-                                        <th>Reasons</th>
-                                        <th>Today<br/>(<?= $latest_date;?>)</th>
-                                        <th>To Month<br/>(<?= $latest_month; ?>)</th>
-                                        <th>To Year<br/>(<?= $latest_year; ?>)</th>
-                                    </tr>
-                                    
-                                    <tr>
+                    <div class="container-fluid">
+                        <table class="table">
+                            <tr class="success">
+                                <th>Reasons</th>
+                                <th>Today<br/>(<?= $latest_date;?>)</th>
+                                <th>To Month<br/>(<?= $latest_month; ?>)</th>
+                                <th>To Year<br/>(<?= $latest_year; ?>)</th>
+
+                            </tr>
+                            <tr>
                             
-                                        <td><?php
-                                            $rea_count = count($tybdloss);
-                                            
-                                            foreach ($bd_reason as $bd):
-                                                echo $bd. '<br/>';
-                                            endforeach;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($bd_d as $bd):
+                                <td><?php
+                                    $rea_count = count($tybdloss);
+                                    
+                                    foreach ($tybdloss as $bd):
+                                        echo $bd['time_loss']['reasons'] . '<br/>';
+                                    endforeach;
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php foreach ($tdbdloss as $bd):
 
-                                                echo number_format($bd[0][0]['bd_d'], 2) . '%<br/>';
+                                        echo number_format($bd['0']['tdbdloss'], 2) . '%<br/>';
 
-                                            endforeach;
+                                    endforeach;
 
-                                            $today_count = count($bd_d);
-                                            for($today_count;$today_count<$rea_count;$today_count++)
-                                            {
-                                                
-                                                 echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php  foreach ($bd_m as $bd):
-
-                                                echo number_format($bd[0][0]['bd_m'], 2) . '%<br/>';
-
-                                            endforeach;
-                                            $month_count = count($bd_m);
-                                            
-                                            for($month_count;$month_count<$rea_count;$month_count++)
-                                            {
-                                                echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($bd_y as $bd):
-
-                                                echo number_format($bd[0][0]['bd_y'], 2) . '%<br/>';
-
-                                            endforeach;
-                                            $year_count = count($bd_y);
-                                            for($year_count;$year_count<$rea_count;$year_count++)
-                                            {
-                                                
-                                                 echo number_format(0,2).'%<br/>';
+                                    $today_count = count($tdbdloss);
+                                    for($today_count;$today_count<$rea_count;$today_count++)
+                                    {
+                                        
+                                         echo number_format(0,2).'%<br/>';
 
 
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php  foreach ($tmbdloss as $bd):
+
+                                        echo number_format($bd['0']['tmbdloss'], 2) . '%<br/>';
+
+                                    endforeach;
+                                    $month_count = count($tmbdloss);
+                                    
+                                    for($month_count;$month_count<$rea_count;$month_count++)
+                                    {
+                                        
+                                        echo number_format(0,2).'%<br/>';
+
+
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php foreach ($tybdloss as $bd):
+
+                                        echo number_format($bd['0']['tybdloss'], 2) . '%<br/>';
+
+                                    endforeach;
+                                    $year_count = count($tybdloss);
+                                    for($year_count;$year_count<$rea_count;$year_count++)
+                                    {
+                                        
+                                         echo number_format(0,2).'%<br/>';
+
+
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
+
+                        </table>
+
                     </div>
                 </div>
-            </div>
-            
-                <div class="row">
-                    <div class="col-md-12" style="margin:0px;padding:0px;">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">Loss Hour Reasons %</div>
-                                <div class="panel-body">
-                                    <div class="container-fluid">
-                                <table class="table" style="font-size: 14px;">
-                                    <tr class="success">
-                                        <th>Reasons</th>
-                                        <th>Today <br/>(<?= $latest_date;?>)</th>
-                                        <th>To Month <br/>(<?= $latest_month;?>)</th>
-                                        <th>To Year <br/>(<?= $latest_year;?>)</th>
+                    </div>
+                </div>
+                <div class="col-md-12" style="margin:0px;padding:2px;">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Loss Hour Reasons %</div>
+                        <div class="panel-body">
+                    <div class="container-fluid">
+                        <table class="table">
+                            <tr class="success">
+                                <th>Reasons</th>
+                                <th>Today (<?= $latest_date;?>)</th>
+                                <th>To Month (<?= $latest_month;?>)</th>
+                                <th>To Year (<?= $latest_year;?>)</th>
 
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <?php $rea_loss = count ($tylhloss);?>
-                                            <?php foreach ($reasons as $r):
+                            </tr>
+                            <tr>
+                                <td>
+                                    <?php $rea_loss = count ($tylhloss);?>
+                                    <?php foreach ($reasons as $r):
 
-                                                echo $r . '<br/>';
+                                        echo $r . '<br/>';
 
-                                            endforeach;
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($tdlhloss as $bd):
+                                    endforeach;
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php foreach ($tdlhloss as $bd):
 
-                                                echo number_format($bd[0][0]['tdlhloss'], 2) . '%<br/>';
+                                        echo number_format($bd[0][0]['tdlhloss'], 2) . '%<br/>';
 
-                                            endforeach;
-                                            $today_loss = count ($tdlhloss);
-                                            for($today_loss;$today_loss<$rea_loss;$today_loss++)
-                                            {
-                                                echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php  foreach ($tmlhloss as $bd):
+                                    endforeach;
+                                    $today_loss = count ($tdlhloss);
+                                    for($today_loss;$today_loss<$rea_loss;$today_loss++)
+                                    {
+                                        echo number_format(0,2).'%<br/>';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php  foreach ($tmlhloss as $bd):
 
-                                                echo number_format($bd[0][0]['tmlhloss'], 2) . '%<br/>';
+                                        echo number_format($bd[0][0]['tmlhloss'], 2) . '%<br/>';
 
-                                            endforeach;
-                                            $month_loss = count ($tmlhloss);
-                                            for($month_loss;$month_loss<$rea_loss;$month_loss++)
-                                            {
-                                                echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($tylhloss as $bd):
+                                    endforeach;
+                                    $month_loss = count ($tmlhloss);
+                                    for($month_loss;$month_loss<$rea_loss;$month_loss++)
+                                    {
+                                        echo number_format(0,2).'%<br/>';
+                                    }
+                                    ?>
+                                </td>
+                                <td>
+                                    <?php foreach ($tylhloss as $bd):
 
-                                                echo number_format($bd[0][0]['tylhloss'], 2) . '%<br/>';
+                                        echo number_format($bd[0][0]['tylhloss'], 2) . '%<br/>';
 
-                                            endforeach;
-                                            $year_loss = count ($tylhloss);
-                                            for($year_loss;$year<$rea_loss;$year_loss++)
-                                            {
-                                                echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                    </tr>
+                                    endforeach;
+                                    $year_loss = count ($tylhloss);
+                                    for($year_loss;$year<$rea_loss;$year_loss++)
+                                    {
+                                        echo number_format(0,2).'%<br/>';
+                                    }
+                                    ?>
+                                </td>
+                            </tr>
 
-                                </table>
+                        </table>
 
-                            </div>
+                    </div>
                 </div>
                     </div>
                 </div>
@@ -966,9 +975,9 @@
 
                             <tr class="success">
                                     <th>Category</th>
-                                    <th>Today (<?=$latest_date;?>)</th>
-                                    <th>To Month (<?=$latest_month;?>)</th>
-                                    <th>To Year (<?=$latest_year;?>)</th>
+                                    <th>Today (<?=$lastDate;?></th>
+                                    <th>To Month (<?=$lastMonth;?></th>
+                                    <th>To Year (<?=$lastYear;?></th>
                                 </tr>
                                 <tr>
                                     <td><strong>Break Down</strong></td>
@@ -1064,9 +1073,9 @@
                         
                             <td><strong>Per Work Hour Output</strong></td>
                             <!-- output/(avg working hour * # of days worked) -->
-                            <td><?php echo number_format($net_d/$avg_wh_d,2)?></td>
-                            <td><?php echo number_format($net_m/($avg_wh_m*$operated_in_month[0][0]['operated_in_month']),2);?></td>
-                            <td><?php echo number_format($net_y/($avg_wh_y*$operated_in_year[0][0]['operated_in_year']),2);?></td>
+                            <td><?php echo number_format($net_d/$workedHourToDay,2)?></td>
+                            <td><?php echo number_format($net_m/($workedHourToMonth*$operated_in_month[0][0]['operated_in_month']),2);?></td>
+                            <td><?php echo number_format($net_y/($workedHourToYear*$operated_in_year[0][0]['operated_in_year']),2);?></td>
                         </tr>
                         
                     </table>
@@ -1448,9 +1457,9 @@
                             <table class="table table-bordered table-hover">
                                <tr class="success">
                                     <th>Category</th>
-                                    <th>Today (<?=$latest_date;?></th>
-                                    <th>To Month (<?=$latest_month;?></th>
-                                    <th>To Year (<?=$latest_year;?></th>
+                                    <th>Today (<?=$lastDate;?></th>
+                                    <th>To Month (<?=$lastMonth;?></th>
+                                    <th>To Year (<?=$lastYear;?></th>
                                 </tr>
                                 <tr>
                                     <td><strong>Break Down</strong></td>

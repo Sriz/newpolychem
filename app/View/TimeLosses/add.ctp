@@ -153,24 +153,24 @@
         ?>
         <fieldset>
             <?php
-            echo $this->Form->input('Date', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-comtrol input-sm','required'=>'required'));
+            echo $this->Form->input('Date', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-comtrol input-sm'));
             //echo $this->Form->input('date',array('type'=>'text','value'=>$date,'class'=>array('form-control input-sm')));
-            echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm','required'=>'required','placeholder'=>'Shift'));
-            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'text', 'class' => 'form-control input-sm','value'=>'$dept','readonly'=>'readonly','required'=>'required'));
-            echo $this->Form->input('type', array('required'=>'required','id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('placeholder' => 'Please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour')/*,'onchange'=>'fetchdata()'*/));
-            echo $this->Form->input('reasons', array('id' => 'reasons', 'type' => 'select', 'class' => 'reason form-control input-sm','required'=>'required'));
-            echo $this->Form->input('time', array('type' => 'text', 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'StartTime'), 'class' => array('form-control input-sm', 'starttime'), 'placeholder' => '00:00', 'id' => 'starttime','required'=>'required'));
+            echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm'));
+            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'hidden', 'class' => 'form-control input-sm','value'=>'calender'));
+            echo $this->Form->input('type', array('id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('Please select' => 'Please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour')/*,'onchange'=>'fetchdata()'*/));
+            echo $this->Form->input('reasons', array('id' => 'reasons', 'type' => 'select', 'class' => 'reason form-control input-sm'));
+            echo $this->Form->input('time', array('type' => 'text', 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'StartTime'), 'class' => array('form-control input-sm', 'starttime'), 'value' => '00:00', 'id' => 'starttime'));
             echo "<p class='text-danger' id='p_starttime'></p>";
             ?>
 
             <?php
-            echo $this->Form->input('wk_hrs', array('type' => 'text', 'class' => array('form-control input-sm', 'endtime'), 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'EndTime'), 'placeholder' => '00:00', 'id' => 'endtime',/*'onchange'=>'calculate()'*/'required'=>'required'));
+            echo $this->Form->input('wk_hrs', array('type' => 'text', 'class' => array('form-control input-sm', 'endtime'), 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'EndTime'), 'value' => '00:00', 'id' => 'endtime',/*'onchange'=>'calculate()'*/));
             echo "<p class='text-danger' id='p_endtime'></p>";
             /*    echo "<p id='total_loss_btn'>Click to calculate TotalLoss</p>";*/
             //echo $form->input('Contact.name', array('label' => array('class' => 'Your-Class', 'text' => 'Name<span style="color:#f89e01">*</span> :'), 'size' => '25'));
-            echo $this->Form->input('totalloss', array('id' => 'totalloss', 'type' => 'text', 'class' => 'form-control input-sm totalloss', 'readonly','required'=>'required'));
+            echo $this->Form->input('totalloss', array('id' => 'totalloss', 'type' => 'text', 'class' => 'form-control input-sm totalloss', 'readonly'));
             echo "<p class='text-danger' id='p_totalloss'></p>";
-            echo $this->Form->input('totalloss_sec', array('id' => 'totalloss_sec', 'type' => 'hidden', 'class' => array('totalloss_sec', 'form-control input-sm','required'=>'required')));
+            echo $this->Form->input('totalloss_sec', array('id' => 'totalloss_sec', 'type' => 'hidden', 'class' => array('totalloss_sec', 'form-control input-sm')));
             ?>            <?php echo $this->Form->end(__('Submit'), ['id' => 'btn_submit']); ?>
         </fieldset>
 
