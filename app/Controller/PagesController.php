@@ -132,7 +132,7 @@ class PagesController extends AppController
     public function printing_chart()
     {
         $this->loadModel("TimeLoss");
-        $rawpercentage = $this->TimeLoss->query("SELECT date,
+        $rawpercentage = $this->TimeLoss->query("SELECT 
 TYPE , totalloss
 FROM time_loss
 LIMIT 0 , 30");
@@ -260,7 +260,7 @@ AND '$date2'");
             $this->set('output', $output);
 
             $omonthly = $this->PrintingShiftreport->query("select sum(output) as output from printing_shiftreport WHERE date between '$startmonth2'
-		AND '$date2'");
+        AND '$date2'");
             $this->set('omonthly', $omonthly);
 
             $oyearly = $this->PrintingShiftreport->query("select sum(output) as output from printing_shiftreport");
@@ -373,37 +373,37 @@ AND TYPE = 'losshour' ");
     {
         $this->loadModel("TimeLoss");
         $lossreason = $this->TimeLoss->query("SELECT
-	dimension,
-	input,
-	output,
-	input-output as loss,
-	printed_scrap,
-	printed_scrap_reason,
-	unprinted_scrap,
-	unprinted_scrap_reason,
-	printed_reason_1,
-	quantity_1,
-	printed_reason_2,
-	quantity_2,
-	printed_reason_3,
-	quantity_3,
-	printed_reason_4,
-	quantity_4,
-	printed_reason_5,
-	quantity_5,
-	unprinted_reason_1,
-	quantity1,
-	unprinted_reason_2,
-	quantity2,
-	unprinted_reason_3,
-	quantity3,
-	unprinted_reason_4,
-	quantity4,
-	unprinted_reason_5,
-	quantity5
+    dimension,
+    input,
+    output,
+    input-output as loss,
+    printed_scrap,
+    printed_scrap_reason,
+    unprinted_scrap,
+    unprinted_scrap_reason,
+    printed_reason_1,
+    quantity_1,
+    printed_reason_2,
+    quantity_2,
+    printed_reason_3,
+    quantity_3,
+    printed_reason_4,
+    quantity_4,
+    printed_reason_5,
+    quantity_5,
+    unprinted_reason_1,
+    quantity1,
+    unprinted_reason_2,
+    quantity2,
+    unprinted_reason_3,
+    quantity3,
+    unprinted_reason_4,
+    quantity4,
+    unprinted_reason_5,
+    quantity5
 
 FROM
-	polychem.printing_shiftreport;");
+    polychem.printing_shiftreport;");
 
         $this->set('lossprinted', $lossreason);
     }
@@ -412,31 +412,65 @@ FROM
     {
         $dept = AuthComponent::user('role');
         $this->loadModel('TimeLoss');
-        $currentdate = $this->TimeLoss->query("select nepalidate from time_loss  where department_id='$dept' and type='BreakDown' order by nepalidate DESC LIMIT 1");
+        $currentdate = $this->TimeLoss->query("select nepalidate from time_loss where department_id='$dept' and type='LossHour' order by nepalidate DESC LIMIT 1");
         foreach ($currentdate as $d):
-            $currentdote = $d['time_loss']['nepalidate'];
+            $currentdte = $d['time_loss']['nepalidate'];
         endforeach;
-        //print_r($currentdte);
-        if (isset($currentdote)) {
-            $dt = explode('-', $currentdote);
+        //echo $currentdte;
+        if (isset($currentdte)) {
+            $dt = explode('-', $currentdte);
             $yr = $dt[0];
             $m = $dt[1];
             $d = $dt[2];
+            //$this->set('cmonth',$m);
+            //$this->set('cday',$d);
             $startm = $yr . '-' . $m . '-' . '01';
             $starty = $yr . '-' . '01' . '-' . '01';
+            //print_r($startm.'='.$starty);
+//trial
+            $all_reasons = $this->TimeLoss->query("select distinct(reasons) from time_loss where department_id='$dept' and type='BreakDown' order by reasons asc");
+            //echo'<pre>';print_r($all_reasons);die;
+            $i=0;
+            foreach($all_reasons as $reasons):
+                $reason = $reasons['time_loss']['reasons'];
 
-            $tdbdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate = '$currentdote' and department_id='$dept') as tdbdloss FROM `time_loss` WHERE type = 'BreakDown'  and department_id='$dept' and nepalidate = '$currentdote' GROUP By reasons");
-            $this->set('tdbdloss', $tdbdloss);
-           // print_r($currentdote);
-           // exit;
+                $bd_d[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate = '$currentdte' and department_id = '$dept' )  as bd_d FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate = '$currentdte' and reasons='$reason'");
+                
+                $bd_m[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$startm' and '$currentdte' and department_id='$dept')  as bd_m FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate BETWEEN '$startm' and '$currentdte' and reasons='$reason' GROUP By reasons");
+                
+                $bd_y[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$starty' and '$currentdte' and department_id='$dept') as bd_y FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate BETWEEN '$starty' and '$currentdte' and reasons='$reason' GROUP By reasons");
+                $bd_reason[$i] = $reasons['time_loss']['reasons'];
+                $i++;
+            endforeach;
+            
+            $this->set('bd_reason', $bd_reason);
+            $this->set('bd_d', $bd_d);
+            $this->set('bd_m', $bd_m);
+            $this->set('bd_y', $bd_y);
+
+            // $this->set('reasons', $losshour_reason);
+            // $this->set('tdlhloss', $tdlhloss);
+            // $this->set('tmlhloss', $tmlhloss);
+            // $this->set('tylhloss', $tylhloss);
+//trial
 
 
-            $tmbdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$startm' and '$currentdote' and department_id='$dept')  as tmbdloss FROM `time_loss` WHERE type = 'BreakDown'  and department_id='$dept' and (nepalidate BETWEEN '$startm' and '$currentdote') GROUP By reasons");
-            $this->set('tmbdloss', $tmbdloss);
-            $tybdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$starty' and '$currentdote' and department_id='$dept')  as tybdloss FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and (nepalidate BETWEEN '$starty' and '$currentdote') GROUP By reasons");
-            $this->set('tybdloss', $tybdloss);
-            $current_date_time_loss = $this->TimeLoss->query("SELECT nepalidate FROM time_loss WHERE  TYPE ='BreakDown' ORDER BY nepalidate DESC LIMIT 1");
-            $this->set('current_date_time_loss',$current_date_time_loss );
+
+
+
+
+           //  $tdbdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate = '$currentdote' and department_id='$dept') as tdbdloss FROM `time_loss` WHERE type = 'BreakDown'  and department_id='$dept' and nepalidate = '$currentdote' GROUP By reasons");
+           //  $this->set('tdbdloss', $tdbdloss);
+           //  print_r($currentdote);
+           // // exit;
+
+
+           //  $tmbdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$startm' and '$currentdote' and department_id='$dept')  as tmbdloss FROM `time_loss` WHERE type = 'BreakDown'  and department_id='$dept' and (nepalidate BETWEEN '$startm' and '$currentdote') GROUP By reasons");
+           //  $this->set('tmbdloss', $tmbdloss);
+           //  $tybdloss = $this->TimeLoss->query("SELECT reasons,(sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$starty' and '$currentdote' and department_id='$dept')  as tybdloss FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and (nepalidate BETWEEN '$starty' and '$currentdote') GROUP By reasons");
+           //  $this->set('tybdloss', $tybdloss);
+           $current_date_time_loss = $this->TimeLoss->query("SELECT nepalidate FROM time_loss WHERE  TYPE ='BreakDown' ORDER BY nepalidate DESC LIMIT 1");
+           $this->set('current_date_time_loss',$current_date_time_loss );
         }
     }
 
@@ -448,7 +482,7 @@ FROM
         foreach ($currentdate as $d):
             $currentdte = $d['time_loss']['nepalidate'];
         endforeach;
-        //echo $currentdte;die;
+        //echo $currentdte;
         if (isset($currentdte)) {
             $dt = explode('-', $currentdte);
             $yr = $dt[0];
@@ -462,7 +496,7 @@ FROM
 
 
 //START
-            $all_reasons = $this->TimeLoss->query("select distinct(reasons) from time_loss where department_id='$dept' and type='LossHour'");
+            $all_reasons = $this->TimeLoss->query("select distinct(reasons) from time_loss where department_id='$dept' and type='LossHour' order by reasons asc");
             $i=0;
             foreach($all_reasons as $reasons):
                 $reason = $reasons['time_loss']['reasons'];
@@ -476,8 +510,8 @@ FROM
                 $losshour_reason[$i] = $reasons['time_loss']['reasons'];
                 $i++;
             endforeach;
-            //echo '<pre>';   print_r($tmlhloss);die;
-            //echo '<pre>';   print_r($tmlhloss);die;
+            //echo '<pre>';   print_r($tmlhloss);
+            //echo '<pre>';   print_r($tmlhloss);
             $this->set('reasons', $losshour_reason);
             $this->set('tdlhloss', $tdlhloss);
             $this->set('tmlhloss', $tmlhloss);
@@ -641,7 +675,7 @@ FROM calender_cpr");
             $this->set('onlydim', $odim);
 
             $odimon = $this->CalenderCpr->query("SELECT DISTINCT (Dimension), count( DISTINCT (Dimension) ) AS total
-										  FROM calender_cpr where date between '$startmonth' AND '$endmonth'
+                                          FROM calender_cpr where date between '$startmonth' AND '$endmonth'
 ");
             $this->set('mon', $odimon);
             $todate = $this->CalenderCpr->query("SELECT DISTINCT (
@@ -910,28 +944,79 @@ Dimension
 
        public function losshour_calculate($dept)
     {
+        $this->loadModel('TblConsumptionStock');
+        $this->loadModel('MixingMaterial');
+        $latest_date = $this->TblConsumptionStock->query("select nepalidate from tbl_consumption_stock order by nepalidate desc limit 13");
+
+        $latest_date=$latest_date[0]['tbl_consumption_stock']['nepalidate'];
+        //echo $latest_date;
+        list($y,$mo,$d) = explode("-",$latest_date);
+        $latest_month = $y.'-'.$mo;
+        $latest_year = $y;
+        
+
+
+
+//Mixing and Calendar Dashboard: Number of days operated
+        $operated_in_year = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_year from 
+            tbl_consumption_stock where nepalidate like '$y-%'");
+        $operated_in_month = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_month from 
+            tbl_consumption_stock where nepalidate like '$y-$mo-%'");
+        
+       
+        $this->set('operated_in_year',$operated_in_year);
+        $this->set('operated_in_month',$operated_in_month);
+
+
+
+
         $this->loadModel('TimeLoss');
         $lastDate = $this->TimeLoss->query("SELECT nepalidate FROM time_loss WHERE department_id='$dept' ORDER BY nepalidate DESC limit 1")[0]['time_loss']['nepalidate'];
-            $Month = explode('-',$lastDate);
+        $Month = explode('-',$lastDate);
         $lastMonth = $Month[0].'-'.$Month[1];
+        //echo'<pre>';print_r($lastMonth);die;
         $lastYear =$Month[0];
+        //echo'<pre>';print_r($lastYear);die;
         //breakdown
         $breakdownToDay = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='BreakDown' and nepalidate LIKE '%$lastDate%'")[0][0]['sum'];
-        $breakdownToMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='BreakDown' and  nepalidate LIKE '%$lastMonth%'")[0][0]['sum'];
-        $breakdownToMonthCount = $this->TimeLoss->query("SELECT count(distinct(nepalidate)) as count from time_loss where department_id='$dept' and type= 'BreakDown' and nepalidate like '%$lastMonth%'")[0][0]['count'];
-        $breakdownToYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='BreakDown' and  nepalidate LIKE '%$lastYear%'")[0][0]['sum'];
-        $breakdownToYearCount = $this->TimeLoss->query("SELECT count(distinct(nepalidate)) as count from time_loss where department_id='$dept' and type= 'BreakDown' and nepalidate like '%$lastYear%'")[0][0]['count'];
+        //echo'<pre>';print_r($breakdownToDay);die;
+        $breakdownToMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='BreakDown' and  nepalidate LIKE '$lastMonth%'")[0][0]['sum'];
+        $breakdownToMonthCount = $operated_in_month[0][0]['operated_in_month'];
+        $breakdownToYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='BreakDown' and  nepalidate LIKE '$lastYear%'")[0][0]['sum'];
+        $breakdownToYearCount = $operated_in_year[0][0]['operated_in_year'];
         //losshour
         $losshourToDay = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='LossHour' and nepalidate LIKE '%$lastDate%'")[0][0]['sum'];
-        $losshourToMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='LossHour' and  nepalidate LIKE '%$lastMonth%'")[0][0]['sum'];
-        $losshourToMonthCount = $this->TimeLoss->query("SELECT count(distinct(nepalidate)) as count from time_loss where department_id='$dept' and type= 'LossHour' and nepalidate like '%$lastMonth%'")[0][0]['count'];
-        $losshourToYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='LossHour' and  nepalidate LIKE '%$lastYear%'")[0][0]['sum'];
-        $losshourToYearCount = $this->TimeLoss->query("SELECT count(distinct(nepalidate)) as count from time_loss where department_id='$dept' and type= 'LossHour' and nepalidate like '%$lastYear%'")[0][0]['count'];
+
+        $losshourToMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='LossHour' and  nepalidate LIKE '$lastMonth%'")[0][0]['sum'];
+        //echo'<pre>';print_r($losshourToMonth);
+        
+        $losshourToMonthCount = $operated_in_month[0][0]['operated_in_month'];
+        //echo'<pre>';print_r($losshourToMonthCount);die;
+        $losshourToYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as sum from time_loss where department_id='$dept' and type='LossHour' and  nepalidate LIKE '$lastYear%'")[0][0]['sum'];
+        $losshourToYearCount = $operated_in_year[0][0]['operated_in_year'];
         //WorkedHour
         $workedHourToDay= 24*60*60-($breakdownToDay+$losshourToDay);
         $workedHourToMonth = 24*60*60-($breakdownToMonth/$breakdownToMonthCount+$losshourToMonth/$losshourToMonthCount);
+        //echo $workedHourToMonth;die;
         $workedHourToYear = 24*60*60-($breakdownToYear/$breakdownToYearCount+$losshourToYear/$losshourToYearCount);
+        
+        //per working hour output
+
+        $avg_wh_d = $workedHourToDay/60/60;
+        $avg_wh_m = $workedHourToMonth/60/60;
+        //echo $avg_wh_m;die;
+        $avg_wh_y = $workedHourToYear/60/60;
+
+        $this->set('avg_wh_d', $avg_wh_d);
+        $this->set('avg_wh_m', $avg_wh_m);
+        $this->set('avg_wh_y', $avg_wh_y);
+        
+
+        //per working hour output
+
+
         //breakdown
+
         $this->set('breakdownToDay', $this->time_elapsed($breakdownToDay));
         $this->set('breakdownToMonth', $this->time_elapsed($breakdownToMonth/$breakdownToMonthCount));
         $this->set('breakdownToYear', $this->time_elapsed($breakdownToYear/$breakdownToYearCount));
@@ -1340,7 +1425,7 @@ Dimension
             $this->loadModel('TblConsumptionStock');
             $id = $this->request->data['id'];
             $brnd = $this->request->data['type'];
-            //echo $id.'<br/>'.$brnd;die;
+            //echo $id.'<br/>'.$brnd;
             // $type = $this->ConsumptionStock->query("SELECT quantity,material_id, sum(quantity)*100/(select sum(quantity) 
             //     FROM consumption_stock where brand='$brnd' and dimension='$id') as rawpercentage
             //     FROM consumption_stock where brand='$brnd' and dimension='$id' group by material_id order by consumption_id asc");
@@ -1383,8 +1468,8 @@ Dimension
     
             //end test
           
-           //print'<pre>';print_r($total_material);print'</pre>';die;
-          //  echo $total_material[0]['consumption_stock']['material_id'];die;
+           //print'<pre>';print_r($total_material);print'</pre>';
+          //  echo $total_material[0]['consumption_stock']['material_id'];
             echo '<table>';
             foreach($total_material as $m):
                
@@ -1393,7 +1478,7 @@ Dimension
                 dimension='$id' and material_id='$material'");
                 $indi_sum = $type[0][0]['indi_sum'];
                 //$material = $type[0][0]['material_id'];
-                //print'<pre>';print_r($type);print'</pre>';die;
+                //print'<pre>';print_r($type);print'</pre>';
 
                 echo '<tr>';
                 echo '<td style="width:50%">' . $material . '</td>';
@@ -1513,7 +1598,7 @@ and '2072-04-30') as rawpercentage FROM consumption_stock c,mixing_materials m w
 and c.material_id<>'Scrap Unprinted' and c.material_id<>'Scrap Plain' and c.material_id<>'Scrap CT' and c.nepalidate  BETWEEN '2072-04-01'
 
 and '2072-04-30' and c.m_id=m.id GROUP BY material_id ORDER BY consumption_id");
-        //print'<pre>';print_r($result);die;print'</pre>';
+        //print'<pre>';print_r($result);print'</pre>';
         $this->set('posts', $result);
 
         $this->layout = null;
@@ -1534,7 +1619,7 @@ and '2072-04-30' and c.m_id=m.id GROUP BY material_id ORDER BY consumption_id");
         $this->data();
         $result=$this->ConsumptionStock->query("SELECT material_id, sum(quantity)*100/(select sum(quantity) FROM consumption_stock where brand='$brnd' and dimension='$id') as rawpercentage
 FROM consumption_stock where brand='$brnd' and dimension='$id' group by material_id order by consumption_id asc");
-        //print'<pre>';print_r($result);die;print'</pre>';
+        //print'<pre>';print_r($result);print'</pre>';
         $this->set('posts', $result);
 
         $this->layout = null;
@@ -1561,7 +1646,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 
         $this->set('year1', $count_yr);
         $this->set('month1', $count_mnth);
-       // print_r($count_mnth);die;
+       // print_r($count_mnth);
         // $this->set('latestyear', $yrcount);
         // $this->set('latestmonth', $mnthcount);
         // $this->set('latestdate', $ddate);
@@ -1576,7 +1661,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
         $this->loadModel('CalenderScrap');
         $this->loadModel('ConsumptionStock');
         $date = $this->CalenderScrap->query("select date from calender_scrap order by id desc limit 1");
-        //print_r($date);die;
+        //print_r($date);
 
         // foreach ($date as $d):
         //     $date = $d['calender_scrap']['date'];
@@ -1636,7 +1721,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
         $latest_date = $this->TblConsumptionStock->query("select nepalidate from tbl_consumption_stock order by nepalidate desc limit 13");
 
         $latest_date=$latest_date[0]['tbl_consumption_stock']['nepalidate'];
-        //echo $latest_date;die;
+        //echo $latest_date;
         list($y,$mo,$d) = explode("-",$latest_date);
         $latest_month = $y.'-'.$mo;
         $latest_year = $y;
@@ -1702,7 +1787,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 
 //Sum of raw materials: Daily
         $material_one_d=$this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate='$latest_date'");
-      //  print_r($material_one_d);die;
+      //  print_r($material_one_d);
         $mix_id = $this->MixingMaterial->query("select id from mixing_materials where category_id!=13 and category_id!=14");        
         $total_d=0;
         foreach($mix_id as $m):
@@ -1814,7 +1899,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
             endforeach;
         endforeach;
         
-        //echo $total;die;
+        //echo $total;
         $this->set('scrap_d',$total);
 
 //End: Sum of scrap
@@ -1926,7 +2011,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
         $this->loadModel('CalenderScrap');
         $scrap_total_y=$this->CalenderScrap->query("SELECT sum(resuable+lamps_plates)  as total_s_y from calender_scrap where date like '$y-%'");
         $scrap_total = $scrap_total_y[0][0]['total_s_y'];
-        //echo '<pre>';print_r($scrap_total_y);die;
+        //echo '<pre>';print_r($scrap_total_y);
         $this->set('scrap_total_y',$scrap_total);
 
 //End: Sum of NTWT
@@ -1955,8 +2040,8 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
             $q_dim_list = $this->BaseEmboss->query("select distinct(dimension) from baseemboss order by dimension asc");
             
             $this->set('dim_list',$q_dim_list);
-            //print'<pre>';print_r($q_dim_list);print'</pre>';die;
-             //print'<pre>';print_r($q_dim_list);print'</pre>';die;
+            //print'<pre>';print_r($q_dim_list);print'</pre>';
+             //print'<pre>';print_r($q_dim_list);print'</pre>';
             $i=0;
             foreach($q_dim_list as $dim_list):
                 
@@ -1964,12 +2049,12 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
                 $dimen = $dim_list['baseemboss']['dimension'];
 
 
-                 //print'<pre>';echo $dimen;print'</pre>';die;
+                 //print'<pre>';echo $dimen;print'</pre>';
 //year
                 $q_dim_yearly = $this->TblConsumptionStock->query("select sum(length) as total_length_year from tbl_consumption_stock where nepalidate like '$y%' and 
                                                            Dimension='$dimen'");
 
-                //print'<pre>';print_r($q_dim_yearly);print'</pre>';die;
+                //print'<pre>';print_r($q_dim_yearly);print'</pre>';
 
                 if(!$q_dim_yearly[0][0]['total_length_year'])
                     $dim_yearly[$i] ='0';
@@ -1979,7 +2064,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 //month
                 $q_dim_monthly = $this->TblConsumptionStock->query("select sum(length) as total_length_month from tbl_consumption_stock where nepalidate like '$y-$mo-%' and 
                                                            Dimension='$dimen' order by Dimension asc");
-                 //print'<pre>';print_r($q_dim_yearly);print'</pre>';die;
+                 //print'<pre>';print_r($q_dim_yearly);print'</pre>';
                 if(!$q_dim_monthly[0][0]['total_length_month'])
                     $dim_monthly[$i] ='0';
                 else
@@ -1987,7 +2072,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 //day
                 $q_dim_daily = $this->TblConsumptionStock->query("select sum(length) as total_length_day from tbl_consumption_stock where nepalidate='$latest_date' and 
                                                            Dimension='$dimen' order by Dimension asc");
-                 //print'<pre>';print_r($q_dim_yearly);print'</pre>';die;
+                 //print'<pre>';print_r($q_dim_yearly);print'</pre>';
                 if(!$q_dim_daily[0][0]['total_length_day'])
                     $dim_daily[$i] ='0';
                 else
@@ -1998,7 +2083,7 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
             endforeach;
             
             
-            //print'<pre>';print_r($dim_daily);print'</pre>';die;
+            //print'<pre>';print_r($dim_daily);print'</pre>';
 
             $this->set('dim_yearly',$dim_yearly);
             $this->set('dim_monthly',$dim_monthly);
@@ -2008,9 +2093,9 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 //BREAK DOWN REASONS
             $this->loadModel('TimeLoss');
             $total_breakdown= $this->TimeLoss->query("select count(reasons) as reason_quantity, reasons from time_loss where department_id='calender' and type='BreakDown'");
-            //print_r($total_breakdown);die;
+            //print_r($total_breakdown);
             $total_reasons=$total_breakdown[0][0]['reason_quantity'];
-            //echo $total_reasons;die;
+            //echo $total_reasons;
             $i=0;
             foreach($total_breakdown as $t_bd):
                 $reason = $total_breakdown[$i]['time_loss']['reasons'];
@@ -2022,16 +2107,16 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 
                 $i++;
             endforeach;
-            //echo '<pre>';print_r($percent);die;
+            //echo '<pre>';print_r($percent);
             $this->set('distinct_breakdown',$distinct_breakdown);
-            //echo '<pre>';print_r($distinct_breakdown);die;
+            //echo '<pre>';print_r($distinct_breakdown);
            
 // END OF BREAK DOWN REASONS
 
 //TARGET FOR DIMENSIONS
     $this->loadModel('DimensionTarget');
     $dim_tar = $this->DimensionTarget->query("select distinct(dimension), target from dimension_target order by dimension asc"); 
-    //echo'<pre>';print_r($dim_tar);die;
+    //echo'<pre>';print_r($dim_tar);
     $this->set('dim_tar',$dim_tar);
 
 //EBD: TARGET FOR DIMENSIONS
@@ -2059,7 +2144,7 @@ public function monthly_report()
         //$startmonth = $year . "-" . $getmonth . "-" . $startday;
         $startmonth = $year . "-06-" . $startday;
         $endmonth = $year . "-06-" . $endday;
-        //echo $startmonth;die;
+        //echo $startmonth;
         //$endmonth = $year . "-" . $getmonth . "-" . $endday;
         //echo $startmonth;
         //echo $endmonth;
@@ -2070,23 +2155,23 @@ public function monthly_report()
 
         //$raws=$this->ConsumptionStock->query("SELECT material_id,sum(quantity) as sum from consumption_stock where material_id!='Scrap Unprinted' and material_id !='Scrap Laminated' and material_id !='Scrap Printed' and material_id !='Scrap Plain' and material_id!='Scrap CT' and date BETWEEN '$startmonth' and '$endmonth' group by material_id order by consumption_id");
         $material_one_d = $this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate between '$startmonth' and '$endmonth'");
-        //echo '<pre>';print_r($material_one_d);die;
+        //echo '<pre>';print_r($material_one_d);
        // $material_one_d=$this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate='$latest_date'");
-        //print_r($material_one_d);die;
+        //print_r($material_one_d);
         $mix_id = $this->MixingMaterial->query("select id from mixing_materials where category_id!=13 and category_id!=14");        
-        //echo '<pre>';print_r($mix_id);die;
+        //echo '<pre>';print_r($mix_id);
         $total_raw=0;
         foreach($mix_id as $m):
             foreach($material_one_d as $md):
                 $materials = json_decode($md['tbl_consumption_stock']['materials']);
-                //echo '<pre>';print_r($materials);die;
-                //echo '<pre>';print_r($materials->$m['mixing_materials']['id']);die;
+                //echo '<pre>';print_r($materials);
+                //echo '<pre>';print_r($materials->$m['mixing_materials']['id']);
                                
                 $total_raw +=$materials->$m['mixing_materials']['id'];
 
             endforeach;
         endforeach;
-        //echo '<pre>';print_r($total_raw);die;
+        //echo '<pre>';print_r($total_raw);
 
 
 
@@ -2104,13 +2189,13 @@ public function monthly_report()
                 
                 
             endforeach;
-            //echo '<pre>';print_r($total_raw_indi);die;
+            //echo '<pre>';print_r($total_raw_indi);
         endforeach;
 
         
         
         $this->set('raw_materials_d',$total_raw);
-//echo'<pre>';print_r($raws)die;
+//echo'<pre>';print_r($raws)
 
 
 
@@ -2179,6 +2264,7 @@ and material_id<>'Scrap Unprinted' and material_id<>'Scrap Plain' and material_i
 
 
 }
+
 
 
 
