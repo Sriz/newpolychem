@@ -60,16 +60,16 @@ class CalenderScrapsController extends AppController
      */
     public function add()
     {
-        $date1 = 0;
-        $this->loadModel('ConsumptionStock');
-        $this->loadModel('CalenderCpr');
-        $d = $this->ConsumptionStock->query("SELECT nepalidate from consumption_stock order by nepalidate desc limit 1");
-        foreach ($d as $dt):
-            $date = $dt['consumption_stock']['nepalidate'];
-        endforeach;
-        $scrapdate = $this->CalenderCpr->query("select date from calender_cpr order by date limit 1 ");
-        $sc = isset($scrapdate[0]['calender_cpr']['date']) ? $scrapdate[0]['calender_cpr']['date'] : 'NO-DATE';
-        $this->set('scd', $sc);
+        // $date1 = 0;
+        // $this->loadModel('ConsumptionStock');
+        // $this->loadModel('CalenderCpr');
+        // $d = $this->ConsumptionStock->query("SELECT nepalidate from consumption_stock order by nepalidate desc limit 1");
+        // foreach ($d as $dt):
+        //     $date = $dt['consumption_stock']['nepalidate'];
+        // endforeach;
+        // $scrapdate = $this->CalenderCpr->query("select date from calender_cpr order by date limit 1 ");
+        // $sc = isset($scrapdate[0]['calender_cpr']['date']) ? $scrapdate[0]['calender_cpr']['date'] : 'NO-DATE';
+        // $this->set('scd', $sc);
         if ($this->request->is('post')) {
             $this->CalenderScrap->create();
             if ($this->CalenderScrap->save($this->request->data)) {
@@ -93,7 +93,7 @@ class CalenderScrapsController extends AppController
         if ($this->request->is(array('post', 'put'))) {
             if ($this->CalenderScrap->save($this->request->data)) {
                 //return $this->flash(__('The calender scrap has been saved.'), array('action' => 'index'));
-                return $this->redirect(array('controller' => 'CalenderCprs', 'action' => 'index'));
+                return $this->redirect(array('controller' => 'CalenderScraps', 'action' => 'index'));
 
             }
         } else {

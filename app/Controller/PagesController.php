@@ -1582,31 +1582,31 @@ Dimension
 
 
     //export to csv: monthly report
-    function export() 
-    {
-        $this->loadModel('ConsumptionStock');
-        $resulto=$this->ConsumptionStock->find();
-        $result=$this->ConsumptionStock->query("SELECT m.name, sum(c.quantity) as total,sum(c.quantity ) *100 / (SELECT sum( quantity )  FROM consumption_stock 
+//     function export() 
+//     {
+//         $this->loadModel('ConsumptionStock');
+//         $resulto=$this->ConsumptionStock->find();
+//         $result=$this->ConsumptionStock->query("SELECT m.name, sum(c.quantity) as total,sum(c.quantity ) *100 / (SELECT sum( quantity )  FROM consumption_stock 
                                                                    
                                                                   
-where material_id<>'Bought Scrap' and material_id<>'Scrap Laminated' and material_id<>'Scrap  Printed'                                                                   
+// where material_id<>'Bought Scrap' and material_id<>'Scrap Laminated' and material_id<>'Scrap  Printed'                                                                   
                                                                    
-and material_id<>'Scrap Unprinted' and material_id<>'Scrap Plain' and material_id<>'Scrap CT' and nepalidate BETWEEN '2072-04-01'
+// and material_id<>'Scrap Unprinted' and material_id<>'Scrap Plain' and material_id<>'Scrap CT' and nepalidate BETWEEN '2072-04-01'
                                                                    
-and '2072-04-30') as rawpercentage FROM consumption_stock c,mixing_materials m where c.material_id<>'Bought Scrap' and c.material_id<>'Scrap Laminated' and c.material_id<>'Scrap Printed'
+// and '2072-04-30') as rawpercentage FROM consumption_stock c,mixing_materials m where c.material_id<>'Bought Scrap' and c.material_id<>'Scrap Laminated' and c.material_id<>'Scrap Printed'
 
-and c.material_id<>'Scrap Unprinted' and c.material_id<>'Scrap Plain' and c.material_id<>'Scrap CT' and c.nepalidate  BETWEEN '2072-04-01'
+// and c.material_id<>'Scrap Unprinted' and c.material_id<>'Scrap Plain' and c.material_id<>'Scrap CT' and c.nepalidate  BETWEEN '2072-04-01'
 
-and '2072-04-30' and c.m_id=m.id GROUP BY material_id ORDER BY consumption_id");
-        //print'<pre>';print_r($result);print'</pre>';
-        $this->set('posts', $result);
+// and '2072-04-30' and c.m_id=m.id GROUP BY material_id ORDER BY consumption_id");
+//         //print'<pre>';print_r($result);print'</pre>';
+//         $this->set('posts', $result);
 
-        $this->layout = null;
+//         $this->layout = null;
 
-        $this->autoLayout = false;
+//         $this->autoLayout = false;
 
-        Configure::write('debug','2');
-    }
+//         Configure::write('debug','2');
+//     }
 
 
 
@@ -2115,146 +2115,49 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 
 //TARGET FOR DIMENSIONS
     $this->loadModel('DimensionTarget');
+    $this->loadModel('TblConsumptionStock');
+
     $dim_tar = $this->DimensionTarget->query("select distinct(dimension), target from dimension_target order by dimension asc"); 
-    //echo'<pre>';print_r($dim_tar);
-    $this->set('dim_tar',$dim_tar);
 
-//EBD: TARGET FOR DIMENSIONS
+
+//    echo'<pre>';print_r($dim_tar);die;
+    
+    $i=0;
+    foreach($dim_tar as $dim):
+        // $total=0;
+        // $total1=0;
+        $dimen = $dim['dimension_target']['dimension'];
+         //echo'<pre>';print_r($dimen);die;
+        $tot_wt_dim[$i] = $this->TblConsumptionStock->query("select sum(ntwt)/sum(length) as output from tbl_consumption_stock where dimension='$dimen'");
+        $i++;
+        
+        // foreach($tot_wt_dim as $twd):
+        //     $total+=$twd['tbl_consumption_stock']['ntwt'];
+        //     $total1+=$twd['tbl_consumption_stock']['length'];
+        // endforeach;
+        // $indi_total[$i] = $total;
+        // $indi_total1[$i] = $total1;
+        // $i++;
+    endforeach;
+    //echo'<pre>';print_r($dim_tar);die;
+    //echo'<pre>';print_r($tot_wt_dim);die;
+    $this->set('dim_target',$dim_tar);
+    $this->set('output_m',$tot_wt_dim);
+    //$this->set('dim_total1',$indi_total1);
+
+//END: TARGET FOR DIMENSIONS
+
+
+//  MONTHLY REPORT
+   
+
+
+
+//  END OF MONTHLY REPORT
 
     }
 
 
-public function monthly_report()
-    {
-        ob_end_clean();
-        //$d= array("orange", "banana");
-        $d = array();
-        $startday = "01";
-        $endday = "32";
-        $getmonth = $_POST['id'];
-        $this->loadModel('TblConsumptionStock');
-        $date = $this->TblConsumptionStock->query("select nepalidate from tbl_consumption_stock order by nepalidate desc limit 1");
-        foreach ($date as $n):
-            $nepdte = $n['tbl_consumption_stock']['nepalidate'];
-        endforeach;
-        $nepdate = explode('-', $nepdte);
-        $year = $nepdate[0];
-
-
-        //$startmonth = $year . "-" . $getmonth . "-" . $startday;
-        $startmonth = $year . "-06-" . $startday;
-        $endmonth = $year . "-06-" . $endday;
-        //echo $startmonth;
-        //$endmonth = $year . "-" . $getmonth . "-" . $endday;
-        //echo $startmonth;
-        //echo $endmonth;
-        $this->set('date1', $endmonth);
-        $users = $this->User->find('all');
-        $this->set(compact('users'));
-        $this->loadModel('TblConsumptionStock');
-
-        //$raws=$this->ConsumptionStock->query("SELECT material_id,sum(quantity) as sum from consumption_stock where material_id!='Scrap Unprinted' and material_id !='Scrap Laminated' and material_id !='Scrap Printed' and material_id !='Scrap Plain' and material_id!='Scrap CT' and date BETWEEN '$startmonth' and '$endmonth' group by material_id order by consumption_id");
-        $material_one_d = $this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate between '$startmonth' and '$endmonth'");
-        //echo '<pre>';print_r($material_one_d);
-       // $material_one_d=$this->TblConsumptionStock->query("select materials from tbl_consumption_stock where nepalidate='$latest_date'");
-        //print_r($material_one_d);
-        $mix_id = $this->MixingMaterial->query("select id from mixing_materials where category_id!=13 and category_id!=14");        
-        //echo '<pre>';print_r($mix_id);
-        $total_raw=0;
-        foreach($mix_id as $m):
-            foreach($material_one_d as $md):
-                $materials = json_decode($md['tbl_consumption_stock']['materials']);
-                //echo '<pre>';print_r($materials);
-                //echo '<pre>';print_r($materials->$m['mixing_materials']['id']);
-                               
-                $total_raw +=$materials->$m['mixing_materials']['id'];
-
-            endforeach;
-        endforeach;
-        //echo '<pre>';print_r($total_raw);
-
-
-
-        $mix_id = $this->MixingMaterial->query("select id,name from mixing_materials where category_id!=13 and category_id!=14");        
-        $i=0;
-        foreach($mix_id as $m):
-            foreach($material_one_d as $md):
-                $materials = json_decode($md['tbl_consumption_stock']['materials']);
-                foreach($materials as $mate):
-                    $total_raw_indi[$i] = $mate->$m['mixing_materials']['id'];
-                    $i++;    
-
-                endforeach;
-
-                
-                
-            endforeach;
-            //echo '<pre>';print_r($total_raw_indi);
-        endforeach;
-
-        
-        
-        $this->set('raw_materials_d',$total_raw);
-//echo'<pre>';print_r($raws)
-
-
-
-
-
-        $total = $this->ConsumptionStock->query("SELECT  sum(quantity) as total FROM polychem.consumption_stock
-where material_id<>'Bought Scrap' and material_id<>'Scrap Laminated' and material_id<>'Scrap Printed'
-and material_id<>'Scrap Unprinted' and material_id<>'Scrap Plain' and material_id<>'Scrap CT' and nepalidate BETWEEN '$startmonth' and '$endmonth'");
-        foreach ($total as $t):
-            $totalinput = $t['0']['total'];
-        endforeach;
-
-        $scrap = $this->ConsumptionStock->query("SELECT sum(quantity) as total FROM polychem.consumption_stock where material_id='Bought Scrap' OR material_id='Scrap Laminated' OR material_id='Scrap Printed' OR material_id='Scrap Unprinted' OR material_id='Scrap Plain' OR material_id='Scrap CT' and nepalidate BETWEEN '$startmonth' and '$endmonth' ");
-
-        foreach ($scrap as $sc):
-            $totalscrap = $sc['0']['total'];
-        endforeach;
-
-        echo "<table>";
-        foreach ($raws as $r):
-            echo "<tr>";
-            echo "<td align='left'>" . $r['consumption_stock']['material_id'] . "</td>";
-            echo "<td align='right'>&nbsp;&nbsp;" . number_format($r['0']['total'], 2) . "</td>";
-            echo "<td align='right'>&nbsp;&nbsp;&nbsp;" . number_format($r['0']['rawpercentage'], 2) . "%</td>";
-
-            echo "</tr>";
-        endforeach;
-        if (empty($raws)) {
-            echo "<tr>";
-            echo "<td><strong>Total</strong></td>";
-            echo "<td align='right'>" . number_format(0, 2) . "</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><strong>Total Scrap</strong></td>";
-            echo "<td align='right'>" . number_format(0, 2) . "</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><strong>Total Input</strong></td>";
-            echo "<td align='right'>" . number_format(0, 2) . "</td>";
-            echo "</tr>";
-
-            echo "</table>";
-        } else {
-            echo "<tr>";
-            echo "<td><strong>Total</strong></td>";
-            echo "<td align='right'>" . number_format($totalinput, 2) . "</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><strong>Total Scrap</strong></td>";
-            echo "<td align='right'>" . number_format($totalscrap, 2) . "</td>";
-            echo "</tr>";
-            echo "<tr>";
-            echo "<td><strong>Total Input</strong></td>";
-            echo "<td align='right'>" . number_format($totalinput + $totalscrap, 2) . "</td>";
-            echo "</tr>";
-
-            echo "</table>";
-        }
-    }
 
 
 

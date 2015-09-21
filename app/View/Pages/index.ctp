@@ -610,7 +610,7 @@
                                         //print'<pre>';print_r($dy);print'</pre>';
                                         echo "<tr>";
                                             echo '<td>';
-                                                echo number_format($dd);
+                                                echo number_format($dd,2);
                                             echo "</td>";
                                     endforeach;
                                     ?>
@@ -626,7 +626,7 @@
                                         //print'<pre>';print_r($dy);print'</pre>';
                                         echo "<tr>";
                                             echo '<td>';
-                                                echo number_format($dm);
+                                                echo number_format($dm,2);
                                             echo "</td>";
                                     endforeach;
                                     ?>
@@ -642,7 +642,7 @@
                                         //print'<pre>';print_r($dy);print'</pre>';
                                         echo "<tr>";
                                             echo '<td>';
-                                                echo number_format($dy);
+                                                echo number_format($dy,2);
                                             echo "</td>";
                                     endforeach;
                                     ?>
@@ -1021,59 +1021,164 @@
                     </div>
                 </div>
             </div>
- <div class="col-md-12" style="margin:0px;padding:2px;">
-        <div class="panel panel-primary">
-            <!-- <div class="panel-heading">Loss Hour Calculations</div> -->
-            <div class="panel-body">
-                <div class="container-fluid">
-                    <table class="table table-bordered table-hover">
-                        <tr class="success">
-                            <th></th>
-                            <th>Today <br>(<?= $latest_date;?>)</th>
-                            <th>To Month <br>(<?= $latest_month;?>)</th>
-                            <th>To Year <br>(<?= $latest_year;?>)</th>
-                        </tr>
-                        <tr>
-                            <td><strong>Per Hour Output</strong></td>
-                            <!-- output/(24 * # of days worked) -->
-                            <?php
-                            //TODO::add currentdate 
-                            ?>
-                            <td><?php echo number_format($net_d/24,2);?></td>
-                            <td><?php echo number_format($net_m/(24*$operated_in_month[0][0]['operated_in_month']),2);?></td>
-                            <td><?php echo number_format($net_y/(24*$operated_in_year[0][0]['operated_in_year']),2);?></td>
-                            
-                            
-                        </tr>
 
-                        <!--Per work hour output: for average working hour-->
-                        <?php /*
-                        
-                        $avg_today = $working_today[0][0]['today_sec']/24/24;
-                        $avg_today = (24 - $avg_today);
+            <div class="col-md-12" style="margin:0px;padding:2px;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Output</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <table class="table table-bordered table-hover">
+                                <tr class="success">
+                                    <th></th>
+                                    <th>Today <br>(<?= $latest_date;?>)</th>
+                                    <th>To Month <br>(<?= $latest_month;?>)</th>
+                                    <th>To Year <br>(<?= $latest_year;?>)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>Per Hour Output</strong></td>
+                                    <!-- output/(24 * # of days worked) -->
+                                    <?php
+                                    //TODO::add currentdate 
+                                    ?>
+                                    <td><?php echo number_format($net_d/24,2);?></td>
+                                    <td><?php echo number_format($net_m/(24*$operated_in_month[0][0]['operated_in_month']),2);?></td>
+                                    <td><?php echo number_format($net_y/(24*$operated_in_year[0][0]['operated_in_year']),2);?></td>
+                                    
+                                    
+                                </tr>
 
-                        $avg_month = $working_month[0][0]['month_sec']/24/24;
-                        $avg_month = (24*$month1[0][0]['month'] - $avg_month);
+                                <!--Per work hour output: for average working hour-->
+                                <?php /*
+                                
+                                $avg_today = $working_today[0][0]['today_sec']/24/24;
+                                $avg_today = (24 - $avg_today);
 
-                        $avg_year = $working_year[0][0]['year_sec']/24/24;
-                        $avg_year = (24*$year1[0][0]['year'] - $avg_year);
-                        //echo $avg_today;*/
-                        ?>
+                                $avg_month = $working_month[0][0]['month_sec']/24/24;
+                                $avg_month = (24*$month1[0][0]['month'] - $avg_month);
 
-                        <tr>
-                        
-                            <td><strong>Per Work Hour Output</strong></td>
-                            <!-- output/(avg working hour * # of days worked) -->
-                            <td><?php echo number_format($net_d/$avg_wh_d,2)?></td>
-                            <td><?php echo number_format($net_m/($avg_wh_m*$operated_in_month[0][0]['operated_in_month']),2);?></td>
-                            <td><?php echo number_format($net_y/($avg_wh_y*$operated_in_year[0][0]['operated_in_year']),2);?></td>
-                        </tr>
-                        
-                    </table>
+                                $avg_year = $working_year[0][0]['year_sec']/24/24;
+                                $avg_year = (24*$year1[0][0]['year'] - $avg_year);
+                                //echo $avg_today;*/
+                                ?>
+
+                                <tr>
+                                
+                                    <td><strong>Per Work Hour Output</strong></td>
+                                    <!-- output/(avg working hour * # of days worked) -->
+                                    <td><?php echo number_format($net_d/$avg_wh_d,2)?></td>
+                                    <td><?php echo number_format($net_m/($avg_wh_m*$operated_in_month[0][0]['operated_in_month']),2);?></td>
+                                    <td><?php echo number_format($net_y/($avg_wh_y*$operated_in_year[0][0]['operated_in_year']),2);?></td>
+                                </tr>
+                                
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+
+
+            
+                <div class="col-md-12" style="margin: 0px;padding: 0px;">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Dimensions
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                            <div class="col-md-4">
+                                <table class="table">
+                                    
+                                        
+                                    <tr class="success">
+                                    <th>Dimension</th>
+                                    <?php
+                                        //print_r($dimyear);
+
+                                        foreach ($dim_target as $dm):
+                                            echo "<tr>";
+                                                echo "<td>";
+                                                    echo $dm['dimension_target']['dimension'];
+                                                echo "</td>";
+                                        endforeach;
+                                    ?>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                                <table class="table">
+                                    <tr class="success">
+                                    <th>Weight per Meter</th>
+                                    <?php
+
+                                    foreach ($output_m as $dd):
+                                        //print'<pre>';print_r($dd);print'</pre>';
+                                        echo "<tr>";
+                                            echo '<td>';
+                                                echo number_format($dd[0][0]['output'],2);
+                                            echo "</td>";
+                                    endforeach; 
+                                    ?>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-4">
+                               <table class="table">
+                                    <tr class="success">
+                                    <th>Target</th>
+                                    <?php
+                                    foreach ($dim_target as $dm):
+                                        //print'<pre>';print_r($dy);print'</pre>';
+                                        echo "<tr>";
+                                            echo '<td>';
+                                                echo number_format($dm['dimension_target']['target'],2);
+                                            echo "</td>";
+                                    endforeach;
+                                    ?>
+                                    </tr>
+                                </table>
+                            </div>
+                            
+                        </div>
+
+                          
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Target
+                        </div>
+                        <div class="panel-body">
+
+                            <table class="table">
+                                <tr class="success">
+                                    <td>Dimension</td>
+
+                                    <td>Target</td>
+                                </tr>
+                                <tr>
+                                    <?php
+                                    foreach ($dim_tar as $dt):
+                                    echo '<tr>';
+                                    echo '<td>' . number_format($dt['baseemboss']['Dimension'],2) . '</td>';
+                                    // echo '<td align="center">' . number_format($dt['0']['ratio'], 2) . '</td>';
+                                    echo '<td>' . number_format($dt['dimension_target']['target'],2) . '</td>';
+                                echo '</tr>';
+                                endforeach;
+                                ?>
+                            </table>
+
+
+                        </div>
+
+                    </div>
+                </div> -->
+
+
+            
 
         </div>
 

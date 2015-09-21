@@ -65,10 +65,10 @@
     <fieldset>
         <legend><?php echo __('Add Calendar Scrap'); ?></legend>
         <?php
-        echo $this->Form->input('date', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-comtrol input-sm'));
+        echo $this->Form->input('Date', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-comtrol input-sm','required'=>'required','placeholder'=>'Date'));
         echo $this->Form->input('resuable', array('id' => 'reuse','required'=>'required'));
         echo $this->Form->input('lamps_plates', array('id' => 'lamps', 'onchange' => 'calculate();','required'=>'required'));
-        echo $this->Form->input('total_scrap_generated', array('id' => 'total', 'readonly'));
+        echo $this->Form->input('total_scrap_generated', array('id' => 'total', 'readonly','required'=>'required'));
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit')); ?>

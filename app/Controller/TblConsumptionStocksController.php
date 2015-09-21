@@ -266,7 +266,7 @@ public function t()
 
         foreach($mix_id as $material_id):   
             echo'<pre>';print_r($material_id);die;
-            $total['mixing_materials']['id']=
+            //$total['mixing_materials']['id']=
         endforeach;
 
 
