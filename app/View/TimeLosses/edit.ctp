@@ -16,7 +16,7 @@
             calculate();
             /*}*/
         })
-        $('#starttime').change(function(){
+        $('#starttime').on('change keyup paste',function(){
             var s1= $('#starttime').val();
             s1 = s1.replace('.', ':');
             var arr0 = s1.split(':');
@@ -31,7 +31,7 @@
                 calculate();
             }
         });
-        $('#endtime').change(function () {
+        $('#endtime').on('change keyup paste',function(){
             var e1 = $('#endtime').val();
             if (e1.indexOf('.')) {
                 e1 = e1.replace('.', ':');

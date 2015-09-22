@@ -1756,7 +1756,14 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
         foreach($mix_id as $m):
         foreach($material_one as $ma):
             $materials = json_decode($ma['tbl_consumption_stock']['materials']);
-            $total +=$materials->$m['mixing_materials']['id'];
+            if(property_exists($materials, $m['mixing_materials']['id']))
+            {
+                $valMaterial = $materials->$m['mixing_materials']['id'];
+            }else{
+                $valMaterial = 0;
+            }
+            $total +=$valMaterial;
+
 
         endforeach;
         endforeach;
@@ -2149,6 +2156,43 @@ FROM consumption_stock where brand='$brnd' and dimension='$id' group by material
 
 
 //  MONTHLY REPORT
+    $this->loadModel('TblConsumptionStock');
+    $this->loadModel('MixingMaterial');
+
+    $material_list = $this->TblConsumptionStock->query("select materials from tbl_consumption_stock");
+    $material_id = $this->MixingMaterial->query("select id, name from mixing_materials");
+    foreach($material_id as $mid):
+        $mix_mat_id = $mid['mixing_materials']['id'];
+        $total_indi[]=0;
+        foreach($material_list as $m_list):
+            $materials = json_decode($m_list['tbl_consumption_stock']['materials'],true);
+
+            // echo'<pre>';print_r($materials);
+            // print_r($mix_mat_id);die;
+            $i=0;
+            foreach($materials as $key=>$material):
+                //print_r($key);die;
+                if($key == $mix_mat_id){
+
+                    $total_indi[$i]+=$material;
+                    //echo '<pre>';print_r($total_indi);die;
+                    
+                }
+                $i++;
+
+                //echo '<pre>';print_r($key);
+            endforeach;
+            //die;
+
+            //$total +=$materials->$mid['mixing_materials']['id'];
+        endforeach;
+
+
+    endforeach;
+   // echo '<pre>';print_r($total_indi);die;
+                $total[$key]+=$material;
+
+
    
 
 

@@ -1,3 +1,7 @@
+<?php
+$date = isset($_GET['search'])?$_GET['search']:$lastDate;
+$date = $date?$date:$lastDate;
+?>
 <script>
     $(document).ready(function () {
         $('.nepaliDatePicker').nepaliDatePicker();
@@ -18,7 +22,7 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <center><h4>Calendar Production Report</center>
+        <center><h4>Calendar Production Report :<stong><?=$date;?></stong></center>
         </h4></div>
     <div class="panel-body">
         <!-- row -->
@@ -32,6 +36,7 @@
                     $totalBroughtScrap = 0;
                     $totalScrap = 0;
                     $totalRawMaterials = 0;
+                    $allTotal =0;
                     foreach($materialCategory as $r):?>
                         <?php
                         foreach($mixingMaterialLists as $m):
@@ -52,6 +57,7 @@
                                     }else{
                                         $totalRawMaterials += $valMaterial;
                                     }
+                                    $allTotal += $valMaterial;
                                 endforeach;
                             }
                         endforeach;
@@ -69,10 +75,10 @@
                         <td>Factory Scrap</td>
                         <td class="success"><?=h(number_format($totalScrap,2));?></td>
                     </tr>
-                    <!-- <tr>
+                    <tr class="warning">
                         <td>Total</td>
-                        <td class="success"><?=h(number_format($total,2));?></td>
-                    </tr> -->
+                        <td class="success"><?=h(number_format($allTotal,2));?></td>
+                    </tr>
 
                 </table>
             </div>
@@ -147,8 +153,8 @@
             <td><?= $c['tbl_consumption_stock']['quality']; ?></td>
             <td><?= $c['tbl_consumption_stock']['color']; ?></td>
             <td><?= $c['tbl_consumption_stock']['dimension']; ?></td>
-            <td><?= h(number_format($c['tbl_consumption_stock']['length'])); ?></td>
-            <td><?= h(number_format($c['tbl_consumption_stock']['ntwt'])); ?></td>
+            <td><?= h(number_format($c['tbl_consumption_stock']['length'],2)); ?></td>
+            <td><?= h(number_format($c['tbl_consumption_stock']['ntwt'],2)); ?></td>
             <td>
                 <?php
                 $total = 0;
@@ -164,7 +170,7 @@
                     $total = $total + $totalWeight;
                 endforeach;
                 ?>
-                <?= h(number_format($total)); ?>
+                <?= h(number_format($total,2)); ?>
                 <?php $totalOfCurrentData += $total; ?>
             </td>
             <!-- <td align="right"><?php // echo h(number_format($calenderCpr['CalenderCpr']['length'])); ?>&nbsp;</td> -->
@@ -219,7 +225,7 @@
         </td>
         </td>
         <td align="right">
-            <strong><?= h(number_format($total)); ?></strong>
+            <strong><?= h(number_format($total,2)); ?></strong>
         <td>
     </tr>
 </table>

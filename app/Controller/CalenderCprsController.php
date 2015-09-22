@@ -40,11 +40,11 @@ class CalenderCprsController extends AppController
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$searchDate' and length is not null and ntwt is not null");
         else:
-            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
-            $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
-            $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock")[0][0]['sum'];
-            $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock")[0][0]['sum'];
-            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock WHERE  length is not null and ntwt is not null");
+            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and  length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
+            $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and  length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
+            $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$lastDate'")[0][0]['sum'];
+            $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock  where nepalidate = '$lastDate'")[0][0]['sum'];
+            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock WHERE nepalidate = '$lastDate' and length is not null and ntwt is not null");
         endif;
 
         //Raw Materials
@@ -53,9 +53,9 @@ class CalenderCprsController extends AppController
         $mixingMaterialLists = $this->MixingMaterials->query("Select * from mixing_materials");
         $materialCategory = $this->CategoryMaterial->query("Select * from category_materials");
         if($searchDate):
-            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock WHERE nepalidate ='$searchDate'");
+            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock WHERE nepalidate ='$searchDate' and length is not null and ntwt is not null");
         else:
-            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock");
+            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock where nepalidate = '$lastDate' and length is not null and ntwt is not null");
         endif;
         $this->set('mixingMaterialLists', $mixingMaterialLists);
         $this->set('materialCategory', $materialCategory);
@@ -65,7 +65,7 @@ class CalenderCprsController extends AppController
         if($searchDate):
             $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap WHERE date='$searchDate'");
         else:
-            $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap");
+            $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap WHERE date = '$lastDate'");
         endif;
 
         
@@ -101,6 +101,8 @@ class CalenderCprsController extends AppController
         $pagination->offset =($pagination->currentPage-1)*$pagination->limit;
 
         $searchDate = isset($_GET['search'])?$_GET['search']:null;
+        $date = isset($_GET['search'])?$_GET['search']:$lastDate;
+        $date = $date?$date:$lastDate;
         if ($searchDate):
             $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
@@ -108,11 +110,11 @@ class CalenderCprsController extends AppController
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$searchDate'  and length is not null and ntwt is not null");
         else:
-            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
-            $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
-            $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock")[0][0]['sum'];
-            $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock")[0][0]['sum'];
-            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where length is not null and ntwt is not null");
+            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
+            $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
+            $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$lastDate'")[0][0]['sum'];
+            $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock  where nepalidate = '$lastDate'")[0][0]['sum'];
+            $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$lastDate' and length is not null and ntwt is not null");
         endif;
         //Raw Materials
         $this->loadModel('CategoryMaterial');
@@ -123,7 +125,7 @@ class CalenderCprsController extends AppController
         if($searchDate):
             $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock WHERE nepalidate ='$searchDate' and length is not null and ntwt is not null");
         else:
-            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock where length is not null and ntwt is not null");
+            $consumptionMaterials = $this->TblConsumptionStock->query("Select materials from tbl_consumption_stock where nepalidate = '$lastDate' and length is not null and ntwt is not null");
         endif;
 
         $this->set('mixingMaterialLists', $mixingMaterialLists);
@@ -135,9 +137,15 @@ class CalenderCprsController extends AppController
         if($searchDate):
             $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap WHERE date='$searchDate'");
         else:
-            $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap");
+            $calenderScraps = $this->CalenderScrap->query("select * from calender_scrap WHERE date = '$lastDate'");
         endif;
         $this->set('calenderScraps',$calenderScraps);
+
+        //timeloss calculation
+        $this->loadModel('TimeLoss');
+        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='LossHour'");
+        $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown'");
+
 
         //send to view
         $this->set('lastDate',$lastDate);
@@ -148,7 +156,8 @@ class CalenderCprsController extends AppController
         $this->set('material_lists', $materials);
         $this->set('totalMaterials', $totalMaterials);
         $this->set('pagination', $pagination);
-
+        $this->set('timeLossLossHourAll', $timeLossLossHourAll);
+        $this->set('timeLossBreakDownAll', $timeLossBreakDownAll);
 
 
         $this->layout = 'pdf';

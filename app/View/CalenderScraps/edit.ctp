@@ -49,6 +49,6 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('CalenderScrap.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('CalenderScrap.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Calender Scraps'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Calender Scraps'), array('action' => 'index/sort:date/direction:desc')); ?></li>
 	</ul>
 </div>

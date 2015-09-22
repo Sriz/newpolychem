@@ -28,9 +28,9 @@
         <?php foreach ($calenderScraps as $calenderScrap): ?>
             <tr>
                 <td><?php echo h($calenderScrap['CalenderScrap']['date']); ?>&nbsp;</td>
-                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['resuable'])); ?>&nbsp;</td>
-                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['lamps_plates'])); ?>&nbsp;</td>
-                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['total_scrap_generated'])); ?>&nbsp;</td>
+                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['resuable'],2)); ?>&nbsp;</td>
+                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['lamps_plates'],2)); ?>&nbsp;</td>
+                <td><?php echo h(number_format($calenderScrap['CalenderScrap']['total_scrap_generated'],2)); ?>&nbsp;</td>
                 <td class="actions">
                     <?php echo $this->Html->link(__('View'), array('action' => 'view', $calenderScrap['CalenderScrap']['id'])); ?>
                     <?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $calenderScrap['CalenderScrap']['id'])); ?>
