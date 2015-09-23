@@ -246,6 +246,37 @@ $html .="
 $html .= "</div>";
 
 $html .="<h2><center>Time Loss Table</center></h2>";
+$total_lh=0;
+$total_bh=0;
+foreach($timeLossLossHourAll as $losshour):
+    $total_lh += $losshour['time_loss']['totalloss_sec'];
+endforeach;
+
+foreach($timeLossBreakDownAll as $breakhour):
+    $total_bh += $breakhour['time_loss']['totalloss_sec'];
+endforeach;
+$total_wh = 24*60*60 - ($total_lh+$total_bh);
+
+
+?>
+<table border=\"0.5px;\" style=\"padding-left:5px;\">
+            <tr style=\"font-weight: bold\">
+                <td>Loss Hour</td>
+                <td><?php echo time_elapsed($total_lh)?></td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>Breakdown Hour</td>
+                <td><?php echo time_elapsed($total_bh)?></td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>Work Hour</td>
+                <td><?php echo time_elapsed($total_wh)?></td>
+            </tr>
+        </table><br/>
+
+<?php
+
+
 $html .="<h4>LossHour</h4>";
 $html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
     <tr style=\"font-weight: bold\">

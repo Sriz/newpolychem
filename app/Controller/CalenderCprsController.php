@@ -34,7 +34,7 @@ class CalenderCprsController extends AppController
         $pagination->offset =($pagination->currentPage-1)*$pagination->limit;
         $searchDate = isset($_GET['search'])?$_GET['search']:null;
         if ($searchDate):
-            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL limit $pagination->offset, $pagination->limit");
+            $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL and ntwt is not NULL limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
             $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
@@ -69,6 +69,32 @@ class CalenderCprsController extends AppController
         endif;
 
         
+        //
+        $this->loadModel('TblConsumptionStock');
+        $this->loadModel('BaseEmboss');
+        
+        $mix = $this->TblConsumptionStock->query("select * from tbl_consumption_stock");
+        foreach($mix as $m):
+            $id = $m['tbl_consumption_stock']['id'];
+            $dimension = $m['tbl_consumption_stock']['dimension'];
+            $brand = $m['tbl_consumption_stock']['brand'];
+            $quality = $m['tbl_consumption_stock']['quality'];
+            $color = $m['tbl_consumption_stock']['color'];
+
+            $base_emboss = $this->BaseEmboss->query("select Emboss from baseemboss where Brand='$brand' and Dimension = '$dimension' 
+                and Type = '$quality' and  Color ='$color'");
+            foreach ($base_emboss as $emboss) {
+                $base = $emboss['baseemboss']['Emboss']; 
+                
+            }
+            $mix_emboss[$id] = $base;   
+            
+            
+        endforeach;
+        $this->set('mix_emboss',$mix_emboss);
+        //
+
+        
 
 
 
@@ -85,6 +111,13 @@ class CalenderCprsController extends AppController
         $this->set('totalMaterials', $totalMaterials);
         $this->set('pagination', $pagination);
     }
+
+
+
+    
+
+
+
     public function pdf()
     {
         $this->loadModel('TblConsumptionStock');
@@ -143,10 +176,10 @@ class CalenderCprsController extends AppController
 
         //timeloss calculation
         $this->loadModel('TimeLoss');
-        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='LossHour'");
-        $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown'");
-
-
+        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='LossHour' and department_id='calender'");
+        $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown' and department_id='calender'");
+        //$timelossSummary = $this->TimeLoss->query("SELECT sum(totalloss_sec) where nepalidate ='$date' and department_id = 'calender' and type = 'LossHour'");
+        
         //send to view
         $this->set('lastDate',$lastDate);
         $this->set('newItemAdded',$newItemAdded);
@@ -162,7 +195,7 @@ class CalenderCprsController extends AppController
 
         $this->layout = 'pdf';
     }
-    public function add()
+     public function add()
     {
         $this->loadModel('TblConsumptionStock');
         $this->loadModel('MixingMaterials');
@@ -190,7 +223,7 @@ class CalenderCprsController extends AppController
             endforeach;
             //update value of length and ntwt
             $this->Session->setFlash(__('The calender cpr has been updated.'), array('class' => 'alert alert-success'));
-            return $this->redirect(['action'=>'add']);
+            return $this->redirect(['action'=>'index']);
         }
         $this->set('material_lists', $material_lists);
         $this->set('lastDate',$lastDate);

@@ -94,7 +94,7 @@ class CalenderScrapsController extends AppController
         if ($this->request->is(array('post', 'put'))) {
             if ($this->CalenderScrap->save($this->request->data)) {
                 //return $this->flash(__('The calender scrap has been saved.'), array('action' => 'index'));
-                return $this->redirect(array('controller' => 'CalenderCprs', 'action' => 'index/sort:date/direction:desc'));
+                return $this->redirect(array('controller' => 'CalenderScraps', 'action' => 'index/sort:date/direction:desc'));
 
             }
         } else {

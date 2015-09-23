@@ -40,7 +40,9 @@
                                 <td>Quality</td>
                                 <td>
                                     <select required="required" class="form-control brand" name="quality" id="quality">
-                                        <option value="<?=$consumption[0]['tbl_consumption_stock']['quality'];?>"><?=$consumption[0]['tbl_consumption_stock']['quality'];?></option>
+                                        <?php foreach($arrQuality as $quality):?>
+                                        <option value="<?=$quality?>"><?=$quality?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </td>
                             </tr>
@@ -48,7 +50,9 @@
                                 <td>Dimension</td>
                                 <td>
                                     <select required="required" class="form-control brand" name="dimension" id="dimension">
-                                        <option value="<?=$consumption[0]['tbl_consumption_stock']['dimension'];?>"><?=$consumption[0]['tbl_consumption_stock']['dimension'];?></option>
+                                        <?php foreach($arrDimension as $dimension):?>
+                                        <option value="<?=$dimension;?>"><?=$dimension;?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </td>
                             </tr>
@@ -56,7 +60,9 @@
                                 <td>Color</td>
                                 <td>
                                     <select required="required" class="form-control brand" name="color" id="color">
-                                        <option value="<?=$consumption[0]['tbl_consumption_stock']['color'];?>"><?=$consumption[0]['tbl_consumption_stock']['color'];?></option>
+                                        <?php foreach($arrColor as $color):?>
+                                        <option value="<?=$color;?>"><?=$color;?></option>
+                                        <?php endforeach;?>
                                     </select>
                                 </td>
                             </tr>

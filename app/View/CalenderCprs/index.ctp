@@ -30,7 +30,7 @@ $date = $date?$date:$lastDate;
             <div class="col-sm-3">
                 <table class="table table-bordered table-hover">
                     <tr>
-                        <td colspan="2" class="danger text-center"><h5>Raw Materials <?=isset($_GET['search'])?'of <strong>'.$_GET['search'].'</strong>':'';?></h5></td>
+                        <td colspan="2" class="danger text-center"><h5>Materials <strong><?=isset($_GET['search'])?'of '.$_GET['search']:$date;?></strong></h5></td>
                     </tr>
                     <?php
                     $totalBroughtScrap = 0;
@@ -95,7 +95,7 @@ $date = $date?$date:$lastDate;
                 ?>
                 <table class="table table-bordered table-hover">
                     <tr class="danger">
-                        <td colspan="2" class="text-center"><h5>Scrap Details <strong><?=isset($_GET['search'])?'of '.$_GET['search']:'';?></strong></h5></td>
+                        <td colspan="2" class="text-center"><h5>Scrap Details <strong><?=isset($_GET['search'])?'of '.$_GET['search']:$date;?></strong></h5></td>
                     </tr>
                     <td>Reusable</td>
                     <td class="success"><?=h(number_format($resuable, 2));?></td>
@@ -131,7 +131,7 @@ $date = $date?$date:$lastDate;
     </div>
 </div>
 
-<table class="table table-bordered table-hover" align="left">
+<table class="table table-bordered table-hover" align="left" style="font-size:13">
     <tr class="success">
         <th>Nepalidate</th>
         <th>Shift</th>
@@ -139,9 +139,10 @@ $date = $date?$date:$lastDate;
         <th>Quality</th>
         <th>Color</th>
         <th>Dimension</th>
-        <th style="text-align:right">Length</th>
-        <th style="text-align:right">NTWT</th>
-        <th style="text-align:right">TotalOfMaterials</th>
+        <th>Base Emboss</th>
+        <th >Length</th>
+        <th >NTWT</th>
+        <th >Total of Materials</th>
         <th class="actions"><?php echo __('Actions'); ?></th>
     </tr>
     <?php $totalOfCurrentData = 0;//for currentTotal ?>
@@ -153,6 +154,8 @@ $date = $date?$date:$lastDate;
             <td><?= $c['tbl_consumption_stock']['quality']; ?></td>
             <td><?= $c['tbl_consumption_stock']['color']; ?></td>
             <td><?= $c['tbl_consumption_stock']['dimension']; ?></td>
+            <?php $id = $c['tbl_consumption_stock']['id']; ?>
+            <td><?php echo $mix_emboss[$id]; ?></td>
             <td><?= h(number_format($c['tbl_consumption_stock']['length'],2)); ?></td>
             <td><?= h(number_format($c['tbl_consumption_stock']['ntwt'],2)); ?></td>
             <td>
@@ -208,23 +211,23 @@ $date = $date?$date:$lastDate;
     ?>
 
     <tr class="success">
-        <td align="right" colspan="6"><strong>Total of current data</strong></td>
-        <td align="right"><strong><?= h(number_format($length_current, 2)); ?></strong></td>
-        <td align="right"><strong><?= h(number_format($ntwt_current, 2)); ?></strong></td>
+        <td colspan="7"  align="right" ><strong>Total of current data</strong></td>
+        <td><strong><?= h(number_format($length_current, 2)); ?></strong></td>
+        <td><strong><?= h(number_format($ntwt_current, 2)); ?></strong></td>
         </td>
-        <td align="right"><strong><?= h(number_format($mixing_wt_current, 2)); ?></strong></td>
+        <td><strong><?= h(number_format($mixing_wt_current, 2)); ?></strong></td>
         <td></td>
     </tr>
     <tr class="warning">
-        <td align="right" colspan="6"><strong>Total</strong></td>
-        <td align="right">
+        <td align="right" colspan="7"><strong>Total</strong></td>
+        <td>
             <strong><?= h(number_format($lengthTotal, 2)); ?></strong>
         </td>
-        <td align="right">
+        <td>
             <strong><?= h(number_format($ntwtTotal, 2)); ?></strong>
         </td>
         </td>
-        <td align="right">
+        <td>
             <strong><?= h(number_format($total,2)); ?></strong>
         <td>
     </tr>

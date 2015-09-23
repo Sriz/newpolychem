@@ -63,7 +63,7 @@
                             $total = $total + $materialWeight;
                         endforeach;
                         ?>
-                        <?= $total; ?>
+                        <?= $total;?>
                         </span>
                     </td>
                 </tr>

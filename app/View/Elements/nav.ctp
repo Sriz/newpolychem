@@ -40,12 +40,16 @@
 						<li><a href="<?php echo $this->params->webroot?>PrintingPatterns"><i class="fa fa-plus"></i>Printing Patterns</a></li>
 						<li><a href="<?php echo $this->params->webroot?>MixingMaterials"><i class="fa fa-plus"></i>Mixing Materials</a></li>
 						<li><a href="<?php echo $this->params->webroot?>CategoryMaterials"><i class="fa fa-plus"></i>Material Category</a></li>
+
 						<li><a href="<?php echo $this->params->webroot?>Products"><i class="fa fa-plus"></i>Laminating Color</a></li>
 						<li><a href="<?php echo $this->params->webroot?>BaseEmbosses"><i class="fa fa-plus"></i>Calendar Color</a></li>
 					
-				<li><a href="<?php echo $this->params->webroot?>PrintingData"><i class="fa fa-plus"></i>Printing Color</a></li>	
-				<li><a href="<?php echo $this->params->webroot?>TimeLossReasons"><i class="fa fa-plus"></i>TimeLoss Reason</a></li>				<li><a href="<?php echo $this->params->webroot?>LaminatingReasons"><i class="fa fa-plus"></i>Laminating Reason</a></li>
+						<li><a href="<?php echo $this->params->webroot?>PrintingData"><i class="fa fa-plus"></i>Printing Color</a></li>	
+						<li><a href="<?php echo $this->params->webroot?>TimeLossReasons"><i class="fa fa-plus"></i>TimeLoss Reason</a></li>				
+						<li><a href="<?php echo $this->params->webroot?>LaminatingReasons"><i class="fa fa-plus"></i>Laminating Reason</a></li>
+						<li><a href="<?php echo $this->params->webroot?>DimensionTarget"><i class="fa fa-plus"></i>Dimension Target</a></li>
 				</li>
+
 
 				
 				

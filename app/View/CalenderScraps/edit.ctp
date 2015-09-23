@@ -37,7 +37,7 @@
 		<legend><?php echo __('Edit Calender Scrap'); ?></legend>
 	<?php
 		echo $this->Form->input('id',array('class'=>'input-ms'));
-		  echo $this->Form->input('date', array('id' => 'nepali-datepicker', 'class' => 'nepali-datepicker', 'type' => 'text', 'value' => $scd,'readonly'));              echo $this->Form->input('resuable', array('id' => 'reuse'));
+		  echo $this->Form->input('date', array('id' => 'nepali-datepicker', 'class' => 'nepali-datepicker', 'type' => 'text'));              echo $this->Form->input('resuable', array('id' => 'reuse'));
                                 echo $this->Form->input('lamps_plates', array('id' => 'lamps', 'onchange' => 'calculate();'));
                                 echo $this->Form->input('total_scrap_generated', array('id' => 'total','readonly'));
 	?>

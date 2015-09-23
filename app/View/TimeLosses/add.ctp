@@ -1,57 +1,8 @@
-
-<!-- start of start time and end time -->
 <script>
-    /* $(document).ready(function(){
-     // find the input fields and apply the time select to them.
-     $('#starttime, #endtime').change(function(){
-     calculate();
-     });
-     });*/
-</script>
-<!-- end of start time & end time-->
-<script>
-    $(document).ready(function () {
-        $('#next_day').change(function () {
-                /*if ($('#next_day').attr('checked')) {*/
-                    calculate();
-                /*}*/
-            })
-        $('#starttime').on('change keyup paste',function(){
-            var s1= $('#starttime').val();
-        s1 = s1.replace('.', ':');
-        var arr0 = s1.split(':');
-        if (arr0[0] >= 24 || arr0[1] >= 60) {
-            $('#p_starttime').html('Please use 0-23 for <strong>hours</strong> and 0-59 for <strong>minutes</strong>');
-            $("#btn_submit").removeClass('btn-primary');
-            $("#btn_submit").addClass('disabled');
-        } else {
-            $('#p_starttime').html('');
-            $("#btn_submit").removeClass('disabled');
-            $("#btn_submit").addClass('btn-primary');
-            calculate();
-        }
-    });
-    $('#endtime').on('change keyup paste',function(){
-        var e1 = $('#endtime').val();
-        if (e1.indexOf('.')) {
-            e1 = e1.replace('.', ':');
-        }
-        var arr0 = e1.split(':');
-        if (arr0[0] >= 24 || arr0[1] >= 60) {
-            $('#p_endtime').html('Please use 0-23 for <strong>hours</strong> and 0-59 for <strong>minutes</strong>');
-            $("#btn_submit").removeClass('btn-primary');
-            $("#btn_submit").addClass('disabled');
-        } else {
-            $('#p_endtime').html('');
-            $("#btn_submit").removeClass('disabled');
-            $("#btn_submit").addClass('btn-primary');
-            calculate();
-        }
-    });
-    });
     $(document).ready(function () {
         $('.nepalidatepicker').nepaliDatePicker();
     });
+
     $(document).ready(function () {
         $("#nepalidatepicker").focus(function (e) {
             //$("span").css("display", "inline").fadeOut(2000);
@@ -60,62 +11,24 @@
         });
         $("#type").change(function () {
             var type = $(this).val();
-            var dep = $("#department").val();
+            var dep = 'calender';
+
             $.post("fetchreason", {id: type, departmentid: dep}, function (response) {
                 $(".reason").html(response);
             })
+
         });
     });
-    function remove_ampm(starttime){
-        var arr0 = starttime.split(':');
-        arr0[0] = parseInt(arr0[0]);
-        return convert_sec(parseInt(arr0[0]), parseInt(arr0[1]));
-    }
-    function convert_sec(hours, minutes) {
-        return hours * 60 * 60 + minutes * 60;
-    }
     function elapsed_time(time) {
         var totalSec = parseInt(time);
-        var days = parseInt(totalSec/86400) % 30;
+        var days = parseInt(totalSec / 86400) % 30;
         var hours = parseInt(totalSec / 3600) % 24;
         var minutes = parseInt(totalSec / 60) % 60;
         //var seconds = totalSec % 60;
-        var result = (days < 10 ? "0" + days : days) +':'+ (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes);
+        var result = (days < 10 ? "0" + days : days) + ':' + (hours < 10 ? "0" + hours : hours) + ":" + (minutes < 10 ? "0" + minutes : minutes);
         return result;
     }
-    function calculate() {
-        var starttime = $('#starttime').val();
-        var endtime = $('#endtime').val();
-        starttime = remove_ampm(starttime);
-        endtime = remove_ampm(endtime);
-        if(endtime<starttime)
-        {
-            endtime=endtime+24*60*60;
-        }
-        console.log(starttime + "<br>" + endtime);
-        if (endtime < starttime) {
-            $('#p_totalloss').html('Start time should lesser than end time');
-            $("#btn_submit").removeClass('btn-primary');
-            $("#btn_submit").addClass('disabled');
-            total_loss = '';
-            totalloss_sec = '';
-        } else {
-            $('#p_totalloss').html('');
-            $("#btn_submit").removeClass('disabled');
-            $("#btn_submit").addClass('btn-primary');
-            var difference = endtime - starttime;
-            //alert('difference = '+difference);
-            var total_loss = elapsed_time(difference);
-            //alert(total_loss);
-            if (isNaN(difference)) {
-                $("#totalloss").val("");
-                $("#totalloss_sec").val("");
-                return;
-            }
-        }
-        $("#totalloss").val(total_loss);
-        $("#totalloss_sec").val(difference);
-    }
+
     function fetchdata() {
         var qty
         var department = document.getElementById('department').value;
@@ -137,8 +50,36 @@
         });
     }
 </script>
-<div class="panel panel-primary">
 
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+    $(document).ready(function()
+    {
+       $('#startTimeHour, #startTimeMinute, #endTimeHour, #endTimeMinute').on('change', function(){
+            var startTime = $('#startTimeHour').val() * 60*60 + $('#startTimeMinute').val() * 60;
+            var endTime = $('#endTimeHour').val() * 60*60 + $('#endTimeMinute').val() * 60;
+            $('#starttime').val($('#startTimeHour').val()+'.'+$('#startTimeMinute').val());
+            $('#endtime').val($('#endTimeHour').val()+'.'+$('#endTimeMinute').val());
+           //add 24 hour if start time is greater than end time
+           if(startTime>endTime)
+           {
+                endTime= endTime+ 24*60*60;
+           }
+           $("#totalloss").val(elapsed_time(endTime-startTime));
+           var timeLossSeconds =endTime-startTime;
+           $("#totalloss_sec").val(timeLossSeconds);
+       });
+    });
+</script>
+<style>
+    .datePick{
+        max-width:100px;
+        margin: 5px;
+    }
+</style>
+<div class="panel panel-primary">
     <div class="panel-heading"><?php echo __('Add Time Loss'); ?> </div>
     <div class="panel-body">
         <?php echo $this->Form->create('TimeLoss', array('class' => 'form-horizontal',
@@ -153,24 +94,61 @@
         ?>
         <fieldset>
             <?php
-            echo $this->Form->input('Date', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-comtrol input-sm','required'=>'required'));
+            echo $this->Form->input('nepalidate', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-control input-sm','required'=>'required'));
             //echo $this->Form->input('date',array('type'=>'text','value'=>$date,'class'=>array('form-control input-sm')));
-            echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm','required'=>'required','placeholder'=>'Shift'));
-            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'text', 'class' => 'form-control input-sm','value'=>'$dept','readonly'=>'readonly','required'=>'required'));
-            echo $this->Form->input('type', array('required'=>'required','id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('placeholder' => 'Please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour')/*,'onchange'=>'fetchdata()'*/));
+            echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm','required'=>'required'));
+            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'hidden', 'class' => 'form-control input-sm', 'value' => 'calender','required'=>'required'));
+            echo $this->Form->input('type', array('id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('Please select' => 'Please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour')/*,'onchange'=>'fetchdata()'*/,'required'=>'required'));
             echo $this->Form->input('reasons', array('id' => 'reasons', 'type' => 'select', 'class' => 'reason form-control input-sm','required'=>'required'));
-            echo $this->Form->input('time', array('type' => 'text', 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'StartTime'), 'class' => array('form-control input-sm', 'starttime'), 'placeholder' => '00:00', 'id' => 'starttime','required'=>'required'));
-            echo "<p class='text-danger' id='p_starttime'></p>";
             ?>
+            <div class="row">
+            <label class="col-sm-2 control-label"> Start Time</label>
+            <div class="col-sm-2 datePick">
+                <select id="startTimeHour" class="form-control" data-toggle="tooltip" title="Hour" required="required">
+                    <?php for ($i = 0; $i < 24; $i++): ?>
+                        <option value="<?=$i;?>"><?= $i; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <div class="col-sm-2 datePick">
+                <select id="startTimeMinute" class="form-control" data-toggle="tooltip" title="Minute" required="required">
+                    <?php for ($i = 0; $i < 60; $i++): ?>
+                        <option value="<?=$i;?>"><?= $i; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <?=$this->Form->input('time', array('type' => 'hidden', 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'StartTime'), 'class' => array('form-control input-sm', 'starttime'), 'value' => '00:00', 'id' => 'starttime','required'=>'required'));?>
+            <div class="col-md-6"></div>
+            </div>
+            <div class="clearfix"></div>
+            <!-- end time -->
+            <div class="row">
+            <label class="col-sm-2 control-label"> End Time</label>
+            <div class="col-sm-2 datePick">
+                <select id="endTimeHour" class="form-control" data-toggle="tooltip" title="Hour">
+                    <?php for ($i = 0; $i < 24; $i++): ?>
+                        <option value="<?=$i;?>"><?= $i; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <div class="col-sm-2 datePick">
+                <select id="endTimeMinute" class="form-control" data-toggle="tooltip" title="Minute">
+                    <?php for ($i = 0; $i < 60; $i++): ?>
+                        <option value="<?=$i;?>"><?= $i; ?></option>
+                    <?php endfor; ?>
+                </select>
+            </div>
+            <?=$this->Form->input('wk_hrs', array('type' => 'hidden', 'class' => array('form-control input-sm', 'endtime'), 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'EndTime'), 'value' => '00:00', 'id' => 'endtime','required'=>'required'));?>
+            <!-- end end time -->
+            <div class="col-md-6"></div>
+            </div>
+            <div class="clearfix"></div>
+
 
             <?php
-            echo $this->Form->input('wk_hrs', array('type' => 'text', 'class' => array('form-control input-sm', 'endtime'), 'label' => array('class' => 'col-sm-2 control-label', 'text' => 'EndTime'), 'placeholder' => '00:00', 'id' => 'endtime',/*'onchange'=>'calculate()'*/'required'=>'required'));
-            echo "<p class='text-danger' id='p_endtime'></p>";
-            /*    echo "<p id='total_loss_btn'>Click to calculate TotalLoss</p>";*/
-            //echo $form->input('Contact.name', array('label' => array('class' => 'Your-Class', 'text' => 'Name<span style="color:#f89e01">*</span> :'), 'size' => '25'));
             echo $this->Form->input('totalloss', array('id' => 'totalloss', 'type' => 'text', 'class' => 'form-control input-sm totalloss', 'readonly','required'=>'required'));
             echo "<p class='text-danger' id='p_totalloss'></p>";
-            echo $this->Form->input('totalloss_sec', array('id' => 'totalloss_sec', 'type' => 'hidden', 'class' => array('totalloss_sec', 'form-control input-sm','required'=>'required')));
+            echo $this->Form->input('totalloss_sec', array('id' => 'totalloss_sec', 'type' => 'hidden', 'class' => array('totalloss_sec', 'form-control input-sm'),'required'=>'required'));
             ?>            <?php echo $this->Form->end(__('Submit'), ['id' => 'btn_submit']); ?>
         </fieldset>
 

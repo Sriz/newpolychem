@@ -114,8 +114,6 @@ class TimeLossesController extends AppController
      */
     public function edit($id = null)
     {
-        //echo $id;
-        //echo $id;
         $this->loadModel('TimelossReason');
 
         $department = $this->TimelossReason->query("select department_id from time_loss where id=$id");
@@ -132,6 +130,8 @@ class TimeLossesController extends AppController
 
         $this->set('type', $ttype);
 
+        $time = $this->TimeLoss->query("Select * from time_loss where id='$id'")[0];
+        $this->set('time',$time);
 
         if (!$this->TimeLoss->exists($id)) {
             throw new NotFoundException(__('Invalid'));
