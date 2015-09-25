@@ -41,6 +41,7 @@ class TimeLossesController extends AppController
         );
         $date = 0;
         $dept = AuthComponent::user('role');
+        
         if (isset($this->request->data['filter']['filter1'])) {
             $date = $this->request->data['filter']['filter1'];
         }
@@ -98,7 +99,7 @@ class TimeLossesController extends AppController
             $this->TimeLoss->create();
             if ($this->TimeLoss->save($this->request->data)) {
                 //return $this->flash(__('The time loss has been saved.'), array('action' => 'index'));
-                return $this->redirect(array('action' => 'index/sort:id/direction:desc'));
+                return $this->redirect(array('action' => 'index/sort:nepalidate/direction:desc'));
             }
             //return $this->redirect(array('action' => 'index'));
         }
@@ -138,7 +139,7 @@ class TimeLossesController extends AppController
         }
         if ($this->request->is(array('post', 'put'))) {
             if ($this->TimeLoss->save($this->request->data)) {
-                return $this->redirect(array('action' => 'index/sort:id/direction:desc'));
+                return $this->redirect(array('action' => 'index/sort:nepalidate/direction:desc'));
                 //return $this->flash(__('The mixing cpar has been saved.'), array('action' => 'index'));
             }
         } else {
@@ -163,7 +164,7 @@ class TimeLossesController extends AppController
         $this->request->onlyAllow('post', 'delete');
         if ($this->TimeLoss->delete()) {
             //return $this->flash(__('The time loss has been deleted.'), array('action' => 'index'));
-            return $this->redirect(array('action' => 'index/sort:id/direction:desc'));
+            return $this->redirect(array('action' => 'index/sort:nepalidate/direction:desc'));
         } else {
             return $this->flash(__('The time loss could not be deleted. Please, try again.'), array('action' => 'index'));
         }

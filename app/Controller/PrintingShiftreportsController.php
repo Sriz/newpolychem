@@ -63,7 +63,7 @@ class PrintingShiftreportsController extends AppController
 
             if ($this->PrintingShiftreport->save($this->request->data)) {
                 $this->Session->setFlash(__('The printing shiftreport has been saved.'), array('class' => 'alert alert-success'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('controller' => 'PrintingShiftreports', 'action' => 'index/sort:date/direction:desc'));
             } else {
                 $this->Session->setFlash(__('The printing shiftreport could not be saved. Please, try again.'), array('class' => 'alert alert-danger'));
             }
@@ -112,7 +112,7 @@ class PrintingShiftreportsController extends AppController
         if ($this->request->is(array('post', 'put'))) {
             if ($this->PrintingShiftreport->save($this->request->data)) {
                 $this->Session->setFlash(__('The printing shiftreport has been saved.'));
-                return $this->redirect(array('action' => 'index'));
+                return $this->redirect(array('controller' => 'PrintingShiftreports', 'action' => 'index/sort:date/direction:desc'));
             } else {
                 $this->Session->setFlash(__('The printing shiftreport could not be saved. Please, try again.'));
             }

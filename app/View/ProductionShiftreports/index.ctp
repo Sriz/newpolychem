@@ -83,8 +83,9 @@ echo '<td>'.$this->Search->end(__('Search', true)).'</td>';
 		<td align="right"><?php echo h(number_format($productionShiftreport['ProductionShiftreport']['output'],2)); ?>&nbsp;</td>
 		<td class="actions">
 			
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $productionShiftreport['ProductionShiftreport']['id']), null, __('Are you sure you want to delete # %s?', $productionShiftreport['ProductionShiftreport']['id'])); ?>
+			
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $productionShiftreport['ProductionShiftreport']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $productionShiftreport['ProductionShiftreport']['id']), null, __('Are you sure you want to delete # %s?', $productionShiftreport['ProductionShiftreport']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>

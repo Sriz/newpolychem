@@ -10,8 +10,9 @@
             showCalendarBox('nepalidatepicker');
         });
         $("#type").change(function () {
+            var dep = document.getElementById('department').value;
             var type = $(this).val();
-            var dep = 'calender';
+            //var dep = 'calender';
 
             $.post("fetchreason", {id: type, departmentid: dep}, function (response) {
                 $(".reason").html(response);
@@ -97,7 +98,7 @@
             echo $this->Form->input('nepalidate', array('id' => 'nepalidatepicker', 'type' => 'text', 'class' => 'nepalidatepicker form-control input-sm','required'=>'required'));
             //echo $this->Form->input('date',array('type'=>'text','value'=>$date,'class'=>array('form-control input-sm')));
             echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm','required'=>'required'));
-            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'hidden', 'class' => 'form-control input-sm', 'value' => 'calender','required'=>'required'));
+            echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'hidden', 'class' => 'form-control input-sm', 'value' => '$dept','required'=>'required','readonly'=>'readonly'));
             echo $this->Form->input('type', array('id' => 'type', 'class' => array('type', 'form-control', 'input-sm'), 'options' => array('Please select' => 'Please select', 'BreakDown' => 'BreakDown', 'LossHour' => 'LossHour')/*,'onchange'=>'fetchdata()'*/,'required'=>'required'));
             echo $this->Form->input('reasons', array('id' => 'reasons', 'type' => 'select', 'class' => 'reason form-control input-sm','required'=>'required'));
             ?>

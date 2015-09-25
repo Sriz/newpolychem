@@ -96,7 +96,7 @@ class ProductionShiftreportsController extends AppController {
 			$this->ProductionShiftreport->create();
 			if ($this->ProductionShiftreport->save($this->request->data)) {
 				$this->Session->setFlash(__('The request has been saved.'), array ('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index/sort:id/direction:desc'));
+				return $this->redirect(array('action' => 'index/sort:date/direction:desc'));
 			} else {
 				$this->Session->setFlash(__('The request could not be saved. Please, try again.'), array ('class' => 'alert alert-danger'));
 			}
@@ -122,7 +122,7 @@ class ProductionShiftreportsController extends AppController {
 			
 			if ($this->ProductionShiftreport->save($this->request->data)) {
 				//return $this->flash(__('The production shiftreport has been saved.'), array('action' => 'index'));
-		return $this->redirect(array('action' => 'index/sort:id/direction:desc'));
+		return $this->redirect(array('action' => 'index/sort:date/direction:desc'));
 			}
 		} else {
 			$options = array('conditions' => array('ProductionShiftreport.' . $this->ProductionShiftreport->primaryKey => $id));
@@ -144,9 +144,9 @@ class ProductionShiftreportsController extends AppController {
 		}
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductionShiftreport->delete()) {
-			return $this->flash(__('The production shiftreport has been deleted.'), array('action' => 'index/sort:id/direction:desc'));
+			return $this->flash(__('The production shiftreport has been deleted.'), array('action' => 'index/sort:date/direction:desc'));
 		} else {
-			return $this->flash(__('The production shiftreport could not be deleted. Please, try again.'), array('action' => 'index/sort:id/direction:desc'));
+			return $this->flash(__('The production shiftreport could not be deleted. Please, try again.'), array('action' => 'index/sort:date/direction:desc'));
 		}
 	}
 	public function quality()

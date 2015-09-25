@@ -48,9 +48,9 @@
                     <td><?= $c['tbl_consumption_stock']['color']; ?></td>
                     <td><?= $c['tbl_consumption_stock']['dimension']; ?></td>
 
-                    <td><input type="text" placeholder="Length" name="length[<?=$c['tbl_consumption_stock']['id'];?>]" value="<?= $c['tbl_consumption_stock']['length'] ? $c['tbl_consumption_stock']['length'] : 0; ?>" class="form-control input-sm length"></td>
-                    <td><input type="text" name="ntwt[<?=$c['tbl_consumption_stock']['id'];?>]" placeholder="NTWT" value="<?= $c['tbl_consumption_stock']['ntwt'] ? $c['tbl_consumption_stock']['ntwt'] :0; ?>" class="form-control input-sm ntwt"></td>
-                    <td><span class="mixingTotal">
+                    <td><input id="length_<?=$c['tbl_consumption_stock']['id'];?>" type="text" placeholder="Length" name="length[<?=$c['tbl_consumption_stock']['id'];?>]" value="<?= $c['tbl_consumption_stock']['length'] ? $c['tbl_consumption_stock']['length'] : 0; ?>" class="form-control input-sm"></td>
+                    <td><input id="ntwt_<?=$c['tbl_consumption_stock']['id'];?>" type="text" name="ntwt[<?=$c['tbl_consumption_stock']['id'];?>]" placeholder="NTWT" value="<?= $c['tbl_consumption_stock']['ntwt'] ? $c['tbl_consumption_stock']['ntwt'] :0; ?>" class="form-control input-sm"></td>
+                    <td><span id="mixingTotal_<?=$c['tbl_consumption_stock']['id'];?>">
                         <?php $total = 0; ?>
                         <?php
                         $materials = json_decode($c['tbl_consumption_stock']['materials']);
@@ -63,32 +63,45 @@
                             $total = $total + $materialWeight;
                         endforeach;
                         ?>
-                        <?= $total;?>
+                        <?=$total; ?>
                         </span>
                     </td>
                 </tr>
-            <?php endforeach; ?>
-                <input type="submit" value="Submit" name="submit" class="btn btn-primary btnAction"></form><br/>
+            <?php endforeach;?>
+            </table>
+        <input type="submit" value="Submit" name="submit" class="btn btn-primary btnAction pull-right">
+    </form>
         <?php else: ?>
             <tr>
                 <td colspan="9">No Data Found</td>
             </tr>
+        </table>
         <?php endif; ?>
-    </table>
+</div>
 <script>
     $(document).ready(function(){
-        $('.ntwt').bind('change paste',function(){
-            var netwt = $(this).val();
-            var mixingtotal = parseInt($('.mixingTotal').html());
-            if(mixingtotal<=netwt)
-            {
-                $('.ntwt').css('border','1px solid red');
-                $('.btnAction').removeClass('btn-primary').addClass('disabled');
-                alert('NTWT should be smaller than Mixing Total');
-            }else{
-                $('.ntwt').css('border','1px solid green');
-                $('.btnAction').addClass('btn-primary').removeClass('disabled');
+        //send only id of ntwt and id of total
+        function ntwt_check(ntwt, mixingTotal) {
+            if(mixingTotal <= ntwt){
+                return false;
+            } else {
+                return true;
             }
-        })
+        }
+        <?php foreach ($consumptionItems as $c): ?>
+        $("#ntwt_<?=$c['tbl_consumption_stock']['id'];?>").bind('change paste', function () {
+            var ntwt_val = $("#ntwt_<?=$c['tbl_consumption_stock']['id'];?>").val();
+            var mixing_val = parseInt($("#mixingTotal_<?=$c['tbl_consumption_stock']['id'];?>").html());
+            if(ntwt_check(ntwt_val, mixing_val)==false)
+            {
+                $(this).css('border','1px solid red');
+                $('.btnAction').removeClass('btn-primary').addClass('btn-default disabled')
+                alert('NTWT should be smaller than MixingTotal');
+            }else{
+                $('.btnAction').addClass('btn-primary').removeClass('btn-default disabled')
+                $(this).css('border','1px solid green');
+            }
+        });
+        <?php endforeach;?>
     });
 </script>

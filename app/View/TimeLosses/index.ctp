@@ -47,7 +47,8 @@
                 <td><?php echo h($timeLoss['TimeLoss']['nepalidate']); ?>&nbsp;</td>
                 <td><?php echo h($timeLoss['TimeLoss']['shift']); ?>&nbsp;</td>
 
-                <td><?php echo h('Calendar'); ?>&nbsp;</td>
+                <!-- <td><?php echo h('Calendar'); ?>&nbsp;</td> -->
+                <td><?php echo h($timeLoss['TimeLoss']['department_id']); ?>&nbsp;</td>
                 <td><?php echo h($timeLoss['TimeLoss']['type']); ?>&nbsp;</td>
                 <td><?php echo h($timeLoss['TimeLoss']['reasons']); ?>&nbsp;</td>
                 <td><?php echo h($timeLoss['TimeLoss']['time']); ?>&nbsp;</td>

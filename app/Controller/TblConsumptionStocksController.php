@@ -253,7 +253,7 @@ class TblConsumptionStocksController extends AppController
 
     function exportcsv()
     {
-        exit;
+        //exit;
         $this->loadModel('TblConsumptionStock');
         $result = $this->TblConsumptionStock->query("select * from tbl_consumption_stock order by nepalidate desc");
 

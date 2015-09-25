@@ -88,8 +88,8 @@
 			<ul class="nav navbar-nav side-nav">
 				<li class="<?php echo $this->params->params['controller'] == 'pages' ? 'active' : ''?>"><a href="<?php echo $this->params->webroot?>home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 				
-				<li class="<?php echo $this->params->params['controller'] == 'PrintingShiftreports' ?>"><a href="<?php echo $this->params->webroot?>PrintingShiftreports/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Daily Printing Shift </a></li>
-				<li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'PrintingShiftreports' ?>"><a href="<?php echo $this->params->webroot?>PrintingShiftreports/index/sort:date/direction:desc"><i class="fa fa-dashboard"></i> Daily Printing Shift </a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:nepalidate/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
 				<li class="<?php echo $this->params->params['controller'] == 'PrintingIssues' ?>"><a href="<?php echo $this->params->webroot?>PrintingIssues/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Printing Mixing Report</a></li>
 			</ul>
 				</li>
@@ -115,8 +115,8 @@
 			<ul class="nav navbar-nav side-nav">
 				<li class="<?php echo $this->params->params['controller'] == 'pages' ? 'active' : ''?>"><a href="<?php echo $this->params->webroot?>home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
 				
-				<li class="<?php echo $this->params->params['controller'] == 'ProductionShiftreports' ?>"><a href="<?php echo $this->params->webroot?>ProductionShiftreports/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Production Shift Report</a></li>
-			   <li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'ProductionShiftreports' ?>"><a href="<?php echo $this->params->webroot?>ProductionShiftreports/index/sort:date/direction:desc"><i class="fa fa-dashboard"></i> Production Shift Report</a></li>
+			   <li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:nepalidate/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
 				
 				
 			</ul>
@@ -131,7 +131,7 @@
 				
 				<li class="<?php echo $this->params->params['controller'] == 'CalenderCprs' ?>"><a href="<?php echo $this->params->webroot?>CalenderCprs/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Calendar Production Report</a></li>
 				
-				<li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:nepalidate/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
 	<li class="<?php echo $this->params->params['controller'] == 'CalenderScraps' ?>"><a href="<?php echo $this->params->webroot?>CalenderScraps/index/sort:date/direction:desc"><i class="fa fa-dashboard"></i>Scrap Details</a></li>
 
 						</ul>

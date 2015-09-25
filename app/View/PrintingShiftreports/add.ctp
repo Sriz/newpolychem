@@ -194,16 +194,16 @@ bootbox.confirm({
 	<?php
 		$date=date('d-m-Y');
 		//print_r($dimension);
-		echo $this->Form->input('date',array('type'=>'text','id'=>'nepalidatepicker','class'=>'form-control input-sm'));
-		echo $this->Form->input('shift',array('options'=>array('A'=>'A','B'=>'B'),'class'=>'form-control input-sm'));
-		echo $this->Form->input('dimension',array('id'=>'dimension','class'=>array('dimension','form-control input-sm'),'options'=>$dimension,'empty'=>'Please Select','onchange'=>'fetchdata()'));
-		echo $this->Form->input('PF_Color',array('id'=>'pfcolor','class'=>array('pfcolor','form-control input-sm'),'type'=>'select','onchange'=>'fetchcolor()'));
-		echo $this->Form->input('color_code',array('id'=>'colorcode','class'=>array('colorcode','form-control input-sm'),'type'=>'select'));
-		echo $this->Form->input('input',array('class'=>'form-control input-sm'));
-		echo $this->Form->input('output',array('class'=>'form-control input-sm'));
-		echo $this->Form->input('unprinted_scrap',array('class'=>'form-control input-sm','id'=>'unprinted_scrap','onchange'=>'doi();'));
+		echo $this->Form->input('date',array('type'=>'text','id'=>'nepalidatepicker','class'=>'form-control input-sm','required'=>'required'));
+		echo $this->Form->input('shift',array('options'=>array('A'=>'A','B'=>'B'),'class'=>'form-control input-sm','required'=>'required'));
+		echo $this->Form->input('dimension',array('id'=>'dimension','class'=>array('dimension','form-control input-sm'),'options'=>$dimension,'empty'=>'Please Select','onchange'=>'fetchdata()','required'=>'required'));
+		echo $this->Form->input('PF_Color',array('id'=>'pfcolor','class'=>array('pfcolor','form-control input-sm'),'type'=>'select','onchange'=>'fetchcolor()','required'=>'required'));
+		echo $this->Form->input('color_code',array('id'=>'colorcode','class'=>array('colorcode','form-control input-sm'),'type'=>'select','required'=>'required'));
+		echo $this->Form->input('input',array('class'=>'form-control input-sm','required'=>'required'));
+		echo $this->Form->input('output',array('class'=>'form-control input-sm','required'=>'required'));
+		echo $this->Form->input('unprinted_scrap',array('class'=>'form-control input-sm','id'=>'unprinted_scrap','onchange'=>'doi();','required'=>'required'));
 		echo '<div class="bluebox" id="bluebox">';
-		echo $this->Form->input('unprinted_scrap_reason',array('id'=>'unprinted','class'=>'form-control input-sm unprinted','options'=>array('NULL'=>'Please Select',$unprinted))); 
+		echo $this->Form->input('unprinted_scrap_reason',array('id'=>'unprinted','class'=>'form-control input-sm unprinted','options'=>array('NULL'=>'Please Select',$unprinted),'required'=>'required')); 
 		echo "</div>";
 			echo '<div class="red box" id="redbox">';
 		echo "<table class='table table-condensed'>";
@@ -252,10 +252,10 @@ bootbox.confirm({
 		echo "</table>";
 		echo '</div>';
 	
-		echo $this->Form->input('department_id',array('id'=>'department','type'=>'hidden'));
-		echo $this->Form->input('printed_scrap',array('class'=>'form-control input-sm','id'=>'printed_scrap','onchange'=>'doi1();'));
+		echo $this->Form->input('department_id',array('id'=>'department','type'=>'hidden','required'=>'required'));
+		echo $this->Form->input('printed_scrap',array('class'=>'form-control input-sm','id'=>'printed_scrap','onchange'=>'doi1();','required'=>'required'));
 	   echo '<div class="pinkbox" id="pink">';
-	    echo $this->Form->input('printed_scrap_reason',array('class'=>'form-control input-sm printed','id'=>'printed','options'=>array('Null'=>'Please Select',$printed)));
+	    echo $this->Form->input('printed_scrap_reason',array('class'=>'form-control input-sm printed','id'=>'printed','options'=>array('Null'=>'Please Select',$printed),'required'=>'required'));
 	echo "</div>";
 	//	
 		echo '<div class="green box" id="greenbox">';
@@ -314,10 +314,7 @@ bootbox.confirm({
 </div>
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List Printing Shiftreports'), array('action' => 'index')); ?></li>
-	</ul>
+	
 </div>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
