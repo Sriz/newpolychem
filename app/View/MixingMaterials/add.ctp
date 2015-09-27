@@ -10,8 +10,9 @@
 		<legend><?php echo __('Add Mixing Material'); ?></legend>
 	<?php
 		echo $this->Form->input('name');
-		echo $this->Form->input('department');
-		echo $this->Form->input('category_id',['options'=>$arr, 'label'=>false, 'empty'=>'No-Category']);
+		//echo $this->Form->input('department');
+
+		echo $this->Form->input('category_id',['options'=>$arr, 'label'=>'Category', 'empty'=>'No-Category']);
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

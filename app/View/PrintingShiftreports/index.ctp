@@ -85,7 +85,7 @@ echo '<td>'.$this->Search->end(__('Search', true)).'</td>';
 		
 		
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $printingShiftreport['PrintingShiftreport']['id'])); ?>
+			<?php /*echo $this->Html->link(__('View'), array('action' => 'view', $printingShiftreport['PrintingShiftreport']['id']));*/ ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $printingShiftreport['PrintingShiftreport']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $printingShiftreport['PrintingShiftreport']['id']), null, __('Are you sure you want to delete # %s?', $printingShiftreport['PrintingShiftreport']['id'])); ?>
 		</td>

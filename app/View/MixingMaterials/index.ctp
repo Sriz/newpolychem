@@ -12,7 +12,7 @@
         $arr = array();
         foreach($category as $c):
             $arr[$c['CategoryMaterial']['id']] = $c['CategoryMaterial']['name'];
-        endforeach;;
+        endforeach;
         ?>
 	<?php foreach ($mixingMaterials as $mixingMaterial): ?>
 	<tr>

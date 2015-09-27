@@ -932,6 +932,7 @@ class View extends Object {
 
 		unset($this->__viewFile);
 		return ob_get_clean();
+		//ini_set('memory_limit', '-1');
 	}
 
 /**

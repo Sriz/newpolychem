@@ -19,7 +19,7 @@ class PagesController extends AppController
     public function index()
     {
         $this->material();
-        $this->printing_chart();
+        //$this->printing_chart();
         $this->printing_dashboard();
         $this->fetch_printingdata();
         $this->printing_loss_reason();
@@ -49,6 +49,14 @@ class PagesController extends AppController
             $this->losshr_reason_forLH();
             $this->perhouroutput();
             $this->fetch_totalConsumption();
+        }
+        elseif(AuthComponent::user('role'=='printing'))
+        {
+            //$this->dash_values();
+            $this->losshour_calculate(AuthComponent::user('role'));
+            $this->losshr_reason_forBD();
+            $this->losshr_reason_forLH();
+            
         }
         else
         {
@@ -127,80 +135,80 @@ class PagesController extends AppController
 
     }
 
-    public function printing_chart()
-    {
-        $this->loadModel("TimeLoss");
-        $rawpercentage = $this->TimeLoss->query("SELECT 
-TYPE , totalloss
-FROM time_loss
-LIMIT 0 , 30");
-        //print_r($rawpercentage);
+    // public function printing_chart()
+    // {
+    //     $this->loadModel("TimeLoss");
+    //     $rawpercentage = $this->TimeLoss->query("SELECT 
+    //     TYPE , totalloss
+    //     FROM time_loss
+    //     LIMIT 0 , 30");
+    //     //print_r($rawpercentage);
 
-        $arr = array();
-        $year = array();
-        //print_r($rawpercentage);
-        foreach ($rawpercentage as $value):
-            $color = str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
-            $arr[$value['time_loss']['TYPE']] = array('params' => array('color' => $color), 'data' => array(array('value' => $value['time_loss']['totalloss'])));
-            $year[] = $value['time_loss']['date'];
+    //     $arr = array();
+    //     $year = array();
+    //     //print_r($rawpercentage);
+    //     foreach ($rawpercentage as $value):
+    //         $color = str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+    //         $arr[$value['time_loss']['TYPE']] = array('params' => array('color' => $color), 'data' => array(array('value' => $value['time_loss']['totalloss'])));
+    //         $year[] = $value['time_loss']['nepalidate'];
 
-        endforeach;
-        //print_r($arr);
-        $this->FusionCharts->create
-        (
-            'Column2D Chart',
-            array
-            (
-                'type' => 'MSColumn2D',
-                'width' => 600,
-                'height' => 350,
-                'id' => ''
-            )
-        );
-        $this->FusionCharts->setChartParams
-        (
-            'Column2D Chart',
-            array
-            (
-                'caption' => 'Break Down Ratio',
-                'subcaption' => 'In Hour',
-                'xAxisName' => 'Date',
-                'yAxisName' => 'Time(in hour)',
-                'hoverCapBg' => 'DEDEBE',
-                'hoverCapBorder' => '889E6D',
-                'rotateNames' => '1',
-                'yAxisMaxValue' => '24',
-                'numDivLines' => '9',
-                'divLineColor' => 'CCCCCC',
-                'divLineAlpha' => '80',
-                'decimalPrecision' => '0',
-                'showAlternateHGridColor' => '1',
-                'AlternateHGridAlpha' => '30',
-                'AlternateHGridColor' => 'CCCCCC'
-            )
-        );
-        $this->FusionCharts->setCategoriesParams
-        (
-            'Column2D Chart',
-            array
-            (
-                'font' => 'Arial',
-                'fontSize' => '11',
-                'fontColor' => '000000'
-            )
-        );
-        $this->FusionCharts->addCategories
-        (
-            'Column2D Chart', $year
-        );
-        $this->FusionCharts->addDatasets
-        (
-            'Column2D Chart', $arr
+    //     endforeach;
+    //     //print_r($arr);
+    //     $this->FusionCharts->create
+    //     (
+    //         'Column2D Chart',
+    //         array
+    //         (
+    //             'type' => 'MSColumn2D',
+    //             'width' => 600,
+    //             'height' => 350,
+    //             'id' => ''
+    //         )
+    //     );
+    //     $this->FusionCharts->setChartParams
+    //     (
+    //         'Column2D Chart',
+    //         array
+    //         (
+    //             'caption' => 'Break Down Ratio',
+    //             'subcaption' => 'In Hour',
+    //             'xAxisName' => 'Date',
+    //             'yAxisName' => 'Time(in hour)',
+    //             'hoverCapBg' => 'DEDEBE',
+    //             'hoverCapBorder' => '889E6D',
+    //             'rotateNames' => '1',
+    //             'yAxisMaxValue' => '24',
+    //             'numDivLines' => '9',
+    //             'divLineColor' => 'CCCCCC',
+    //             'divLineAlpha' => '80',
+    //             'decimalPrecision' => '0',
+    //             'showAlternateHGridColor' => '1',
+    //             'AlternateHGridAlpha' => '30',
+    //             'AlternateHGridColor' => 'CCCCCC'
+    //         )
+    //     );
+    //     $this->FusionCharts->setCategoriesParams
+    //     (
+    //         'Column2D Chart',
+    //         array
+    //         (
+    //             'font' => 'Arial',
+    //             'fontSize' => '11',
+    //             'fontColor' => '000000'
+    //         )
+    //     );
+    //     $this->FusionCharts->addCategories
+    //     (
+    //         'Column2D Chart', $year
+    //     );
+    //     $this->FusionCharts->addDatasets
+    //     (
+    //         'Column2D Chart', $arr
 
-        );
+    //     );
 
 
-    }
+    // }
 
     public function printing_dashboard()
     {
@@ -253,6 +261,7 @@ AND '$date2'");
 
             $yearly = $this->PrintingShiftreport->query("SELECT COUNT(DISTINCT dimension,color_code) as total FROM printing_shiftreport");
             $this->set('yearly1', $yearly);
+            //echo'<pre>';print_r($yearly);die;
 
             $output = $this->PrintingShiftreport->query("select sum(output) as output from printing_shiftreport where date='$date2'");
             $this->set('output', $output);
@@ -420,9 +429,12 @@ FROM
             $yr = $dt[0];
             $m = $dt[1];
             $d = $dt[2];
+            //echo $m;die;
             //$this->set('cmonth',$m);
             //$this->set('cday',$d);
+
             $startm = $yr . '-' . $m . '-' . '01';
+            //echo $startm;die;
             $starty = $yr . '-' . '01' . '-' . '01';
             //print_r($startm.'='.$starty);
 //trial
@@ -431,16 +443,18 @@ FROM
             $i=0;
             foreach($all_reasons as $reasons):
                 $reason = $reasons['time_loss']['reasons'];
-
+                // echo'<pre>';print_r($reasons);die;
+                // echo $currentdte;die;
                 $bd_d[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate = '$currentdte' and department_id = '$dept' )  as bd_d FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate = '$currentdte' and reasons='$reason'");
-                
+                //echo'<pre>';print_r($bd_d);die;
                 $bd_m[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$startm' and '$currentdte' and department_id='$dept')  as bd_m FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate BETWEEN '$startm' and '$currentdte' and reasons='$reason' GROUP By reasons");
-                
+                //echo'<pre>';print_r($bd_y);die;
                 $bd_y[$i] = $this->TimeLoss->query("SELECT (sum(totalloss_sec)*100)/(SELECT SUM(totalloss_sec) from time_loss WHERE type = 'BreakDown' and nepalidate BETWEEN '$starty' and '$currentdte' and department_id='$dept') as bd_y FROM `time_loss` WHERE type = 'BreakDown' and department_id='$dept' and nepalidate BETWEEN '$starty' and '$currentdte' and reasons='$reason' GROUP By reasons");
+                
                 $bd_reason[$i] = $reasons['time_loss']['reasons'];
                 $i++;
             endforeach;
-            
+            //echo'<pre>';print_r($bd_m);die;
             $this->set('bd_reason', $bd_reason);
             $this->set('bd_d', $bd_d);
             $this->set('bd_m', $bd_m);
@@ -490,7 +504,7 @@ FROM
             //$this->set('cday',$d);
             $startm = $yr . '-' . $m . '-' . '01';
             $starty = $yr . '-' . '01' . '-' . '01';
-            //print_r($startm.'='.$starty);
+            //print_r($startm.'='.$currentdte);die;
 
 
 //START
@@ -559,6 +573,7 @@ FROM
             endforeach;
 
             $dt = explode('-', $rdate);
+            //echo $rdate;die;
             $yr = $dt[0];
             $m = $dt[1];
             $d = $dt[2];
@@ -573,7 +588,7 @@ FROM
             $this->set('tdunprcnt', $this->PrintingShiftreport->query("SELECT SUM(unprinted_scrap)*100/(SELECT SUM(input) from printing_shiftreport where date = '$rdate') as unprintedpercent FROM printing_shiftreport where date='$rdate'"));
             $this->set('tmunprcnt', $this->PrintingShiftreport->query("SELECT SUM(unprinted_scrap)*100/(SELECT SUM(input) from printing_shiftreport where date between '$startm' and  '$rdate') as unprintedpercent FROM printing_shiftreport where date between '$startm' and  '$rdate'"));
             $this->set('tyunprcnt', $this->PrintingShiftreport->query("SELECT SUM(unprinted_scrap)*100/(SELECT SUM(input) from printing_shiftreport where date between '$starty' and  '$rdate') as unprintedpercent FROM printing_shiftreport where date between '$starty' and  '$rdate'"));
-            $this->set('tyunprcnt', $this->PrintingShiftreport->query("SELECT SUM(unprinted_scrap)*100/(SELECT SUM(input) from printing_shiftreport where date between '$starty' and  '$rdate') as unprintedpercent FROM printing_shiftreport where date between '$starty' and  '$rdate'"));
+            //$this->set('tyunprcnt', $this->PrintingShiftreport->query("SELECT SUM(unprinted_scrap)*100/(SELECT SUM(input) from printing_shiftreport where date between '$starty' and  '$rdate') as unprintedpercent FROM printing_shiftreport where date between '$starty' and  '$rdate'"));
             
             
             //start printed and upprinted total
@@ -624,8 +639,8 @@ FROM
         }
         $_daysinmonth = $this->TimeLoss->query("select count(DISTINCT nepalidate) as dim from time_loss where department_id='$_department_id' and nepalidate LIKE '%$_n%' ");
         $this->set('_daysinmonth',$_daysinmonth['0']['0']['dim']);
-        $_daysinyear = $this->TimeLoss->query("select count(DISTINCT nepalidate) as diy from time_loss where department_id='$_department_id' and nepalidate LIKE '%$_y%' ");
-        $this->set('_daysinyear',$_daysinyear['0']['0']['diy']);
+        // $_daysinyear = $this->TimeLoss->query("select count(DISTINCT nepalidate) as diy from time_loss where department_id='$_department_id' and nepalidate LIKE '%$_y%' ");
+        // $this->set('_daysinyear',$_daysinyear['0']['0']['diy']);
         
         $dood = $this->ConsumptionStock->query("select nepalidate from consumption_stock order by consumption_id DESC LIMIT 1");
         foreach ($dood as $d):
@@ -956,10 +971,19 @@ Dimension
 
 
 //Mixing and Calendar Dashboard: Number of days operated
-        $operated_in_year = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_year from 
-            tbl_consumption_stock where nepalidate like '$y-%'");
-        $operated_in_month = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_month from 
-            tbl_consumption_stock where nepalidate like '$y-$mo-%'");
+        // $operated_in_year = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_year from 
+        //     tbl_consumption_stock where nepalidate like '$y-%'");
+        // $operated_in_month = $this->TblConsumptionStock->query("select count(distinct(nepalidate)) as operated_in_month from 
+        //     tbl_consumption_stock where nepalidate like '$y-$mo-%'");
+        
+       
+        // $this->set('operated_in_year',$operated_in_year);
+        // $this->set('operated_in_month',$operated_in_month);
+
+        $operated_in_year = $this->TimeLoss->query("select count(distinct(nepalidate)) as operated_in_year from 
+            time_loss where nepalidate like '$y-%'");
+        $operated_in_month = $this->TimeLoss->query("select count(distinct(nepalidate)) as operated_in_month from 
+            time_loss where nepalidate like '$y-$mo-%'");
         
        
         $this->set('operated_in_year',$operated_in_year);
@@ -1574,6 +1598,92 @@ Dimension
     }
      //export to csv: to date consumption
 
+
+    public function generate_print_issue_report()
+    {
+
+        $this->request->onlyAllow('ajax');
+        $month = $_POST['id'];
+        //echo $month;die;
+        $this->loadModel('PrintingPattern');
+        $this->loadModel('CategoryPrinting');
+        $this->loadModel('TblPrintingIssue');
+        $allMaterials = $this->PrintingPattern->query("SELECT * from printing_pattern order BY category_id ASC,pattern_name ASC ");
+        //echo'<pre>';print_r($allMaterials);die;
+        $lastDate = $this->TblPrintingIssue->query("SELECT distinct(nepalidate) from tbl_printing_issue order by nepalidate DESC limit 1")[0]['tbl_printing_issue']['nepalidate'];
+        //echo'<pre>';echo($lastDate);die;
+        $month = '%'.substr($lastDate, 0, 4).'-'.$month.'%';
+        //echo $month;die;
+
+        $allConsumptionStocks = $this->TblPrintingIssue->query("SELECT * from tbl_printing_issue where nepalidate like '$month'");
+        
+
+        echo '<table class="table table-bordered">';
+        echo '<tr class="success"><td>Materials</td><td>Quantity</td><td>Percentage</td></tr>';
+        //$totalBroughtScrap=0;
+        //$totalScrap =0;
+
+        $allTotal =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_printing_issue']['patterns'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['printing_pattern']['id'])) {
+                    $valMaterial = $materialOBJ->$m['printing_pattern']['id'];
+                }else{
+                    $valMaterial = 0;
+                }
+                //echo $valMaterial;die;
+                if($m['printing_pattern']['category_id']==13){
+                    $totalBroughtScrap += $valMaterial;
+                }elseif($m['printing_pattern']['category_id']==14){
+                    $totalScrap += $valMaterial;
+                }else{
+
+                    $allTotalRaw = $valMaterial+$allTotalRaw;
+                }
+            endforeach;
+        endforeach;
+        $totalQuantity = $allTotalRaw?$allTotalRaw:1;
+        $i=0;
+        $allTotal =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_printing_issue']['patterns'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['printing_pattern']['id'])) {
+                    $valMaterial = $materialOBJ->$m['printing_pattern']['id'];
+                }else{
+                    $valMaterial = 0;
+                }
+                
+                $totalMaterial += $valMaterial;
+                $allTotalRaw = $valMaterial+$allTotalRaw;
+                $valMaterial =  0;
+                
+                $allTotal += $valMaterial;
+            endforeach;
+            echo '<tr><td>'.$m['printing_pattern']['pattern_name'].'</td><td>'.number_format($totalMaterial,2).'</td><td>'.number_format($totalMaterial*100/$totalQuantity, 2).'%</td></tr>';
+            $result[$i]['material_name']=$m['mixing_materials']['name'];
+            $result[$i]['material_quantity']=$totalMaterial;
+            $result[$i]['material_percent']=$totalMaterial*100/$totalQuantity;
+
+            $totalMaterial = 0;
+        endforeach;
+        $total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
+        $raw_percent = $allTotalRaw*100/$total;
+        echo '<tr class="success"><td>Total</td><td>'.number_format($allTotalRaw,2).'</td><td>'.number_format($raw_percent,2).'%</td></tr>';
+        echo '</table>';
+        exit;
+    }
+
+
+
 function export_consumption()
 {
     $this->request->onlyAllow('ajax');
@@ -1760,6 +1870,100 @@ function export()
 
 }
 
+function exportprintcsv()
+{
+    $month = isset($_GET['Month'])?$_GET['Month']:'06';
+            $this->request->onlyAllow('ajax');
+        $month = $_POST['id'];
+        //echo $month;die;
+        $this->loadModel('PrintingPattern');
+        $this->loadModel('CategoryPrinting');
+        $this->loadModel('TblPrintingIssue');
+        $allMaterials = $this->PrintingPattern->query("SELECT * from printing_pattern order BY category_id ASC,pattern_name ASC ");
+        //echo'<pre>';print_r($allMaterials);die;
+        $lastDate = $this->TblPrintingIssue->query("SELECT distinct(nepalidate) from tbl_printing_issue order by nepalidate DESC limit 1")[0]['tbl_printing_issue']['nepalidate'];
+        //echo'<pre>';echo($lastDate);die;
+        $month = '%'.substr($lastDate, 0, 4).'-'.$month.'%';
+        //echo $month;die;
+
+        $allConsumptionStocks = $this->TblPrintingIssue->query("SELECT * from tbl_printing_issue where nepalidate like '$month'");
+        
+
+        echo '<table class="table table-bordered">';
+        echo '<tr class="success"><td>Materials</td><td>Quantity</td><td>Percentage</td></tr>';
+        //$totalBroughtScrap=0;
+        //$totalScrap =0;
+
+        $allTotal =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_printing_issue']['patterns'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['printing_pattern']['id'])) {
+                    $valMaterial = $materialOBJ->$m['printing_pattern']['id'];
+                }else{
+                    $valMaterial = 0;
+                }
+                //echo $valMaterial;die;
+                if($m['printing_pattern']['category_id']==13){
+                    $totalBroughtScrap += $valMaterial;
+                }elseif($m['printing_pattern']['category_id']==14){
+                    $totalScrap += $valMaterial;
+                }else{
+
+                    $allTotalRaw = $valMaterial+$allTotalRaw;
+                }
+            endforeach;
+        endforeach;
+        $totalQuantity = $allTotalRaw?$allTotalRaw:1;
+        $i=0;
+        $allTotal =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_printing_issue']['patterns'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['printing_pattern']['id'])) {
+                    $valMaterial = $materialOBJ->$m['printing_pattern']['id'];
+                }else{
+                    $valMaterial = 0;
+                }
+                
+                $totalMaterial += $valMaterial;
+                $allTotalRaw = $valMaterial+$allTotalRaw;
+                $valMaterial =  0;
+                
+                $allTotal += $valMaterial;
+            endforeach;
+            echo '<tr><td>'.$m['printing_pattern']['pattern_name'].'</td><td>'.number_format($totalMaterial,2).'</td><td>'.number_format($totalMaterial*100/$totalQuantity, 2).'%</td></tr>';
+            $result[$i]['material_name']=$m['mixing_materials']['name'];
+            $result[$i]['material_quantity']=$totalMaterial;
+            $result[$i]['material_percent']=$totalMaterial*100/$totalQuantity;
+
+            $totalMaterial = 0;
+        endforeach;
+        //$total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
+        $raw_percent = $allTotalRaw*100/$total;
+        
+
+    $this->set('mixingMaterials', $mixingMaterials);
+    $this->set('totalMaterialArray', $totalMaterialArray);
+    $this->set('totalMaterialPercentageArray', $totalMaterialPercentageArray);
+    $this->set('allTotalRaw', $allTotalRaw);
+    
+
+    $this->layout = null;
+
+    $this->autoLayout = false;
+    Configure::write('debug', '2');
+
+
+}
+
 
 
 
@@ -1850,7 +2054,7 @@ function export()
 
     }
 
-    public function dash_values()
+        public function dash_values()
     {
         $this->loadModel('TblConsumptionStock');
         $this->loadModel('MixingMaterial');
@@ -2057,7 +2261,13 @@ function export()
         foreach($mix_id as $m):
             foreach($material_total as $ma):
                 $materials = json_decode($ma['tbl_consumption_stock']['materials']);
-                $total +=$materials->$m['mixing_materials']['id'];
+                if(property_exists($materials, $m['mixing_materials']['id']))
+                {
+                    $valMaterial = $materials->$m['mixing_materials']['id'];
+                }else{
+                    $valMaterial = 0;
+                }
+                $total +=$valMaterial;
             endforeach;
         endforeach;
         

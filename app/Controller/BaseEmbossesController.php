@@ -26,8 +26,9 @@ class BaseEmbossesController extends AppController
     {
         $this->BaseEmboss->recursive = 0;
         $data = $this->Paginator->paginate();
-        $data1 = array_unique($data);
-        $this->set('baseEmbosses', $data1);
+        // $data1 = array_unique($data);
+        // $this->set('baseEmbosses', $data1);
+        $this->set('baseEmbosses', $data);
     }
 
     /**

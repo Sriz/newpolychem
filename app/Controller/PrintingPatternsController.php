@@ -23,6 +23,9 @@ class PrintingPatternsController extends AppController {
 	public function index() {
 		$this->PrintingPattern->recursive = 0;
 		$this->set('printingPatterns', $this->Paginator->paginate());
+		$this->loadModel('CategoryPrinting');
+        $category = $this->CategoryPrinting->find('all');
+        $this->set('category', $category);
 	}
 
 /**
@@ -52,6 +55,9 @@ class PrintingPatternsController extends AppController {
 				return $this->flash(__('The printing pattern has been saved.'), array('action' => 'index'));
 			}
 		}
+		$this->loadModel('CategoryPrinting');
+        $category = $this->CategoryPrinting->find('all');
+        $this->set('category', $category);
 	}
 
 /**
@@ -73,6 +79,12 @@ class PrintingPatternsController extends AppController {
 			$options = array('conditions' => array('PrintingPattern.' . $this->PrintingPattern->primaryKey => $id));
 			$this->request->data = $this->PrintingPattern->find('first', $options);
 		}
+
+		$this->loadModel('CategoryPrinting');
+        $category = $this->CategoryPrinting->find('all');
+        $this->set('category', $category);
+        $currentId =$this->PrintingPattern->query("SELECT * from printing_pattern WHERE  id='$id'")[0]['printing_pattern']['category_id'];
+        $this->set('currentId', isset($currentId)?$currentId:null);
 	}
 
 /**

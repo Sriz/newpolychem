@@ -5,12 +5,22 @@
 	<tr>
 			<th><?php echo $this->Paginator->sort('id'); ?></th>
 			<th><?php echo $this->Paginator->sort('pattern_name'); ?></th>
+			<th><?php echo $this->Paginator->sort('category_id'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
+	<?php
+        $arr = array();
+        foreach($category as $c):
+            $arr[$c['CategoryPrinting']['id']] = $c['CategoryPrinting']['name'];
+        endforeach;
+        ?>
 	<?php foreach ($printingPatterns as $printingPattern): ?>
+		
 	<tr>
 		<td><?php echo h($printingPattern['PrintingPattern']['id']); ?>&nbsp;</td>
 		<td><?php echo h($printingPattern['PrintingPattern']['pattern_name']); ?>&nbsp;</td>
+		<!-- <td><?php echo h($printingPattern['PrintingPattern']['category_id']); ?>&nbsp;</td> -->
+		<td><?=isset($printingPattern['PrintingPattern']['category_id'])?$arr[$printingPattern['PrintingPattern']['category_id']]:'No-Category'; ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $printingPattern['PrintingPattern']['id'])); ?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $printingPattern['PrintingPattern']['id'])); ?>

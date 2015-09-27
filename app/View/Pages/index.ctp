@@ -57,27 +57,24 @@
 
 
 <script>
-    function month(sel) {
+    function generate_print(sel) {
         //code
         var strUser = sel.value;
         var dataString = 'id=' + strUser;
         //var dataString = 'id='+ strUser;
+        console.log(dataString)
         $.ajax
         ({
             type: "POST",
-            url: "/newpolychem/Pages/s",
+            url: "/newpolychem/Pages/generate_print_issue_report",
             data: dataString,
             cache: false,
             success: function (html) {
-//$(".content").html(html);
+            //$(".content").html(html);
                 $(".consumption").html(html);
             }
         });
-
-
     }
-
-
 </script>
 
 
@@ -160,8 +157,6 @@
                         </div>
                         <div class="panel-body">
                             <table class="table table-bordered table-hover">
-
-
                                 </tr>
                                 <tr>
                                     <td>In this Month (<?php echo $monthname; ?>)</td>
@@ -179,13 +174,13 @@
 
                                 </tr>
 
-                                </tr></table>
+                                </tr>
+                            </table>
                         </div>
                     </div>
                 </div>
-
-
             </div>
+
 
             <div class="row">
                 <div class="col-md-6">
@@ -826,7 +821,7 @@
                 <div class="col-md-12" style="margin:0px;padding:0px;">
                     <div class="panel panel-primary">
                         <div class="panel-heading">BreakDown Reasons %</div>
-                       <div class="panel-body">
+                        <div class="panel-body">
                             <div class="container-fluid">
                                 <table class="table">
                                     <tr class="success">
@@ -899,12 +894,12 @@
                 </div>
             </div>
             
-                <div class="row">
-                    <div class="col-md-12" style="margin:0px;padding:0px;">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">Loss Hour Reasons %</div>
-                                <div class="panel-body">
-                                    <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12" style="margin:0px;padding:0px;">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Loss Hour Reasons %</div>
+                        <div class="panel-body">
+                            <div class="container-fluid">
                                 <table class="table" style="font-size: 14px;">
                                     <tr class="success">
                                         <th>Reasons</th>
@@ -967,7 +962,7 @@
                                 </table>
 
                             </div>
-                </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1213,10 +1208,89 @@
         <ol class="breadcrumb">
             <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
         </ol>
+
+        <!--Number of days operated-->
+         <?php
+            switch ($latestmonth) {
+                case "01":
+                    $monthname = "Baishak";
+                    break;
+                case "02":
+                    $monthname = "Jestha";
+                    break;
+                case "03":
+                    $monthname = "Ashad";
+                    break;
+                case "04":
+                    $monthname = "Shrawan";
+                    break;
+                case "05":
+                    $monthname = "Bhadra";
+                    break;
+                case "06":
+                    $monthname = "Ashoj";
+                    break;
+                case "07":
+                    $monthname = "Kartik";
+                    break;
+                case "08":
+                    $monthname = "Mangsir";
+                    break;
+                case "09":
+                    $monthname = "Poush";
+                    break;
+                case "10":
+                    $monthname = "Magh";
+                    break;
+                case "11":
+                    $monthname = "Falgun";
+                    break;
+                case "12":
+                    $monthname = "Chaitra";
+                    break;
+            }
+        ?>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Number of Days Operated
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-bordered table-hover">
+                                </tr>
+                                <tr>
+                                    <td>In this Month (<?php echo $monthname; ?>)</td>
+                                    <td align="right">
+
+                                        <?php echo $operated_in_month[0][0]['operated_in_month']; ?>
+                                    </td>
+
+                                </tr>
+                                <tr>
+                                    <td>In this Year (<?php echo $latestyear; ?>)</td>
+                                    <td align="right">
+                                        <?php echo $operated_in_year[0][0]['operated_in_year'];?>
+                                    </td>
+
+                                </tr>
+
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        <!--Printing I/O Analysis-->
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">Output Analysis</div>
+                    <div class="panel-heading">Input Output Analysis</div>
                     <div class="panel-body">
                         <div class="container-fluid">
 
@@ -1225,15 +1299,9 @@
                                 <tr>
                                     <th>
                                     </th>
-                                    <th style="text-align: right;">
-                                        Today
-                                    </th>
-                                    <th style="text-align: right;">
-                                        To Month
-                                    </th>
-                                    <th style="text-align: right;">
-                                        To Year
-                                    </th>
+                                    <th>Today <br/>(<?= $latest_date;?>)</th>
+                                    <th>To Month <br/>(<?= $latest_month;?>)</th>
+                                    <th>To Year <br/>(<?= $latest_year;?>)</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -1312,7 +1380,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        No of Color Made
+                                        Number of Color Made
                                     </td>
                                     <td style="text-align: right;">
                                         <?php
@@ -1331,7 +1399,7 @@
                                         //echo $date;
                                         //print_r($color);
                                         foreach ($monthly1 as $col):
-                                            echo number_format($col['0']['total'] / $_daysinmonth);
+                                            echo number_format($col['0']['total'] / $operated_in_month[0][0]['operated_in_month']);
                                         endforeach;
 
                                         ?>
@@ -1342,7 +1410,8 @@
                                         //echo $date;
                                         //print_r($color);
                                         foreach ($yearly1 as $col):
-                                            echo number_format($col['0']['total'] / $_daysinyear);
+                                            //echo'<pre>';print_r($col);die;
+                                            echo number_format($col['0']['total'] / $operated_in_year[0][0]['operated_in_year']);
                                         endforeach;
 
                                         ?>
@@ -1405,8 +1474,8 @@
                                 <thead>
                                 <tr>
                                     <th>Dimension</th>
-                                    <th style="text-align: right;">input</th>
-                                    <th style="text-align: right;">output</th>
+                                    <th style="text-align: right;">Input</th>
+                                    <th style="text-align: right;">Output</th>
                                     <th style="text-align: right;">Ratio</th>
                                     <th style="text-align: right;">Target</th>
                                 </tr>
@@ -1435,114 +1504,231 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6" style="margin:0px;padding:0px;">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">BreakDown Reasons %</div>
-                    <div class="panel-body">
-                        <div class="container-fluid">
-                            <table class="table" style="font-size: 14px;">
-                                <tr class="success">
-                                    <th>Reasons</th>
-                                    <th style="text-align: right;">Today</th>
-                                    <th style="text-align: right;">To Month</th>
-                                    <th style="text-align: right;">To Year</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <?php foreach ($tybdloss as $bd):
+                <div class="col-md-12" style="margin:0px;padding:0px;">
+                    <div class="panel panel-primary">
+                        <!--Printing Breakdown-->
+                        <div class="panel-heading">BreakDown Reasons %</div>
+                        <div class="panel-body">
+                            <div class="container-fluid">
+                                <table class="table">
+                                    <tr class="success">
+                                        <th>Reasons</th>
+                                        <th>Today<br/>(<?= $latest_date;?>)</th>
+                                        <th>To Month<br/>(<?= $latest_month; ?>)</th>
+                                        <th>To Year<br/>(<?= $latest_year; ?>)</th>
+                                    </tr>
+                                    
+                                    <tr>
+                            
+                                        <td><?php
+                                            $rea_count = count($tybdloss);
+                                            
+                                            foreach ($bd_reason as $bd):
+                                                echo $bd. '<br/>';
+                                            endforeach;
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($bd_d as $bd):
 
-                                            echo $bd['time_loss']['reasons'] . '<br/>';
+                                                echo number_format($bd[0][0]['bd_d'], 2) . '%<br/>';
 
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tdbdloss as $bd):
+                                            endforeach;
 
-                                            echo number_format($bd['0']['tdbdloss'], 2) . '%<br/>';
+                                            $today_count = count($bd_d);
+                                            for($today_count;$today_count<$rea_count;$today_count++)
+                                            {
+                                                
+                                                 echo number_format(0,2).'%<br/>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php  foreach ($bd_m as $bd):
 
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tmbdloss as $bd):
+                                                echo number_format($bd[0][0]['bd_m'], 2) . '%<br/>';
 
-                                            echo number_format($bd['0']['tmbdloss'], 2) . '%<br/>';
+                                            endforeach;
+                                            $month_count = count($bd_m);
+                                            
+                                            for($month_count;$month_count<$rea_count;$month_count++)
+                                            {
+                                                echo number_format(0,2).'%<br/>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($bd_y as $bd):
 
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tybdloss as $bd):
+                                                echo number_format($bd[0][0]['bd_y'], 2) . '%<br/>';
 
-                                            echo number_format($bd['0']['tybdloss'], 2) . '%<br/>';
+                                            endforeach;
+                                            $year_count = count($bd_y);
+                                            for($year_count;$year_count<$rea_count;$year_count++)
+                                            {
+                                                
+                                                 echo number_format(0,2).'%<br/>';
 
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                </tr>
 
-                            </table>
-
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-6" style="margin:0px;padding:2px;">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Loss Hour Reasons %</div>
-                    <div class="panel-body">
-                        <div class="container-fluid">
-                            <table class="table" style="font-size: 14px;">
-                                <tr class="success">
-                                    <th>Reasons</th>
-                                    <th style="text-align: right;">Today</th>
-                                    <th style="text-align: right;">To Month</th>
-                                    <th style="text-align: right;">To Year</th>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <?php foreach ($tylhloss as $bd):
-
-                                            echo $bd['time_loss']['reasons'] . '<br/>';
-
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tdlhloss as $bd):
-
-                                            echo number_format($bd['0']['tdlhloss'], 2) . '%<br/>';
-
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tmlhloss as $bd):
-
-                                            echo number_format($bd['0']['tmlhloss'], 2) . '%<br/>';
-
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php foreach ($tylhloss as $bd):
-
-                                            echo number_format($bd['0']['tylhloss'], 2) . '%<br/>';
-
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                </tr>
-
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
+
+        <!--Printing Loss Hour Reasons-->
+                    <div class="row">
+                <div class="col-md-12" style="margin:0px;padding:0px;">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Loss Hour Reasons %</div>
+                        <div class="panel-body">
+                            <div class="container-fluid">
+                                <table class="table" style="font-size: 14px;">
+                                    <tr class="success">
+                                        <th>Reasons</th>
+                                        <th>Today <br/>(<?= $latest_date;?>)</th>
+                                        <th>To Month <br/>(<?= $latest_month;?>)</th>
+                                        <th>To Year <br/>(<?= $latest_year;?>)</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <?php $rea_loss = count ($tylhloss);?>
+                                            <?php foreach ($reasons as $r):
+
+                                                echo $r . '<br/>';
+
+                                            endforeach;
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($tdlhloss as $bd):
+
+                                                echo number_format($bd[0][0]['tdlhloss'], 2) . '%<br/>';
+
+                                            endforeach;
+                                            $today_loss = count ($tdlhloss);
+                                            for($today_loss;$today_loss<$rea_loss;$today_loss++)
+                                            {
+                                                echo number_format(0,2).'%<br/>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php  foreach ($tmlhloss as $bd):
+
+                                                echo number_format($bd[0][0]['tmlhloss'], 2) . '%<br/>';
+
+                                            endforeach;
+                                            $month_loss = count ($tmlhloss);
+                                            for($month_loss;$month_loss<$rea_loss;$month_loss++)
+                                            {
+                                                echo number_format(0,2).'%<br/>';
+                                            }
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <?php foreach ($tylhloss as $bd):
+
+                                                echo number_format($bd[0][0]['tylhloss'], 2) . '%<br/>';
+
+                                            endforeach;
+                                            $year_loss = count ($tylhloss);
+                                            for($year_loss;$year<$rea_loss;$year_loss++)
+                                            {
+                                                echo number_format(0,2).'%<br/>';
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!--End: Printing Loss Hour Reasons-->
+         
+
+
+        <!--Printing: Loss Hour Calculations-->
+        <div class="row">
+            <div class="col-md-12" style="margin:0px;padding:2px;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">Loss Hour Calculations</div>
+                    <div class="panel-body">
+                        <div class="container-fluid">
+                            <table class="table table-bordered table-hover">
+
+                            <tr class="success">
+                                    <th>Category</th>
+                                    <th>Today (<?=$latest_date;?>)</th>
+                                    <th>To Month (<?=$latest_month;?>)</th>
+                                    <th>To Year (<?=$latest_year;?>)</th>
+                                </tr>
+                                <tr>
+                                    <td><strong>Break Down</strong></td>
+                                    <td><?php if($breakdownToDay!='')echo $breakdownToDay; else echo 0; ?></td>
+                                    <td><?php if($breakdownToMonth!='')echo $breakdownToMonth; else echo 0; ?></td>
+                                    <td><?php if($breakdownToYear!='')echo $breakdownToYear; else echo 0; ?></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><strong>Loss Hour</strong></td>
+                                    <td><?php if($losshourToDay!='')echo $losshourToDay; else echo 0; ?></td>
+                                    <td><?php if($losshourToMonth!='')echo $losshourToMonth; else echo 0; ?></td>
+                                    <td><?php if($losshourToYear!='')echo $losshourToYear; else echo 0; ?></td>
+                                    
+                                </tr>
+                                <tr>
+                                    <td><strong>Worked Hour</strong></td>
+                                    <td><?php if($workedHourToDay!='')echo $workedHourToDay; else echo 0; ?></td>
+                                    <td><?php if($workedHourToMonth!='')echo $workedHourToMonth; else echo 0; ?></td>
+                                    <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
+                                    
+                                </tr>
+                            
+                                <!-- <tr class="success">
+                                    <th>Category</th>
+                                    <th>Today <br>(<?= $latest_date;?>)</th>
+                                    <th>To Month <br>(<?= $latest_month;?>)</th>
+                                    <th>To Year<br>(<?= $latest_date;?>)</th>  
+                                </tr>
+                                <tr>
+                                    <td><strong>Break Down</strong></td>
+                                    <td><?= $breakdown_today; ?></td>
+                                    <td><?= $breakdown_tomnoth; ?></td>
+                                    <td><?= $breakdown_toyear; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Loss Hour</strong></td>
+                                    <td><?= $losshour_today; ?></td>
+                                    <td><?= $losshour_tomonth; ?></td>
+                                    <td><?= $losshour_toyear; ?></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Worked Hour</strong></td>
+                                    <td><?= $workhour_d; ?></td>
+                                    <td><?= $workhour_m; ?></td>
+                                    <td><?= $workhour_y; ?></td>
+                                </tr> -->
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--End of Printing: Loss Hour Calculations-->
+
+
+        </div>
+                <!--Monthly Printing Consumption Report-->
         <div class="row">
             <div class="col-sm-6" style="margin:0px;padding: 0px;">
                 <div class="panel panel-primary">
@@ -1555,64 +1741,40 @@
                         //print_r($s);
                         //endforeach;
                         echo '<td>';
-                        echo $this->Form->input('brand', array('type' => 'select', 'options' => array('01' => 'Baisakh', '02' => 'Jestha', '03' => 'Ashad', '04' => 'Shrawan', '05' => 'Bhadra', '06' => 'Ashoj', '07' => 'Kartik', '08' => 'Mangsir', '09' => 'Poush', '10' => 'Margh', '11' => 'falgun', '12' => 'Chaitra'), 'class' => 'month', 'onchange' => 'month(this);'));
+                        echo $this->Form->input('Month', array('type' => 'select', 'options' => array('01' => 'Baisakh', '02' => 'Jestha', '03' => 'Ashad', '04' => 'Shrawan', '05' => 'Bhadra', '06' => 'Ashoj', '07' => 'Kartik', '08' => 'Mangsir', '09' => 'Poush', '10' => 'Margh', '11' => 'falgun', '12' => 'Chaitra'), 'class' => 'month', 'onchange' => 'generate_print(this);'));
                         echo '</td>';
                         ?>
+
+                        <script>
+                                function updateLink3(that){
+                                    var month = $('#Month').val();
+                                    if(month){
+                                        var url = $(that).attr('href');
+                                        if(url.indexOf('?Month='))
+                                        {
+                                            url = url.split('?Month=')[0];
+                                        }
+                                        url+='?Month='+month;
+                                        $(that).attr('href',url);
+                                        return true;
+                                    }
+                                    return false;
+                                }
+                            </script>
+                            <?php
+                            echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'exportprintcsv'), array('class' => 'btn btn-success csv', 'onclick'=>'return updateLink(this);'));
+                            ?>
+
                         <div class="consumption">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6" style="margin:0px;padding:2px;">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Loss Hour Calculations</div>
-                    <div class="panel-body">
-                        <div class="container-fluid">
-                            <table class="table table-bordered table-hover">
-                               <tr class="success">
-                                    <th>Category</th>
-                                    <th>Today (<?=$latest_date;?></th>
-                                    <th>To Month (<?=$latest_month;?></th>
-                                    <th>To Year (<?=$latest_year;?></th>
-                                </tr>
-                                <tr>
-                                    <td><strong>Break Down</strong></td>
-                                    <td><?= $breakdownToDay; ?></td>
-                                    <td><?= $breakdownToMonth; ?></td>
-                                    <td><?= $breakdownToYear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Loss Hour</strong></td>
-                                    <td><?= $losshourToDay; ?></td>
-                                    <td><?= $losshourToMonth; ?></td>
-                                    <td><?= $losshourToYear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Worked Hour</strong></td>
-                                    <td><?= $workedHourToDay; ?></td>
-                                    <td><?= $workedHourToMonth; ?></td>
-                                    <td><?= $workedHourToYear; ?></td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </div> 
+        <!--End: Monthly Printing Consumption Report-->
     </div>
 </div>
-<div class="row">
-    <div class=col-mod-10">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Loss Graph</div>
-            <div class="panel-body">
-                <div class="charts">
-                    <?php echo $this->FusionCharts->render('Column2D Chart'); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+
 <?php } ?>
 <!--End of the printing department-->
 <!--Laminating department-->
@@ -1670,7 +1832,7 @@
                             </tr>
 
                             <tr>
-                                <td> No of Color Made</td>
+                                <td> Number of Color Made</td>
                                 <td style="text-align: right;">
                                     <?php foreach ($tdcolorcount as $trw):
 //                  echo $todayworkinghour.'='.$trw[0]['output'];

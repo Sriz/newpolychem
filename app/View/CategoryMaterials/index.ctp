@@ -17,7 +17,9 @@
             <tr>
                 <td><?=$i++;?></td>
                 <td><?=$c['category_materials']['name'];?></td>
-                <td><?=$this->Html->link('Edit',array('action' => 'edit', $c['category_materials']['id'])); ?> || <?=$this->Html->link('Delete',array('action' => 'delete', $c['category_materials']['id']),  array('confirm' => 'Are you sure you wish to delete this item?')); ?></td>
+                <td><?php echo $this->Html->link('Edit',array('action' => 'edit', $c['category_materials']['id'])); ?> 
+                    <!--$this->Html->link('Delete',array('action' => 'delete', $c['category_materials']['id']),  array('confirm' => 'Are you sure you wish to delete this item?'));-->
+                </td>
             </tr>
             <?php endforeach;?>
         </table>

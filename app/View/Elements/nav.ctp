@@ -19,7 +19,8 @@
 
 		<?php if(AuthComponent::user('id') and AuthComponent::user('role')=='admin'){?>
 			<ul class="nav navbar-nav side-nav">
-				<li class="<?php echo $this->params->params['controller'] == 'pages' ? 'active' : ''?>"><a href="<?php echo $this->params->webroot?>home"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'pages' ? 'active' : ''?>"><a href="<?php echo $this->params->webroot?>home"><i class="fa fa-dashboard"></i> Dashboard</a>
+				</li>
 				<li class="dropdown <?php echo $this->params->params['controller'] == 'users' ? 'active' : ''?>">
 					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> Users <b
 							class="caret"></b></a>
@@ -27,38 +28,27 @@
 						<li><a href="<?php echo $this->params->webroot?>users"><i class="fa fa-list"></i> List</a></li>
 						<li><a href="<?php echo $this->params->webroot?>users/add"><i class="fa fa-plus"></i> Register new user</a></li>
 					</ul>
-					
-					
-					
 				</li>
 				
-				<li class="dropdown <?php echo $this->params->params['controller'] == 'users' ? '' : ''?>">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> Settings<b
-							class="caret"></b></a>
-
-
-						<li><a href="<?php echo $this->params->webroot?>PrintingPatterns"><i class="fa fa-plus"></i>Printing Patterns</a></li>
-						<li><a href="<?php echo $this->params->webroot?>MixingMaterials"><i class="fa fa-plus"></i>Mixing Materials</a></li>
-						<li><a href="<?php echo $this->params->webroot?>CategoryMaterials"><i class="fa fa-plus"></i>Material Category</a></li>
-
-						<li><a href="<?php echo $this->params->webroot?>Products"><i class="fa fa-plus"></i>Laminating Color</a></li>
-						<li><a href="<?php echo $this->params->webroot?>BaseEmbosses"><i class="fa fa-plus"></i>Calendar Color</a></li>
-					
-						<li><a href="<?php echo $this->params->webroot?>PrintingData"><i class="fa fa-plus"></i>Printing Color</a></li>	
-						<li><a href="<?php echo $this->params->webroot?>TimeLossReasons"><i class="fa fa-plus"></i>TimeLoss Reason</a></li>				
-						<li><a href="<?php echo $this->params->webroot?>LaminatingReasons"><i class="fa fa-plus"></i>Laminating Reason</a></li>
-						<li><a href="<?php echo $this->params->webroot?>DimensionTarget"><i class="fa fa-plus"></i>Dimension Target</a></li>
-				</li>
-
+				<li class="dropdown <?php echo $this->params->params['controller'] == 'users' ? '' : ''?>"></li>
+					<!-- <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-users"></i> Settings<b
+							class="caret"></b></a> -->
+				<li><a href="<?php echo $this->params->webroot?>PrintingPatterns"><i class="fa fa-plus"></i>Printing Patterns</a></li>
+				<li><a href="<?php echo $this->params->webroot?>CategoryPrinting"><i class="fa fa-plus"></i>Printing Material Category</a></li>
+				<li><a href="<?php echo $this->params->webroot?>MixingMaterials"><i class="fa fa-plus"></i>Mixing Materials</a></li>
+				<li><a href="<?php echo $this->params->webroot?>CategoryMaterials"><i class="fa fa-plus"></i>Mixing Material Category</a></li>
+				<li><a href="<?php echo $this->params->webroot?>Products"><i class="fa fa-plus"></i>Laminating Color</a></li>
+				<li><a href="<?php echo $this->params->webroot?>BaseEmbosses"><i class="fa fa-plus"></i>Calendar Color</a></li>
+			
+				<li><a href="<?php echo $this->params->webroot?>PrintingData"><i class="fa fa-plus"></i>Printing Color</a></li>	
+				<li><a href="<?php echo $this->params->webroot?>TimeLossReasons"><i class="fa fa-plus"></i>TimeLoss Reason</a></li>				
+				<li><a href="<?php echo $this->params->webroot?>LaminatingReasons"><i class="fa fa-plus"></i>Laminating Reason</a></li>
+				<li><a href="<?php echo $this->params->webroot?>DimensionTarget"><i class="fa fa-plus"></i>Dimension Target</a></li>
 
 				
+				<li><a href="<?php echo $this->params->webroot?>PrintDimensionTarget"><i class="fa fa-plus"></i>Print Dimension Target</a></li>
+				<li><a href="#"><i class="fa fa-plus"></i>Empty</a></li>
 				
-				</li>
-				
-				
-				
-				
-<!--				<li><a href="tables.html"><i class="fa fa-list"></i> Activity</a></li>-->
 			</ul>
 		<?php } ?>
 		
@@ -90,7 +80,7 @@
 				
 				<li class="<?php echo $this->params->params['controller'] == 'PrintingShiftreports' ?>"><a href="<?php echo $this->params->webroot?>PrintingShiftreports/index/sort:date/direction:desc"><i class="fa fa-dashboard"></i> Daily Printing Shift </a></li>
 				<li class="<?php echo $this->params->params['controller'] == 'TimeLosses' ?>"><a href="<?php echo $this->params->webroot?>TimeLosses/index/sort:nepalidate/direction:desc"><i class="fa fa-dashboard"></i> Time Loss</a></li>
-				<li class="<?php echo $this->params->params['controller'] == 'PrintingIssues' ?>"><a href="<?php echo $this->params->webroot?>PrintingIssues/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Printing Mixing Report</a></li>
+				<li class="<?php echo $this->params->params['controller'] == 'PrintingIssues' ?>"><a href="<?php echo $this->params->webroot?>TblPrintingIssues/index/sort:id/direction:desc"><i class="fa fa-dashboard"></i> Printing Mixing Report</a></li>
 			</ul>
 				</li>
 <!--				<li><a href="tables.html"><i class="fa fa-list"></i> Activity</a></li>-->
