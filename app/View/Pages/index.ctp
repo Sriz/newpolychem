@@ -319,7 +319,7 @@
 
                                 echo '<td>';
 
-                                echo $this->Form->input('brand', array('type' => 'select', 'options' => array('default' => 'Please Select', $brand), 'class' => 'brnd form-control', 'onchange' => 'getval(this);'));
+                                echo $this->Form->input('Brand', array('type' => 'select', 'options' => array('default' => 'Please Select', $brand), 'class' => 'brnd form-control', 'onchange' => 'getval(this);'));
                                 echo '</td>';
                                 echo '<td>';
                                 ?><br/><?php
@@ -328,6 +328,27 @@
                                 ?>
                                 <br/>
                                 
+                                <script>
+                                    function updateLink1(that){
+                                        var brand = $('#Brand').val();
+                                        var dim = $('#Dimension').val();
+                                        if(brand){
+                                            var url = $(that).attr('href');
+                                            if(url.indexOf('?Brand='))
+                                            {
+                                                url = url.split('?Brand=')[0];
+                                            }
+                                            url+='?Brand='+brand+'&Dimension='+dim;
+                                            $(that).attr('href',url);
+                                            return true;
+                                        }
+                                        return false;
+                                    }
+                                </script>
+                                <?php
+                                echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'export_consumption'), array('class' => 'btn btn-success csv', 'onclick'=>'return updateLink1(this);'));
+                                ?>
+
                                 <?php
                                     // echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'export_consumption'), array('target' => '_blank', 'class' => 'btn btn-success'));
                                 ?>
@@ -342,28 +363,9 @@
                     </div>
 
 
-                </div>
             </div>
-            <!-- <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Daily Consumption Chart
-                            </div>
-                            <div class="panel-body">
-                                <div class="chart">
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-
-            </div> -->
+            
+            
 
             <?php } ?>
             <!-- Ending mixing department-->
@@ -419,33 +421,32 @@
    }
 
     ?>
+
             <div class="panel panel-primary">
-            <div class="panel-heading">
-                Number of Days Operated
-            </div>
-            <div class="panel-body">
-                <table class="table table-bordered table-hover">
-                   
+                <div class="panel-heading">
+                    Number of Days Operated
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-hover">
+                       </tr>
+                        <tr>
+                            <td>In this Month (<?php echo $monthname;?>)</td>
+                            <td align="right">
+                            <?php echo $month2[0][0]['month'];?>
+                            </td>
+                            
+                        </tr>
+                        <tr>
+                            <td>In this Year (<?php echo $latestyear;?>)</td>
+                            <td align="right">
+                                <?php echo $year2[0][0]['year'];
+                                ?>
+                            </td>
+                            
+                        </tr>
                         
-                       
                     </tr>
-                    <tr>
-                        <td>In this Month (<?php echo $monthname;?>)</td>
-                        <td align="right">
-                        <?php echo $month2[0][0]['month'];?>
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                        <td>In this Year (<?php echo $latestyear;?>)</td>
-                        <td align="right">
-                            <?php echo $year2[0][0]['year'];
-                            ?>
-                        </td>
-                        
-                    </tr>
-                    
-                    </tr></table>
+                    </table>
             </div>
         </div>
 
@@ -593,12 +594,12 @@
                         </div>
                         <div class="panel-body">
                             <div class="row">
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <table class="table">
                                     
                                         
                                     <tr class="success">
-                                    <td>Dimension</td>
+                                    <th>Dimension</th>
                                     <?php
                                         //print_r($dimyear);
 
@@ -613,7 +614,47 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
+                                <table class="table">
+                                    
+                                        
+                                    <tr class="success">
+                                    <th>Type</th>
+                                    <?php
+                                        //print_r($dimyear);
+
+                                        foreach ($dim_list as $dm):
+                                            echo "<tr>";
+                                                echo "<td>";
+                                                    echo $dm['baseemboss']['type'];
+                                                echo "</td>";
+                                        endforeach;
+                                    ?>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-2">
+                                <table class="table">
+                                    
+                                        
+                                    <tr class="success">
+                                    <th>Brand</th>
+                                    <?php
+                                        //print_r($dimyear);
+
+                                        foreach ($dim_list as $dm):
+                                            echo "<tr>";
+                                                echo "<td>";
+                                                    echo $dm['baseemboss']['brand'];
+                                                echo "</td>";
+                                        endforeach;
+                                    ?>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-2">
                                 <table class="table">
                                     <tr class="success">
                                     <th>Today(<?= $latest_date;?>)</th>
@@ -630,7 +671,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                <table class="table">
                                     <tr class="success">
                                     <th>To Month(<?= $latest_month;?>)</th>
@@ -646,7 +687,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <div class="col-md-3">
+                            <div class="col-md-2">
                                 <table class="table">
                                     <tr class="success">
                                     <th>To Year (<?= $latest_year;?>)</th>
@@ -669,154 +710,9 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Target
-                        </div>
-                        <div class="panel-body">
-
-                            <table class="table">
-                                <tr class="success">
-                                    <td>Dimension</td>
-
-                                    <td>Target</td>
-                                </tr>
-                                <tr>
-                                    <?php
-                                    foreach ($dim_tar as $dt):
-                                    echo '<tr>';
-                                    echo '<td>' . number_format($dt['baseemboss']['Dimension'],2) . '</td>';
-                                    // echo '<td align="center">' . number_format($dt['0']['ratio'], 2) . '</td>';
-                                    echo '<td>' . number_format($dt['dimension_target']['target'],2) . '</td>';
-                                echo '</tr>';
-                                endforeach;
-                                ?>
-                            </table>
-
-
-                        </div>
-
-                    </div>
-                </div> -->
-
-
             </div>
 
-            <!--<div class="container-fluid">
-        <div class="row">
-            <div class="panel panel-primary">
-                        <div class="panel-heading">
-                          Breakdown/Loss Hour Calculation
-                        </div>
-                        <div class="panel-body">
-                        
-                            <table class="table table-bordered table-hover" style="margin:0px auto;"><tr>
-                <th>Type</th><th>Today</th><th>To Month</th><th>To Year</th>
-                <tr>
-                    <td>Loss Hours</td>
-                    <td>
-                        
-                    <?php
-            ?>
-                    </td>
-                    <td>
-                        <?php
-
-            //  if(!isset($mloss1))
-            //{
-            //foreach($mloss1 as $trw):
-            //echo number_format($trw[0]['tomonthlossc'],2);
-
-            //endforeach;
-            //  }
-            //else
-            //{
-            //echo $mloss1;
-            //}
-            //
-            ?>
-                    </td>
-                    <td>
-                        <?php
-            //if(!isset($yloss1))
-            //{
-            //foreach($yloss1 as $trw):
-            //echo number_format($trw[0]['tomonthlossc'],2);
-            //endforeach;
-            //}
-            //else
-            //{
-            //  echo $yloss1;
-            //}
-            //
-            ?>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Break Down</td>
-                    <td>
-                <?php
-            //  if(!isset($tbreakdown))
-            //{
-            //foreach($tbreakdown as $trw):
-            //  echo number_format($trw[0]['lossm'],2);
-
-            //      endforeach;
-            //}
-            //else
-            //{
-            //echo $tbreakdown;
-            //}
-            //
-            ?>
-                    </td>
-                    <td>
-                        <?php //print_r($breakdownmonth);
-            //  foreach($breakdownmonth as $trw):
-            //echo number_format($trw[0]['los1'],2);
-            //endforeach;
-            //echo $breakdownmonth;
-            ?>
-                    </td>
-                    <td>
-                        <?php
-            //print_r($breaakdownyear);
-
-            //if(!isset($breaakdownyear))
-            //{
-            //foreach($breaakdownyear as $trw):
-            //echo number_format($trw[0]['los'],2);
-            //endforeach;
-            //}
-            //else
-            //{
-            //echo $breaakdownyear;
-            //}
-
-            //echo $breaakdownyear;
-            ?>
-                <!--    </td>
-                </tr>
-                <tr>
-                    <td>Work Hours</td>
-                    <td>
-                        
-                    
-                    
-                    
-                    
-                    </td>
-                </tr>
-        </table>
-                        
-                    </div>
-                        
-        
-            
-        </div>
-        </div>
--->
+       
             <div class="row">
                 <div class="col-md-12" style="margin:0px;padding:0px;">
                     <div class="panel panel-primary">
@@ -1004,31 +900,7 @@
                                     <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
                                     
                                 </tr>
-                            
-                                <!-- <tr class="success">
-                                    <th>Category</th>
-                                    <th>Today <br>(<?= $latest_date;?>)</th>
-                                    <th>To Month <br>(<?= $latest_month;?>)</th>
-                                    <th>To Year<br>(<?= $latest_date;?>)</th>  
-                                </tr>
-                                <tr>
-                                    <td><strong>Break Down</strong></td>
-                                    <td><?= $breakdown_today; ?></td>
-                                    <td><?= $breakdown_tomnoth; ?></td>
-                                    <td><?= $breakdown_toyear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Loss Hour</strong></td>
-                                    <td><?= $losshour_today; ?></td>
-                                    <td><?= $losshour_tomonth; ?></td>
-                                    <td><?= $losshour_toyear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Worked Hour</strong></td>
-                                    <td><?= $workhour_d; ?></td>
-                                    <td><?= $workhour_m; ?></td>
-                                    <td><?= $workhour_y; ?></td>
-                                </tr> -->
+
                             </table>
                         </div>
                     </div>
@@ -1091,109 +963,140 @@
 
 
             
-                <div class="col-md-12" style="margin: 0px;padding: 0px;">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Dimensions
-                        </div>
-                        <div class="panel-body">
-                            <div class="row">
-                            <div class="col-md-4">
-                                <table class="table">
+            <div class="col-md-12" style="margin: 0px;padding: 0px;">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Dimensions
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                        <div class="col-md-2">
+                            <table class="table">
+                                
                                     
-                                        
-                                    <tr class="success">
-                                    <th>Dimension</th>
-                                    <?php
-                                        //print_r($dimyear);
+                                <tr class="success">
+                                <th>Dimension<br</th>
+                                <?php
+                                    //print_r($dimyear);
 
-                                        foreach ($dim_target as $dm):
-                                            echo "<tr>";
-                                                echo "<td>";
-                                                    echo $dm['dimension_target']['dimension'];
-                                                echo "</td>";
-                                        endforeach;
-                                    ?>
-                                        
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-md-4">
-                                <table class="table">
-                                    <tr class="success">
-                                    <th>Weight per Meter</th>
-                                    <?php
-
-                                    foreach ($output_m as $dd):
-                                        //print'<pre>';print_r($dd);print'</pre>';
-                                        echo "<tr>";
-                                            echo '<td>';
-                                                echo number_format($dd[0][0]['output'],2);
-                                            echo "</td>";
-                                    endforeach; 
-                                    ?>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="col-md-4">
-                               <table class="table">
-                                    <tr class="success">
-                                    <th>Target</th>
-                                    <?php
                                     foreach ($dim_target as $dm):
-                                        //print'<pre>';print_r($dy);print'</pre>';
                                         echo "<tr>";
-                                            echo '<td>';
-                                                echo number_format($dm['dimension_target']['target'],2);
+                                            echo "<td>";
+                                                echo $dm['dimension_target']['dimension'];
                                             echo "</td>";
                                     endforeach;
-                                    ?>
-                                    </tr>
-                                </table>
-                            </div>
-                            
+                                ?>
+                                    
+                                </tr>
+                            </table>
                         </div>
 
-                          
-                        </div>
-                    </div>
-                </div>
+                        <div class="col-md-2">
+                            <table class="table">
+                                
+                                    
+                                <tr class="success">
+                                <th>Type</th>
+                                <?php
+                                    //print_r($dimyear);
 
-                <!-- <div class="col-md-6">
-                    <div class="panel panel-primary">
-                        <div class="panel-heading">
-                            Target
+                                    foreach ($dim_target as $dm):
+                                        echo "<tr>";
+                                            echo "<td>";
+                                                echo $dm['dimension_target']['type'];
+                                            echo "</td>";
+                                    endforeach;
+                                ?>
+                                    
+                                </tr>
+                            </table>
                         </div>
-                        <div class="panel-body">
 
+                        <div class="col-md-2">
+                            <table class="table">
+                                
+                                    
+                                <tr class="success">
+                                <th>Brand</th>
+
+                                <?php
+                                    //print_r($dimyear);
+
+                                    foreach ($dim_target as $dm):
+                                        echo "<tr>";
+                                            echo "<td>";
+                                                echo $dm['dimension_target']['brand'];
+                                            echo "</td>";
+                                    endforeach;
+                                ?>
+                                    
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="col-md-2">
                             <table class="table">
                                 <tr class="success">
-                                    <td>Dimension</td>
+                                <th>Output (Wt per M)</th>
+                                <?php
 
-                                    <td>Target</td>
+                                foreach ($output_m as $dd):
+                                    //print'<pre>';print_r($dd);print'</pre>';
+                                    echo "<tr>";
+                                        echo '<td>';
+                                            echo number_format($dd[0][0]['output'],2);
+                                        echo "</td>";
+                                endforeach; 
+                                ?>
                                 </tr>
-                                <tr>
-                                    <?php
-                                    foreach ($dim_tar as $dt):
-                                    echo '<tr>';
-                                    echo '<td>' . number_format($dt['baseemboss']['Dimension'],2) . '</td>';
-                                    // echo '<td align="center">' . number_format($dt['0']['ratio'], 2) . '</td>';
-                                    echo '<td>' . number_format($dt['dimension_target']['target'],2) . '</td>';
-                                echo '</tr>';
+                            </table>
+                        </div>
+                        <div class="col-md-2">
+                           <table class="table">
+                                <tr class="success">
+                                <th>Target</th>
+                                <?php
+                                foreach ($dim_target as $dm):
+                                    //print'<pre>';print_r($dy);print'</pre>';
+                                    echo "<tr>";
+                                        echo '<td>';
+                                            echo number_format($dm['dimension_target']['target'],2);
+                                        echo "</td>";
                                 endforeach;
                                 ?>
+                                </tr>
                             </table>
-
-
                         </div>
 
+                       
+
+                        <div class="col-md-2">
+                           <table class="table" style="background-color:#f2dede">
+                                <tr class="success">
+                                <th>Difference</th>
+                                <?php 
+                                // echo'<pre>';print_r($dim_target);
+                                // echo'<pre>';print_r($output_m);die;
+                                $c = count($dim_target);
+                                for($i=0;$i<$c;$i++){
+                                echo "<tr>";
+                                    echo '<td id="diff">';
+                                        echo number_format(($output_m[$i][0][0]['output']-$dim_target[$i]['dimension_target']['target'])*100/$dim_target[$i]['dimension_target']['target'],2)."%";
+                                    echo "</td>";
+                                }
+                                ?>
+                                </tr>
+                            </table>
+                        </div>
+                        
                     </div>
-                </div> -->
 
+                      
+                    </div>
+                </div>
+            </div>
 
-            
-
-        </div>
+                
 
 
     <?php } ?>
@@ -1265,14 +1168,14 @@
                                     <td>In this Month (<?php echo $monthname; ?>)</td>
                                     <td align="right">
 
-                                        <?php echo $operated_in_month[0][0]['operated_in_month']; ?>
+                                        <?php echo $operated_print_month; ?>
                                     </td>
 
                                 </tr>
                                 <tr>
-                                    <td>In this Year (<?php echo $latestyear; ?>)</td>
+                                    <td>In this Year (<?php echo $current_print_year; ?>)</td>
                                     <td align="right">
-                                        <?php echo $operated_in_year[0][0]['operated_in_year'];?>
+                                        <?php echo $operated_print_year;?>
                                     </td>
 
                                 </tr>
@@ -1286,303 +1189,376 @@
 
 
 
-        <!--Printing I/O Analysis-->
-        <div class="row">
-            <div class="col-md-6">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Input Output Analysis</div>
-                    <div class="panel-body">
-                        <div class="container-fluid">
-
-                            <table class="table table-condensed table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>
-                                    </th>
-                                    <th>Today <br/>(<?= $latest_date;?>)</th>
-                                    <th>To Month <br/>(<?= $latest_month;?>)</th>
-                                    <th>To Year <br/>(<?= $latest_year;?>)</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr style="text-align: right">
-                                    <td style="text-align: left">Total Input</td>
-                                    <td><?php echo number_format($total_input_td, 2); ?></td>
-                                    <td><?php echo number_format($total_input_tm, 2); ?></td>
-                                    <td><?php echo number_format($total_input_ty, 2); ?></td>
-                                </tr>
-                                <tr style="text-align: right">
-                                    <td style="text-align: left">Total Output</td>
-                                    <td><?php echo number_format($total_putput_td, 2); ?></td>
-                                    <td><?php echo number_format($total_output_tm, 2); ?></td>
-                                    <td><?php echo number_format($total_output_ty, 2); ?></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Printed Loss %
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-
-                                        foreach ($tdprcnt as $p):
-                                            echo number_format($p['0']['printedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ///print_r($tdprcnt);
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        foreach ($tmprcnt as $p):
-                                            echo number_format($p['0']['printedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        foreach ($typrcnt as $p):
-                                            echo number_format($p['0']['printedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Unprinted Loss %
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-
-                                        foreach ($tdunprcnt as $p):
-                                            echo number_format($p['0']['unprintedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        foreach ($tmunprcnt as $p):
-                                            echo number_format($p['0']['unprintedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        foreach ($tyunprcnt as $p):
-                                            echo number_format($p['0']['unprintedpercent'], 2) . " %";
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Number of Color Made
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        //$date=date('01-m-Y');
-                                        //echo $date;
-                                        //print_r($color);
-                                        foreach ($color as $col):
-                                            echo number_format($col['0']['total']);
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        //$date=date('01-m-Y');
-                                        //echo $date;
-                                        //print_r($color);
-                                        foreach ($monthly1 as $col):
-                                            echo number_format($col['0']['total'] / $operated_in_month[0][0]['operated_in_month']);
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        //$date=date('01-m-Y');
-                                        //echo $date;
-                                        //print_r($color);
-                                        foreach ($yearly1 as $col):
-                                            //echo'<pre>';print_r($col);die;
-                                            echo number_format($col['0']['total'] / $operated_in_year[0][0]['operated_in_year']);
-                                        endforeach;
-
-                                        ?>
-                                    </td>
-                                </tr>
-                                <tr class="active">
-                                    <td>
-                                        Output Input Ratio
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        //$date=date('01-m-Y');
-                                        //echo $date;
-                                        //print_r($output);
-                                        foreach ($output as $col):
-                                            foreach ($tdinput as $in):
-                                                echo number_format($col['0']['output'] / $in['0']['tdinput'], 2);
-                                            endforeach;
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        //$date=date('01-m-Y');
-                                        //echo $date;
-                                        //print_r($omonthly);
-                                        foreach ($omonthly as $col):
-                                            foreach ($tminput as $in):
-                                                echo number_format($col['0']['output'] / $in['0']['tminput'], 2);
-                                            endforeach;
-                                        endforeach
-                                        ?>
-                                    </td>
-                                    <td style="text-align: right;">
-                                        <?php
-                                        foreach ($oyearly as $col):
-                                            foreach ($tyinput as $in):
-                                                echo number_format($col['0']['output'] / $in['0']['tyinput'], 2);
-                                            endforeach;
-                                        endforeach;
-                                        ?>
-                                    </td>
-                                </tr>
-
-
-                                </tbody>
-                            </table>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="container-fluid">
+            <!--Printing I/O Analysis-->
+            <div class="row">
+                <div class="col-md-12">
                     <div class="panel panel-primary">
-                        <div class="panel-heading">Input Output Ratio</div>
-                        <div class="panel-body">
-
-                            <table class="table table-condensed table-bordered">
-                                <thead>
-                                <tr>
-                                    <th>Dimension</th>
-                                    <th style="text-align: right;">Input</th>
-                                    <th style="text-align: right;">Output</th>
-                                    <th style="text-align: right;">Ratio</th>
-                                    <th style="text-align: right;">Target</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                foreach ($calenderratio as $loss) {
-                                    echo '<tr>';
-                                    echo '<td>' . $loss['printing_shiftreport']['dimension'] . '</td>';
-                                    echo '<td style="text-align: right;">' . number_format($loss['0']['input'], 2) . '</td>';
-                                    echo '<td style="text-align: right;">' . number_format($loss['0']['output'], 2) . '</td>';
-                                    echo '<td style="text-align: right;">' . number_format($loss['0']['cratio'], 2) . '</td>';
-                                    echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
-
-                                    echo '</tr>';
-
-                                }
-                                ?>
-                                </tbody>
-                            </table>
-
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-                <div class="col-md-12" style="margin:0px;padding:0px;">
-                    <div class="panel panel-primary">
-                        <!--Printing Breakdown-->
-                        <div class="panel-heading">BreakDown Reasons %</div>
+                        <div class="panel-heading">Input Output Analysis</div>
                         <div class="panel-body">
                             <div class="container-fluid">
-                                <table class="table">
-                                    <tr class="success">
-                                        <th>Reasons</th>
-                                        <th>Today<br/>(<?= $latest_date;?>)</th>
-                                        <th>To Month<br/>(<?= $latest_month; ?>)</th>
-                                        <th>To Year<br/>(<?= $latest_year; ?>)</th>
+
+                                <table class="table table-condensed table-bordered">
+                                    <thead>
+                                    <tr  class="success">
+                                        <th>
+                                        </th>
+                                        <th>Today <br/>(<?= $current_print_day;?>)</th>
+                                        <th>To Month <br/>(<?= $current_print_month;?>)</th>
+                                        <th>To Year <br/>(<?= $current_print_year;?>)</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr style="text-align: ">
+                                        <td style="text-align: left">Total Input</td>
+                                        <td><?php echo number_format($total_input_td, 2); ?></td>
+                                        <td><?php echo number_format($total_input_tm, 2); ?></td>
+                                        <td><?php echo number_format($total_input_ty, 2); ?></td>
+                                    </tr>
+                                    <tr style="text-align: " class="active">
+                                        <td style="text-align: left">Total Output</td>
+                                        <td><?php echo number_format($total_putput_td, 2); ?></td>
+                                        <td><?php echo number_format($total_output_tm, 2); ?></td>
+                                        <td><?php echo number_format($total_output_ty, 2); ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Printed Loss %
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+
+                                            foreach ($tdprcnt as $p):
+                                                // echo number_format($p['0']['printedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ///print_r($tdprcnt);
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            foreach ($tmprcnt as $p):
+                                                //echo number_format($p['0']['printedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            foreach ($typrcnt as $p):
+                                                //echo number_format($p['0']['printedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                    </tr>
+                                    <tr class="active">
+                                        <td>
+                                            Unprinted Loss %
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+
+                                            foreach ($tdunprcnt as $p):
+                                                //echo number_format($p['0']['unprintedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            foreach ($tmunprcnt as $p):
+                                                //echo number_format($p['0']['unprintedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            foreach ($tyunprcnt as $p):
+                                                //echo number_format($p['0']['unprintedpercent'], 2) . " %";
+                                                echo "Remaining";
+                                            endforeach;
+
+                                            ?>
+                                        </td>
                                     </tr>
                                     
                                     <tr>
-                            
-                                        <td><?php
-                                            $rea_count = count($tybdloss);
-                                            
-                                            foreach ($bd_reason as $bd):
-                                                echo $bd. '<br/>';
+                                        <td>
+                                            Output Input Ratio
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            //$date=date('01-m-Y');
+                                            //echo $date;
+                                            //print_r($output);
+                                            foreach ($output as $col):
+                                                foreach ($tdinput as $in):
+                                                    echo number_format($col['0']['output'] / $in['0']['tdinput'], 2);
+                                                endforeach;
                                             endforeach;
                                             ?>
                                         </td>
-                                        <td>
-                                            <?php foreach ($bd_d as $bd):
-
-                                                echo number_format($bd[0][0]['bd_d'], 2) . '%<br/>';
-
-                                            endforeach;
-
-                                            $today_count = count($bd_d);
-                                            for($today_count;$today_count<$rea_count;$today_count++)
-                                            {
-                                                
-                                                 echo number_format(0,2).'%<br/>';
-                                            }
+                                        <td style="text-align: ;">
+                                            <?php
+                                            //$date=date('01-m-Y');
+                                            //echo $date;
+                                            //print_r($omonthly);
+                                            foreach ($omonthly as $col):
+                                                foreach ($tminput as $in):
+                                                    echo number_format($col['0']['output'] / $in['0']['tminput'], 2);
+                                                endforeach;
+                                            endforeach
                                             ?>
                                         </td>
-                                        <td>
-                                            <?php  foreach ($bd_m as $bd):
-
-                                                echo number_format($bd[0][0]['bd_m'], 2) . '%<br/>';
-
+                                        <td style="text-align: ;">
+                                            <?php
+                                            foreach ($oyearly as $col):
+                                                foreach ($tyinput as $in):
+                                                    echo number_format($col['0']['output'] / $in['0']['tyinput'], 2);
+                                                endforeach;
                                             endforeach;
-                                            $month_count = count($bd_m);
-                                            
-                                            for($month_count;$month_count<$rea_count;$month_count++)
-                                            {
-                                                echo number_format(0,2).'%<br/>';
-                                            }
-                                            ?>
-                                        </td>
-                                        <td>
-                                            <?php foreach ($bd_y as $bd):
-
-                                                echo number_format($bd[0][0]['bd_y'], 2) . '%<br/>';
-
-                                            endforeach;
-                                            $year_count = count($bd_y);
-                                            for($year_count;$year_count<$rea_count;$year_count++)
-                                            {
-                                                
-                                                 echo number_format(0,2).'%<br/>';
-
-
-                                            }
                                             ?>
                                         </td>
                                     </tr>
+                                    <tr class="active">
+                                        <td>
+                                            Number of Color Made
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            //$date=date('01-m-Y');
+                                            //echo $date;
+                                            //print_r($color);
+                                            foreach ($color as $col):
+                                                echo number_format($col['0']['total']);
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            //$date=date('01-m-Y');
+                                            //echo $operated_print_month;die;
+                                            //print_r($color);
+
+                                            foreach ($monthly1 as $col):
+                                                echo number_format($col['0']['total'] / $operated_print_month);
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                        <td style="text-align: ;">
+                                            <?php
+                                            //$date=date('01-m-Y');
+                                            //echo $date;
+                                            //print_r($color);
+                                            foreach ($yearly1 as $col):
+                                                //echo'<pre>';print_r($col);die;
+                                                echo number_format($col['0']['total'] / $operated_print_year);
+                                            endforeach;
+
+                                            ?>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>Per Hour Output</td>
+                                        <!-- output/(24 * # of days worked) -->
+                                        <?php
+                                        //TODO::add currentdate 
+                                        ?>
+                                        <td><?php echo number_format($print_output_day,2)?></td>
+                                        <td><?php echo number_format($print_output_month,2);?></td>
+                                        <td><?php echo number_format($print_output_year,2);?></td>
+                                    </tr>
+
+                                    <tr class="active">
+                                    
+                                        <td>Per Work Hour Output</td>
+                                        <!-- output/(avg working hour * # of days worked) -->
+                                        <td><?php echo number_format($total_output_day/$avg_wh_d,2)?></td>
+                                        <td><?php echo number_format($total_output_month/($avg_wh_m*$operated_print_month),2);?></td>
+                                        <td><?php echo number_format($total_output_year/($avg_wh_y*$operated_print_year),2);?></td>
+                                    </tr>
+
+                                    </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </div>
                 </div>
-        </div>
+                
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="container-fluid">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Input Output Ratio</div>
+                            <div class="panel-body">
+
+                                <table class="table table-condensed table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th style="text-align: ;">Input</th>
+                                        <th style="text-align: ;">Output</th>
+                                        <th style="text-align: ;">Ratio</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    foreach ($calenderratio as $loss) {
+                                        echo '<tr>';
+                                        echo '<td>' . $loss['printing_shiftreport']['dimension'] . '</td>';
+                                        echo '<td style="text-align: ;">' . number_format($loss['0']['input'], 2) . '</td>';
+                                        echo '<td style="text-align: ;">' . number_format($loss['0']['output'], 2) . '</td>';
+                                        echo '<td style="text-align: ;">' . number_format($loss['0']['cratio'], 2) . '</td>';
+                                        //echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
+
+                                        echo '</tr>';
+
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="container-fluid">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">Dimension Target</div>
+                            <div class="panel-body">
+
+                                <table class="table table-condensed table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th>Target Ratio</th>
+                                        <!-- <th style="text-align: right;">Output</th>
+                                        <th style="text-align: right;">Ratio</th> -->
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php
+                                    foreach ($target_print as $target) {
+                                        echo '<tr>';
+                                        echo '<td>' . $target[0]['print_dimension_target']['dimension'] . '</td>';
+                                        echo '<td>' . $target[0]['print_dimension_target']['target'] . '</td>';
+                                        
+                                        
+                                        //echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
+
+                                        echo '</tr>';
+
+                                    }
+                                    ?>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-md-12" style="margin:0px;padding:0px;">
+                        <div class="panel panel-primary">
+                            <!--Printing Breakdown-->
+                            <div class="panel-heading">BreakDown Reasons %</div>
+                            <div class="panel-body">
+                                <div class="container-fluid">
+                                    <table class="table">
+                                        <tr class="success">
+                                            <th>Reasons</th>
+                                            <th>Today <br/>(<?= $current_print_day;?>)</th>
+                                            <th>To Month <br/>(<?= $current_print_month;?>)</th>
+                                            <th>To Year <br/>(<?= $current_print_year;?>)</th>
+                                        </tr>
+                                        
+                                        <tr>
+                                
+                                            <td><?php
+                                                $rea_count = count($bd_reason);
+                                                
+                                                foreach ($bd_reason as $bd):
+                                                    echo $bd. '<br/>';
+                                                endforeach;
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php foreach ($bd_d as $bd):
+
+                                                    echo number_format($bd[0][0]['bd_d'], 2) . '%<br/>';
+
+                                                endforeach;
+
+                                                $today_count = count($bd_d);
+                                                for($today_count;$today_count<$rea_count;$today_count++)
+                                                {
+                                                    
+                                                     echo number_format(0,2).'%<br/>';
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+
+                                                <?php
+
+                                                foreach ($bd_m as $bd):
+                                                    //print_r($bd);die;
+                                                    echo number_format($bd[0][0]['bd_m'], 2) . '%<br/>';
+
+                                                endforeach;
+                                                $month_count = count($bd_m);
+                                                
+                                                for($month_count;$month_count<$rea_count;$month_count++)
+                                                {
+                                                    echo number_format(0,2).'%<br/>';
+                                                }
+                                                ?>
+                                            </td>
+                                            <td>
+                                                <?php foreach ($bd_y as $bd):
+
+                                                    echo number_format($bd[0][0]['bd_y'], 2) . '%<br/>';
+
+                                                endforeach;
+                                                $year_count = count($bd_y);
+                                                for($year_count;$year_count<$rea_count;$year_count++)
+                                                {
+                                                    
+                                                     echo number_format(0,2).'%<br/>';
+
+
+                                                }
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
 
         <!--Printing Loss Hour Reasons-->
-                    <div class="row">
+            <div class="row">
                 <div class="col-md-12" style="margin:0px;padding:0px;">
                     <div class="panel panel-primary">
                         <div class="panel-heading">Loss Hour Reasons %</div>
@@ -1591,9 +1567,9 @@
                                 <table class="table" style="font-size: 14px;">
                                     <tr class="success">
                                         <th>Reasons</th>
-                                        <th>Today <br/>(<?= $latest_date;?>)</th>
-                                        <th>To Month <br/>(<?= $latest_month;?>)</th>
-                                        <th>To Year <br/>(<?= $latest_year;?>)</th>
+                                        <th>Today <br/>(<?= $current_print_day;?>)</th>
+                                        <th>To Month <br/>(<?= $current_print_month;?>)</th>
+                                        <th>To Year <br/>(<?= $current_print_year;?>)</th>
 
                                     </tr>
                                     <tr>
@@ -1655,125 +1631,216 @@
                 </div>
             </div>
         <!--End: Printing Loss Hour Reasons-->
-         
+             
 
 
         <!--Printing: Loss Hour Calculations-->
-        <div class="row">
-            <div class="col-md-12" style="margin:0px;padding:2px;">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">Loss Hour Calculations</div>
-                    <div class="panel-body">
-                        <div class="container-fluid">
-                            <table class="table table-bordered table-hover">
+            <div class="row">
+                <div class="col-md-12" style="margin:0px;padding:2px;">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Loss Hour Calculations</div>
+                        <div class="panel-body">
+                            <div class="container-fluid">
+                                <table class="table table-bordered table-hover">
 
-                            <tr class="success">
-                                    <th>Category</th>
-                                    <th>Today (<?=$latest_date;?>)</th>
-                                    <th>To Month (<?=$latest_month;?>)</th>
-                                    <th>To Year (<?=$latest_year;?>)</th>
-                                </tr>
-                                <tr>
-                                    <td><strong>Break Down</strong></td>
-                                    <td><?php if($breakdownToDay!='')echo $breakdownToDay; else echo 0; ?></td>
-                                    <td><?php if($breakdownToMonth!='')echo $breakdownToMonth; else echo 0; ?></td>
-                                    <td><?php if($breakdownToYear!='')echo $breakdownToYear; else echo 0; ?></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><strong>Loss Hour</strong></td>
-                                    <td><?php if($losshourToDay!='')echo $losshourToDay; else echo 0; ?></td>
-                                    <td><?php if($losshourToMonth!='')echo $losshourToMonth; else echo 0; ?></td>
-                                    <td><?php if($losshourToYear!='')echo $losshourToYear; else echo 0; ?></td>
-                                    
-                                </tr>
-                                <tr>
-                                    <td><strong>Worked Hour</strong></td>
-                                    <td><?php if($workedHourToDay!='')echo $workedHourToDay; else echo 0; ?></td>
-                                    <td><?php if($workedHourToMonth!='')echo $workedHourToMonth; else echo 0; ?></td>
-                                    <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
-                                    
-                                </tr>
-                            
-                                <!-- <tr class="success">
-                                    <th>Category</th>
-                                    <th>Today <br>(<?= $latest_date;?>)</th>
-                                    <th>To Month <br>(<?= $latest_month;?>)</th>
-                                    <th>To Year<br>(<?= $latest_date;?>)</th>  
-                                </tr>
-                                <tr>
-                                    <td><strong>Break Down</strong></td>
-                                    <td><?= $breakdown_today; ?></td>
-                                    <td><?= $breakdown_tomnoth; ?></td>
-                                    <td><?= $breakdown_toyear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Loss Hour</strong></td>
-                                    <td><?= $losshour_today; ?></td>
-                                    <td><?= $losshour_tomonth; ?></td>
-                                    <td><?= $losshour_toyear; ?></td>
-                                </tr>
-                                <tr>
-                                    <td><strong>Worked Hour</strong></td>
-                                    <td><?= $workhour_d; ?></td>
-                                    <td><?= $workhour_m; ?></td>
-                                    <td><?= $workhour_y; ?></td>
-                                </tr> -->
-                            </table>
+                                <tr class="success">
+                                        <th>Category</th>
+                                        <th>Today <br/>(<?= $current_print_day;?>)</th>
+                                        <th>To Month <br/>(<?= $current_print_month;?>)</th>
+                                        <th>To Year <br/>(<?= $current_print_year;?>)</th>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Break Down</strong></td>
+
+                                        <td><?php echo $breakdownToDay; ?></td>
+                                        <td><?php if($breakdownToMonth!='')echo $breakdownToMonth; else echo 0; ?></td>
+                                        <td><?php if($breakdownToYear!='')echo $breakdownToYear; else echo 0; ?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Loss Hour</strong></td>
+                                        <td><?php if($losshourToDay!='')echo $losshourToDay; else echo 0; ?></td>
+                                        <td><?php if($losshourToMonth!='')echo $losshourToMonth; else echo 0; ?></td>
+                                        <td><?php if($losshourToYear!='')echo $losshourToYear; else echo 0; ?></td>
+                                        
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Worked Hour</strong></td>
+                                        <td><?php if($workedHourToDay!='')echo $workedHourToDay; else echo 0; ?></td>
+                                        <td><?php if($workedHourToMonth!='')echo $workedHourToMonth; else echo 0; ?></td>
+                                        <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
+                                        
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <!--End of Printing: Loss Hour Calculations-->
             </div>
-            <!--End of Printing: Loss Hour Calculations-->
 
+   
 
-        </div>
-                <!--Monthly Printing Consumption Report-->
-        <div class="row">
-            <div class="col-sm-6" style="margin:0px;padding: 0px;">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                        Monthly Printing Consumption Report
-                    </div>
-                    <div class="panel-body">
-                        <?php
-                        //  foreach($s as $a):
-                        //print_r($s);
-                        //endforeach;
-                        echo '<td>';
-                        echo $this->Form->input('Month', array('type' => 'select', 'options' => array('01' => 'Baisakh', '02' => 'Jestha', '03' => 'Ashad', '04' => 'Shrawan', '05' => 'Bhadra', '06' => 'Ashoj', '07' => 'Kartik', '08' => 'Mangsir', '09' => 'Poush', '10' => 'Margh', '11' => 'falgun', '12' => 'Chaitra'), 'class' => 'month', 'onchange' => 'generate_print(this);'));
-                        echo '</td>';
-                        ?>
+        <!-- printed and unprinted reasons -->
+       
+            <?php
+            function check_percentage($reason, $printingShiftreport)
+            {
+                $totalPrintingReason = 0;
+                foreach($printingShiftreport as $p){
+                    if($p['printing_shiftreport']['printed_scrap_reason']==$reason)
+                    {
+                        $totalPrintingReason += $p['printing_shiftreport']['printed_scrap'];
+                    }
+                    for($i=1; $i<=5; $i++) {
+                        if ($p['printing_shiftreport']['printed_reason_'.$i] == $reason) {
+                            $totalPrintingReason += $p['printing_shiftreport']['quantity_'.$i];
+                        }
+                    }
+                }
+                return $totalPrintingReason;
+            }
+            function check_percentageUnprinted($reason, $printingShiftreport)
+            {
+                $totalPrintingReason = 0;
+                foreach($printingShiftreport as $p){
+                    if($p['printing_shiftreport']['unprinted_scrap_reason']==$reason)
+                    {
+                        $totalPrintingReason += $p['printing_shiftreport']['unprinted_scrap'];
+                    }
+                    for($i=1; $i<=5; $i++) {
+                        if ($p['printing_shiftreport']['unprinted_reason_'.$i] == $reason) {
+                            $totalPrintingReason += $p['printing_shiftreport']['quantity'.$i];
+                        }
+                    }
+                }
+                return $totalPrintingReason;
+            }
+            ?>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Printed Shift Report Reasons Percentage</div>
+                        <div class="panel-body">
 
-                        <script>
-                                function updateLink3(that){
-                                    var month = $('#Month').val();
-                                    if(month){
-                                        var url = $(that).attr('href');
-                                        if(url.indexOf('?Month='))
-                                        {
-                                            url = url.split('?Month=')[0];
-                                        }
-                                        url+='?Month='+month;
-                                        $(that).attr('href',url);
-                                        return true;
-                                    }
-                                    return false;
-                                }
-                            </script>
+                            <table class="table table-bordered">
+                            <tr>
+                                <th>Reasons</th>
+                                <th>Today (<?=$lastDate;?>)</th>
+                                <th>To Month (<?=substr($lastDate, 0, 7);?>)</th>
+                                <th>To Year (<?=substr($lastDate, 0, 4);?>)</th>
+                            </tr>
+
                             <?php
-                            echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'exportprintcsv'), array('class' => 'btn btn-success csv', 'onclick'=>'return updateLink(this);'));
+                            $totalToDay = 0;
+                            $totalToMonth=0;
+                            $totalToYear = 0;
+                            foreach($printedReason as $p):
+                                $totalToDay += check_percentage($p['laminating_reason']['reason'], $printingShiftreportToDay);
+                                $totalToMonth += check_percentage($p['laminating_reason']['reason'], $printingShiftreportToMonth);
+                                $totalToYear += check_percentage($p['laminating_reason']['reason'], $printingShiftreportToYear);
+                            endforeach;
                             ?>
 
-                        <div class="consumption">
+                            <?php foreach($printedReason as $p):?>
+                            <tr>
+                                <td><?=$p['laminating_reason']['reason'];?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToDay)*100/($totalToDay?$totalToDay:1)),2).'%';?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToMonth)*100/($totalToMonth?$totalToMonth:1)),2).'%';?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToYear)*100/($totalToYear?$totalToYear:1)),2).'%';?></td>
+                            </tr>
+                            <?php endforeach;?>
+                            </table>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div> 
-        <!--End: Monthly Printing Consumption Report-->
-    </div>
-</div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">Unprinted Shift Report Reasons Percentage</div>
+                        <div class="panel-body">
+
+                            <table class="table table-bordered">
+                            <tr>
+                                <th>Reasons</th>
+                                <th>Today (<?=$lastDate;?>)</th>
+                                <th>To Month (<?=substr($lastDate, 0, 7);?>)</th>
+                                <th>To Year (<?=substr($lastDate, 0, 4);?>)</th>
+                            </tr>
+
+                            <?php
+                            $totalToDay = 0;
+                            $totalToMonth=0;
+                            $totalToYear = 0;
+                            foreach($unprintedReason as $p):
+                                $totalToDay += check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToDay);
+                                $totalToMonth += check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToMonth);
+                                $totalToYear += check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToYear);
+                            endforeach;
+                            ?>
+
+                            <?php foreach($unprintedReason as $p):?>
+                            <tr>
+                                <td><?=$p['laminating_reason']['reason'];?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToDay)*100/($totalToDay?$totalToDay:1)),2).'%';?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToMonth)*100/($totalToMonth?$totalToMonth:1)),2).'%';?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToYear)*100/($totalToYear?$totalToYear:1)),2).'%';?></td>
+                            </tr>
+                            <?php endforeach;?>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <!-- end printed and unprinted reasons -->
+
+            <div class="row">
+                <div class="col-sm-6" style="margin:0px;padding: 2px;padding-left:20px">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            Monthly Printing Consumption Report
+                        </div>
+                        <div class="panel-body">
+                             <?php
+                                echo '<td>';
+                                echo $this->Form->input('Month', array('type' => 'select', 'options' => array('01' => 'Baisakh', '02' => 'Jestha', '03' => 'Ashad', '04' => 'Shrawan', '05' => 'Bhadra', '06' => 'Ashoj', '07' => 'Kartik', '08' => 'Mangsir', '09' => 'Poush', '10' => 'Margh', '11' => 'falgun', '12' => 'Chaitra'), 'class' => 'month form-control', 'onchange' => 'generate_print(this);'));
+                                echo '</td>';
+                                ?>
+                                <br/>
+
+                                <script>
+                                    function updateLink3(that){
+                                        var month = $('#Month').val();
+                                        if(month){
+                                            var url = $(that).attr('href');
+                                            if(url.indexOf('?Month='))
+                                            {
+                                                url = url.split('?Month=')[0];
+                                            }
+                                            url+='?Month='+month;
+                                            $(that).attr('href',url);
+                                            return true;
+                                        }
+                                        return false;
+                                    }
+                                </script>
+
+                                <?php
+                                    echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'exportprint'), array('class' => 'btn btn-success csv', 'onclick'=>'return updateLink3(this);'));
+                                ?>
+                                <div class="consumption"></div>
+                        </div>
+                           
+                    </div>
+            </div>
+        
+        </div>
+
+
 
 <?php } ?>
 <!--End of the printing department-->
@@ -1831,7 +1898,7 @@
                                 </td>
                             </tr>
 
-                            <tr>
+                            <tr>/<!--Lamination-->
                                 <td> Number of Color Made</td>
                                 <td style="text-align: right;">
                                     <?php foreach ($tdcolorcount as $trw):

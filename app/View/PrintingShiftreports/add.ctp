@@ -15,7 +15,6 @@
 <script type="text/javascript">
 
     $(document).ready(function () {
-
         $("#greenbox").hide();
         $("#redbox").hide();
         $("#bluebox").hide();
@@ -119,20 +118,11 @@
                         $(".bluebox").show();
                         for(var i=1; i<=5; i++)
                         {
-                            $('#UnPrintingShiftreportQuantity'+i).val(0)
+                            $('#UnPrintingShiftreportQuantity'+i).val(0);
                             $('#UnPrintingShiftreportQuantityReason'+i).val('');
                         }
                         errorBtn2=0;
-                        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
-                        {
-                            if(!$('#btnSubmit').hasClass('disabled'))
-                            {
-                                $('#btnSubmit').removeClass('btn-primary').addClass('disabled');
-                            }
-                        }else{
-                            $('#btnSubmit').removeClass('disabled').addClass('btn-primary');
-                        }
-                        //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
+                        //btnCheck();
                     }
                 }
             });
@@ -177,16 +167,6 @@
                         }
                         errorBtn3 = 0;
                         //btnCheck();
-                        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
-                        {
-                            if(!$('#btnSubmit').hasClass('disabled'))
-                            {
-                                $('#btnSubmit').removeClass('btn-primary').addClass('disabled');
-                            }
-                        }else{
-                            $('#btnSubmit').removeClass('disabled').addClass('btn-primary');
-                        }
-                        //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                     }
                 }
             });
@@ -213,6 +193,7 @@
                errorBtn1 =1;
                btnCheck();
                $('#PrintingShiftreportOutput').css('border','1px solid red');
+               //alert("Output should be lesser than input.")
            }else {
                errorBtn1=0;
                btnCheck();
@@ -228,12 +209,12 @@
                 $('.unprintedClass').css('border','1px solid green');
                 //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                 errorBtn2=0;
-                btnCheck()
+                //btnCheck()
             }else{
                 $('.unprintedClass').css('border','1px solid red');
                 //$('#btnSubmit').removeClass('btn-primary').addClass('disabled');
                 errorBtn2=1;
-                btnCheck();
+                //btnCheck();
             }
 
         });
@@ -251,7 +232,7 @@
                 $('.printedClass').css('border','1px solid red');
                 //$('#btnSubmit').removeClass('btn-primary').addClass('disabled');
                 errorBtn3=1;
-                btnCheck();
+                //btnCheck();
             }
         });
 
@@ -264,22 +245,29 @@
             }
             return false;
         }
-        function btnCheck()
-        {
-            if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
-            {
-                if(!$('#btnSubmit').hasClass('disabled'))
-                {
-                    $('#btnSubmit').removeClass('btn-primary').addClass('disabled');
-                }
-            }else{
-                $('#btnSubmit').removeClass('disabled').addClass('btn-primary');
-            }
-            return;
+    });
+    $('#PrintingShiftreportAddForm').submit(function(){
+        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1) {
+            console.log('validation error');
+            return false;
+        }else{
+            console.log('validated');
+            return true;
         }
 
     });
+    function btnCheck(that)
+    {
+        var url = $(that).attr('href');
+        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
+        {
+            return false;
+        }else{
+            return true;
+        }
+    }
 </script>
+
 <div class="printingShiftreports form">
     <?php echo $this->Form->create(array('PrintingShiftreport', 'class' => 'form-horizontal',
         'inputDefaults' => array(
@@ -415,7 +403,7 @@
 
         ?>
     </fieldset>
-    <?php echo $this->Form->end(__('Submit'),['id'=>'btnSubmit']); ?>
+    <?php echo $this->Form->end(__('Submit'),['id'=>'btnSubmit', 'onclick'=>'return btnCheck(this);']); ?>
 </div>
 <div class="actions">
     <h3><?php echo __('Actions'); ?></h3>

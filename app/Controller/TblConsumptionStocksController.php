@@ -268,7 +268,7 @@ class TblConsumptionStocksController extends AppController
         Configure::write('debug', '2');
     }
 
-  function monthly_report()
+    function monthly_report()
     {
         $this->request->onlyAllow('ajax');
         $month = $_POST['id'];
@@ -282,37 +282,40 @@ class TblConsumptionStocksController extends AppController
 
         echo '<table class="table table-bordered">';
         echo '<tr class="success"><td>Materials</td><td>Quantity</td><td>Percentage</td></tr>';
-        $totalBroughtScrap=0;
-        $totalScrap =0;
-
-        $allTotal =0;
-        $totalMaterial=0;
-        $allTotalRaw = 0;
+        
+        $v=0;
+        $atr=0;
+        $ts=0;
+        $tbs=0;
 
         foreach($allMaterials as $m):
             foreach($allConsumptionStocks as $c):
                 $materialJSON = $c['tbl_consumption_stock']['materials'];
                 $materialOBJ = json_decode($materialJSON);
                 if(property_exists($materialOBJ, $m['mixing_materials']['id'])) {
-                    $valMaterial = $materialOBJ->$m['mixing_materials']['id'];
+                    $v = $materialOBJ->$m['mixing_materials']['id'];
                 }else{
-                    $valMaterial = 0;
+                    $v = 0;
                 }
                 if($m['mixing_materials']['category_id']==13){
-                    $totalBroughtScrap += $valMaterial;
+                    $tbs += $v;
                 }elseif($m['mixing_materials']['category_id']==14){
-                    $totalScrap += $valMaterial;
+                    $ts += $v;
                 }else{
 
-                    $allTotalRaw = $valMaterial+$allTotalRaw;
+                    $atr = $v+$atr;
                 }
             endforeach;
         endforeach;
-        $totalQuantity = $allTotalRaw?$allTotalRaw:1;
+        $tq = $atr?$atr:1;
+
+
         $i=0;
         $allTotal =0;
         $totalMaterial=0;
         $allTotalRaw = 0;
+        $totalBroughtScrap=0;
+        $totalScrap =0;
         foreach($allMaterials as $m):
             foreach($allConsumptionStocks as $c):
                 $materialJSON = $c['tbl_consumption_stock']['materials'];
@@ -333,89 +336,121 @@ class TblConsumptionStocksController extends AppController
                 }
                 $allTotal += $valMaterial;
             endforeach;
-            echo '<tr><td>'.$m['mixing_materials']['name'].'</td><td>'.number_format($totalMaterial,2).'</td><td>'.number_format($totalMaterial*100/$totalQuantity, 2).'%</td></tr>';
-            $result[$i]['material_name']=$m['mixing_materials']['name'];
-            $result[$i]['material_quantity']=$totalMaterial;
-            $result[$i]['material_percent']=$totalMaterial*100/$totalQuantity;
-
+            if($m['mixing_materials']['category_id']!=13 && $m['mixing_materials']['category_id']!=14) {
+                echo '<tr class="warning"><td>' . $m['mixing_materials']['name'] . '</td><td>' . number_format($totalMaterial, 2) . '</td><td>' . number_format($totalMaterial * 100 / $atr, 2) . '%</td></tr>';
+                
+            }
             $totalMaterial = 0;
         endforeach;
-        $total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
-        $raw_percent = $allTotalRaw*100/$total;
-        echo '<tr class="success"><td>Total Raw Materials</td><td>'.number_format($allTotalRaw,2).'</td><td>'.number_format($raw_percent,2).'%</td></tr>';
-        $bought_percent = $totalBroughtScrap*100/$total;
-        echo '<tr class="info"><td>Total Bought Scrap </td><td>'.number_format($totalBroughtScrap,2).'</td><td>'.number_format($bought_percent,2).'%</td></tr>';
-        $scrap_percent = $totalScrap*100/$total;
-        echo '<tr class="warning"><td>Total Factory Scrap </td><td>'.number_format($totalScrap,2).'</td><td>'.number_format($scrap_percent,2).'%</td></tr>';
-        $total_percent = $raw_percent+$bought_percent+$scrap_percent;
-        echo '<tr class="danger"><td>Total Materials </td><td>'.number_format($total,2).'</td><td>'.number_format($total_percent,2).'%</td></tr>';
-        echo '</table>';
 
-        $result['total_raw']=$allTotalRaw;
-        $result['total_raw_percent']=$raw_percent;
-        $result['total_bought']=$totalBroughtScrap;
-        $result['total_bought_percent']=$bought_percent;
-        $result['total_scrap']=$totalScrap;
-        $result['total_scrap_percent']=$scrap_percent;
-        $result['total_percent']=$total_percent;
-        //echo $allTotal;
-        //var_dump($allConsumptionStocks);
+        $total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
+        $total = $total?$total:1;   
+        //echo $total;die;
+        echo '<tr class="success"><td>Total Raw Materials</td><td>'.number_format($allTotalRaw,2).'</td><td>'.number_format($allTotalRaw*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+        //need to fix $totalBroughtScrap
+        //$totalBroughtScrap = $totalBroughtScrap/2;
+        $bought_percent = $totalBroughtScrap*100/$total;
+        echo '<tr class="success"><td>Total Bought Scrap </td><td>'.number_format($totalBroughtScrap,2).'</td><td>'.number_format($totalBroughtScrap*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+
+
+
+
+        $valMat = 0;
+        //$allTotalScrap =0;
+        //$TotalScrap1 =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_consumption_stock']['materials'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['mixing_materials']['id'])) {
+                    $valMat = $materialOBJ->$m['mixing_materials']['id'];
+                }else{
+                    $valMat = 0;
+                }
+                if($m['mixing_materials']['category_id']==14){
+                    $totalScrap1 += $valMat;
+                }
+                $allTotalScrap += $valMat;
+            endforeach;
+            if($m['mixing_materials']['category_id']==14) {
+                echo '<tr class="warning"><td>' . $m['mixing_materials']['name'] . '</td><td>' . number_format($totalScrap1, 2) . '</td><td>' . number_format($totalScrap1 * 100 / $totalScrap, 2) . '%</td></tr>';
+            }
+            $totalScrap1 = 0;
+        endforeach;
+
+
+
+
+
+
 
         
-        // echo $this->Html->link('Download CSV file', array('action' => 'export_monthly_report'), array('target' => '_blank', 'class' => 'btn btn-success'));
-        // $this->set('posts', $result);
+        
+        echo '<tr class="success"><td>Total Factory Scrap </td><td>'.number_format($totalScrap,2).'</td><td>'.number_format($totalScrap*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+        
+        echo '<tr class="danger"><td>Total Materials </td><td>'.number_format($total,2).'</td><td>'.number_format($total*100/$total,2).'%</td></tr>';
+        echo '</table>';
+
+       
         exit;
     }
 
 
-    function to_date_consumption()
+ function to_date_consumption()
     {
         $this->request->onlyAllow('ajax');
         $dim = $_POST['dim'];
         $brand = $_POST['brand'];
         //echo $dim.'<br/>'.$brand;die;
-
         $this->loadModel('MixingMaterial');
         $this->loadModel('CategoryMaterial');
-        $allMaterials = $this->MixingMaterial->query("SELECT * from mixing_materials order BY category_id ASC,name ASC");
-        // $lastDate = $this->TblConsumptionStock->query("SELECT distinct(nepalidate) from tbl_consumption_stock");
-        $allConsumptionStocks = $this->TblConsumptionStock->query("SELECT * from tbl_consumption_stock where dimension='$dim' and brand='$brand'");
-        //echo'<pre>';print_r($allConsumptionStocks);die;
+        $allMaterials = $this->MixingMaterial->query("SELECT * from mixing_materials order BY category_id ASC,name ASC ");
+        //$lastDate = $this->TblConsumptionStock->query("SELECT distinct(nepalidate) from tbl_consumption_stock order by nepalidate DESC limit 1")[0]['tbl_consumption_stock']['nepalidate'];
+        //$month = '%'.substr($lastDate, 0, 4).'-'.$month.'%';
 
+        $allConsumptionStocks = $this->TblConsumptionStock->query("SELECT * from tbl_consumption_stock where dimension='$dim' and brand='$brand'");
 
         echo '<table class="table table-bordered">';
         echo '<tr class="success"><td>Materials</td><td>Quantity</td><td>Percentage</td></tr>';
-        $totalBroughtScrap=0;
-        $totalScrap =0;
-
-        $allTotal =0;
-        $totalMaterial=0;
-        $allTotalRaw = 0;
+        
+        $v=0;
+        $atr=0;
+        $ts=0;
+        $tbs=0;
 
         foreach($allMaterials as $m):
             foreach($allConsumptionStocks as $c):
                 $materialJSON = $c['tbl_consumption_stock']['materials'];
                 $materialOBJ = json_decode($materialJSON);
                 if(property_exists($materialOBJ, $m['mixing_materials']['id'])) {
-                    $valMaterial = $materialOBJ->$m['mixing_materials']['id'];
+                    $v = $materialOBJ->$m['mixing_materials']['id'];
                 }else{
-                    $valMaterial = 0;
+                    $v = 0;
                 }
                 if($m['mixing_materials']['category_id']==13){
-                    $totalBroughtScrap += $valMaterial;
+                    $tbs += $v;
                 }elseif($m['mixing_materials']['category_id']==14){
-                    $totalScrap += $valMaterial;
+                    $ts += $v;
                 }else{
 
-                    $allTotalRaw = $valMaterial+$allTotalRaw;
+                    $atr = $v+$atr;
                 }
             endforeach;
         endforeach;
-        $totalQuantity = $allTotalRaw?$allTotalRaw:1;
+        $tq = $atr?$atr:1;
 
+
+        $i=0;
         $allTotal =0;
         $totalMaterial=0;
         $allTotalRaw = 0;
+        $totalBroughtScrap=0;
+        $totalScrap =0;
         foreach($allMaterials as $m):
             foreach($allConsumptionStocks as $c):
                 $materialJSON = $c['tbl_consumption_stock']['materials'];
@@ -436,22 +471,69 @@ class TblConsumptionStocksController extends AppController
                 }
                 $allTotal += $valMaterial;
             endforeach;
-            echo '<tr><td>'.$m['mixing_materials']['name'].'</td><td>'.number_format($totalMaterial,2).'</td><td>'.number_format($totalMaterial*100/$totalQuantity, 2).'%</td></tr>';
+            if($m['mixing_materials']['category_id']!=13 && $m['mixing_materials']['category_id']!=14) {
+                echo '<tr class="warning"><td>' . $m['mixing_materials']['name'] . '</td><td>' . number_format($totalMaterial, 2) . '</td><td>' . number_format($totalMaterial * 100 / $atr, 2) . '%</td></tr>';
+                
+            }
             $totalMaterial = 0;
         endforeach;
-        $total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
-        $raw_percent = $allTotalRaw*100/$total;
-        echo '<tr class="success"><td>Total Raw Materials</td><td>'.number_format($allTotalRaw,2).'</td><td>'.number_format($raw_percent,2).'%</td></tr>';
-        $bought_percent = $totalBroughtScrap*100/$total;
-        echo '<tr class="info"><td>Total Bought Scrap </td><td>'.number_format($totalBroughtScrap,2).'</td><td>'.number_format($bought_percent,2).'%</td></tr>';
-        $scrap_percent = $totalScrap*100/$total;
-        echo '<tr class="warning"><td>Total Factory Scrap </td><td>'.number_format($totalScrap,2).'</td><td>'.number_format($scrap_percent,2).'%</td></tr>';
-        $total_percent = $raw_percent+$bought_percent+$scrap_percent;
-        echo '<tr class="danger"><td>Total Materials </td><td>'.number_format($total,2).'</td><td>'.number_format($total_percent,2).'%</td></tr>';
-        echo '</table>';
-        //echo $allTotal;
-        //var_dump($allConsumptionStocks);
 
+        $total = $allTotalRaw+$totalBroughtScrap+$totalScrap;
+        $total = $total?$total:1;   
+        //echo $total;die;
+        echo '<tr class="success"><td>Total Raw Materials</td><td>'.number_format($allTotalRaw,2).'</td><td>'.number_format($allTotalRaw*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+        //need to fix $totalBroughtScrap
+        //$totalBroughtScrap = $totalBroughtScrap/2;
+        $bought_percent = $totalBroughtScrap*100/$total;
+        echo '<tr class="success"><td>Total Bought Scrap </td><td>'.number_format($totalBroughtScrap,2).'</td><td>'.number_format($totalBroughtScrap*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+
+
+
+
+        $valMat = 0;
+        //$allTotalScrap =0;
+        //$TotalScrap1 =0;
+        $totalMaterial=0;
+        $allTotalRaw = 0;
+        foreach($allMaterials as $m):
+            foreach($allConsumptionStocks as $c):
+                $materialJSON = $c['tbl_consumption_stock']['materials'];
+                $materialOBJ = json_decode($materialJSON);
+                if(property_exists($materialOBJ, $m['mixing_materials']['id'])) {
+                    $valMat = $materialOBJ->$m['mixing_materials']['id'];
+                }else{
+                    $valMat = 0;
+                }
+                if($m['mixing_materials']['category_id']==14){
+                    $totalScrap1 += $valMat;
+                }
+                $allTotalScrap += $valMat;
+            endforeach;
+            if($m['mixing_materials']['category_id']==14) {
+                echo '<tr class="warning"><td>' . $m['mixing_materials']['name'] . '</td><td>' . number_format($totalScrap1, 2) . '</td><td>' . number_format($totalScrap1 * 100 / $totalScrap, 2) . '%</td></tr>';
+            }
+            $totalScrap1 = 0;
+        endforeach;
+
+
+
+
+
+
+
+        
+        
+        echo '<tr class="success"><td>Total Factory Scrap </td><td>'.number_format($totalScrap,2).'</td><td>'.number_format($totalScrap*100/$total,2).'%</td></tr>';
+        echo'<tr><td colspan="3"></td></tr>';
+        
+        echo '<tr class="danger"><td>Total Materials </td><td>'.number_format($total,2).'</td><td>'.number_format($total*100/$total,2).'%</td></tr>';
+        echo '</table>';
+
+       
         exit;
     }
+
+   
 }

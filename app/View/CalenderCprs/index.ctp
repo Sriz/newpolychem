@@ -112,13 +112,10 @@ $date = $date?$date:$lastDate;
                 <form method="get">
                     <div class="input-group">
                         <input type="text" name="search" class="form-control nepaliDatePicker ndp-nepali-calendar"
-                               id="nepaliDatePicker" autocomplete="off"
-                               value="<?= isset($_GET['search']) ? $_GET['search'] : null; ?>"
-                               placeholder="Search for..." onfocus="showCalendarBox('nepaliDatePicker')">
-                  <span class="input-group-btn">
-                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i>
-                        </button>
-                  </span>
+                               id="nepaliDatePicker" autocomplete="off" value="<?= isset($_GET['search']) ? $_GET['search'] : null; ?>" placeholder="Search for..." onfocus="showCalendarBox('nepaliDatePicker')">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                    </span>
                     </div>
                 </form>
             </div>
@@ -218,6 +215,7 @@ $date = $date?$date:$lastDate;
         <td><strong><?= h(number_format($mixing_wt_current, 2)); ?></strong></td>
         <td></td>
     </tr>
+
     <tr class="warning">
         <td align="right" colspan="7"><strong>Total</strong></td>
         <td>
@@ -231,6 +229,23 @@ $date = $date?$date:$lastDate;
             <strong><?= h(number_format($total,2)); ?></strong>
         <td>
     </tr>
+
+   <!--  <tr class="danger">
+        <td colspan="7"  align="right" ><strong>Total of this Month</strong></td>
+        <td><strong><?= h(number_format($consumptionItemsThisMonth['length'], 2)); ?></strong></td>
+        <td><strong><?= h(number_format($consumptionItemsThisMonth['ntwt'], 2)); ?></strong></td>
+        </td>
+        <td><strong><?= h(number_format($consumptionItemsThisMonth['total'], 2)); ?></strong></td>
+        <td></td>
+    </tr>
+    <tr class="danger">
+        <td colspan="7"  align="right" ><strong>Total of this Year</strong></td>
+        <td><strong><?= h(number_format($consumptionItemsThisYear['length'], 2)); ?></strong></td>
+        <td><strong><?= h(number_format($consumptionItemsThisYear['ntwt'], 2)); ?></strong></td>
+        </td>
+        <td><strong><?= h(number_format($consumptionItemsThisYear['total'], 2)); ?></strong></td>
+        <td></td>
+    </tr> -->
 </table>
 
 

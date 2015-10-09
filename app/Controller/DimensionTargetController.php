@@ -22,7 +22,8 @@ class DimensionTargetController extends AppController {
  */
 	public function index() {
 		$this->DimensionTarget->recursive = 0;
-		$this->set('dimensions', $this->Paginator->paginate());
+		$all = $this->DimensionTarget->query("select * from dimension_target order by dimension");
+		$this->set('dimensions', $all);
 	}
 
 /**
@@ -46,10 +47,13 @@ class DimensionTargetController extends AppController {
  * @return void
  */
 	public function add() {
+
 		if ($this->request->is('post')) {
+			//echo'<pre>';print_r($this->request);die;
 			$this->DimensionTarget->create();
 			if ($this->DimensionTarget->save($this->request->data)) {
-				return $this->flash(__('The dimension has been saved.'), array('action' => 'index'));
+				
+				return $this->redirect(array('controller' => 'DimensionTarget', 'action' => 'index'));
 			}
 			else
 				echo "error";
@@ -71,7 +75,7 @@ class DimensionTargetController extends AppController {
 //print_r($this->request->data);die;
 			if ($this->DimensionTarget->save($this->request->data)) {
 				
-				$this->flash(__('The dimension has been saved.'), array('action' => 'index'));
+				$this->flash(__('The dimension has been saved.'), array('action' => 'index/sort:date/direction:desc'));
 				return $this->redirect(array('action' => 'index'));
 			}
 		} else {

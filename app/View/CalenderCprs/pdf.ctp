@@ -105,7 +105,7 @@ $html .= '<h1><center>Calendar Production Report :<strong>'.$date.'</strong></ce
 $html .="<div style=\"width:500px;\">";
 $html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
 <tr>
-    <td>Brought Scrap</td>
+    <td>Bought Scrap</td>
     <td>".h(number_format($totalBroughtScrap,2))."</td>
 </tr>
 <tr>
@@ -128,7 +128,7 @@ $html .= "<h2>Consumptions</h2><br>";
 $html .="
 <table border=\"0.5px;\" style=\"padding-left:5px;\">
     <tr style=\"font-weight: bold\">
-        <th>Nepalidate</th>
+        
         <th>Shift</th>
         <th>Brand</th>
         <th>Quality</th>
@@ -136,12 +136,12 @@ $html .="
         <th>Dimension</th>
         <th>Length</th>
         <th>NTWT</th>
-        <th>TotalOfMaterials</th>
+        <th>Total of Materials</th>
 </tr>";
 $totalOfCurrentData = 0;//for currentTotal
 foreach ($consumptionItems as $c):
     $html .= "<tr>
-        <th>".$c['tbl_consumption_stock']['nepalidate']."</th>
+        
         <th>".$c['tbl_consumption_stock']['shift']."</th>
         <th>".$c['tbl_consumption_stock']['brand']."</th>
         <th>".$c['tbl_consumption_stock']['quality']."</th>
@@ -162,7 +162,7 @@ foreach ($consumptionItems as $c):
                 }
                 $total = $total + $totalWeight;
             endforeach;
-            $html .= $total;
+            $html .= number_format($total,2);
             $totalOfCurrentData += $total;
         $html .= "</td></tr>";
     endforeach;
@@ -186,26 +186,34 @@ foreach ($totalMaterials as $t):
         $total = $total + $materialWeight;
     endforeach;
 endforeach;
-$html .= "
+// $html .= "
+// <tr>
+//     <td></td>
+//     <td></td>
+//     <td></td>
+//     <td></td>
+//     <td></td>
+//     <td><strong>Total of current data</strong></td>
+//     <td><strong>".h(number_format($length_current, 2))."</strong></td>
+//     <td><strong>".h(number_format($ntwt_current, 2))."</strong></td>
+//     <td><strong>".h(number_format($mixing_wt_current, 2))."</strong></td>
+// </tr>";
+
+$html .="
 <tr>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><strong>Total of current data</strong></td>
-    <td><strong>".h(number_format($length_current, 2))."</strong></td>
-    <td><strong>".h(number_format($ntwt_current, 2))."</strong></td>
-    <td><strong>".h(number_format($mixing_wt_current, 2))."</strong></td>
+    <td colspan='8'></td>
 </tr>";
+
+
+
 $html .="
 <tr>
     <td></td>
     <td></td>
     <td></td>
-    <td></td>
-    <td></td>
     <td><strong>Total</strong></td>
+    
+    <td><strong>Today</strong></td>
     <td>
         <strong>".h(number_format($lengthTotal, 2))."</strong>
     </td>
@@ -220,7 +228,53 @@ $html .="
     <td></td>
     <td></td>
     <td></td>
-</tr></table>";
+</tr>";
+$html .="
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td><strong>Total</strong></td>
+    
+    <td><strong>To Month</strong></td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisMonth['length'], 2))."</strong>
+    </td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisMonth['ntwt'], 2))."</strong>
+    </td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisMonth['total'], 2))."</strong>
+    </td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+    <td></td>
+</tr>";
+
+$html .="
+<tr>
+    <td></td>
+    <td></td>
+    <td></td>
+    
+    <td><strong>Total</strong></td>
+    <td><strong>To Year</strong></td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisYear['length'], 2))."</strong>
+    </td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisYear['ntwt'], 2))."</strong>
+    </td>
+    <td>
+        <strong>".h(number_format($consumptionItemsThisYear['total'], 2))."</strong>
+    </td>
+   
+</tr>";
+
+
+$html .="</table>";
 //Resuable Table
 $html .="<h2>Scrap Details</h2>";
 $html .="
@@ -257,23 +311,20 @@ foreach($timeLossBreakDownAll as $breakhour):
 endforeach;
 $total_wh = 24*60*60 - ($total_lh+$total_bh);
 
-$html .="
-<table border=\"0.5px;\" style=\"padding-left:5px;\">
+$html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
             <tr style=\"font-weight: bold\">
-                <td>Loss Hour</td>
-                <td>".time_elapsed(isset($total_lh)?$total_lh:0)."</td>
+                <td>Loss Hour</td>";
+$html .="<td>".time_elapsed($total_lh)."</td>
             </tr>
             <tr style=\"font-weight: bold\">
-                <td>Breakdown Hour</td>
-                <td>".time_elapsed(isset($total_bh)?$total_bh:0)."</td>
+                <td>Breakdown Hour</td>";
+                $html .="<td>".time_elapsed($total_bh)."</td>
             </tr>
             <tr style=\"font-weight: bold\">
-                <td>Work Hour</td>
-                <td>".time_elapsed(isset($total_wh)?$total_wh:0)."</td>
+                <td>Work Hour</td>";
+$html .="<td>".time_elapsed($total_wh)."</td>
             </tr>
         </table><br/>";
-
-
 $html .="<h4>LossHour</h4>";
 $html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
     <tr style=\"font-weight: bold\">
@@ -298,10 +349,25 @@ endforeach;
 $html .="<tr style=\"font-weight: bold\">
     <td></td>
     <td></td>
-    <td>Total</td>
+    <td>Loss Hour</td>
     <td>".time_elapsed($totalSecondsLossHour)."</td>
     <td></td>
 </tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Loss Hour (To month)</td>
+//     <td>".time_elapsed($timeLossLossHourMonth[0][0]['loss_lh_m'])."</td>
+//    <td></td>
+// </tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Loss Hour (To year)</td>
+//     <td  >".time_elapsed($timeLossLossHourYear[0][0]['loss_lh_y'])."</td>
+//     <td></td>
+// </tr>";
+
 $html .="</table>";
 
 
@@ -329,18 +395,56 @@ endforeach;
 $html .="<tr style=\"font-weight: bold\">
     <td></td>
     <td></td>
-    <td>Total</td>
+    <td>Break Hour</td>
     <td>".time_elapsed($totalSecondsBreakDown)."</td>
+    <td></td>
+</tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Break Hour (To month)</td>
+//     <td  >".time_elapsed($timeLossBreakMonth[0][0]['loss_bd_m'])."</td>
+//     <td></td>
+    
+// </tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Break Hour (To year)</td>
+//     <td  >".time_elapsed($timeLossBreakYear[0][0]['loss_bd_y'])."</td>
+//     <td></td>
+   
+// </tr>";
+
+$html .="<tr style=\"font-weight: bold\">
     <td></td>
 </tr>";
 
 $html .="<tr style=\"font-weight: bold\">
     <td></td>
     <td></td>
-    <td>Total Timeloss</td>
+    <td>Total Time Loss</td>
     <td>".time_elapsed($totalSecondsBreakDown+$totalSecondsLossHour)."</td>
     <td></td>
 </tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Total Time loss (To month)</td>
+//     <td>".time_elapsed($timeLossLossHourMonth[0][0]['loss_lh_m']+$timeLossBreakMonth[0][0]['loss_bd_m'])."</td>
+//     <td></td>
+// </tr>";
+// $html .="<tr style=\"font-weight: bold\">
+//     <td></td>
+//     <td></td>
+//     <td>Total Time loss (To year)</td>
+//     <td>".time_elapsed($timeLossLossHourYear[0][0]['loss_lh_y']+$timeLossBreakYear[0][0]['loss_bd_y'])."</td>
+//     <td></td>
+// </tr>";
+
+
+
+//timeLossLossHourAll
 
 
 $html .="</table>";

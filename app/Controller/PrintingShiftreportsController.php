@@ -59,7 +59,6 @@ class PrintingShiftreportsController extends AppController
         $this->dimension();
         if ($this->request->is('post')) {
             $this->PrintingShiftreport->create();
-            echo '<pre>';
 
             if ($this->PrintingShiftreport->save($this->request->data)) {
                 $this->Session->setFlash(__('The printing shiftreport has been saved.'), array('class' => 'alert alert-success'));
@@ -162,32 +161,20 @@ class PrintingShiftreportsController extends AppController
 
     public function pfcolor()
     {
-        {
-            if ($this->request->is('ajax')) {
 
-                $this->request->onlyAllow('ajax');
-                $this->loadModel('PrintingDatum');
-                $d = $this->request->data['id'];
-                $type = $this->PrintingDatum->query("select distinct(color) from printing_data where dimension='$d' order by color asc");
-                echo '<option value="null">Please select</option>';
-                foreach ($type as $t):
+        $this->request->onlyAllow('ajax');
 
-                    echo '<option value="' . $t['printing_data']['color'] . '">' . $t['printing_data']['color'] . '</option>';
+            $this->request->onlyAllow('ajax');
+            $this->loadModel('PrintingDatum');
+            $d = $this->request->data['id'];
+            $type = $this->PrintingDatum->query("select distinct(color) from printing_data where dimension='$d' order by color asc");
+            echo '<option value="null">Please select</option>';
+            foreach ($type as $t):
 
-                endforeach;
+                echo '<option value="' . $t['printing_data']['color'] . '">' . $t['printing_data']['color'] . '</option>';
 
-
-            } else {
-                $this->loadModel('PrintingDatum');
-                // $d=$this->request->data['id'];
-                $type = $this->PrintingDatum->find('list', array('fields' => array('color', 'color')));
-                $this->set('color1', $type);
-                $type1 = $this->PrintingDatum->find('list', array('fields' => array('color_code', 'color_code')));
-                $this->set('colorcode', $type1);
-
-            }
-
-        }
+            endforeach;
+        exit;
     }
 
     public function basecolor()
@@ -234,7 +221,7 @@ class PrintingShiftreportsController extends AppController
         $this->set('print', $values);
         $totaltoday = $this->PrintingShiftreport->query("select shift, sum(input) as totalinput,sum(output) as totaloutput,sum(printed_scrap)as pscrap,sum(unprinted_scrap) as uscrap from printing_shiftreport where date='$date' group by shift");
         $this->set('today', $totaltoday);
-		$grandtoday = $this->PrintingShiftreport->query("select  sum(input) as gtotalinput,sum(output) as gtotaloutput,sum(printed_scrap)as gpscrap,sum(unprinted_scrap) as guscrap from printing_shiftreport where date='$date'");
+        $grandtoday = $this->PrintingShiftreport->query("select  sum(input) as gtotalinput,sum(output) as gtotaloutput,sum(printed_scrap)as gpscrap,sum(unprinted_scrap) as guscrap from printing_shiftreport where date='$date'");
         $this->set('grandtoday', $grandtoday);
         $this->loadModel('TimeLoss');
         $time = $this->TimeLoss->query("select * from time_loss where nepalidate='$date' and department_id='printing'");
@@ -255,28 +242,52 @@ class PrintingShiftreportsController extends AppController
 
 
         $this->layout = '/pdf/default';
-
         $this->render('/pdf/printing_shift_report');
-
-
     }
 
     public function download_pdf()
     {
+        $date = isset($_GET['date']) ? $_GET['date'] : null;
+        $this->loadModel('PrintingShiftreport');
+        $this->loadMOdel('TimeLoss');
+        $lastDate = $this->PrintingShiftreport->query("SELECT distinct(date) FROM printing_shiftreport order by date DESC limit 1")[0]['printing_shiftreport']['date'];
+        $lastDateTimeLoss = $this->TimeLoss->query("SELECT distinct(nepalidate) from time_loss order by nepalidate DESC limit 1")[0]['time_loss']['nepalidate'];
 
-        $this->viewClass = 'Media';
-        //$name="Consumption Report for $date('d-m-Y')";
-        $params = array(
+        $date = $date?$date:$lastDate;
+        $lastMonth = substr($lastDate, 0, 7);
+        $lastYear = substr($lastDate, 0, 4);
 
-            'id' => 'test.pdf',
-            'name' => $name,
-            'download' => false,
-            'extension' => 'pdf',
-            'path' => APP . 'files/pdf' . DS
-        );
+        $printingShiftReport = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport WHERE date ='$date'");
+        $timeLossLossHour = $this->TimeLoss->query("SELECT * from time_loss where nepalidate ='$date' and  department_id ='printing' and type='LossHour' order by nepalidate ");
+        $timeLossBreakDown = $this->TimeLoss->query("SELECT * from time_loss where nepalidate ='$date' and  department_id ='printing' AND type='BreakDown' order by nepalidate ");
 
-        $this->set($params);
+        $printingShiftReportToMonth = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date like '%$lastMonth%'");
+        $printingShiftReportToYear = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date like '%$lastYear%'");
+        $shiftReport = array();
+        $shiftReport['inputToMonth']=0;
+        $shiftReport['outputToMonth']=0;
+        $shiftReport['inputToYear'] =0;
+        $shiftReport['outputToYear']=0;
+        foreach($printingShiftReportToMonth as $pm){
+            $shiftReport['inputToMonth'] += intval($pm['printing_shiftreport']['input']);
+            $shiftReport['outputToMonth'] += intval($pm['printing_shiftreport']['output']);
+        }
+        foreach($printingShiftReportToYear as $py)
+        {
+            $shiftReport['inputToYear'] += intval($py['printing_shiftreport']['input']);
+            $shiftReport['outputToYear'] += intval($py['printing_shiftreport']['output']);
+        }
 
+        $inputToday = $this->PrintingShiftreport->query("select sum(input) as input_today from printing_shiftreport where date = '$date'");
+        $outputToday = $this->PrintingShiftreport->query("select sum(output) as output_today from printing_shiftreport where date = '$date'");
+        
+        $this->set('timeLossLossHour', $timeLossLossHour);
+        $this->set('timeLossBreakDown', $timeLossBreakDown);
+        $this->set('shiftReport', $shiftReport);
+        $this->set('printingShiftReport', $printingShiftReport);
+        $this->set('inputToday', $inputToday);
+        $this->set('outputToday', $outputToday);
+        $this->layout = 'pdf';
     }
 
     public function date_fetch()

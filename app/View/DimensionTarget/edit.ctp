@@ -15,6 +15,8 @@
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('dimension');
+		echo $this->Form->input('type');
+		echo $this->Form->input('brand');
 		echo $this->Form->input('target');
 	?>
 	</fieldset>
@@ -28,3 +30,4 @@
 		<li><?php echo $this->Html->link(__('List Dimension Target'), array('action' => 'index')); ?></li>
 	</ul>
 </div>
+

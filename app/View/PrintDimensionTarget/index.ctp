@@ -16,7 +16,7 @@
 		<td><?php echo h($dimension['PrintDimensionTarget']['target']); ?>&nbsp;</td>
 		<td class="actions">
 			
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $dimension['PritDimensionTarget']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $dimension['PrintDimensionTarget']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $dimension['PrintDimensionTarget']['id']), null, __('Are you sure you want to delete # %s?', $dimension['PrintDimensionTarget']['id'])); ?>
 		</td>
 	</tr>

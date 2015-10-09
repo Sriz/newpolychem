@@ -217,10 +217,10 @@ var errorBtn4=0;
             if(input<output){
                 $('#PrintingShiftreportOutput').css('border','1px solid red');
                 errorBtn1 =1;
-                btnCheck();
+                //btnCheck();
             }else {
                 errorBtn1=0;
-                btnCheck();
+                //btnCheck();
                 $('#PrintingShiftreportOutput').css('border', '1px solid green');
             }
         });
@@ -233,12 +233,12 @@ var errorBtn4=0;
                 $('.unprintedClass').css('border','1px solid green');
                 //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                 errorBtn2=0;
-                btnCheck();
+                //btnCheck();
             }else{
                 $('.unprintedClass').css('border','1px solid red');
                 //$('#btnSubmit').removeClass('btn-primary').addClass('disabled');
                 errorBtn2=1;
-                btnCheck();
+                //btnCheck();
             }
 
         });
@@ -251,12 +251,12 @@ var errorBtn4=0;
                 $('.printedClass').css('border','1px solid green');
                 //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                 errorBtn3 = 0;
-                btnCheck();
+                //btnCheck();
             }else{
                 $('.printedClass').css('border','1px solid red');
                 //$('#btnSubmit').removeClass('btn-primary').addClass('disabled');
                 errorBtn3=1;
-                btnCheck();
+                //btnCheck();
             }
         });
 
@@ -269,21 +269,27 @@ var errorBtn4=0;
             }
             return false;
         }
-
-        function btnCheck()
-        {
-            if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
-            {
-                if(!$('#btnSubmit').hasClass('disabled'))
-                {
-                    $('#btnSubmit').removeClass('btn-primary').addClass('disabled');
-                }
-            }else{
-                $('#btnSubmit').removeClass('disabled').addClass('btn-primary');
-            }
-            return;
-        }
     });
+    $('#PrintingShiftreportEditForm').submit(function(){
+        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1) {
+            console.log('validation error');
+            return false;
+        }else{
+            console.log('validated');
+            return true;
+        }
+
+    });
+    function btnCheck(that)
+    {
+        var url = $(that).attr('href');
+        if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1)
+        {
+            return false;
+        }else{
+            return true;
+        }
+    }
 </script>
 
 <div class="printingShiftreports form">
@@ -419,7 +425,7 @@ var errorBtn4=0;
 
         ?>
     </fieldset>
-    <?php echo $this->Form->end(__('Submit'),['id'=>'btnSubmit']); ?>
+    <?php echo $this->Form->end(__('Submit'),['id'=>'btnSubmit', 'onclick'=>'return btnCheck(this);']); ?>
 </div>
 
      

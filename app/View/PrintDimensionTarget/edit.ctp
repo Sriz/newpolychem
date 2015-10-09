@@ -1,6 +1,6 @@
-<div class="dimensiontarget form">
+<div class="printdimensiontarget form">
 <?php echo $this->Form->create(null,array(
-	'url' => array('controller' => 'DimensionTarget', 'action' => 'edit'),
+	'url' => array('controller' => 'PrintDimensionTarget', 'action' => 'edit'),
     'class' => 'form-horizontal',
     'inputDefaults' => array(
         'format' => array('before', 'label', 'between', 'input', 'error', 'after'),
@@ -11,7 +11,7 @@
         'error' => array('attributes' => array('wrap' => 'span', 'class' => 'help-inline')),
     )));//('Dimension'); ?>
 	<fieldset>
-		<legend><?php echo __('Edit Dimension Target'); ?></legend>
+		<legend><?php echo __('Edit Print Dimension Target'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
 		echo $this->Form->input('dimension');
@@ -24,7 +24,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('DimensionTarget.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('DimensionTarget.id'))); ?></li>
+		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('PrintDimensionTarget.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('PrintDimensionTarget.id'))); ?></li>
 		<li><?php echo $this->Html->link(__('List Dimension Target'), array('action' => 'index')); ?></li>
 	</ul>
 </div>

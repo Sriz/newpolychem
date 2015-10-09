@@ -1,6 +1,6 @@
-<div class="dimensions form">
+<div class="printdimensions form">
 <?php echo $this->Form->create(null,array(
-	'url' => array('controller' => 'Dimensions', 'action' => 'add'),
+	'url' => array('controller' => 'PrintDimensionTarget', 'action' => 'index'),
     'class' => 'form-horizontal',
     'inputDefaults' => array(
         'format' => array('before', 'label', 'between', 'input', 'error', 'after'),

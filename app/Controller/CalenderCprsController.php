@@ -136,13 +136,20 @@ class CalenderCprsController extends AppController
         $searchDate = isset($_GET['search'])?$_GET['search']:null;
         $date = isset($_GET['search'])?$_GET['search']:$lastDate;
         $date = $date?$date:$lastDate;
+        
         if ($searchDate):
+            $consumptionItemsThisMonth = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate like '%".substr($searchDate,0,7)."%' and length is NOT  NULL and ntwt is not NULL");
+            $consumptionItemsThisYear = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate like '%".substr($searchDate,0,4)."%' and length is NOT  NULL and ntwt is not NULL");
+
             $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$searchDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
             $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock where nepalidate = '$searchDate'")[0][0]['sum'];
             $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$searchDate'  and length is not null and ntwt is not null");
         else:
+            $consumptionItemsThisMonth = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate like '%".substr($lastDate,0,7)."%' and length is NOT  NULL and ntwt is not NULL");
+            $consumptionItemsThisYear = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate like '%".substr($lastDate,0,4)."%' and length is NOT  NULL and ntwt is not NULL");
+
             $consumptionItems = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and length is NOT  NULL  and ntwt is not NULL ORDER  BY  nepalidate desc limit $pagination->offset, $pagination->limit");
             $pagination->totalPage = ceil(count($this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate = '$lastDate' and length is NOT  NULL  and ntwt is not NULL"))/$pagination->limit);
             $lengthTotal = $this->TblConsumptionStock->query("SELECT sum(length) as sum from tbl_consumption_stock where nepalidate = '$lastDate'")[0][0]['sum'];
@@ -176,22 +183,95 @@ class CalenderCprsController extends AppController
 
         //timeloss calculation
         $this->loadModel('TimeLoss');
-        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='LossHour' and department_id='calender'");
+        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate='".$date."' and type='LossHour' and department_id='calender'");
         $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown' and department_id='calender'");
-        //$timelossSummary = $this->TimeLoss->query("SELECT sum(totalloss_sec) where nepalidate ='$date' and department_id = 'calender' and type = 'LossHour'");
+
+        list($year,$month,$date)=explode('-',$date);
+
+        $timeLossLossHourMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_lh_m FROM time_loss where nepalidate like '$year-$month%' and type='LossHour' and department_id='calender'");
+        $timeLossLossHourYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_lh_y FROM time_loss where nepalidate like '$year-%' and type='LossHour' and department_id='calender'");
+        //echo'<pre>';print_r($timeLossLossHourYear);die;
+        $timeLossBreakMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_bd_m FROM time_loss where nepalidate like '$year-$month%' and type='BreakDown' and department_id='calender'");
+        $timeLossBreakYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_bd_y FROM time_loss where nepalidate like '$year%' and type='BreakDown' and department_id='calender'");
+
+
+
+      /*  $timeLossBreakDownCurrentMonth = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate like '%".substr($date,0,7)."%' and type='BreakDown' and department_id='calender'");
+        $timeLossLossHourCurrentMonth = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate like '%".substr($date,0,7)."%' and type='LossHour' and department_id='calender'");
+
+        $this->set('timeLossBreakDownCurrentMonth', $timeLossBreakDownCurrentMonth);
+        $this->set('timeLossLossHourCurrentMonth', $timeLossLossHourCurrentMonth);*/
+
+        //tomonth and toYear calculation
+        $totalMat = 0;
+        $totalLen = 0;
+        $totalNtwt = 0;
+        foreach($consumptionItemsThisMonth as $c) {
+            $totalLen += $c['tbl_consumption_stock']['length'];
+            $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
+            $mat = json_decode($c['tbl_consumption_stock']['materials']);
+            foreach ($materials as $m):
+                if (property_exists($mat, $m['mixing_materials']['id'])) {
+                    $totalWeight = $mat->$m['mixing_materials']['id'];
+                } else {
+                    $totalWeight = 0;
+                }
+                $totalMat += $totalWeight;
+            endforeach;
+        }
+        $consumptionItemsThisMonthArr = [];
+        $consumptionItemsThisMonthArr['length'] =$totalLen;
+        $consumptionItemsThisMonthArr['ntwt'] =$totalNtwt;
+        $consumptionItemsThisMonthArr['total'] =$totalMat;
+
+        $totalMat = 0;
+        $totalLen = 0;
+        $totalNtwt = 0;
+        foreach($consumptionItemsThisYear as $c) {
+            $totalLen += $c['tbl_consumption_stock']['length'];
+            $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
+            $mat = json_decode($c['tbl_consumption_stock']['materials']);
+            foreach ($materials as $m):
+                if (property_exists($mat, $m['mixing_materials']['id'])) {
+                    $totalWeight = $mat->$m['mixing_materials']['id'];
+                } else {
+                    $totalWeight = 0;
+                }
+                $totalMat += $totalWeight;
+            endforeach;
+        }
+        $consumptionItemsThisYearArr = [];
+        $consumptionItemsThisYearArr['length'] =$totalLen;
+        $consumptionItemsThisYearArr['ntwt'] =$totalNtwt;
+        $consumptionItemsThisYearArr['total'] =$totalMat;
+
+
+        //Loss hour tomonth toyear calculation
         
+        //End: Loss hour calc
+
         //send to view
         $this->set('lastDate',$lastDate);
         $this->set('newItemAdded',$newItemAdded);
         $this->set('lengthTotal', $lengthTotal);
         $this->set('ntwtTotal', $ntwtTotal);
         $this->set('consumptionItems', $consumptionItems);
+        $this->set('consumptionItemsThisMonth', $consumptionItemsThisMonthArr);
+        $this->set('consumptionItemsThisYear', $consumptionItemsThisYearArr);
         $this->set('material_lists', $materials);
         $this->set('totalMaterials', $totalMaterials);
         $this->set('pagination', $pagination);
-        $this->set('timeLossLossHourAll', $timeLossLossHourAll);
-        $this->set('timeLossBreakDownAll', $timeLossBreakDownAll);
 
+        $this->set('timeLossLossHourAll', $timeLossLossHourAll);
+        $this->set('timeLossLossHourMonth', $timeLossLossHourMonth);
+        $this->set('timeLossLossHourYear', $timeLossLossHourYear);
+        
+       //echo'<pre>';print_r($timeLossLossHourYear);die;
+
+        $this->set('timeLossBreakDownAll', $timeLossBreakDownAll);
+        $this->set('timeLossBreakMonth', $timeLossBreakMonth);
+        $this->set('timeLossBreakYear', $timeLossBreakYear);
+        
 
         $this->layout = 'pdf';
     }

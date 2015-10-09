@@ -27,7 +27,7 @@
                             <tr>
                                 <td>Material</td>
                                 <td>
-                                    <input required="required" type="number" name="material" value="" class="form-control">
+                                    <input required="required" type="text" name="material" value="" class="form-control">
                                 </td>
                             </tr>
                             <?php
