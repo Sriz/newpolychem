@@ -280,6 +280,19 @@ var errorBtn4=0;
         }
 
     });
+    $(document).ready(function() {
+        $('#btnSubmit').click(function () {
+            if (errorBtn1 == 1){
+                alert('Input/Output Error');
+            }else if(errorBtn2 == 1) {
+                alert('Unprinted Scrap Error');
+            }else if(errorBtn3 == 1) {
+                alert('Printed Scrap Error');
+            }else{
+                console.log('Validated');
+            }
+        });
+    });
     function btnCheck(that)
     {
         var url = $(that).attr('href');

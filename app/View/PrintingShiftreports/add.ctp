@@ -248,13 +248,25 @@
     });
     $('#PrintingShiftreportAddForm').submit(function(){
         if(errorBtn1==1 || errorBtn2==1 || errorBtn3==1) {
-            console.log('validation error');
             return false;
         }else{
             console.log('validated');
             return true;
         }
 
+    });
+    $(document).ready(function() {
+        $('#btnSubmit').click(function () {
+            if (errorBtn1 == 1){
+                alert('Input/Output Error');
+            }else if(errorBtn2 == 1) {
+                alert('Unprinted Scrap Error');
+            }else if(errorBtn3 == 1) {
+                alert('Printed Scrap Error');
+            }else{
+                console.log('Validated');
+            }
+        });
     });
     function btnCheck(that)
     {
