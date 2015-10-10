@@ -300,5 +300,21 @@ class PrintingShiftreportsController extends AppController
 
     }
 
+    function exportcsv()
+    {
+        
+        $this->loadModel('PrintingShiftreport');
+        $result = $this->PrintingShiftreport->query("select * from printing_shiftreport order by date desc");
+
+
+        //print'<pre>';print_r($result);die;print'</pre>';
+        $this->set('posts', $result);
+
+        $this->layout = null;
+
+        $this->autoLayout = false;
+
+        Configure::write('debug', '2');
+    }
 
 }

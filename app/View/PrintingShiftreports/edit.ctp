@@ -3,8 +3,6 @@ var errorBtn1=0;
 var errorBtn2=0;
 var errorBtn3=0;
 var errorBtn4=0;
-
-
     $(document).ready(function () {
         if ($("#unprinted option:selected").text() == "Please Select") {
             $("#bluebox").hide();
@@ -15,7 +13,6 @@ var errorBtn4=0;
             $("#redbox").hide();
         }
         console.log($("#unprinted option:selected").text());
-
         if ($("#printed option:selected").text() == "Please Select") {
             $("#pink").hide();
             $("#greenbox").show();
@@ -24,22 +21,17 @@ var errorBtn4=0;
             $("#pink").show();
             $("#greenbox").hide();
         }
-
-
     });
 </script>
 <script>
     $(document).ready(function () {
         $('#nepalidatepicker').nepaliDatePicker();
     });
-
     $(document).ready(function () {
         $("#nepalidatepicker").focus(function (e) {
             showCalendarBox('nepalidatepicker');
         });
     });
-
-
     function fetchdata() {
         var x = document.getElementsByClassName('dimension');
         for (i = 0; i < x.length; i++) {
@@ -47,7 +39,6 @@ var errorBtn4=0;
             var strUser = e.options[e.selectedIndex].text;
             x[i].value = strUser;
         }
-
         var dataString = 'id=' + strUser;
         $.ajax
         ({
@@ -59,7 +50,6 @@ var errorBtn4=0;
                 $(".pfcolor").html(html);
             }
         });
-
     }
     function fetchcolor() {
         var x = document.getElementsByClassName('dimension');
@@ -85,11 +75,7 @@ var errorBtn4=0;
                 $(".colorcode").html(html);
             }
         });
-
-
     }
-
-
 </script>
 
 <script>
@@ -145,13 +131,10 @@ var errorBtn4=0;
             $(".red").hide();
             $(".bluebox").hide();
         }
-
     }
-
     function doi1() {
         var val = $('#printed_scrap').val();
         if (val >= 1) {
-
             bootbox.confirm({
                 title: 'Printed Scrap Reason',
                 message: 'Press Single To Add Single Reason or Press Multiple To add Multiple Reason',
@@ -190,25 +173,21 @@ var errorBtn4=0;
                         }else{
                             $('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                         }
-
                         //$('#btnSubmit').removeClass('disabled').addClass('btn-primary');
                     }
                 }
             });
-
         }
         else {
             $(".green").hide();
             $(".pinkbox").hide();
         }
     }
-
 </script>
 
 <script>
     $(document).ready(function()
     {
-
         //input output
         $('#PrintingShiftreportInput, #PrintingShiftreportOutput').on('change keyup paste', function()
         {
@@ -226,7 +205,6 @@ var errorBtn4=0;
         });
         //$('#unprinted_scrap')
         $("#unprinted_scrap, #UnPrintingShiftreportQuantity1, #UnPrintingShiftreportQuantity2, #UnPrintingShiftreportQuantity3, #UnPrintingShiftreportQuantity4, #UnPrintingShiftreportQuantity5").on('change paste keyup', function(){
-
             var result = check_calculation($("#unprinted_scrap").val(), [$('#UnPrintingShiftreportQuantity1').val(),$('#UnPrintingShiftreportQuantity2').val(), $('#UnPrintingShiftreportQuantity3').val(), $('#UnPrintingShiftreportQuantity4').val(), $('#UnPrintingShiftreportQuantity5').val()]);
             if(result)
             {
@@ -240,9 +218,7 @@ var errorBtn4=0;
                 errorBtn2=1;
                 //btnCheck();
             }
-
         });
-
         $("#printed_scrap, #PrintingShiftreportQuantity1, #PrintingShiftreportQuantity2, #PrintingShiftreportQuantity3, #PrintingShiftreportQuantity4, #PrintingShiftreportQuantity5").on('change paste keyup', function()
         {
             var result = check_calculation($("#printed_scrap").val(), [$('#PrintingShiftreportQuantity1').val(),$('#PrintingShiftreportQuantity2').val(), $('#PrintingShiftreportQuantity3').val(), $('#PrintingShiftreportQuantity4').val(), $('#PrintingShiftreportQuantity5').val()]);
@@ -259,7 +235,6 @@ var errorBtn4=0;
                 //btnCheck();
             }
         });
-
         function check_calculation(total , arr)
         {
             var totalOfItems = parseInt(arr[0])+parseInt(arr[1])+parseInt(arr[2])+parseInt(arr[3])+parseInt(arr[4]);
@@ -278,7 +253,22 @@ var errorBtn4=0;
             console.log('validated');
             return true;
         }
-
+    });
+    $(document).ready(function() {
+        $('#btnSubmit').click(function () {
+            if (errorBtn1 == 1){
+                alert('Input should be greater than output.');
+            }else if(errorBtn2 == 1) {
+                alert('Unprinted scrap total does not match.');
+            }else if(errorBtn3 == 1) {
+                alert('Printed scrap does not match.');
+            }else if(parseInt($('#PrintingShiftreportInput').val()) !=( parseInt($('#PrintingShiftreportOutput').val()) + parseInt($('#unprinted_scrap').val()) + parseInt($('#printed_scrap').val()) )){
+                alert('Input = Output+Unprinted+Printed');
+                return false;
+            }else{
+                console.log('Validated');
+            }
+        });
     });
     function btnCheck(that)
     {
@@ -307,7 +297,6 @@ var errorBtn4=0;
     <fieldset>
         <legend><?php echo __('Edit Shiftreport'); ?></legend>
         <?php
-
         echo $this->Form->input('id');
         echo $this->Form->input('date', array('type' => 'text', 'id' => 'nepalidatepicker', 'class' => 'form-control input-sm', 'required' => 'required'));
         echo $this->Form->input('shift', array('options' => array('A' => 'A', 'B' => 'B'), 'class' => 'form-control input-sm', 'required' => 'required'));
@@ -330,7 +319,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity1', array('id'=>'UnPrintingShiftreportQuantity1','class' => 'form-control input-sm unprintedClass', 'type' => 'text', 'value' => $alldata['0']['printing_shiftreport']['quantity1'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label')));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('unprinted_reason_2', array('id'=>'UnPrintingShiftreportQuantityReason2','class' => 'form-control input-sm', 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label'), 'options' => array('Null' => 'Please Select', $unprinted)));
@@ -339,7 +327,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity2', array('id'=>'UnPrintingShiftreportQuantity2','class' => 'form-control input-sm unprintedClass', 'value' => $alldata['0']['printing_shiftreport']['quantity2'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label'), 'type' => 'text'));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('unprinted_reason_3', array('id'=>'UnPrintingShiftreportQuantityReason3','class' => 'form-control input-sm', 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label'), 'options' => array('Null' => 'Please Select', $unprinted)));
@@ -348,7 +335,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity3', array('id'=>'UnPrintingShiftreportQuantity3','class' => 'form-control input-sm unprintedClass', 'value' => $alldata['0']['printing_shiftreport']['quantity3'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label'), 'type' => 'text'));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('unprinted_reason_4', array('id'=>'UnPrintingShiftreportQuantityReason4','class' => 'form-control input-sm', 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label'), 'options' => array('Null' => 'Please Select', $unprinted)));
@@ -357,7 +343,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity4', array('id'=>'UnPrintingShiftreportQuantity4','class' => 'form-control input-sm unprintedClass', 'value' => $alldata['0']['printing_shiftreport']['quantity4'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label'), 'type' => 'text'));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('unprinted_reason_5', array('id'=>'UnPrintingShiftreportQuantityReason5','class' => 'form-control input-sm', 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label'), 'options' => array('Null' => 'Please Select', $unprinted)));
@@ -367,7 +352,6 @@ var errorBtn4=0;
         echo "</tr>";
         echo "</table>";
         echo '</div>';
-
         echo $this->Form->input('department_id', array('id' => 'department', 'type' => 'hidden', 'required' => 'required'));
         echo $this->Form->input('printed_scrap', array('class' => 'form-control input-sm', 'id' => 'printed_scrap', 'onchange' => 'doi1();', 'required' => 'required'));
         echo '<div class="pinkbox" id="pink">';
@@ -384,7 +368,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity_1', array('class'=>'printedClass','value' => $PrintingShiftreports['0']['printing_shiftreport']['quantity_1'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label')));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('printed_reason_2', array('id'=>'PrintingShiftreportQuantityReason2','options' => array('Null' => 'Please Select', $printed), 'default' => $PrintingShiftreports['0']['printing_shiftreport']['printed_reason_2'], 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label')));
@@ -393,7 +376,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity_2', array('class'=>'printedClass','value' => $PrintingShiftreports['0']['printing_shiftreport']['quantity_2'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label')));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('printed_reason_3', array('id'=>'PrintingShiftreportQuantityReason3','options' => array('Null' => 'Please Select', $printed), 'default' => $PrintingShiftreports['0']['printing_shiftreport']['printed_reason_2'], 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label')));
@@ -402,7 +384,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity_3', array('class'=>'printedClass','value' => $PrintingShiftreports['0']['printing_shiftreport']['quantity_3'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label')));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('printed_reason_4', array('id'=>'PrintingShiftreportQuantityReason4','options' => array('Null' => 'Please Select', $printed), 'default' => $PrintingShiftreports['0']['printing_shiftreport']['printed_reason_4'], 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label')));
@@ -411,7 +392,6 @@ var errorBtn4=0;
         echo $this->Form->input('quantity_4', array('class'=>'printedClass','value' => $PrintingShiftreports['0']['printing_shiftreport']['quantity_4'], 'label' => array('text' => 'quantity', 'class' => 'col-sm-2 control-label')));
         echo "</td>";
         echo "</tr>";
-
         echo "<tr>";
         echo "<td>";
         echo $this->Form->input('printed_reason_5', array('id'=>'PrintingShiftreportQuantityReason5','options' => array('Null' => 'Please Select', $printed), 'default' => $PrintingShiftreports['0']['printing_shiftreport']['printed_reason_5'], 'label' => array('text' => 'Reason', 'class' => 'col-sm-2 control-label')));
@@ -422,11 +402,9 @@ var errorBtn4=0;
         echo "</tr>";
         echo "</table>";
         echo '</div>';
-
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Submit'),['id'=>'btnSubmit', 'onclick'=>'return btnCheck(this);']); ?>
 </div>
 
-     
      

@@ -104,6 +104,11 @@ $html ='';
 $html .= '<h1><center>Calendar Production Report :<strong>'.$date.'</strong></center></h1>';
 $html .="<div style=\"width:500px;\">";
 $html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
+
+<tr>
+    <td>Raw Materials</td>
+    <td>".h(number_format($totalRawMaterials,2))."</td>
+</tr>
 <tr>
     <td>Bought Scrap</td>
     <td>".h(number_format($totalBroughtScrap,2))."</td>
@@ -112,10 +117,7 @@ $html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
     <td>Factory Scrap</td>
     <td>".h(number_format($totalScrap,2))."</td>
 </tr>
-<tr>
-    <td>Raw Materials</td>
-    <td>".h(number_format($totalRawMaterials,2))."</td>
-</tr>
+
 <tr style=\"font-weight: bold\">
     <td>Total</td>
     <td>".h(number_format($allTotal,2))."</td>
@@ -288,13 +290,13 @@ $html .="
 <td>".h(number_format($lamps_plates,2))."</td>
 </tr>
 <tr>
-<td>Total Scrap Used</td>
-<td>".h(number_format($total_scrap_generated, 2))."</td>
+<td><strong>Total Scrap Used</strong></td>
+<td><strong>".h(number_format($total_scrap_generated, 2))."</strong></td>
 </tr>
 <tr>
-<td>Unaccounted Loss</td>
+<td><strong>Unaccounted Loss</strong></td>
 <!-- input - total Ntwt - scrap generated of current date -->
-<td>".h(number_format($allTotal-$ntwtTotal-$total_scrap_generated, 2))."</td>
+<td><strong>".h(number_format($allTotal-$ntwtTotal-$total_scrap_generated, 2))."</strong></td>
 </tr>
 </table>";
 $html .= "</div>";

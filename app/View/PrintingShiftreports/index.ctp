@@ -31,7 +31,10 @@
                     </button>
                 </td>
                 <td>
-                    <button class="btn btn-primary" onclick="return print(this);"><i class="glyphicon glyphicon-download"></i> Download</button>
+                    <button class="btn btn-warning" onclick="return print(this);"><i class="glyphicon glyphicon-download"></i> Download PDF</button>
+                </td>
+                <td>
+                    <a class="btn btn-success" href="<?=$base_url;?>PrintingShiftreports/exportcsv"><i class="glyphicon glyphicon-download"></i> Export CSV</a>
                 </td>
                 </tr>
             </table>
@@ -105,17 +108,38 @@
             <?php endforeach; ?>
             <?php foreach ($total as $tot): ?>
                 <tr>
-                    <td align="right"><strong>Total</strong></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td colspan="5" align="right"><strong>Total</strong></td>
+                    
                     <td align="right"><strong><?php echo number_format($tot['0']['totalinput'], 2); ?><strong></td>
                     <td align="right"><strong><?php echo number_format($tot['0']['totaloutput'], 2); ?></strong></td>
                     <td align="right"><strong><?php echo number_format($tot['0']['totalu'], 2); ?></strong></td>
                     <td align="right"><strong><?php echo number_format($tot['0']['totals'], 2); ?></strong></td>
                 </tr>
             <?php endforeach; ?>
+
+            <?php foreach ($total as $tot): ?>
+                <!-- <tr>
+                    <td colspan="5" align="right"><strong>Total (To month)</strong></td>
+                    
+                    <td align="right"><strong><?php echo number_format($tot['0']['totalinput'], 2); ?><strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totaloutput'], 2); ?></strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totalu'], 2); ?></strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totals'], 2); ?></strong></td>
+                </tr> -->
+            <?php endforeach; ?>
+
+            <?php foreach ($total as $tot): ?>
+                <!-- <tr>
+                    <td colspan="5" align="right"><strong>Total (To year)</strong></td>
+                    
+                    <td align="right"><strong><?php echo number_format($tot['0']['totalinput'], 2); ?><strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totaloutput'], 2); ?></strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totalu'], 2); ?></strong></td>
+                    <td align="right"><strong><?php echo number_format($tot['0']['totals'], 2); ?></strong></td>
+                </tr> -->
+            <?php endforeach; ?>
+
+
         </table>
         <p>
             <?php
@@ -129,9 +153,12 @@
 
 
 </div>
-<div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('New Printing Shiftreport'), array('action' => 'add')); ?></li>
+
+ <ul class="pagination pagination-sm">
+        <?php
+        echo '<li>'.$this->Paginator->prev('< ' . __('previous'), array(), null, array('class' => 'prev disabled')) . '</li>';
+        echo '<li>'.$this->Paginator->numbers(array('separator' => '')) . '</li>';
+        echo '<li>'.$this->Paginator->next(__('next') . ' >', array(), null, array('class' => 'next disabled')) . '</li>';
+        ?>
     </ul>
-</div>
+

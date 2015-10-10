@@ -219,6 +219,7 @@ class PagesController extends AppController
         $this->loadModel("PrintingShiftreport");
         $date1;
         $dd = $this->TimeLoss->query("select nepalidate from time_loss where department_id = 'printing' order by id DESC LIMIT 1");
+        //$dd = $this->PrintingShiftreport->query("select date from printing_shiftreport order by date DESC LIMIT 1");
 
         foreach ($dd as $d):
             $timedate = $date1 = $d['time_loss']['nepalidate'];
@@ -270,7 +271,7 @@ class PagesController extends AppController
             }
             //echo'<pre>';print_r($target);die;
             $this->set('target_print',$target);
-
+            //echo $startmonth2;echo $date2;die;
             $monthly = $this->PrintingShiftreport->query("SELECT COUNT(DISTINCT dimension,color_code) as total FROM printing_shiftreport WHERE date between '$startmonth2'
             AND '$date2'");
             //print_r($monthly);die;
@@ -2611,20 +2612,23 @@ function exportprint()
 
         $latest_print_date = $this->TblPrintingIssue->query("select nepalidate from tbl_printing_issue order by nepalidate desc limit 1")[0]['tbl_printing_issue']['nepalidate'];
         $latest_shift_date = $this->PrintingShiftreport->query("select date from printing_shiftreport order by date desc limit 1")[0]['printing_shiftreport']['date'];
-        list($yar,$moth,$dayt)=explode('-', $latest_print_date);
+        list($yar,$moth,$dayt)=explode('-', $latest_shift_date);
         list($yr,$mth,$dy)=explode('-', $latest_shift_date);
-        $operated_in_year = $this->TblPrintingIssue->query("select count(distinct(nepalidate)) as operated_in_year from 
-            tbl_printing_issue where nepalidate like '$yar-%'")[0][0]['operated_in_year'];
-        $operated_in_month = $this->TblPrintingIssue->query("select count(distinct(nepalidate)) as operated_in_month from 
-            tbl_printing_issue where nepalidate like '$yar-$moth-%'")[0][0]['operated_in_month'];
+
+        //$month = substr($latest_shift_date, 0,7);
+
+        $operated_print_year = $this->PrintingShiftreport->query("select count(distinct(date)) as operated_in_year from 
+            printing_shiftreport where date like '$yar-%'")[0][0]['operated_in_year'];
+        $operated_print_month = $this->PrintingShiftreport->query("select count(distinct(date)) as operated_in_month from 
+            printing_shiftreport where date like '$yar-$moth-%'")[0][0]['operated_in_month'];
         //echo'<pre>';print_r($operated_in_month);die;
 
-        $this->set('operated_print_year',$operated_in_year);
-        $this->set('operated_print_month',$operated_in_month);
+        $this->set('operated_print_year',$operated_print_year);
+        $this->set('operated_print_month',$operated_print_month);
 
         $this->set('current_print_year',$yar);
         $this->set('current_print_month',$yar.'-'.$moth);
-        $this->set('current_print_day',$latest_print_date);   
+        $this->set('current_print_day',$latest_shift_date);   
 
         $total_output_day = $this->PrintingShiftreport->query("select sum(output) as output from printing_shiftreport where date = '$latest_shift_date'")[0][0]['output'];
         
@@ -2635,10 +2639,12 @@ function exportprint()
         $this->set('total_output_month',$total_output_month);
         $this->set('total_output_year',$total_output_year); 
 
-
+        //echo $total_output_year;die;
+        //echo $operated_print_year;die;
+        
         $per_output_day = $total_output_day/24;
-        $per_output_month = $total_output_month/(24*$operated_in_month);
-        $per_output_year = $total_output_month/(24*$operated_in_year);
+        $per_output_month = $total_output_month/(24*$operated_print_month);
+        $per_output_year = $total_output_year/(24*$operated_print_year);
         
         $this->set('print_output_day',$per_output_day);
         $this->set('print_output_month',$per_output_month);
@@ -2667,6 +2673,33 @@ function exportprint()
         $this->set('printingShiftreportToYear',$printingShiftreportToYear);
 
         //End: For printed and unprinted scrap reasons
+
+
+        //PRINTING DASHBOARD
+            //Total printed scrap 
+            $latest_shift_month = substr($latest_shift_date, 0,7);
+            $latest_shift_year = substr($latest_shift_date, 0,4);
+            
+            $all_pscraps_today = $this->PrintingShiftreport->query("select sum(printed_scrap) as total_printed_scrap from printing_shiftreport where date = '$latest_shift_date'")[0][0]['total_printed_scrap'];
+            $all_pscraps_month = $this->PrintingShiftreport->query("select sum(printed_scrap) as total_printed_scrap from printing_shiftreport where date like '$latest_shift_month%'")[0][0]['total_printed_scrap'];
+            $all_pscraps_year = $this->PrintingShiftreport->query("select sum(printed_scrap) as total_printed_scrap from printing_shiftreport where date like '$latest_shift_year%'")[0][0]['total_printed_scrap'];
+            //print_r($all_scraps_year);die;
+
+            $this->set('all_pscrap_day',$all_pscraps_today);
+            $this->set('all_pscrap_month',$all_pscraps_month);
+            $this->set('all_pscrap_year',$all_pscraps_year);
+
+            //Total unprinted scrap
+            $all_unpscraps_today = $this->PrintingShiftreport->query("select sum(unprinted_scrap) as total_unprinted_scrap from printing_shiftreport where date = '$latest_shift_date'")[0][0]['total_unprinted_scrap'];
+            $all_unpscraps_month = $this->PrintingShiftreport->query("select sum(unprinted_scrap) as total_unprinted_scrap from printing_shiftreport where date like '$latest_shift_month%'")[0][0]['total_unprinted_scrap'];
+            $all_unpscraps_year = $this->PrintingShiftreport->query("select sum(unprinted_scrap) as total_unprinted_scrap from printing_shiftreport where date like '$latest_shift_year%'")[0][0]['total_unprinted_scrap'];
+            //print_r($all_unpscraps_month);die;
+
+            $this->set('all_unpscrap_day',$all_unpscraps_today);
+            $this->set('all_unpscrap_month',$all_unpscraps_month);
+            $this->set('all_unpscrap_year',$all_unpscraps_year);
+
+        //END: PRINTING DASHBOARD
     }
 
 
@@ -2674,4 +2707,5 @@ function exportprint()
    
 
 }
+
 
