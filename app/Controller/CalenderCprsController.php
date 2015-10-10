@@ -136,6 +136,7 @@ class CalenderCprsController extends AppController
         $searchDate = isset($_GET['search'])?$_GET['search']:null;
         $date = isset($_GET['search'])?$_GET['search']:$lastDate;
         $date = $date?$date:$lastDate;
+        $lastDatenewVal = $date;
         
         if ($searchDate):
             $consumptionItemsThisMonth = $this->TblConsumptionStock->query("select * from tbl_consumption_stock where nepalidate like '%".substr($searchDate,0,7)."%' and length is NOT  NULL and ntwt is not NULL");
@@ -156,6 +157,7 @@ class CalenderCprsController extends AppController
             $ntwtTotal = $this->TblConsumptionStock->query("select sum(ntwt) as sum from tbl_consumption_stock  where nepalidate = '$lastDate'")[0][0]['sum'];
             $totalMaterials = $this->TblConsumptionStock->query("SELECT materials from tbl_consumption_stock where nepalidate = '$lastDate' and length is not null and ntwt is not null");
         endif;
+        
         //Raw Materials
         $this->loadModel('CategoryMaterial');
         $this->loadModel('MixingMaterial');
@@ -206,18 +208,23 @@ class CalenderCprsController extends AppController
         $totalMat = 0;
         $totalLen = 0;
         $totalNtwt = 0;
+        $lastDayInt = intVal(substr($lastDatenewVal,8,9));
+
         foreach($consumptionItemsThisMonth as $c) {
-            $totalLen += $c['tbl_consumption_stock']['length'];
-            $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
-            $mat = json_decode($c['tbl_consumption_stock']['materials']);
-            foreach ($materials as $m):
-                if (property_exists($mat, $m['mixing_materials']['id'])) {
-                    $totalWeight = $mat->$m['mixing_materials']['id'];
-                } else {
-                    $totalWeight = 0;
-                }
-                $totalMat += $totalWeight;
-            endforeach;
+            $day = intVal(substr($c['tbl_consumption_stock']['nepalidate'],8,9));
+            if($day<=$lastDayInt){
+                $totalLen += $c['tbl_consumption_stock']['length'];
+                $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
+                $mat = json_decode($c['tbl_consumption_stock']['materials']);
+                foreach ($materials as $m):
+                    if (property_exists($mat, $m['mixing_materials']['id'])) {
+                        $totalWeight = $mat->$m['mixing_materials']['id'];
+                    } else {
+                        $totalWeight = 0;
+                    }
+                    $totalMat += $totalWeight;
+                endforeach;
+            }
         }
         $consumptionItemsThisMonthArr = [];
         $consumptionItemsThisMonthArr['length'] =$totalLen;
@@ -227,18 +234,42 @@ class CalenderCprsController extends AppController
         $totalMat = 0;
         $totalLen = 0;
         $totalNtwt = 0;
+        $lastMonthInt =intVal(substr($lastDatenewVal,5,2));
         foreach($consumptionItemsThisYear as $c) {
-            $totalLen += $c['tbl_consumption_stock']['length'];
-            $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
-            $mat = json_decode($c['tbl_consumption_stock']['materials']);
-            foreach ($materials as $m):
-                if (property_exists($mat, $m['mixing_materials']['id'])) {
-                    $totalWeight = $mat->$m['mixing_materials']['id'];
-                } else {
-                    $totalWeight = 0;
+            $month = intVal(substr($c['tbl_consumption_stock']['nepalidate'],5,2));
+            $day = intVal(substr($c['tbl_consumption_stock']['nepalidate'],8,9));
+
+            if($month<=$lastMonthInt){
+                if($month==$lastMonthInt)
+                {
+                    if($day<=$lastDayInt)
+                    {
+                        $totalLen += $c['tbl_consumption_stock']['length'];
+                        $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
+                        $mat = json_decode($c['tbl_consumption_stock']['materials']);
+                        foreach ($materials as $m):
+                            if (property_exists($mat, $m['mixing_materials']['id'])) {
+                                $totalWeight = $mat->$m['mixing_materials']['id'];
+                            } else {
+                                $totalWeight = 0;
+                            }
+                            $totalMat += $totalWeight;
+                        endforeach;
+                    }
+                }else {
+                    $totalLen += $c['tbl_consumption_stock']['length'];
+                    $totalNtwt += $c['tbl_consumption_stock']['ntwt'];
+                    $mat = json_decode($c['tbl_consumption_stock']['materials']);
+                    foreach ($materials as $m):
+                        if (property_exists($mat, $m['mixing_materials']['id'])) {
+                            $totalWeight = $mat->$m['mixing_materials']['id'];
+                        } else {
+                            $totalWeight = 0;
+                        }
+                        $totalMat += $totalWeight;
+                    endforeach;
                 }
-                $totalMat += $totalWeight;
-            endforeach;
+            }
         }
         $consumptionItemsThisYearArr = [];
         $consumptionItemsThisYearArr['length'] =$totalLen;

@@ -11927,3 +11927,312 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+2015-10-10 00:16:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:03 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:17:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:18 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:17:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:22:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:22:57 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:22:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:23:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:26:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:26:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:36:46 Error: Fatal Error (4): syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 234]
+2015-10-10 00:36:46 Error: [FatalErrorException] syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:36:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:37:05 Error: Fatal Error (4): syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 234]
+2015-10-10 00:37:05 Error: [FatalErrorException] syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:37:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:38:20 Error: Fatal Error (4): syntax error, unexpected ')' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 232]
+2015-10-10 00:38:20 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:38:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:10:47 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 03:10:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:12:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:17:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:28:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:31:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:31:21 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 03:31:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
