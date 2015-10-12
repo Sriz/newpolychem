@@ -250,6 +250,22 @@
             }
         });
     });
+    $(document).ready(function() {
+        $('#btnSubmit').click(function () {
+            if (errorBtn1 == 1){
+                alert('Input/Output Error');
+            }else if(errorBtn2 == 1) {
+                alert('Unprinted Scrap Error');
+            }else if(errorBtn3 == 1) {
+                alert('Printed Scrap Error');
+            }else if(parseInt($('#PrintingShiftreportInput').val()) !=( parseInt($('#PrintingShiftreportOutput').val()) + parseInt($('#unprinted_scrap').val()) + parseInt($('#printed_scrap').val()) )){
+                alert('Input = Output+Unprinted+Printed');
+                return false;
+            }else{
+                console.log('Validated');
+            }
+        });
+    });
     function btnCheck(that)
     {
         var url = $(that).attr('href');

@@ -11927,11 +11927,16 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-09 16:43:03 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+2015-10-10 00:16:59 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -12013,10 +12018,36 @@ Stack Trace:
 #12 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #13 {main}
 2015-10-09 16:54:51 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:03 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:17:03 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -12097,10 +12128,18 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-09 18:07:47 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:15 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -12412,10 +12451,36 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 02:35:13 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:17:18 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:17:18 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13279,10 +13344,18 @@ Stack Trace:
 #4 [internal function]: App::shutdown()
 #5 {main}
 2015-10-10 03:07:22 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:22:50 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13347,10 +13420,36 @@ Stack Trace:
 #4 [internal function]: App::shutdown()
 #5 {main}
 2015-10-10 03:09:20 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:22:57 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 00:22:57 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13432,28 +13531,52 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 03:15:17 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:23:03 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:15:59 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:26:07 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:16:07 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:26:17 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13468,10 +13591,28 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:16:33 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:36:46 Error: Fatal Error (4): syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 234]
+2015-10-10 00:36:46 Error: [FatalErrorException] syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:36:47 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13486,19 +13627,55 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:17:19 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:37:05 Error: Fatal Error (4): syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 234]
+2015-10-10 00:37:05 Error: [FatalErrorException] syntax error, unexpected 'print_r' (T_STRING), expecting ',' or ';'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 234, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:37:05 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:26:56 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 00:38:20 Error: Fatal Error (4): syntax error, unexpected ')' in [D:\www\ww\newpolychem\app\Controller\CalenderCprsController.php, line 232]
+2015-10-10 00:38:20 Error: [FatalErrorException] syntax error, unexpected ')'
+Request URL: /ww/newpolychem/CalenderCprs/pdf
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232, Array)
+#2 D:\www\ww\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\ww\\newpo...', 232, Array)
+#3 D:\www\ww\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-10 00:38:21 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13513,10 +13690,36 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:26:58 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:10:47 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 03:10:49 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13531,10 +13734,27 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:28:37 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:12:23 Error: [MissingControllerException] Controller class CssController could not be found.
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:17:17 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13549,28 +13769,61 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:28:42 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:28:43 Error: [MissingControllerException] Controller class CssController could not be found.
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:00 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:28:45 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:27 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 03:41:46 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:29:40 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13587,10 +13840,18 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 05:12:51 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:31:11 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13902,10 +14163,36 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 05:49:25 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:31:21 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 03:31:22 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -13980,37 +14267,69 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 05:53:36 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:37:26 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 05:53:42 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:52:07 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 05:53:47 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 03:53:53 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 05:56:41 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:08:22 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14027,46 +14346,86 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 06:01:03 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:08:33 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:01:07 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:10:23 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:02:39 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:11:16 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:02:42 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:12:29 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:04:43 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:12:54 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14215,37 +14574,69 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 06:05:20 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:14:16 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:05:49 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:17:56 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:05:55 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:19:17 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:08:26 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:19:25 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14281,10 +14672,18 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 06:11:34 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:21:41 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14433,10 +14832,18 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 06:26:51 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:23:14 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14453,82 +14860,154 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-10 06:33:49 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:23:55 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:38:06 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:24:22 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:39:04 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:25:31 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:43:10 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:26:43 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:43:21 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:28:27 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:43:30 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:29:09 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:43:54 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:31:24 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:44:17 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:32:59 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:45:03 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:36:38 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
@@ -14543,137 +15022,280 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:47:30 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:39:37 Error: [MissingTableException] Table print_dimension_target for model PrintDimensionTarget was not found in datasource default.
+Exception Attributes: array (
+  'table' => 'print_dimension_target',
+  'class' => 'PrintDimensionTarget',
+  'ds' => 'default',
+)
+Request URL: /ww/newpolychem/home
+Stack Trace:
+#0 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3310): Model->setSource('print_dimension...')
+#1 D:\www\ww\newpolychem\lib\Cake\Model\Model.php(3127): Model->getDataSource()
+#2 D:\www\ww\newpolychem\app\Controller\PagesController.php(267): Model->query('select * from p...')
+#3 D:\www\ww\newpolychem\app\Controller\PagesController.php(23): PagesController->printing_dashboard()
+#4 [internal function]: PagesController->index()
+#5 D:\www\ww\newpolychem\lib\Cake\Controller\Controller.php(490): ReflectionMethod->invokeArgs(Object(PagesController), Array)
+#6 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#7 D:\www\ww\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(PagesController), Object(CakeRequest), Object(CakeResponse))
+#8 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#9 {main}
+2015-10-10 04:39:38 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:47:59 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:40:01 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:48:01 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:40:05 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:50:43 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:40:10 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:11 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:40:18 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:15 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:41:27 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:18 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:55:29 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:28 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:56:04 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:38 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:58:00 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:40 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:58:09 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:43 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:58:27 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:47 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:59:12 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 06:51:53 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:59:26 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 14:16:49 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:59:37 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-10 18:23:11 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-10 04:59:57 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
+<<<<<<< HEAD
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+=======
+Request URL: /ww/newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+>>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 #1 {main}
