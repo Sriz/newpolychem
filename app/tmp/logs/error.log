@@ -15299,6 +15299,7 @@ Stack Trace:
 #0 D:\www\ww\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 >>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
 #1 {main}
+<<<<<<< HEAD
 2015-10-13 15:00:45 Error: [MissingControllerException] Controller class CssController could not be found.
 Exception Attributes: array (
   'class' => 'CssController',
@@ -17741,114 +17742,90 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-15 04:59:27 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 04:59:40 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:00:01 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:01:24 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:01:39 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:01:49 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:02:06 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:02:21 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 05:11:49 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
-Trace:
-Hash::get() - CORE\Cake\Utility\Hash.php, line 52
-AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
-PagesController::index() - APP\Controller\PagesController.php, line 40
-ReflectionMethod::invokeArgs() - [internal], line ??
-Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
-Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
-Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
-[main] - APP\webroot\index.php, line 111
-
-2015-10-15 11:00:37 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+2015-10-13 14:21:18 Error: [MissingControllerException] Controller class InstallController could not be found.
+Exception Attributes: array (
+  'class' => 'InstallController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/install
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:21:19 Error: [MissingControllerException] Controller class CssController could not be found.
 Exception Attributes: array (
   'class' => 'CssController',
   'plugin' => NULL,
 )
 Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
-#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
-2015-10-15 11:00:45 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+2015-10-13 14:24:48 Error: [MissingControllerException] Controller class InstallController could not be found.
+Exception Attributes: array (
+  'class' => 'InstallController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/install
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:24:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:24:51 Error: [MissingControllerException] Controller class =Controller could not be found.
+Exception Attributes: array (
+  'class' => '=Controller',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/=
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:24:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:24:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:25:33 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [D:\www\newpolychem\lib\Cake\basics.php, line 200]
+2015-10-13 14:25:33 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'D:\\www\\newpolyc...', 200)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'D:\\www\\newpolyc...', 200, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'D:\\www\\newpolyc...', 200, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 14:25:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:31:07 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -17859,9 +17836,243 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+2015-10-13 14:32:56 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:33:09 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:33:23 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:34:13 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:41:34 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:43:29 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 14:43:49 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 04:59:40 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:44:17 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:00:01 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:44:51 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:01:24 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:46:00 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:01:39 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:46:17 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:01:49 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:47:59 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:02:06 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:48:16 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:02:21 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:49:44 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 05:11:49 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 14:51:13 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
+2015-10-15 11:00:37 Error: [MissingControllerException] Controller class CssController could not be found.
+=======
+2015-10-13 14:54:34 Error: [MissingControllerException] Controller class CssController could not be found.
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+<<<<<<< HEAD
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-15 11:00:45 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 14:54:42 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+<<<<<<< HEAD
 2015-10-15 11:00:48 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17870,9 +18081,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:48 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17881,9 +18098,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:48 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17892,9 +18115,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17903,9 +18132,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17914,9 +18149,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17925,9 +18166,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17936,9 +18183,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17947,9 +18200,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17958,9 +18217,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17969,9 +18234,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17980,9 +18251,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1084]
 Trace:
 include - APP\View\Pages\index.ctp, line 1084
+=======
+2015-10-13 14:54:45 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1085]
+Trace:
+include - APP\View\Pages\index.ctp, line 1085
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -17991,9 +18268,134 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:03:34 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:03:37 Error: Fatal Error (4): syntax error, unexpected '").html())' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in [D:\www\newpolychem\app\View\Pages\index.ctp, line 983]
+2015-10-13 15:03:37 Error: [InternalErrorException] Internal Server Error
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:03:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 15:04:16 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:04:21 Error: Fatal Error (4): syntax error, unexpected '").html())' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in [D:\www\newpolychem\app\View\Pages\index.ctp, line 983]
+2015-10-13 15:04:21 Error: [InternalErrorException] Internal Server Error
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:04:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 15:04:46 Error: Fatal Error (4): syntax error, unexpected '").html())' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';' in [D:\www\newpolychem\app\View\Pages\index.ctp, line 983]
+2015-10-13 15:04:46 Error: [FatalErrorException] syntax error, unexpected '").html())' (T_CONSTANT_ENCAPSED_STRING), expecting ',' or ';'
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\newpolyc...', 983, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:04:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 15:05:51 Error: Fatal Error (4): syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in [D:\www\newpolychem\app\View\Pages\index.ctp, line 995]
+2015-10-13 15:05:51 Error: [FatalErrorException] syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING)
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 995)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 995, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\newpolyc...', 995, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:05:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 15:12:15 Error: Fatal Error (1): Allowed memory size of 536870912 bytes exhausted (tried to allocate 336210067 bytes) in [D:\www\newpolychem\lib\Cake\View\View.php, line 934]
+2015-10-13 15:12:16 Error: [FatalErrorException] Allowed memory size of 536870912 bytes exhausted (tried to allocate 336210067 bytes)
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Allowed memory ...', 'D:\\www\\newpolyc...', 934)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', 'D:\\www\\newpolyc...', 934, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', 'D:\\www\\newpolyc...', 934, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:12:29 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18002,9 +18404,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18013,9 +18421,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18024,9 +18438,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18035,9 +18455,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18046,9 +18472,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18057,9 +18489,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18068,9 +18506,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18079,9 +18523,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18090,9 +18540,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18101,9 +18557,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18112,9 +18574,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 11:00:49 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1142]
 Trace:
 include - APP\View\Pages\index.ctp, line 1142
+=======
+2015-10-13 15:12:32 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18123,6 +18591,7 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:41:58 Error: [MissingControllerException] Controller class CssController could not be found.
 Exception Attributes: array (
   'class' => 'CssController',
@@ -18133,6 +18602,9 @@ Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
 2015-10-15 12:42:04 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 15:12:33 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -18143,9 +18615,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:06 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18154,9 +18632,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:06 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18165,9 +18649,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:06 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18176,9 +18666,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:07 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18187,9 +18683,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:07 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18198,9 +18700,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:07 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18209,9 +18717,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:07 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18220,9 +18734,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18231,9 +18751,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18242,9 +18768,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18253,9 +18785,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18264,9 +18802,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:36 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18275,9 +18819,26 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:37 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18286,9 +18847,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18297,9 +18864,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18308,9 +18881,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18319,9 +18898,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18330,9 +18915,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18341,9 +18932,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18352,9 +18949,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18363,9 +18966,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18374,9 +18983,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:40 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18385,9 +19000,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:41 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18396,9 +19017,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 12:42:08 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:41 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18407,7 +19034,11 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:02:59 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 15:12:41 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -18418,9 +19049,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18429,9 +19066,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18440,9 +19083,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18451,9 +19100,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18462,9 +19117,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18473,9 +19134,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18484,9 +19151,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:00 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18495,9 +19168,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18506,9 +19185,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18517,9 +19202,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18528,9 +19219,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18539,9 +19236,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:44 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18550,9 +19253,26 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:45 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18561,9 +19281,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18572,9 +19298,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18583,9 +19315,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18594,9 +19332,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18605,9 +19349,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18616,9 +19366,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18627,9 +19383,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18638,9 +19400,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18649,9 +19417,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18660,9 +19434,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18671,9 +19451,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:01 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:12:47 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18682,6 +19468,7 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:03:12 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
@@ -18727,6 +19514,9 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
 2015-10-15 13:05:54 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 15:12:48 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -18737,9 +19527,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18748,9 +19544,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18759,9 +19561,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18770,9 +19578,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18781,9 +19595,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18792,9 +19612,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18803,9 +19629,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18814,9 +19646,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18825,9 +19663,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18836,9 +19680,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18847,9 +19697,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18858,9 +19714,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:12:51 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18869,9 +19731,56 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:14:49 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:14:53 Error: Fatal Error (4): syntax error, unexpected ']', expecting ',' or ';' in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1088]
+2015-10-13 15:14:53 Error: [InternalErrorException] Internal Server Error
+Request URL: /newpolychem/home
+Stack Trace:
+#0 D:\www\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 1088)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', 'D:\\www\\newpolyc...', 1088, Array)
+#2 D:\www\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', 'D:\\www\\newpolyc...', 1088, Array)
+#3 D:\www\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-13 15:14:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-13 15:15:42 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18880,9 +19789,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:55 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18891,9 +19806,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18902,9 +19823,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18913,9 +19840,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18924,9 +19857,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18935,9 +19874,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18946,9 +19891,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18957,9 +19908,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18968,9 +19925,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18979,9 +19942,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -18990,9 +19959,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:05:56 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:15:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19001,7 +19976,11 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:45 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 15:16:10 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -19012,9 +19991,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19023,9 +20008,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19034,9 +20025,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19045,9 +20042,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19056,9 +20059,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19067,9 +20076,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19078,9 +20093,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19089,9 +20110,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19100,9 +20127,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19111,9 +20144,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19122,9 +20161,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19133,9 +20178,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:16:14 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19144,9 +20195,26 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:53 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19155,9 +20223,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19166,9 +20240,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19177,9 +20257,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:46 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19188,9 +20274,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19199,9 +20291,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19210,9 +20308,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19221,9 +20325,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19232,9 +20342,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19243,9 +20359,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19254,9 +20376,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19265,9 +20393,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:08:47 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:16:56 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1089]
+Trace:
+include - APP\View\Pages\index.ctp, line 1089
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19276,7 +20410,11 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:10 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+=======
+2015-10-13 15:20:04 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 Trace:
 Hash::get() - CORE\Cake\Utility\Hash.php, line 52
 AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
@@ -19287,9 +20425,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:08 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19298,9 +20442,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19309,9 +20459,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19320,9 +20476,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19331,9 +20493,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19342,9 +20510,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19353,9 +20527,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19364,9 +20544,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19375,9 +20561,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19386,9 +20578,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19397,9 +20595,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19408,9 +20612,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1109]
 Trace:
 include - APP\View\Pages\index.ctp, line 1109
+=======
+2015-10-13 15:20:09 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1094]
+Trace:
+include - APP\View\Pages\index.ctp, line 1094
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19419,6 +20629,7 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
@@ -19433,6 +20644,22 @@ Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:42 Warning: Warning (2): Invalid argument supplied for foreach() in [D:\www\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19441,9 +20668,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19452,9 +20685,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19463,9 +20702,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19474,9 +20719,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19485,9 +20736,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19496,9 +20753,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19507,9 +20770,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19518,9 +20787,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19529,9 +20804,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19540,9 +20821,15 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:11 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1167]
 Trace:
 include - APP\View\Pages\index.ctp, line 1167
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462
@@ -19551,6 +20838,7 @@ Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
 Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
 [main] - APP\webroot\index.php, line 111
 
+<<<<<<< HEAD
 2015-10-15 13:10:44 Error: Fatal Error (4): syntax error, unexpected '<<' (T_SL) in [E:\xampp\htdocs\newpolychem\app\Controller\CalenderCprsController.php, line 181]
 2015-10-15 13:10:44 Error: [InternalErrorException] Internal Server Error
 Request URL: /newpolychem/CalenderCprs/index/sort:id/direction:desc
@@ -19757,6 +21045,306 @@ TCPDF::writeHTML() - APP\Vendor\tcpdf\tcpdf.php, line 18211
 TCPDF::MultiCell() - APP\Vendor\tcpdf\tcpdf.php, line 5828
 TCPDF::writeHTMLCell() - APP\Vendor\tcpdf\tcpdf.php, line 17095
 include - APP\View\PrintingShiftreports\download_pdf.ctp, line 216
+=======
+2015-10-13 15:21:46 Warning: Warning (2): Division by zero in [D:\www\newpolychem\app\View\Pages\index.ctp, line 1097]
+Trace:
+include - APP\View\Pages\index.ctp, line 1097
+>>>>>>> 4320394e7b509c47372590143de48f6b959a8297
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:14 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-16 02:22:36 Warning: Warning (2): Invalid argument supplied for foreach() in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Hash.php, line 52]
+Trace:
+Hash::get() - CORE\Cake\Utility\Hash.php, line 52
+AuthComponent::user() - CORE\Cake\Controller\Component\AuthComponent.php, line 660
+PagesController::index() - APP\Controller\PagesController.php, line 40
+ReflectionMethod::invokeArgs() - [internal], line ??
+Controller::invokeAction() - CORE\Cake\Controller\Controller.php, line 490
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 187
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:38 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:38 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:39 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:39 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:39 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1122]
+Trace:
+include - APP\View\Pages\index.ctp, line 1122
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
+View::_evaluate() - CORE\Cake\View\View.php, line 931
+View::_render() - CORE\Cake\View\View.php, line 893
+View::render() - CORE\Cake\View\View.php, line 462
+Controller::render() - CORE\Cake\Controller\Controller.php, line 952
+Dispatcher::_invoke() - CORE\Cake\Routing\Dispatcher.php, line 194
+Dispatcher::dispatch() - CORE\Cake\Routing\Dispatcher.php, line 162
+[main] - APP\webroot\index.php, line 111
+
+2015-10-16 02:22:40 Warning: Warning (2): Division by zero in [E:\xampp\htdocs\newpolychem\app\View\Pages\index.ctp, line 1180]
+Trace:
+include - APP\View\Pages\index.ctp, line 1180
 View::_evaluate() - CORE\Cake\View\View.php, line 931
 View::_render() - CORE\Cake\View\View.php, line 893
 View::render() - CORE\Cake\View\View.php, line 462

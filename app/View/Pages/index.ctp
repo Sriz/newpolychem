@@ -1,3 +1,4 @@
+
 <script>
 
     function generate_report(sel) {
@@ -998,7 +999,6 @@
                         <div class="col-md-2">
                             <table class="table">
                                 
-                                    
                                 <tr class="success">
                                 <th>Dimension<br</th>
                                 <?php
@@ -1099,13 +1099,26 @@
                            <table class="table" style="background-color:#f2dede">
                                 <tr class="success">
                                 <th>Difference</th>
+                                <script>
+                                    $(document).ready(function(){
+                                     <?php for($i=0; $i<count($dim_target); $i++):?>         
+                                        var varDimensionTarget = parseInt($("#diff<?=$i;?>").html());
+                                        if(varDimensionTarget>-3 && varDimensionTarget<3)
+                                        {
+                                            $("#diff<?=$i;?>").removeClass('danger').addClass('success');
+                                        }
+                                     <?php endfor;?>
+                                    });
+                                </script>
                                 <?php 
                                 // echo'<pre>';print_r($dim_target);
                                 // echo'<pre>';print_r($output_m);die;
                                 $c = count($dim_target);
+
                                 for($i=0;$i<$c;$i++){
+
                                 echo "<tr>";
-                                    echo '<td id="diff">';
+                                    echo '<td id="diff'.$i.'">';
                                         echo number_format(($output_m[$i][0][0]['output']-$dim_target[$i]['dimension_target']['target'])*100/$dim_target[$i]['dimension_target']['target'],2)."%";
                                     echo "</td>";
                                 }
@@ -1460,6 +1473,7 @@
                     <div class="container-fluid">
                         <div class="panel panel-primary">
                             <div class="panel-heading">Input Output Ratio</div>
+                            
                             <div class="panel-body">
 
                                <!--  <table class="table table-condensed table-bordered">
@@ -1475,6 +1489,17 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    <script>
+                                        $(document).ready(function(){
+                                            <?php foreach($target_print as $tpp):?>
+                                            var valueTarget = parseInt($('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').html());
+                                            if(valueTarget<3 && valueTarget>-3)
+                                            {
+                                                $('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').addClass('success');
+                                            }
+                                            <?php endforeach;?>
+                                        });
+                                    </script>
                                     <?php
                                     //echo'<pre>';print_r($target_print);die;
                                     foreach ($calenderratio as $loss) {
@@ -1492,7 +1517,7 @@
                                                 echo '<td style="text-align: ;">' . number_format($tp[0]['print_dimension_target']['target'], 2) . '</td>';
                                                 $diff = ($loss['0']['cratio']-$tp[0]['print_dimension_target']['target'])*100/$tp[0]['print_dimension_target']['target'];
                                                 //echo $diff;die;
-                                                echo '<td style="text-align: ;">' . number_format($diff, 2) . '%</td>';
+                                                echo '<td class="dimensionTarget-'.$tp[0]['print_dimension_target']['id'].'" style="text-align: ;">' . number_format($diff, 2) . '%</td>';
                                                    
                                             }
                                         }
