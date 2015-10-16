@@ -2493,20 +2493,22 @@ function exportprint()
             
             $this->set('dim_list',$q_dim_list);
             //echo'<pre>';print_r($q_dim_list);die;
-             //print'<pre>';print_r($q_dim_list);print'</pre>';
+            //print'<pre>';print_r($q_dim_list);print'</pre>';die;
             $i=0;
             foreach($q_dim_list as $dim_list):
                 
             
                 $dimen = $dim_list['baseemboss']['dimension'];
+                $brand = $dim_list['baseemboss']['brand'];
+                $type = $dim_list['baseemboss']['type'];
 
 
                  //print'<pre>';echo $dimen;print'</pre>';
 //year
                 $q_dim_yearly = $this->TblConsumptionStock->query("select sum(length) as total_length_year from tbl_consumption_stock where nepalidate like '$y%' and 
-                                                           Dimension='$dimen'");
+                                                           Dimension='$dimen' and brand = '$brand' and quality='$type' order by Dimension asc");
 
-                //print'<pre>';print_r($q_dim_yearly);print'</pre>';
+                //print'<pre>';print_r($q_dim_yearly);print'</pre>';die;
 
                 if(!$q_dim_yearly[0][0]['total_length_year'])
                     $dim_yearly[$i] ='0';
@@ -2515,7 +2517,7 @@ function exportprint()
 
 //month
                 $q_dim_monthly = $this->TblConsumptionStock->query("select sum(length) as total_length_month from tbl_consumption_stock where nepalidate like '$y-$mo-%' and 
-                                                           Dimension='$dimen' order by Dimension asc");
+                                                           Dimension='$dimen' and brand = '$brand' and quality='$type' order by Dimension asc");
                  //print'<pre>';print_r($q_dim_yearly);print'</pre>';
                 if(!$q_dim_monthly[0][0]['total_length_month'])
                     $dim_monthly[$i] ='0';
@@ -2523,7 +2525,7 @@ function exportprint()
                     $dim_monthly[$i] =$q_dim_monthly[0][0]['total_length_month'];
 //day
                 $q_dim_daily = $this->TblConsumptionStock->query("select sum(length) as total_length_day from tbl_consumption_stock where nepalidate='$latest_date' and 
-                                                           Dimension='$dimen' order by Dimension asc");
+                                                           Dimension='$dimen' and brand = '$brand' and quality='$type' order by Dimension asc");
                  //print'<pre>';print_r($q_dim_yearly);print'</pre>';
                 if(!$q_dim_daily[0][0]['total_length_day'])
                     $dim_daily[$i] ='0';
@@ -2583,8 +2585,9 @@ function exportprint()
                 // $total1=0;
                 $dimen = $dim['dimension_target']['dimension'];
                 $brand = $dim['dimension_target']['brand'];
+                $type = $dim['dimension_target']['type'];
                  //echo'<pre>';print_r($dimen);die;
-                $tot_wt_dim[$i] = $this->TblConsumptionStock->query("select sum(ntwt)/sum(length) as output from tbl_consumption_stock where dimension='$dimen' and brand = '$brand'");
+                $tot_wt_dim[$i] = $this->TblConsumptionStock->query("select sum(ntwt)/sum(length) as output from tbl_consumption_stock where dimension='$dimen' and brand = '$brand' and quality='$type'");
                 $i++;
                 //echo "yy3";die;
                 // foreach($tot_wt_dim as $twd):
@@ -2645,7 +2648,7 @@ function exportprint()
         $per_output_day = $total_output_day/24;
         $per_output_month = $total_output_month/(24*$operated_print_month);
         $per_output_year = $total_output_year/(24*$operated_print_year);
-        
+        //print_r($operated_print_month);die;
         $this->set('print_output_day',$per_output_day);
         $this->set('print_output_month',$per_output_month);
         $this->set('print_output_year',$per_output_year);

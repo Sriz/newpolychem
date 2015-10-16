@@ -421,8 +421,33 @@
    }
 
     ?>
+        <div class="row">
+            <div class="col-md-6">
 
-            <div class="panel panel-primary">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        Number of Days Operated
+                    </div>
+                    <div class="panel-body">
+                        <table class="table table-bordered table-hover">
+                            <tr>
+                                <td>In this Month (<?php echo $monthname;?>)</td>
+                                <td align="right">
+                                    <?php echo $month2[0][0]['month'];?>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>In this Year (<?php echo $latestyear;?>)</td>
+                                <td align="right">
+                                    <?php echo $year2[0][0]['year'];?>
+                                </td> 
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- <div class="panel panel-primary">
                 <div class="panel-heading">
                     Number of Days Operated
                 </div>
@@ -448,7 +473,7 @@
                     </tr>
                     </table>
             </div>
-        </div>
+        </div> -->
 
             <div class="container-fluid">
                <div class="row">
@@ -1052,7 +1077,7 @@
                             </table>
                         </div>
                         <div class="col-md-2">
-                           <table class="table">
+                        <!--    <table class="table">
                                 <tr class="success">
                                 <th>Target</th>
                                 <?php
@@ -1097,7 +1122,52 @@
             </div>
 
                 
+ -->
 
+               <table class="table">
+                                <tr class="success">
+                                <th>Target</th>
+                                <?php
+                                foreach ($dim_target as $dm):
+                                    //print'<pre>';print_r($dy);print'</pre>';
+                                    echo "<tr>";
+                                        echo '<td>';
+                                            echo number_format($dm['dimension_target']['target'],2);
+                                        echo "</td>";
+                                endforeach;
+                                ?>
+                                </tr>
+                            </table>
+                        </div>
+
+
+
+                        <div class="col-md-2">
+                           <table class="table" style="background-color:#f2dede">
+                                <tr class="success">
+                                <th>Difference</th>
+                                <script>
+                                    $(document).ready(function(){
+                                     <?php for($i=0; $i<count($dim_target); $i++):?>         
+                                        var varDimensionTarget = parseInt($("#diff<?=$i;?>").html());
+                                        if(varDimensionTarget>-3 && varDimensionTarget<3)
+                                        {
+                                            $("#diff<?=$i;?>").removeClass('danger').addClass('success');
+                                        }
+                                     <?php endfor;?>
+                                    });
+                                </script>
+                                <?php 
+                                // echo'<pre>';print_r($dim_target);
+                                // echo'<pre>';print_r($output_m);die;
+                                $c = count($dim_target);
+                                for($i=0;$i<$c;$i++){
+                                echo "<tr>";
+                                    echo '<td id="diff'.$i.'">';
+                                        echo number_format(($output_m[$i][0][0]['output']-$dim_target[$i]['dimension_target']['target'])*100/$dim_target[$i]['dimension_target']['target'],2)."%";
+                                    echo "</td>";
+                                }
+                                ?>
 
     <?php } ?>
 
@@ -1392,7 +1462,7 @@
                             <div class="panel-heading">Input Output Ratio</div>
                             <div class="panel-body">
 
-                                <table class="table table-condensed table-bordered">
+                               <!--  <table class="table table-condensed table-bordered">
                                     <thead>
                                     <tr>
                                         <th>Dimension</th>
@@ -1434,8 +1504,62 @@
                                     }
                                     ?>
                                     </tbody>
+                                </table> -->
+                                <table class="table table-condensed table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th>Dimension</th>
+                                        <th style="text-align: ;">Input</th>
+                                        <th style="text-align: ;">Output</th>
+                                        <th style="text-align: ;">Ratio</th>
+                                        <th>Target</th>
+                                        <th>Difference</th>
+                                        
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <script>
+                                        $(document).ready(function(){
+                                            <?php foreach($target_print as $tpp):?>
+                                            var valueTarget = parseInt($('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').html());
+                                            if(valueTarget<3 && valueTarget>-3)
+                                            {
+                                                $('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').addClass('success');
+                                            }
+                                            else
+                                            {
+                                                $('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').addClass('danger');
+                                            }
+                                            <?php endforeach;?>
+                                        });
+                                    </script>
+                                    <?php
+                                    //echo'<pre>';print_r($target_print);die;
+                                    foreach ($calenderratio as $loss) {
+                                        echo '<tr>';
+                                            echo '<td>' . $loss['printing_shiftreport']['dimension'] . '</td>';
+                                            echo '<td style="text-align: ;">'. number_format($loss['0']['input'], 2) . '</td>';
+                                            echo '<td style="text-align: ;">'. number_format($loss['0']['output'], 2) . '</td>';
+                                            echo '<td style="text-align: ;">'. number_format($loss['0']['cratio'], 2) . '</td>';
+                                        foreach($target_print as $tp){
+                                            //echo $loss['printing_shiftreport']['dimension'];die;
+                                            //echo $tp[0]['print_dimension_target']['dimension'];die;
+                                            if($loss['printing_shiftreport']['dimension']==$tp[0]['print_dimension_target']['dimension'])
+                                            {
+                                                echo '<td style="text-align: ;">' . number_format($tp[0]['print_dimension_target']['target'], 2) . '</td>';
+                                                $diff = ($loss['0']['cratio']-$tp[0]['print_dimension_target']['target'])*100/$tp[0]['print_dimension_target']['target'];
+                                                //echo $diff;die;
+                                                echo '<td class="dimensionTarget-'.$tp[0]['print_dimension_target']['id'].'" style="text-align: ;">' . number_format($diff, 2) . '%</td>';
+                                                   
+                                            }
+                                        }
+                                        
+                                        //echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
+                                        echo '</tr>';
+                                    }
+                                    ?>
+                                    </tbody>
                                 </table>
-
 
                             </div>
                         </div>

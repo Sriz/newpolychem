@@ -73,13 +73,13 @@ $html = "";
 $html .="<h2>Printing Shfit Report - ".$date."</h2>";
 $html .= "<table border=\"1\" style=\"padding-left:5px;\">";
 $html .= "<tr>
-    <td>Shift</td>
-    <td>Dimension</td>
-    <td>PF Color</td>
-    <td>Input</td>
-    <td>Output</td>
-    <td>Unprinted Scrap</td>
-    <td>Printed Scrap</td>
+    <td><strong>Shift</strong></td>
+    <td><strong>Dimension</strong></td>
+    <td><strong>PF Color</strong></td>
+    <td><strong>Input</strong></td>
+    <td><strong>Output</strong></td>
+    <td><strong>Unprinted Scrap</strong></td>
+    <td><strong>Printed Scrap</strong></td>
     </tr>
 ";
 $input = 0;
@@ -111,31 +111,31 @@ $html .="</tr>";
 $html .="<tr>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>Total</td>";
-$html .="<td>".number_format($inputToday[0][0]['input_today'])."</td>";
-$html .="<td>".number_format($outputToday[0][0]['output_today'])."</td>";
-$html .="<td></td>";
-$html .="<td></td>";
+$html .="<td><strong>Total</strong></td>";
+$html .="<td><strong>".number_format($inputToday[0][0]['input_today'])."</strong></td>";
+$html .="<td><strong>".number_format($outputToday[0][0]['output_today'])."</strong></td>";
+$html .="<td><strong>".number_format($unprintToday[0][0]['unprint_today'])."</strong></td>";
+$html .="<td><strong>".number_format($printToday[0][0]['print_today'])."</strong></td>";
 $html .="</tr>";
 
 $html .="<tr>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>Total To Month</td>";
-$html .="<td>".number_format($shiftReport['inputToMonth'])."</td>";
-$html .="<td>".number_format($shiftReport['outputToMonth'])."</td>";
-$html .="<td></td>";
-$html .="<td></td>";
+$html .="<td><strong>Total To Month</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['inputToMonth'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['outputToMonth'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['print_month'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['unprint_month'])."</strong></td>";
 $html .="</tr>";
 
 $html .="<tr>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>Total To Year</td>";
-$html .="<td>".number_format($shiftReport['inputToYear'])."</td>";
-$html .="<td>".number_format($shiftReport['outputToYear'])."</td>";
-$html .="<td></td>";
-$html .="<td></td>";
+$html .="<td><strong>Total To Year</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['inputToYear'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['outputToYear'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['print_year'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['unprint_year'])."</strong></td>";
 $html .="</tr>";
 
 $html .= "</table><br><br>";
@@ -149,8 +149,8 @@ $html .="<h3>Input Output Summary</h3>";
 $html .= "<table border=\"1\" style=\"padding-left:5px;\">";
 $html .= "<tr>
     <td></td>
-    <td>Input</td>
-    <td>Output</td>
+    <td><strong>Input</strong></td>
+    <td><strong>Output</strong></td>
     </tr>";
     
 $html .= "<tr>
@@ -176,11 +176,11 @@ $html .= "</table><br><br>";
 $html .="<h3>Time Loss</h3>";
 $html .= "<table border=\"1\" style=\"padding-left:5px;\">";
 $html .= "<tr>
-    <td>Type</td>
-    <td>Start Time</td>
-    <td>End Time</td>
-    <td>Loss Time</td>
-    <td>Reasons</td>
+    <td><strong>Type</strong></td>
+    <td><strong>Start Time</strong></td>
+    <td><strong>End Time</strong></td>
+    <td><strong>Loss Time</strong></td>
+    <td><strong>Reasons</strong></td>
     </tr>";
 $totalLossSecLoss=0;
 $totalLossSecBreak=0;
@@ -194,7 +194,7 @@ foreach($timeLossLossHour as $lossHour){
     $html .="</tr>";
     $totalLossSecLoss += intval($lossHour['time_loss']['totalloss_sec']);
 }
-$html .="<tr><td></td><td></td><td>Total Loss LossHour</td><td>".time_elapsed($totalLossSecLoss)."</td><td></td></tr>";
+$html .="<tr><td></td><td></td><td><strong>Total Loss LossHour</strong></td><td><strong>".time_elapsed($totalLossSecLoss)."</strong></td><td></td></tr>";
 $html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
 foreach($timeLossBreakDown as $lossHour){
     $html .="<tr>";
@@ -207,9 +207,9 @@ foreach($timeLossBreakDown as $lossHour){
     $totalLossSecBreak += intval($lossHour['time_loss']['totalloss_sec']);
 }
 $html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td>Total Loss BreakDown</td><td>".time_elapsed($totalLossSecBreak)."</td><td></td></tr>";
+$html .="<tr><td></td><td></td><td><strong>Total Loss BreakDown</strong></td><td><strong>".time_elapsed($totalLossSecBreak)."</strong></td><td></td></tr>";
 $html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td>Total Loss</td><td>".time_elapsed($totalLossSecBreak+$totalLossSecLoss)."</td><td></td></tr>";
+$html .="<tr><td></td><td></td><td><strong>Total Loss</strong></td><td><strong>".time_elapsed($totalLossSecBreak+$totalLossSecLoss)."</strong></td><td></td></tr>";
 $html .="</table>";
 
 // Print text using writeHTMLCell()

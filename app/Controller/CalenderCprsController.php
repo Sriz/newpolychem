@@ -178,10 +178,7 @@ class CalenderCprsController extends AppController
         $totalLen = 0;
         $totalNtwt = 0;
         $lastDayInt = intVal(substr($lastDatenewVal,8,9));
-<<<<<<< HEAD
-=======
 
->>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
         foreach($consumptionItemsThisMonth as $c) {
             $day = intVal(substr($c['tbl_consumption_stock']['nepalidate'],8,9));
             if($day<=$lastDayInt){
@@ -209,10 +206,7 @@ class CalenderCprsController extends AppController
         foreach($consumptionItemsThisYear as $c) {
             $month = intVal(substr($c['tbl_consumption_stock']['nepalidate'],5,2));
             $day = intVal(substr($c['tbl_consumption_stock']['nepalidate'],8,9));
-<<<<<<< HEAD
-=======
 
->>>>>>> d6fb5e816a00e30e8393ae286247dc1f6198e05c
             if($month<=$lastMonthInt){
                 if($month==$lastMonthInt)
                 {

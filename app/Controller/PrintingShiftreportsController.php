@@ -268,19 +268,33 @@ class PrintingShiftreportsController extends AppController
         $shiftReport['outputToMonth']=0;
         $shiftReport['inputToYear'] =0;
         $shiftReport['outputToYear']=0;
+        $shiftReport['unprint_month']=0;
+        $shiftReport['print_month']=0;
+        $shiftReport['unprint_year']=0;
+        $shiftReport['print_year']=0;
         foreach($printingShiftReportToMonth as $pm){
             $shiftReport['inputToMonth'] += intval($pm['printing_shiftreport']['input']);
             $shiftReport['outputToMonth'] += intval($pm['printing_shiftreport']['output']);
+            $shiftReport['print_month'] += intval($pm['printing_shiftreport']['printed_scrap']);
+            $shiftReport['unprint_month'] += intval($pm['printing_shiftreport']['unprinted_scrap']);
         }
         foreach($printingShiftReportToYear as $py)
         {
             $shiftReport['inputToYear'] += intval($py['printing_shiftreport']['input']);
             $shiftReport['outputToYear'] += intval($py['printing_shiftreport']['output']);
+            $shiftReport['print_year'] += intval($py['printing_shiftreport']['printed_scrap']);
+            $shiftReport['unprint_year'] += intval($py['printing_shiftreport']['unprinted_scrap']);
         }
 
         $inputToday = $this->PrintingShiftreport->query("select sum(input) as input_today from printing_shiftreport where date = '$date'");
         $outputToday = $this->PrintingShiftreport->query("select sum(output) as output_today from printing_shiftreport where date = '$date'");
         
+        $printToday = $this->PrintingShiftreport->query("select sum(printed_scrap) as print_today from printing_shiftreport where date = '$date'");
+        $unprintToday = $this->PrintingShiftreport->query("select sum(unprinted_scrap) as unprint_today from printing_shiftreport where date = '$date'");
+
+        
+        $this->set('printToday', $printToday);
+        $this->set('unprintToday', $unprintToday);        
         $this->set('timeLossLossHour', $timeLossLossHour);
         $this->set('timeLossBreakDown', $timeLossBreakDown);
         $this->set('shiftReport', $shiftReport);
