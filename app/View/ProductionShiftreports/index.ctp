@@ -3,21 +3,21 @@
 	
 
  $(document).ready(function(){
-                			var value = ''
-            			$('.nepalidatepicker').nepaliDatePicker();
-            			// Trigger On change/Selected event
-            			$.onChangeDatepicker_Ravindra = function(selectedDate){
-            				value = $("#nepalidatepicker").val();
-            				$.ajax({
-                                          url     : "/polychem/ProductionShiftreports/create_productionpdf",
-                                          type    : "POST",
-                                          cache   : false,
-                                          data    : {city_id: value}
+		var value = ''
+	$('.nepalidatepicker').nepaliDatePicker();
+	// Trigger On change/Selected event
+	$.onChangeDatepicker_Ravindra = function(selectedDate){
+		value = $("#nepalidatepicker").val();
+		$.ajax({
+                      url     : "/polychem/ProductionShiftreports/create_productionpdf",
+                      type    : "POST",
+                      cache   : false,
+                      data    : {city_id: value}
 
-                                      });
-            			}
+                  });
+	}
 
-            		});
+});
 
 
 
@@ -55,7 +55,7 @@ echo '<td>'.$this->Search->end(__('Search', true)).'</td>';
 	<h2><?php echo __('Production Shift Reports'); ?></h2>
 	<table class="col-md-12 table-bordered table-striped table-condensed cf">
 	<tr>
-			<th><?php echo $this->Paginator->sort('id'); ?></th>
+			<!-- <th><?php echo $this->Paginator->sort('id'); ?></th> -->
 			<th><?php echo $this->Paginator->sort('shift'); ?></th>
 			<th><?php echo $this->Paginator->sort('date'); ?></th>
 			<th><?php echo $this->Paginator->sort('brand'); ?></th>
@@ -70,7 +70,7 @@ echo '<td>'.$this->Search->end(__('Search', true)).'</td>';
 	</tr>
 	<?php foreach ($productionShiftreports as $productionShiftreport): ?>
 	<tr class="success">
-		<td><?php echo h($productionShiftreport['ProductionShiftreport']['id']); ?>&nbsp;</td>
+		<!-- <td><?php echo h($productionShiftreport['ProductionShiftreport']['id']); ?>&nbsp;</td> -->
 		<td><?php echo h($productionShiftreport['ProductionShiftreport']['shift']); ?>&nbsp;</td>
 		<td><?php echo h($productionShiftreport['ProductionShiftreport']['date']); ?>&nbsp;</td>
 		<td><?php echo h($productionShiftreport['ProductionShiftreport']['brand']); ?>&nbsp;</td>

@@ -134,8 +134,8 @@ $html .="<td></td>";
 $html .="<td><strong>Total To Year</strong></td>";
 $html .="<td><strong>".number_format($shiftReport['inputToYear'])."</strong></td>";
 $html .="<td><strong>".number_format($shiftReport['outputToYear'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['print_year'])."</strong></td>";
 $html .="<td><strong>".number_format($shiftReport['unprint_year'])."</strong></td>";
+$html .="<td><strong>".number_format($shiftReport['print_year'])."</strong></td>";
 $html .="</tr>";
 
 $html .= "</table><br><br>";
@@ -184,11 +184,13 @@ $html .= "<tr>
     </tr>";
 $totalLossSecLoss=0;
 $totalLossSecBreak=0;
+
 foreach($timeLossLossHour as $lossHour){
+    // echo'<pre>';print_r($lossHour);die;
     $html .="<tr>";
     $html .="<td>".$lossHour['time_loss']['type']."</td>";
     $html .="<td>".$lossHour['time_loss']['time']."</td>";
-    $html .="<td>".$lossHour['time_loss']['wk_hour']."</td>";
+    $html .="<td>".$lossHour['time_loss']['wk_hrs']."</td>";
     $html .="<td>".time_elapsed($lossHour['time_loss']['totalloss_sec'])."</td>";
     $html .="<td>".$lossHour['time_loss']['reasons']."</td>";
     $html .="</tr>";

@@ -38,8 +38,8 @@ class ProductionShiftreportsController extends AppController {
             )
         )
     );
-		 $this->Filter->setPaginate('order', 'ProductionShiftreport.date ASC'); // optional
-    $this->Filter->setPaginate('limit', 60);              // optional
+	$this->Filter->setPaginate('order', 'ProductionShiftreport.date ASC'); // optional
+    $this->Filter->setPaginate('limit', 20);              // optional
 
     // Define conditions
     $this->Filter->setPaginate('conditions', $this->Filter->getConditions());

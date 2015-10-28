@@ -1546,8 +1546,10 @@
                                     <script>
                                         $(document).ready(function(){
                                             <?php foreach($target_print as $tpp):?>
-                                            var valueTarget = parseInt($('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').html());
-                                            if(valueTarget<3 && valueTarget>-3)
+                                            var valueTarget=0.0;
+                                            var valueTarget = parseFloat($('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').html());
+                                            //console.log('yo = '+valueTarget)
+                                            if(valueTarget>=0)
                                             {
                                                 $('.dimensionTarget-<?=$tpp[0]['print_dimension_target']['id'];?>').addClass('success');
                                             }
@@ -1572,7 +1574,8 @@
                                             if($loss['printing_shiftreport']['dimension']==$tp[0]['print_dimension_target']['dimension'])
                                             {
                                                 echo '<td style="text-align: ;">' . number_format($tp[0]['print_dimension_target']['target'], 2) . '</td>';
-                                                $diff = ($loss['0']['cratio']-$tp[0]['print_dimension_target']['target'])*100/$tp[0]['print_dimension_target']['target'];
+                                                // $diff = ($loss['0']['cratio']-$tp[0]['print_dimension_target']['target'])*100/$tp[0]['print_dimension_target']['target'];
+                                                $diff = number_format($loss['0']['cratio'],2)-number_format($tp[0]['print_dimension_target']['target'],2);
                                                 //echo $diff;die;
                                                 echo '<td class="dimensionTarget-'.$tp[0]['print_dimension_target']['id'].'" style="text-align: ;">' . number_format($diff, 2) . '%</td>';
                                                    
@@ -1859,8 +1862,24 @@
                             endforeach;
                             ?>
 
-                            <?php foreach($printedReason as $p):?>
+                            <?php 
+                            //echo'<pre>';print_r($totalToYear);die;
+
+                            foreach($printedReason as $p):
+                            ?>
+
+
+                            <!-- <tr>
+                            
+                                <td><?=$p['laminating_reason']['reason'];?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToDay)),2).'';?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToMonth)),2).'';?></td>
+                                <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToYear)),2).'';?></td>
+                            </tr>  -->
+
+
                             <tr>
+                            
                                 <td><?=$p['laminating_reason']['reason'];?></td>
                                 <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToDay)*100/($totalToDay?$totalToDay:1)),2).'%';?></td>
                                 <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToMonth)*100/($totalToMonth?$totalToMonth:1)),2).'%';?></td>
@@ -1912,6 +1931,13 @@
                                 <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToMonth)*100/($totalToMonth?$totalToMonth:1)),2).'%';?></td>
                                 <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToYear)*100/($totalToYear?$totalToYear:1)),2).'%';?></td>
                             </tr>
+
+                            <!-- <tr>
+                                <td><?=$p['laminating_reason']['reason'];?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToDay)),2).'';?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToMonth)),2).'';?></td>
+                                <td><?=number_format((check_percentageUnprinted($p['laminating_reason']['reason'], $printingShiftreportToYear)),2).'';?></td>
+                            </tr> -->
                             <?php endforeach;?>
                             </table>
 
