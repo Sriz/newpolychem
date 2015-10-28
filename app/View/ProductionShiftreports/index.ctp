@@ -35,9 +35,25 @@ echo '<tr><td>'.$this->Search->input('filter1',array('id'=>'nepalidatepicker','c
 echo '<td>'.$this->Search->end(__('Search', true)).'</td>';
 ?>
 	   <td>   <button class="btn btn-primary" onclick="window.location.href='<?php echo Router::url(array('controller'=>'ProductionShiftreports', 'action'=>'add'))?>'">Add</button>
-</td>
-	   <td>   <button class="btn btn-primary" onclick="window.open('<?php echo Router::url(array('controller'=>'ProductionShiftreports', 'action'=>'download_pdf'))?>')">Print</button>
-</td>
+		</td>
+	   <script>
+            function printCurrentDate(){
+                var currentUrl = $("#printCurrentDate").attr('href');
+                var currentDate = $('#nepalidatepicker').val();
+                if(currentUrl.indexOf('?date=')>-1)
+                {
+                    var url =currentUrl.split('?date=');
+                    $("#printCurrentDate").attr('href', url[0] + '?date=' + currentDate);
+                }else {
+                    $("#printCurrentDate").attr('href', currentUrl + '?date=' + currentDate);
+                }
+                return true;
+            }
+        </script>
+        <td>
+            <a onclick="return printCurrentDate();" id="printCurrentDate" class="btn btn-primary" href="<?=Router::url(array('controller' => 'ProductionShiftreports', 'action' => 'download_pdf'));?>">Print</a>
+        </td>
+	</td>
 	   </tr>
 				</table></div>
     </div>

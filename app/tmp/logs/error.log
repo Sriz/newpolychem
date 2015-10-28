@@ -24622,3 +24622,180 @@ Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-10-28 13:57:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 13:58:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 13:58:42 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Debugger.php, line 533]
+2015-10-28 13:58:42 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 533)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 533, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 533, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 13:59:13 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\String.php, line 243]
+2015-10-28 13:59:13 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 243)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 243, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 243, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 13:59:44 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Debugger.php, line 546]
+2015-10-28 13:59:45 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 546)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 546, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 546, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 13:59:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:00:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:00:39 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Debugger.php, line 489]
+2015-10-28 14:00:40 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 489)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 489, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 489, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 14:00:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:01:11 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Utility\Debugger.php, line 545]
+2015-10-28 14:01:11 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/home
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 545)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 545, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 545, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 14:01:12 Error: Fatal Error (1): Maximum execution time of 30 seconds exceeded in [E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php, line 534]
+2015-10-28 14:01:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:01:13 Error: [FatalErrorException] Maximum execution time of 30 seconds exceeded
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\Error\ErrorHandler.php(205): ErrorHandler::handleFatalError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 534)
+#1 [internal function]: ErrorHandler::handleError(1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 534, Array)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(931): call_user_func('ErrorHandler::h...', 1, 'Maximum executi...', 'E:\\xampp\\htdocs...', 534, Array)
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Core\App.php(904): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2015-10-28 14:01:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:03:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:04:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:04:17 Error: [NotFoundException] The requested file E:\xampp\htdocs\newpolychem\app\E:\xampp\htdocs\newpolychem\app\files/pdf\test.pdf was not found or not readable
+Request URL: /newpolychem/ProductionShiftreports/download_pdf?date=
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\View\MediaView.php(93): CakeResponse->file('E:\\xampp\\htdocs...', Array)
+#1 E:\xampp\htdocs\newpolychem\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductionShiftreportsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-10-28 14:04:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-10-28 14:04:35 Error: [NotFoundException] The requested file E:\xampp\htdocs\newpolychem\app\E:\xampp\htdocs\newpolychem\app\files/pdf\test.pdf was not found or not readable
+Request URL: /newpolychem/ProductionShiftreports/download_pdf?date=2072-06-06
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\lib\Cake\View\MediaView.php(93): CakeResponse->file('E:\\xampp\\htdocs...', Array)
+#1 E:\xampp\htdocs\newpolychem\lib\Cake\Controller\Controller.php(952): MediaView->render(NULL, NULL)
+#2 E:\xampp\htdocs\newpolychem\lib\Cake\Routing\Dispatcher.php(194): Controller->render()
+#3 E:\xampp\htdocs\newpolychem\lib\Cake\Routing\Dispatcher.php(162): Dispatcher->_invoke(Object(ProductionShiftreportsController), Object(CakeRequest), Object(CakeResponse))
+#4 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2015-10-28 14:04:36 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 E:\xampp\htdocs\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

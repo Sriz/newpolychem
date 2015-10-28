@@ -13,7 +13,6 @@
 
 	function checkoutput()
 	{	
-		
 		var output = document.getElementById('output');
 		var ut = document.getElementById('ut');
 		var mt = document.getElementById('mt');
