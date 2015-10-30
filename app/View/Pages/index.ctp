@@ -2114,8 +2114,6 @@
                                 <tr>
                                     <td>
                                         Base MT
-
-
                                     </td>
                                     <td style="text-align: right;"><?php foreach ($tdmtlr_percent as $per):
                                             echo number_format($per['0']['base_mt'], 2);

@@ -11,3 +11,5 @@ app/tmp/*
 /dist
 /tags
 .idea
+/Rubbish
+/lib
