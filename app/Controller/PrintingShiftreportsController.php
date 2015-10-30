@@ -266,7 +266,7 @@ class PrintingShiftreportsController extends AppController
 
 
         $printingShiftReportToMonth = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date between '$startmonth' and '$date'");
-        $printingShiftReportToYear = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport");
+        $printingShiftReportToYear = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date LIKE '%$lastYear%'");
         $shiftReport = array();
         $shiftReport['inputToMonth']=0;
         $shiftReport['outputToMonth']=0;

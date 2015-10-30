@@ -274,8 +274,70 @@ class ProductionShiftreportsController extends AppController
 
     public function download_pdf()
     {
+        $date = isset($_GET['date'])?trim($_GET['date']):null;
+        $this->loadModel('ProductionShiftreport');
+        $lastDate = $this->ProductionShiftreport->query("SELECT distinct(date) FROM production_shiftreport ORDER BY date ASC LIMIT 1")[0]['production_shiftreport']['date'];
+        $date = $date?$date:$lastDate; //if date is not selected use last date;
+        $productionShiftReportA = $this->ProductionShiftreport->query("SELECT * from production_shiftreport WHERE date ='$date' and shift='A'");
+        $productionShiftReportB = $this->ProductionShiftreport->query("SELECT * from production_shiftreport WHERE date ='$date' and shift='B'");
+
+        $lastMonth = substr($date, 0, 7);
+        $lastYear = substr($date, 0, 4);
+        $startmonth = substr($date, 0, 7).'-01';
+
+        /*
+         * ProductionShiftReport To Month
+         */
+        $productionShiftReportToMonth = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date between '$startmonth' and '$date'");
+        $productionShiftReportToYear = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date LIKE '".$lastYear."%'");
+
+        /*
+         * Initialize value as 0
+         */
+        $shiftReportToMonth = array();
+        $shiftReportToMonth['base_ut']=0;
+        $shiftReportToMonth['base_mt']=0;
+        $shiftReportToMonth['base_ot']=0;
+        $shiftReportToMonth['print_film']=0;
+        $shiftReportToMonth['CT']=0;
+        $shiftReportToMonth['output']=0;
+
+        $shiftReportToYear = array();
+        $shiftReportToYear['base_ut']=0;
+        $shiftReportToYear['base_mt']=0;
+        $shiftReportToYear['base_ot']=0;
+        $shiftReportToYear['print_film']=0;
+        $shiftReportToYear['CT']=0;
+        $shiftReportToYear['output']=0;
+
+        foreach($productionShiftReportToMonth as $pm){
+            $shiftReportToMonth['base_ut'] += intval($pm['production_shiftreport']['base_ut']);
+            $shiftReportToMonth['base_mt'] += intval($pm['production_shiftreport']['base_mt']);
+            $shiftReportToMonth['base_ot'] += intval($pm['production_shiftreport']['base_ot']);
+            $shiftReportToMonth['print_film'] += intval($pm['production_shiftreport']['print_film']);
+            $shiftReportToMonth['CT'] += intval($pm['production_shiftreport']['CT']);
+            $shiftReportToMonth['output'] += intval($pm['production_shiftreport']['output']);
+        }
+        foreach($productionShiftReportToYear as $py)
+        {
+            $shiftReportToYear['base_ut'] += intval($py['production_shiftreport']['base_ut']);
+            $shiftReportToYear['base_mt'] += intval($py['production_shiftreport']['base_mt']);
+            $shiftReportToYear['base_ot'] += intval($py['production_shiftreport']['base_ot']);
+            $shiftReportToYear['print_film'] += intval($py['production_shiftreport']['print_film']);
+            $shiftReportToYear['CT'] += intval($py['production_shiftreport']['CT']);
+            $shiftReportToYear['output'] += intval($py['production_shiftreport']['output']);
+        }
 
 
+        /*
+         * send data to view
+         */
+        $this->set('date', $date);
+        $this->set('productionShiftReportA', $productionShiftReportA);
+        $this->set('productionShiftReportB', $productionShiftReportB);
+        $this->set('shiftReportToMonth', $shiftReportToMonth);
+        $this->set('shiftReportToYear', $shiftReportToYear);
+        $this->layout = 'pdf';
     }
 
     public function losshour_calculate($dept)

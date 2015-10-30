@@ -1,5 +1,4 @@
 <?php
-$date = isset($_GET['date']) ? $_GET['date']:'';
 function time_elapsed($secs){
     if(isset($secs)):
         $bit = [
@@ -91,12 +90,12 @@ $ct = 0;
 $output = 0;
 
 
-foreach($productionShiftReport as $p):
+foreach($productionShiftReportA as $p):
     $html .="<tr>";
     $html .="<td>".$p['production_shiftreport']['shift']."</td>";
     $html .="<td>".$p['production_shiftreport']['date']."</td>";
     $html .="<td>".$p['production_shiftreport']['brand']."</td>";
-    $html .="<td>".number_format($p['production_shiftreport']['color'])."</td>";
+    $html .="<td>".$p['production_shiftreport']['color']."</td>";
     $html .="<td>".number_format($p['production_shiftreport']['base_ut'])."</td>";
     $html .="<td>".number_format($p['production_shiftreport']['base_mt'])."</td>";
     $html .="<td>".number_format($p['production_shiftreport']['base_ot'])."</td>";
@@ -109,126 +108,95 @@ foreach($productionShiftReport as $p):
     $base_mt += intval($p['production_shiftreport']['base_mt']);
     $base_ot += intval($p['production_shiftreport']['base_ot']);
     $print_film += intval($p['production_shiftreport']['print_film']);
-    $ct += intval($p['production_shiftreport']['ct']);
+    $ct += intval($p['production_shiftreport']['CT']);
     $output += intval($p['production_shiftreport']['output']);
 
 endforeach;
 
 $html .="<tr>";
+$html .="<td>Total-A :</td>";
 $html .="<td></td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td></td>";
-$html .="<td></td>";
-$html .="<td></td>";
-$html .="<td></td>";
+$html .="<td>".$base_ut."</td>";
+$html .="<td>".$base_mt."</td>";
+$html .="<td>".$base_ot."</td>";
+$html .="<td>".$print_film."</td>";
+$html .="<td>".$ct."</td>";
+$html .="<td>".$output."</td>";
 $html .="</tr>";
+$html .="<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
+$base_ut=0;
+$base_mt=0;
+$base_ot=0;
+$ct=0;
+$output=0;
+foreach($productionShiftReportB as $p):
+    $html .="<tr>";
+    $html .="<td>".$p['production_shiftreport']['shift']."</td>";
+    $html .="<td>".$p['production_shiftreport']['date']."</td>";
+    $html .="<td>".$p['production_shiftreport']['brand']."</td>";
+    $html .="<td>".$p['production_shiftreport']['color']."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['base_ut'])."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['base_mt'])."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['base_ot'])."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['print_film'])."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['CT'])."</td>";
+    $html .="<td>".number_format($p['production_shiftreport']['output'])."</td>";
+    $html .="</tr>";
+
+    $base_ut += intval($p['production_shiftreport']['base_ut']);
+    $base_mt += intval($p['production_shiftreport']['base_mt']);
+    $base_ot += intval($p['production_shiftreport']['base_ot']);
+    $print_film += intval($p['production_shiftreport']['print_film']);
+    $ct += intval($p['production_shiftreport']['CT']);
+    $output += intval($p['production_shiftreport']['output']);
+
+endforeach;
 
 $html .="<tr>";
+$html .="<td>Total-B :</td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td><strong>Total</strong></td>";
-$html .="<td><strong>".number_format($inputToday[0][0]['input_today'])."</strong></td>";
-$html .="<td><strong>".number_format($outputToday[0][0]['output_today'])."</strong></td>";
-$html .="<td><strong>".number_format($unprintToday[0][0]['unprint_today'])."</strong></td>";
-$html .="<td><strong>".number_format($printToday[0][0]['print_today'])."</strong></td>";
+$html .="<td></td>";
+$html .="<td>".$base_ut."</td>";
+$html .="<td>".$base_mt."</td>";
+$html .="<td>".$base_ot."</td>";
+$html .="<td>".$print_film."</td>";
+$html .="<td>".$ct."</td>";
+$html .="<td>".$output."</td>";
 $html .="</tr>";
 
+//ToMonth
 $html .="<tr>";
+$html .="<td>Total ToMonth</td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td><strong>Total To Month</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['inputToMonth'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['outputToMonth'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['print_month'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['unprint_month'])."</strong></td>";
+$html .="<td></td>";
+$html .="<td>".$shiftReportToMonth['base_ut']."</td>";
+$html .="<td>".$shiftReportToMonth['base_mt']."</td>";
+$html .="<td>".$shiftReportToMonth['base_ot']."</td>";
+$html .="<td>".$shiftReportToMonth['print_film']."</td>";
+$html .="<td>".$shiftReportToMonth['CT']."</td>";
+$html .="<td>".$shiftReportToMonth['output']."</td>";
 $html .="</tr>";
 
+//ToYear
 $html .="<tr>";
+$html .="<td>Total ToYear</td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td><strong>Total To Year</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['inputToYear'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['outputToYear'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['unprint_year'])."</strong></td>";
-$html .="<td><strong>".number_format($shiftReport['print_year'])."</strong></td>";
+$html .="<td></td>";
+$html .="<td>".$shiftReportToYear['base_ut']."</td>";
+$html .="<td>".$shiftReportToYear['base_mt']."</td>";
+$html .="<td>".$shiftReportToYear['base_ot']."</td>";
+$html .="<td>".$shiftReportToYear['print_film']."</td>";
+$html .="<td>".$shiftReportToYear['CT']."</td>";
+$html .="<td>".$shiftReportToYear['output']."</td>";
 $html .="</tr>";
+
 
 $html .= "</table><br><br>";
-
-
-
-
-/* Input Output Summary Table */
-
-$html .="<h3>Input Output Summary</h3>";
-$html .= "<table border=\"1\" style=\"padding-left:5px;\">";
-$html .= "<tr>
-    <td></td>
-    <td><strong>Input</strong></td>
-    <td><strong>Output</strong></td>
-    </tr>";
-    
-$html .= "<tr>
-    <td>Today</td>
-    <td>".number_format($inputToday[0][0]['input_today'])."</td>
-    <td>".number_format($outputToday[0][0]['output_today'])."</td>
-    </tr>";
-$html .= "<tr>
-    <td>To Month</td>
-    <td>".number_format($shiftReport['inputToMonth'])."</td>
-    <td>".number_format($shiftReport['outputToMonth'])."</td>
-    </tr>";
-$html .= "<tr>
-    <td>To Year</td>
-    <td>".number_format($shiftReport['inputToYear'])."</td>
-    <td>".number_format($shiftReport['outputToYear'])."</td>
-    </tr>";
-$html .= "</table><br><br>";
-
-
-
-/* timeloss table */
-$html .="<h3>Time Loss</h3>";
-$html .= "<table border=\"1\" style=\"padding-left:5px;\">";
-$html .= "<tr>
-    <td><strong>Type</strong></td>
-    <td><strong>Start Time</strong></td>
-    <td><strong>End Time</strong></td>
-    <td><strong>Loss Time</strong></td>
-    <td><strong>Reasons</strong></td>
-    </tr>";
-$totalLossSecLoss=0;
-$totalLossSecBreak=0;
-
-foreach($timeLossLossHour as $lossHour){
-    // echo'<pre>';print_r($lossHour);die;
-    $html .="<tr>";
-    $html .="<td>".$lossHour['time_loss']['type']."</td>";
-    $html .="<td>".$lossHour['time_loss']['time']."</td>";
-    $html .="<td>".$lossHour['time_loss']['wk_hrs']."</td>";
-    $html .="<td>".time_elapsed($lossHour['time_loss']['totalloss_sec'])."</td>";
-    $html .="<td>".$lossHour['time_loss']['reasons']."</td>";
-    $html .="</tr>";
-    $totalLossSecLoss += intval($lossHour['time_loss']['totalloss_sec']);
-}
-$html .="<tr><td></td><td></td><td><strong>Total Loss LossHour</strong></td><td><strong>".time_elapsed($totalLossSecLoss)."</strong></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
-foreach($timeLossBreakDown as $lossHour){
-    $html .="<tr>";
-    $html .="<td>".$lossHour['time_loss']['type']."</td>";
-    $html .="<td>".$lossHour['time_loss']['time']."</td>";
-    $html .="<td>".$lossHour['time_loss']['wk_hrs']."</td>";
-    $html .="<td>".time_elapsed($lossHour['time_loss']['totalloss_sec'])."</td>";
-    $html .="<td>".$lossHour['time_loss']['reasons']."</td>";
-    $html .="</tr>";
-    $totalLossSecBreak += intval($lossHour['time_loss']['totalloss_sec']);
-}
-$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td><strong>Total Loss BreakDown</strong></td><td><strong>".time_elapsed($totalLossSecBreak)."</strong></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
-$html .="<tr><td></td><td></td><td><strong>Total Loss</strong></td><td><strong>".time_elapsed($totalLossSecBreak+$totalLossSecLoss)."</strong></td><td></td></tr>";
-$html .="</table>";
 
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);
