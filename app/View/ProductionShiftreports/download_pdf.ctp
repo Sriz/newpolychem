@@ -195,8 +195,80 @@ $html .="<td>".$shiftReportToYear['CT']."</td>";
 $html .="<td>".$shiftReportToYear['output']."</td>";
 $html .="</tr>";
 
-
 $html .= "</table><br><br>";
+
+
+/* timeloss table */
+
+
+$html .="<h2><center>Time Loss Table</center></h2>";
+$total_lh=0;
+$total_bh=0;
+foreach($timeLossLossHourAll as $losshour):
+    $total_lh += $losshour['time_loss']['totalloss_sec'];
+endforeach;
+
+foreach($timeLossBreakDownAll as $breakhour):
+    $total_bh += $breakhour['time_loss']['totalloss_sec'];
+endforeach;
+$total_wh = 24*60*60 - ($total_lh+$total_bh);
+
+$html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
+            <tr style=\"font-weight: bold\">
+                <td>Loss Hour</td>";
+$html .="<td>".time_elapsed($total_lh)."</td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>Breakdown Hour</td>";
+$html .="<td>".time_elapsed($total_bh)."</td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>Work Hour</td>";
+$html .="<td>".time_elapsed($total_wh)."</td>
+            </tr>
+        </table>";
+
+$html .="<h3>Time Loss</h3>";
+$html .= "<table border=\"1\" style=\"padding-left:5px;\">";
+$html .= "<tr>
+    <td><strong>Type</strong></td>
+    <td><strong>Start Time</strong></td>
+    <td><strong>End Time</strong></td>
+    <td><strong>Loss Time</strong></td>
+    <td><strong>Reasons</strong></td>
+    </tr>";
+$totalLossSecLoss=0;
+$totalLossSecBreak=0;
+
+foreach($timeLossLossHour as $lossHour){
+    // echo'<pre>';print_r($lossHour);die;
+    $html .="<tr>";
+    $html .="<td>".$lossHour['time_loss']['type']."</td>";
+    $html .="<td>".$lossHour['time_loss']['time']."</td>";
+    $html .="<td>".$lossHour['time_loss']['wk_hrs']."</td>";
+    $html .="<td>".time_elapsed($lossHour['time_loss']['totalloss_sec'])."</td>";
+    $html .="<td>".$lossHour['time_loss']['reasons']."</td>";
+    $html .="</tr>";
+    $totalLossSecLoss += intval($lossHour['time_loss']['totalloss_sec']);
+}
+$html .="<tr><td></td><td></td><td><strong>Total Loss LossHour</strong></td><td><strong>".time_elapsed($totalLossSecLoss)."</strong></td><td></td></tr>";
+$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
+foreach($timeLossBreakDown as $lossHour){
+    $html .="<tr>";
+    $html .="<td>".$lossHour['time_loss']['type']."</td>";
+    $html .="<td>".$lossHour['time_loss']['time']."</td>";
+    $html .="<td>".$lossHour['time_loss']['wk_hrs']."</td>";
+    $html .="<td>".time_elapsed($lossHour['time_loss']['totalloss_sec'])."</td>";
+    $html .="<td>".$lossHour['time_loss']['reasons']."</td>";
+    $html .="</tr>";
+    $totalLossSecBreak += intval($lossHour['time_loss']['totalloss_sec']);
+}
+$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
+$html .="<tr><td></td><td></td><td><strong>Total Loss BreakDown</strong></td><td><strong>".time_elapsed($totalLossSecBreak)."</strong></td><td></td></tr>";
+$html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
+$html .="<tr><td></td><td></td><td><strong>Total Loss</strong></td><td><strong>".time_elapsed($totalLossSecBreak+$totalLossSecLoss)."</strong></td><td></td></tr>";
+$html .="</table>";
+
 
 // Print text using writeHTMLCell()
 $pdf->writeHTMLCell(0, 0, '', '', $html, 0, 1, 0, true, '', true);

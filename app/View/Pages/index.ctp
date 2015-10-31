@@ -2000,7 +2000,10 @@
     <ol class="breadcrumb">
         <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
     </ol>
+    
     <div class="container-fluid">
+
+       
         <div class="row">
             <div class="col-md-6">
                 <div class="panel panel-primary">

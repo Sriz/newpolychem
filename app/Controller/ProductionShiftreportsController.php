@@ -276,6 +276,7 @@ class ProductionShiftreportsController extends AppController
     {
         $date = isset($_GET['date'])?trim($_GET['date']):null;
         $this->loadModel('ProductionShiftreport');
+        $this->loadModel('TimeLoss');
         $lastDate = $this->ProductionShiftreport->query("SELECT distinct(date) FROM production_shiftreport ORDER BY date ASC LIMIT 1")[0]['production_shiftreport']['date'];
         $date = $date?$date:$lastDate; //if date is not selected use last date;
         $productionShiftReportA = $this->ProductionShiftreport->query("SELECT * from production_shiftreport WHERE date ='$date' and shift='A'");
@@ -284,12 +285,14 @@ class ProductionShiftreportsController extends AppController
         $lastMonth = substr($date, 0, 7);
         $lastYear = substr($date, 0, 4);
         $startmonth = substr($date, 0, 7).'-01';
+        $startyear = substr($date, 0, 4).'-01-01';
+
 
         /*
          * ProductionShiftReport To Month
          */
         $productionShiftReportToMonth = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date between '$startmonth' and '$date'");
-        $productionShiftReportToYear = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date LIKE '".$lastYear."%'");
+        $productionShiftReportToYear = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date between '$startyear' and '$date'");
 
         /*
          * Initialize value as 0
@@ -327,7 +330,14 @@ class ProductionShiftreportsController extends AppController
             $shiftReportToYear['CT'] += intval($py['production_shiftreport']['CT']);
             $shiftReportToYear['output'] += intval($py['production_shiftreport']['output']);
         }
+        /*
+         * Timeloss Calculation
+         */
+        $timeLossLossHour = $this->TimeLoss->query("SELECT * from time_loss where nepalidate ='$date' and  department_id ='laminating' and type='LossHour' order by nepalidate ");
+        $timeLossBreakDown = $this->TimeLoss->query("SELECT * from time_loss where nepalidate ='$date' and  department_id ='laminating' AND type='BreakDown' order by nepalidate ");
 
+        $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate='".$date."' and type='LossHour' and department_id='laminating'");
+        $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown' and department_id='laminating'");
 
         /*
          * send data to view
@@ -337,6 +347,10 @@ class ProductionShiftreportsController extends AppController
         $this->set('productionShiftReportB', $productionShiftReportB);
         $this->set('shiftReportToMonth', $shiftReportToMonth);
         $this->set('shiftReportToYear', $shiftReportToYear);
+        $this->set('timeLossLossHour', $timeLossLossHour);
+        $this->set('timeLossBreakDown', $timeLossBreakDown);
+        $this->set('timeLossLossHourAll', $timeLossLossHourAll);
+        $this->set('timeLossBreakDownAll', $timeLossBreakDownAll);
         $this->layout = 'pdf';
     }
 

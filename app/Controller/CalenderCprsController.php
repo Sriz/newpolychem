@@ -84,7 +84,7 @@ class CalenderCprsController extends AppController
                 $base = $emboss['baseemboss']['Emboss']; 
                 
             }
-            $mix_emboss[$id] = $base;   
+            $mix_emboss[$id] = isset($base)?$base:null;
             
             
         endforeach;
@@ -163,7 +163,9 @@ class CalenderCprsController extends AppController
         $this->loadModel('TimeLoss');
         $timeLossLossHourAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate='".$date."' and type='LossHour' and department_id='calender'");
         $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown' and department_id='calender'");
+
         list($year,$month,$date)=explode('-',$date);
+
         $timeLossLossHourMonth = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_lh_m FROM time_loss where nepalidate like '$year-$month%' and type='LossHour' and department_id='calender'");
         $timeLossLossHourYear = $this->TimeLoss->query("SELECT sum(totalloss_sec) as loss_lh_y FROM time_loss where nepalidate like '$year-%' and type='LossHour' and department_id='calender'");
         //echo'<pre>';print_r($timeLossLossHourYear);die;

@@ -257,7 +257,8 @@ class PrintingShiftreportsController extends AppController
         $lastMonth = substr($lastDate, 0, 7);
         $lastYear = substr($lastDate, 0, 4);
         $startmonth = substr($date, 0, 7).'-01';
-        //echo $startmonth;die;
+        $startyear = substr($date, 0, 4).'-01-01';
+
         
         $printingShiftReport = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport WHERE date ='$date'");
         $timeLossLossHour = $this->TimeLoss->query("SELECT * from time_loss where nepalidate ='$date' and  department_id ='printing' and type='LossHour' order by nepalidate ");
@@ -266,7 +267,8 @@ class PrintingShiftreportsController extends AppController
 
 
         $printingShiftReportToMonth = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date between '$startmonth' and '$date'");
-        $printingShiftReportToYear = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date LIKE '%$lastYear%'");
+        $printingShiftReportToYear = $this->PrintingShiftreport->query("SELECT * from printing_shiftreport where date between '$startyear' and '$date'"); //  where date LIKE '%$lastYear%'
+
         $shiftReport = array();
         $shiftReport['inputToMonth']=0;
         $shiftReport['outputToMonth']=0;
