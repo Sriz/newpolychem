@@ -204,14 +204,14 @@
                                     <td>Raw Material</td>
                                     <td align="right">
                                         <?php echo number_format($raw_materials_d, 2); ?>
-                                        
+
                                     </td>
                                     <td align="right">
                                        <?php echo number_format($raw_materials_m, 2); ?>
                                     </td>
                                     <td align="right">
-                                       
-                                       
+
+
                                        <?php echo number_format($raw_materials_y, 2); ?>
                                     </td>
                                 </tr>
@@ -222,19 +222,19 @@
                                         <?php echo number_format($bought_scrap_d, 2); ?>
                                     </td>
                                     <td align="right">
-                                       
+
                                        <?php echo number_format($bought_scrap_m, 2); ?>
                                     </td>
                                     <td align="right">
-                                        
+
                                         <?php echo number_format($bought_scrap_y, 2); ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Factory Scrap</td>
                                     <td align="right">
-                                        
-                                    
+
+
                                     <?php echo number_format($scrap_d, 2); ?>
                                     </td>
                                     <td align="right">
@@ -242,7 +242,7 @@
                                     </td>
                                     <td align="right">
                                         <?php echo number_format($scrap_y, 2); ?>
-                                       
+
                                     </td>
                                 </tr>
                                 <tr bgcolor="grey">
@@ -295,7 +295,7 @@
                             <?php
                             echo $this->Html->link('Download CSV file', array('controller' => 'pages', 'action' => 'export'), array('class' => 'btn btn-success csv', 'onclick'=>'return updateLink(this);'));
                             ?>
-                            
+
                             <div class="mon">
 
                             </div>
@@ -328,7 +328,7 @@
                                 echo '</td>';
                                 ?>
                                 <br/>
-                                
+
                                 <script>
                                     function updateLink1(that){
                                         var brand = $('#Brand').val();
@@ -365,8 +365,8 @@
 
 
             </div>
-            
-            
+
+
 
             <?php } ?>
             <!-- Ending mixing department-->
@@ -386,7 +386,7 @@
             <?php if (AuthComponent::user('id') and AuthComponent::user('role') == 'calender') { ?>
             <h1>Welcome to Calendar Department</h1>
 
-           
+
             <ol class="breadcrumb">
                 <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
             </ol>
@@ -441,7 +441,7 @@
                                 <td>In this Year (<?php echo $latestyear;?>)</td>
                                 <td align="right">
                                     <?php echo $year2[0][0]['year'];?>
-                                </td> 
+                                </td>
                             </tr>
                         </table>
                     </div>
@@ -511,14 +511,14 @@
                                     <tr>
                                         <td>Total Input</td>
                                         <td>
-                                            <?php echo number_format($total_d, 2);?>       
-                                           
+                                            <?php echo number_format($total_d, 2);?>
+
                                         </td>
                                         <td>
-                                           <?php echo number_format($total_m, 2);?>   
+                                           <?php echo number_format($total_m, 2);?>
                                         </td>
                                         <td>
-                                              <?php echo number_format($total_y, 2);?>   
+                                              <?php echo number_format($total_y, 2);?>
                                         </td>
                                     </tr>
                                     <td>NT WT</td>
@@ -529,7 +529,7 @@
 
                                     <td>
                                        <?php echo number_format($net_m, 2);?>
-                                        
+
                                     </td>
 
                                     <td>
@@ -566,8 +566,8 @@
 
                                            <?php echo number_format($total_scrap_y, 2);?>
                                         </td> -->
-                                        
-                                       
+
+
 
                                     <tr>
                                         <td>Unaccounted Loss</td>
@@ -585,7 +585,7 @@
                                     <tr>
                                         <td>Unaccounted Loss %</td>
                                         <td>
-                                           <?php 
+                                           <?php
                                                 echo number_format(($total_d-$net_d-$scrap_total_d)*100/$total_d, 2).'%';
                                             ?>
                                         </td>
@@ -607,7 +607,7 @@
                 </div>
 
             </div>
-            
+
 
 
         </div>
@@ -622,8 +622,8 @@
                             <div class="row">
                             <div class="col-md-2">
                                 <table class="table">
-                                    
-                                        
+
+
                                     <tr class="success">
                                     <th>Dimension</th>
                                     <?php
@@ -636,14 +636,14 @@
                                                 echo "</td>";
                                         endforeach;
                                     ?>
-                                        
+
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-2">
                                 <table class="table">
-                                    
-                                        
+
+
                                     <tr class="success">
                                     <th>Type</th>
                                     <?php
@@ -656,14 +656,14 @@
                                                 echo "</td>";
                                         endforeach;
                                     ?>
-                                        
+
                                     </tr>
                                 </table>
                             </div>
                             <div class="col-md-2">
                                 <table class="table">
-                                    
-                                        
+
+
                                     <tr class="success">
                                     <th>Brand</th>
                                     <?php
@@ -676,7 +676,7 @@
                                                 echo "</td>";
                                         endforeach;
                                     ?>
-                                        
+
                                     </tr>
                                 </table>
                             </div>
@@ -731,14 +731,14 @@
                             </div>
                         </div>
 
-                          
+
                         </div>
                     </div>
                 </div>
 
             </div>
 
-       
+
             <div class="row">
                 <div class="col-md-12" style="margin:0px;padding:0px;">
                     <div class="panel panel-primary">
@@ -752,12 +752,12 @@
                                         <th>To Month<br/>(<?= $latest_month; ?>)</th>
                                         <th>To Year<br/>(<?= $latest_year; ?>)</th>
                                     </tr>
-                                    
+
                                     <tr>
-                            
+
                                         <td><?php
                                             $rea_count = count($tybdloss);
-                                            
+
                                             foreach ($bd_reason as $bd):
                                                 echo $bd. '<br/>';
                                             endforeach;
@@ -773,7 +773,7 @@
                                             $today_count = count($bd_d);
                                             for($today_count;$today_count<$rea_count;$today_count++)
                                             {
-                                                
+
                                                  echo number_format(0,2).'%<br/>';
                                             }
                                             ?>
@@ -785,7 +785,7 @@
 
                                             endforeach;
                                             $month_count = count($bd_m);
-                                            
+
                                             for($month_count;$month_count<$rea_count;$month_count++)
                                             {
                                                 echo number_format(0,2).'%<br/>';
@@ -801,7 +801,7 @@
                                             $year_count = count($bd_y);
                                             for($year_count;$year_count<$rea_count;$year_count++)
                                             {
-                                                
+
                                                  echo number_format(0,2).'%<br/>';
 
 
@@ -815,7 +815,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="row">
                 <div class="col-md-12" style="margin:0px;padding:0px;">
                     <div class="panel panel-primary">
@@ -910,21 +910,21 @@
                                     <td><?php if($breakdownToDay!='')echo $breakdownToDay; else echo 0; ?></td>
                                     <td><?php if($breakdownToMonth!='')echo $breakdownToMonth; else echo 0; ?></td>
                                     <td><?php if($breakdownToYear!='')echo $breakdownToYear; else echo 0; ?></td>
-                                    
+
                                 </tr>
                                 <tr>
                                     <td><strong>Loss Hour</strong></td>
                                     <td><?php if($losshourToDay!='')echo $losshourToDay; else echo 0; ?></td>
                                     <td><?php if($losshourToMonth!='')echo $losshourToMonth; else echo 0; ?></td>
                                     <td><?php if($losshourToYear!='')echo $losshourToYear; else echo 0; ?></td>
-                                    
+
                                 </tr>
                                 <tr>
                                     <td><strong>Worked Hour</strong></td>
                                     <td><?php if($workedHourToDay!='')echo $workedHourToDay; else echo 0; ?></td>
                                     <td><?php if($workedHourToMonth!='')echo $workedHourToMonth; else echo 0; ?></td>
                                     <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
-                                    
+
                                 </tr>
 
                             </table>
@@ -949,13 +949,13 @@
                                     <td><strong>Per Hour Output</strong></td>
                                     <!-- output/(24 * # of days worked) -->
                                     <?php
-                                    //TODO::add currentdate 
+                                    //TODO::add currentdate
                                     ?>
                                     <td><?php echo number_format($net_d/24,2);?></td>
                                     <td><?php echo number_format($net_m/(24*$operated_in_month[0][0]['operated_in_month']),2);?></td>
                                     <td><?php echo number_format($net_y/(24*$operated_in_year[0][0]['operated_in_year']),2);?></td>
-                                    
-                                    
+
+
                                 </tr>
 
                                 <!--Per work hour output: for average working hour-->
@@ -973,14 +973,14 @@
                                 ?>
 
                                 <tr>
-                                
+
                                     <td><strong>Per Work Hour Output</strong></td>
                                     <!-- output/(avg working hour * # of days worked) -->
                                     <td><?php echo number_format($net_d/$avg_wh_d,2)?></td>
                                     <td><?php echo number_format($net_m/($avg_wh_m*$operated_in_month[0][0]['operated_in_month']),2);?></td>
                                     <td><?php echo number_format($net_y/($avg_wh_y*$operated_in_year[0][0]['operated_in_year']),2);?></td>
                                 </tr>
-                                
+
                             </table>
                         </div>
                     </div>
@@ -988,7 +988,7 @@
             </div>
 
 
-            
+
             <div class="col-md-12" style="margin: 0px;padding: 0px;">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -998,7 +998,7 @@
                         <div class="row">
                         <div class="col-md-2">
                             <table class="table">
-                                
+
                                 <tr class="success">
                                 <th>Dimension<br</th>
                                 <?php
@@ -1011,15 +1011,15 @@
                                             echo "</td>";
                                     endforeach;
                                 ?>
-                                    
+
                                 </tr>
                             </table>
                         </div>
 
                         <div class="col-md-2">
                             <table class="table">
-                                
-                                    
+
+
                                 <tr class="success">
                                 <th>Type</th>
                                 <?php
@@ -1032,15 +1032,15 @@
                                             echo "</td>";
                                     endforeach;
                                 ?>
-                                    
+
                                 </tr>
                             </table>
                         </div>
 
                         <div class="col-md-2">
                             <table class="table">
-                                
-                                    
+
+
                                 <tr class="success">
                                 <th>Brand</th>
 
@@ -1054,7 +1054,7 @@
                                             echo "</td>";
                                     endforeach;
                                 ?>
-                                    
+
                                 </tr>
                             </table>
                         </div>
@@ -1071,7 +1071,7 @@
                                         echo '<td>';
                                             echo number_format($dd[0][0]['output'],2);
                                         echo "</td>";
-                                endforeach; 
+                                endforeach;
                                 ?>
                                 </tr>
                             </table>
@@ -1101,7 +1101,7 @@
                                 <th>Difference</th>
                                 <script>
                                     $(document).ready(function(){
-                                     <?php for($i=0; $i<count($dim_target); $i++):?>         
+                                     <?php for($i=0; $i<count($dim_target); $i++):?>
                                         var varDimensionTarget = parseInt($("#diff<?=$i;?>").html());
                                         if(varDimensionTarget>-3 && varDimensionTarget<3)
                                         {
@@ -1110,7 +1110,7 @@
                                      <?php endfor;?>
                                     });
                                 </script>
-                                <?php 
+                                <?php
                                 // echo'<pre>';print_r($dim_target);
                                 // echo'<pre>';print_r($output_m);die;
                                 $c = count($dim_target);
@@ -1161,7 +1161,7 @@
                                 <th>Difference</th>
                                 <script>
                                     $(document).ready(function(){
-                                     <?php for($i=0; $i<count($dim_target); $i++):?>         
+                                     <?php for($i=0; $i<count($dim_target); $i++):?>
                                         var varDimensionTarget = parseInt($("#diff<?=$i;?>").html());
                                         if(varDimensionTarget>-3 && varDimensionTarget<3)
                                         {
@@ -1170,7 +1170,7 @@
                                      <?php endfor;?>
                                     });
                                 </script>
-                                <?php 
+                                <?php
                                 // echo'<pre>';print_r($dim_target);
                                 // echo'<pre>';print_r($output_m);die;
                                 $c = count($dim_target);
@@ -1236,7 +1236,7 @@
                     break;
             }
         ?>
-        
+
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-6">
@@ -1330,14 +1330,14 @@
                                         <th><?php echo number_format($total_output_tm+$all_pscrap_month+$all_unpscrap_month, 2); ?></th>
                                         <th><?php echo number_format($total_output_ty+$all_pscrap_year+$all_unpscrap_year, 2); ?></th>
                                     </tr>
-                                   
+
                                    <tr style="text-align: " class="success">
                                         <td style="text-align: left"></td>
                                         <td></td>
                                         <td></td>
                                         <td></td>
                                     </tr>
-                                    
+
                                     <tr style="text-align: " class="active">
                                         <td style="text-align: left"> Printed Scrap % </td>
                                         <td><?php echo number_format($all_pscrap_day*100/$total_input_td, 2)." %"; ?></td>
@@ -1357,7 +1357,7 @@
                                         <td></td>
                                         <td></td>
                                     </tr>
-                                    
+
 
                                     <tr  class="active">
                                         <td>
@@ -1442,7 +1442,7 @@
                                         <td>Per Hour Output</td>
                                         <!-- output/(24 * # of days worked) -->
                                         <?php
-                                        //TODO::add currentdate 
+                                        //TODO::add currentdate
                                         ?>
                                         <td><?php echo number_format($print_output_day,2)?></td>
                                         <td><?php echo number_format($print_output_month,2);?></td>
@@ -1450,7 +1450,7 @@
                                     </tr>
 
                                     <tr class="active">
-                                    
+
                                         <td>Per Work Hour Output</td>
                                         <!-- output/(avg working hour * # of days worked) -->
                                         <td><?php echo number_format($total_output_day/$avg_wh_d,2)?></td>
@@ -1465,7 +1465,7 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
             <div class="row">
@@ -1473,7 +1473,7 @@
                     <div class="container-fluid">
                         <div class="panel panel-primary">
                             <div class="panel-heading">Input Output Ratio</div>
-                            
+
                             <div class="panel-body">
 
                                <!--  <table class="table table-condensed table-bordered">
@@ -1518,10 +1518,10 @@
                                                 $diff = ($loss['0']['cratio']-$tp[0]['print_dimension_target']['target'])*100/$tp[0]['print_dimension_target']['target'];
                                                 //echo $diff;die;
                                                 echo '<td class="dimensionTarget-'.$tp[0]['print_dimension_target']['id'].'" style="text-align: ;">' . number_format($diff, 2) . '%</td>';
-                                                   
+
                                             }
                                         }
-                                        
+
                                         //echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
 
                                         echo '</tr>';
@@ -1539,7 +1539,7 @@
                                         <th style="text-align: ;">Ratio</th>
                                         <th>Target</th>
                                         <th>Difference</th>
-                                        
+
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -1578,10 +1578,10 @@
                                                 $diff = number_format($loss['0']['cratio'],2)-number_format($tp[0]['print_dimension_target']['target'],2);
                                                 //echo $diff;die;
                                                 echo '<td class="dimensionTarget-'.$tp[0]['print_dimension_target']['id'].'" style="text-align: ;">' . number_format($diff, 2) . '%</td>';
-                                                   
+
                                             }
                                         }
-                                        
+
                                         //echo '<td style="text-align: right;">' . number_format($loss['0']['target'], 2) . '</td>';
                                         echo '</tr>';
                                     }
@@ -1593,7 +1593,7 @@
                         </div>
                     </div>
                 </div>
-               
+
             </div>
 
             <div class="row">
@@ -1610,12 +1610,12 @@
                                             <th>To Month <br/>(<?= $current_print_month;?>)</th>
                                             <th>To Year <br/>(<?= $current_print_year;?>)</th>
                                         </tr>
-                                        
+
                                         <tr>
-                                
+
                                             <td><?php
                                                 $rea_count = count($bd_reason);
-                                                
+
                                                 foreach ($bd_reason as $bd):
                                                     echo $bd. '<br/>';
                                                 endforeach;
@@ -1631,7 +1631,7 @@
                                                 $today_count = count($bd_d);
                                                 for($today_count;$today_count<$rea_count;$today_count++)
                                                 {
-                                                    
+
                                                      echo number_format(0,2).'%<br/>';
                                                 }
                                                 ?>
@@ -1646,7 +1646,7 @@
 
                                                 endforeach;
                                                 $month_count = count($bd_m);
-                                                
+
                                                 for($month_count;$month_count<$rea_count;$month_count++)
                                                 {
                                                     echo number_format(0,2).'%<br/>';
@@ -1662,7 +1662,7 @@
                                                 $year_count = count($bd_y);
                                                 for($year_count;$year_count<$rea_count;$year_count++)
                                                 {
-                                                    
+
                                                      echo number_format(0,2).'%<br/>';
 
 
@@ -1751,7 +1751,7 @@
                 </div>
             </div>
         <!--End: Printing Loss Hour Reasons-->
-             
+
 
 
         <!--Printing: Loss Hour Calculations-->
@@ -1775,21 +1775,21 @@
                                         <td><?php echo $breakdownToDay; ?></td>
                                         <td><?php if($breakdownToMonth!='')echo $breakdownToMonth; else echo 0; ?></td>
                                         <td><?php if($breakdownToYear!='')echo $breakdownToYear; else echo 0; ?></td>
-                                        
+
                                     </tr>
                                     <tr>
                                         <td><strong>Loss Hour</strong></td>
                                         <td><?php if($losshourToDay!='')echo $losshourToDay; else echo 0; ?></td>
                                         <td><?php if($losshourToMonth!='')echo $losshourToMonth; else echo 0; ?></td>
                                         <td><?php if($losshourToYear!='')echo $losshourToYear; else echo 0; ?></td>
-                                        
+
                                     </tr>
                                     <tr>
                                         <td><strong>Worked Hour</strong></td>
                                         <td><?php if($workedHourToDay!='')echo $workedHourToDay; else echo 0; ?></td>
                                         <td><?php if($workedHourToMonth!='')echo $workedHourToMonth; else echo 0; ?></td>
                                         <td><?php if($workedHourToYear!='')echo $workedHourToYear; else echo 0; ?></td>
-                                        
+
                                     </tr>
                                 </table>
                             </div>
@@ -1799,10 +1799,10 @@
                 <!--End of Printing: Loss Hour Calculations-->
             </div>
 
-   
+
 
         <!-- printed and unprinted reasons -->
-       
+
             <?php
             function check_percentage($reason, $printingShiftreport)
             {
@@ -1862,7 +1862,7 @@
                             endforeach;
                             ?>
 
-                            <?php 
+                            <?php
                             //echo'<pre>';print_r($totalToYear);die;
 
                             foreach($printedReason as $p):
@@ -1879,7 +1879,7 @@
 
 
                             <tr>
-                            
+
                                 <td><?=$p['laminating_reason']['reason'];?></td>
                                 <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToDay)*100/($totalToDay?$totalToDay:1)),2).'%';?></td>
                                 <td><?=number_format((check_percentage($p['laminating_reason']['reason'], $printingShiftreportToMonth)*100/($totalToMonth?$totalToMonth:1)),2).'%';?></td>
@@ -1983,10 +1983,10 @@
                                 ?>
                                 <div class="consumption"></div>
                         </div>
-                           
+
                     </div>
             </div>
-        
+
         </div>
 
 
@@ -2000,23 +2000,93 @@
     <ol class="breadcrumb">
         <li class="active"><i class="fa fa-dashboard"></i> Dashboard</li>
     </ol>
-    
+
     <div class="container-fluid">
 
-       
+        <!-- Productions Shiftreport -->
         <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> Productions Shiftreport </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-bordered">
+                            <tr class="success">
+                                <td>Base</td>
+                                <td>ToDay <?=$productionShifrReport['lastDate'];?></td>
+                                <td>ToMonth <?=substr($productionShifrReport['lastDate'],0,7);?></td>
+                                <td>ToYear <?=substr($productionShifrReport['lastDate'],0,4);?></td>
+                            </tr>
+                            <tr>
+                                <td>Total MT</td>
+                               <td><?=$productionShifrReport['toDay']['base_mt'];?></td>
+                               <td><?=$productionShifrReport['toMonth']['base_mt'];?></td>
+                               <td><?=$productionShifrReport['toYear']['base_mt'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Total UT</td>
+                                <td><?=$productionShifrReport['toDay']['base_ut'];?></td>
+                                <td><?=$productionShifrReport['toMonth']['base_ut'];?></td>
+                                <td><?=$productionShifrReport['toYear']['base_ut'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Total CT</td>
+                                <td><?=$productionShifrReport['toDay']['ct'];?></td>
+                                <td><?=$productionShifrReport['toMonth']['ct'];?></td>
+                                <td><?=$productionShifrReport['toYear']['ct'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Total CT KG</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>Total PF</td>
+                                <td><?=$productionShifrReport['toDay']['print_film'];?></td>
+                                <td><?=$productionShifrReport['toMonth']['print_film'];?></td>
+                                <td><?=$productionShifrReport['toYear']['print_film'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Total Output</td>
+                                <td><?=$productionShifrReport['toDay']['output'];?></td>
+                                <td><?=$productionShifrReport['toMonth']['output'];?></td>
+                                <td><?=$productionShifrReport['toYear']['output'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Perhour Output</td>
+                                <td><?=number_format($productionShifrReport['toDay']['perhourOutput'],2);?></td>
+                                <td><?=number_format($productionShifrReport['toMonth']['perhourOutput'],2);?></td>
+                                <td><?=number_format($productionShifrReport['toYear']['perhourOutput'],2);?></td>
+                            </tr>
+                            <tr>
+                                <td>Perhour Working Hour Output</td>
+                                <td><?=number_format($productionShifrReport['toDay']['perHourOutputWorked'],2);?></td>
+                                <td><?=number_format($productionShifrReport['toMonth']['perHourOutputWorked'],2);?></td>
+                                <td><?=number_format($productionShifrReport['toYear']['perHourOutputWorked'],2);?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Productions Shiftreport -->
+        <div class="row">
+
+            <!-- Breakdown/Loss Hour Calculation -->
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
                         Breakdown/Loss Hour Calculation
                     </div>
                     <div class="panel-body">
-                        <?php $tdl;
+                        <?php
+                        $tdl;
                         $tdb;
                         $tml;
                         $tmb;
                         $tyl;
-                        $tyb; ?>
+                        $tyb;
+                        ?>
                         <table class="table table-bordered table-hover" style="margin:0px auto;">
                             <tr>
                                 <th>Type</th>
@@ -2079,7 +2149,9 @@
                     </div>
                 </div>
             </div>
+            <!-- end Breakdown/Loss Hour Calculation -->
 
+            <!-- Scrap %-->
             <div class="col-md-6">
                 <div class="panel panel-primary">
                     <div class="panel-heading">Scrap %</div>
@@ -2194,10 +2266,12 @@
                     </div>
                 </div>
             </div>
+            <!-- end Scrap % -->
         </div>
     </div>
     <div class="clearfix"></div>
     <div class="row">
+        <!-- Scrap % with Brand -->
         <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">Scrap % with Brand</div>
@@ -2253,6 +2327,7 @@
                 </div>
             </div>
         </div>
+        <!-- end Scrap % with Brand -->
         <div class="col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">BreakDown Reasons %</div>

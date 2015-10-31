@@ -28,6 +28,7 @@ class PagesController extends AppController
         $this->materialUsed_percent();
         $this->breakdown();
         $this->losshour();
+        $this->laminatingProductionShiftReport();
         //  $this->losshour_calculate(AuthComponent::user('role'));// default department = calender
 
 
@@ -1561,7 +1562,7 @@ Dimension
                 'Minutes' => $secs / 60 % 60,
                 'seconds' => $secs % 60
             ];
-            $ret=[];
+            $ret = [];
             foreach ($bit as $k => $v)
                 if ($v > 0) {
                     $ret[] = $v . ' ' . $k;
@@ -2668,7 +2669,129 @@ Dimension
         //END: PRINTING DASHBOARD
     }
 
+    public function laminatingProductionShiftReport()
+    {
+        $productionShifrReport = [];
+        $toDay=[];
+        $this->loadModel('ProductionShiftreport');
+        $this->loadModel('TimeLoss');
 
+        $lastDate= $this->ProductionShiftreport->query("SELECT distinct(date) from production_shiftreport order by date DESC limit 1")[0]['production_shiftreport']['date'];
+        $ToDayQuery = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date='$lastDate'");
+        $ToMonthQuery = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date like '%".substr($lastDate,0,7)."%'");
+        $ToYearQuery = $this->ProductionShiftreport->query("SELECT * from production_shiftreport where date like '%".substr($lastDate,0,4)."%'");
+
+        /*
+         * ToDay
+         */
+        $toDay['base_ut']=0;
+        $toDay['base_mt']=0;
+        $toDay['base_ot']=0;
+        $toDay['print_film']=0;
+        $toDay['ct']=0;
+        $toDay['output']=0;
+        foreach($ToDayQuery as $t)
+        {
+            $toDay['base_ut'] += intVal($t['production_shiftreport']['base_ut']);
+            $toDay['base_mt'] += intVal($t['production_shiftreport']['base_mt']);
+            $toDay['base_ot'] += intVal($t['production_shiftreport']['base_ot']);
+            $toDay['print_film'] += intVal($t['production_shiftreport']['print_film']);
+            $toDay['ct'] += intVal($t['production_shiftreport']['CT']);
+            $toDay['output'] += intVal($t['production_shiftreport']['output']);
+        }
+        $toDay['perhourOutput'] = $toDay['output'];
+
+        $timeLossTotalToDay = $this->TimeLoss->query("Select * from time_loss where nepalidate='$lastDate'");
+        $totalLoss=0;
+        $key_arrayTimeLossToDay=[];
+        foreach($timeLossTotalToDay as $time) {
+            $totalLoss += intval($time['time_loss']['totalloss_sec']);
+            if (!in_array($time['time_loss']['nepalidate'], $key_arrayTimeLossToDay)) {
+                $key_arrayTimeLossToDay[$time['time_loss']['id']] = $time['time_loss']['nepalidate'];
+            }
+        }
+
+        $toDay['perHourOutputWorked'] = $toDay['output']/(1*(24-($totalLoss/count($key_arrayTimeLossToDay))/3600));
+
+        /*
+         * ToMonth
+         */
+        $toMonth['base_ut']=0;
+        $toMonth['base_mt']=0;
+        $toMonth['base_ot']=0;
+        $toMonth['print_film']=0;
+        $toMonth['ct']=0;
+        $toMonth['output']=0;
+        $key_arrayToMonth=[];
+        foreach($ToMonthQuery as $t)
+        {
+            $toMonth['base_ut'] += intVal($t['production_shiftreport']['base_ut']);
+            $toMonth['base_mt'] += intVal($t['production_shiftreport']['base_mt']);
+            $toMonth['base_ot'] += intVal($t['production_shiftreport']['base_ot']);
+            $toMonth['print_film'] += intVal($t['production_shiftreport']['print_film']);
+            $toMonth['ct'] += intVal($t['production_shiftreport']['CT']);
+            $toMonth['output'] += intVal($t['production_shiftreport']['output']);
+
+            if (!in_array($t['production_shiftreport']['date'], $key_arrayToMonth)){
+                $key_arrayToMonth[$t['production_shiftreport']['id']] = $t['production_shiftreport']['date'];
+            }
+        }
+        $toMonth['perhourOutput'] = $toMonth['output']/((count($key_arrayToMonth)?count($key_arrayToMonth):1)*24);
+
+        $timeLossTotalToMonth = $this->TimeLoss->query("Select * from time_loss where nepalidate like '%".substr($lastDate,0,7)."%'");
+        $totalLoss=0;
+        $key_arrayTimeLossToMonth=[];
+        foreach($timeLossTotalToMonth as $time) {
+            $totalLoss += intval($time['time_loss']['totalloss_sec']);
+            if (!in_array($time['time_loss']['nepalidate'], $key_arrayTimeLossToMonth)) {
+                $key_arrayTimeLossToMonth[$time['time_loss']['id']] = $time['time_loss']['nepalidate'];
+            }
+        }
+
+
+        $toMonth['perHourOutputWorked'] = $toMonth['output']/(((count($key_arrayToMonth)?count($key_arrayToMonth):1)*(24-($totalLoss/count($key_arrayTimeLossToMonth))/3600))); //count($key_arrayTimeLossToMonth)
+        /*
+         * ToYear
+         */
+        $toYear['base_ut']=0;
+        $toYear['base_mt']=0;
+        $toYear['base_ot']=0;
+        $toYear['print_film']=0;
+        $toYear['ct']=0;
+        $toYear['output']=0;
+        $key_array = [];
+        foreach($ToYearQuery as $t) {
+            $toYear['base_ut'] += intVal($t['production_shiftreport']['base_ut']);
+            $toYear['base_mt'] += intVal($t['production_shiftreport']['base_mt']);
+            $toYear['base_ot'] += intVal($t['production_shiftreport']['base_ot']);
+            $toYear['print_film'] += intVal($t['production_shiftreport']['print_film']);
+            $toYear['ct'] += intVal($t['production_shiftreport']['CT']);
+            $toYear['output'] += intVal($t['production_shiftreport']['output']);
+
+            if (!in_array($t['production_shiftreport']['date'], $key_array)) {
+                $key_array[$t['production_shiftreport']['id']] = $t['production_shiftreport']['date'];
+            }
+        }
+        $toYear['perhourOutput'] = $toYear['output']/((count($ToYearQuery)?count($key_array):1)*24);
+
+        $timeLossTotalToYear = $this->TimeLoss->query("Select * from time_loss where nepalidate like '%".substr($lastDate,0,4)."%'");
+        $totalLoss=0;
+        $key_arrayTimeLossToYear=[];
+        foreach($timeLossTotalToYear as $time) {
+            $totalLoss += intval($time['time_loss']['totalloss_sec']);
+            if (!in_array($time['time_loss']['nepalidate'], $key_arrayTimeLossToYear)) {
+                $key_arrayTimeLossToYear[$time['time_loss']['id']] = $time['time_loss']['nepalidate'];
+            }
+        }
+
+
+        $toYear['perHourOutputWorked'] = $toYear['output']/(((count($key_array)?count($key_array):1)*(24-($totalLoss/count($key_arrayTimeLossToYear))/3600)));
+
+        $productionShifrReport['lastDate'] = $lastDate;
+        $productionShifrReport['toDay'] = $toDay;
+        $productionShifrReport['toMonth'] = $toMonth;
+        $productionShifrReport['toYear'] = $toYear;
+
+        $this->set('productionShifrReport', $productionShifrReport);
+    }
 }
-
-
