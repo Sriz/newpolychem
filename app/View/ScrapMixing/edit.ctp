@@ -4,7 +4,8 @@
 		<legend><?php echo __('Edit Mixing Material'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('scrap_sent');
+	$arr = ['printed_scrap'=>'Printed Scrap','unprinted_scrap'=>'Unprinted Scrap'];
+	echo $this->Form->input('scrap_sent',['options'=>$arr, 'label'=>'Category', 'empty'=>'No-Category','required'=>'required']);
 		echo $this->Form->input('weight');
 	?>
 	</fieldset>
