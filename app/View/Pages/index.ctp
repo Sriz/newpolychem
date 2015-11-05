@@ -2053,16 +2053,54 @@
                                 <td><?=$productionShifrReport['toYear']['output'];?></td>
                             </tr>
                             <tr>
-                                <td>Perhour Output</td>
+                                <td>Per hour Output</td>
                                 <td><?=number_format($productionShifrReport['toDay']['perhourOutput'],2);?></td>
                                 <td><?=number_format($productionShifrReport['toMonth']['perhourOutput'],2);?></td>
                                 <td><?=number_format($productionShifrReport['toYear']['perhourOutput'],2);?></td>
                             </tr>
                             <tr>
-                                <td>Perhour Working Hour Output</td>
+                                <td>Per hour Working Hour Output</td>
                                 <td><?=number_format($productionShifrReport['toDay']['perHourOutputWorked'],2);?></td>
                                 <td><?=number_format($productionShifrReport['toMonth']['perHourOutputWorked'],2);?></td>
                                 <td><?=number_format($productionShifrReport['toYear']['perHourOutputWorked'],2);?></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end Productions Shiftreport -->
+
+        <!-- CT Table-->
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"> CT KG Consumption </div>
+                    <div class="panel-body">
+                        <table class="table table-hover table-bordered">
+                            <tr class="success">
+                                <td></td>
+                                <td>ToDay</td>
+                                <td>ToMonth</td>
+                                <td>ToYear</td>
+                            </tr>
+                            <tr>
+                                <td>2 Yard</td>
+                                <td><?=$ctArr['ToDay']['two_yard'];?></td>
+                                <td><?=$ctArr['ToMonth']['two_yard'];?></td>
+                                <td><?=$ctArr['ToYear']['two_yard'];?></td>
+                            </tr>
+                            <tr>
+                                <td>2 Meter</td>
+                                <td><?=$ctArr['ToDay']['two_meter'];?></td>
+                                <td><?=$ctArr['ToMonth']['two_meter'];?></td>
+                                <td><?=$ctArr['ToYear']['two_meter'];?></td>
+                            </tr>
+                            <tr>
+                                <td>Dull CT</td>
+                                <td><?=$ctArr['ToDay']['dull_ct'];?></td>
+                                <td><?=$ctArr['ToMonth']['dull_ct'];?></td>
+                                <td><?=$ctArr['ToYear']['dull_ct'];?></td>
                             </tr>
                         </table>
                     </div>

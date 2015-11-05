@@ -29,6 +29,7 @@ class PagesController extends AppController
         $this->breakdown();
         $this->losshour();
         $this->laminatingProductionShiftReport();
+        $this->ctLoad();
         //  $this->losshour_calculate(AuthComponent::user('role'));// default department = calender
 
 
@@ -2794,4 +2795,61 @@ Dimension
 
         $this->set('productionShifrReport', $productionShifrReport);
     }
+
+    public function ctLoad()
+    {
+        /*
+         * CT KG Consumption
+         */
+        $this->loadModel('LaminatingTargets');
+        $this->loadModel('ProductionShiftreport');
+
+        $date = $this->ProductionShiftreport->query("SELECT distinct(date) FROM production_shiftreport ORDER BY date ASC LIMIT 1")[0]['production_shiftreport']['date'];
+        $startmonth = substr($date, 0, 7).'-01';
+        $startyear = substr($date, 0, 4).'-01-01';
+
+        $laminating_targets = $this->LaminatingTargets->Query("SELECT * from laminating_targets ");
+        $production_shiftreportToDay = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport WHERE  date='$date'");
+        $production_shiftreportToMonth = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport where date between '$startmonth' and '$date'");
+        $production_shiftreportToYear = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport where date between '$startyear' and '$date'");
+
+        $ct['ToDay'] = $this->ct_table($laminating_targets, $production_shiftreportToDay);
+        $ct['ToMonth'] = $this->ct_table($laminating_targets, $production_shiftreportToMonth);
+        $ct['ToYear'] = $this->ct_table($laminating_targets, $production_shiftreportToYear);
+
+        $this->set('ctArr', $ct);
+    }
+    private function ct_table($laminating_targets, $production_shiftreport)
+    {
+        $data['dull_ct']=0;
+        $data['two_yard']=0;
+        $data['two_meter']=0;
+
+        foreach ($laminating_targets as $l) {
+            if ($l['laminating_targets']['type'] == 'Dull CT') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['dull_ct'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+            if ($l['laminating_targets']['type'] == '2 yard') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['two_yard'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+            if ($l['laminating_targets']['type'] == '2 meter') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['two_meter'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+        }
+
+        return $data;
+    }
+
 }

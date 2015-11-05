@@ -340,6 +340,20 @@ class ProductionShiftreportsController extends AppController
         $timeLossBreakDownAll = $this->TimeLoss->query("SELECT * FROM time_loss where nepalidate = '$date' and type='BreakDown' and department_id='laminating'");
 
         /*
+         * CT KG Consumption
+         */
+        $this->loadModel('LaminatingTargets');
+        $this->loadModel('ProductionShiftreport');
+        $laminating_targets = $this->LaminatingTargets->Query("SELECT * from laminating_targets ");
+        $production_shiftreportToDay = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport WHERE  date='$date'");
+        $production_shiftreportToMonth = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport where date between '$startmonth' and '$date'");
+        $production_shiftreportToYear = $this->ProductionShiftreport->Query("SELECT * from production_shiftreport where date between '$startyear' and '$date'");
+
+        $ct['ToDay'] = $this->ct_table($laminating_targets, $production_shiftreportToDay);
+        $ct['ToMonth'] = $this->ct_table($laminating_targets, $production_shiftreportToMonth);
+        $ct['ToYear'] = $this->ct_table($laminating_targets, $production_shiftreportToYear);
+
+        /*
          * send data to view
          */
         $this->set('date', $date);
@@ -351,7 +365,40 @@ class ProductionShiftreportsController extends AppController
         $this->set('timeLossBreakDown', $timeLossBreakDown);
         $this->set('timeLossLossHourAll', $timeLossLossHourAll);
         $this->set('timeLossBreakDownAll', $timeLossBreakDownAll);
+        $this->set('ctArr', $ct);
         $this->layout = 'pdf';
+    }
+    private function ct_table($laminating_targets, $production_shiftreport)
+    {
+        $data['dull_ct']=0;
+        $data['two_yard']=0;
+        $data['two_meter']=0;
+
+        foreach ($laminating_targets as $l) {
+            if ($l['laminating_targets']['type'] == 'Dull CT') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['dull_ct'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+            if ($l['laminating_targets']['type'] == '2 yard') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['two_yard'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+            if ($l['laminating_targets']['type'] == '2 meter') {
+                foreach ($production_shiftreport as $p) {
+                    if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
+                        $data['two_meter'] += $p['production_shiftreport']['CT'];
+                    }
+                }
+            }
+        }
+
+        return $data;
     }
 
     public function losshour_calculate($dept)

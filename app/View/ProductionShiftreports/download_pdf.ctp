@@ -118,19 +118,20 @@ $html .="<td>Total-A :</td>";
 $html .="<td></td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>".$base_ut."</td>";
-$html .="<td>".$base_mt."</td>";
-$html .="<td>".$base_ot."</td>";
-$html .="<td>".$print_film."</td>";
-$html .="<td>".$ct."</td>";
-$html .="<td>".$output."</td>";
+$html .="<td>".number_format($base_ut,2)."</td>";
+$html .="<td>".number_format($base_mt, 2)."</td>";
+$html .="<td>".number_format($base_ot, 2)."</td>";
+$html .="<td>".number_format($print_film, 2)."</td>";
+$html .="<td>".number_format($ct, 2)."</td>";
+$html .="<td>".number_format($output, 2)."</td>";
 $html .="</tr>";
 $html .="<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>";
-$base_ut=0;
-$base_mt=0;
-$base_ot=0;
-$ct=0;
-$output=0;
+$base_ut1=0;
+$base_mt1=0;
+$base_ot1=0;
+$print_film1=0;
+$ct1=0;
+$output1=0;
 foreach($productionShiftReportB as $p):
     $html .="<tr>";
     $html .="<td>".$p['production_shiftreport']['shift']."</td>";
@@ -145,12 +146,12 @@ foreach($productionShiftReportB as $p):
     $html .="<td>".number_format($p['production_shiftreport']['output'])."</td>";
     $html .="</tr>";
 
-    $base_ut += intval($p['production_shiftreport']['base_ut']);
-    $base_mt += intval($p['production_shiftreport']['base_mt']);
-    $base_ot += intval($p['production_shiftreport']['base_ot']);
-    $print_film += intval($p['production_shiftreport']['print_film']);
-    $ct += intval($p['production_shiftreport']['CT']);
-    $output += intval($p['production_shiftreport']['output']);
+    $base_ut1 += intval($p['production_shiftreport']['base_ut']);
+    $base_mt1 += intval($p['production_shiftreport']['base_mt']);
+    $base_ot1 += intval($p['production_shiftreport']['base_ot']);
+    $print_film1 += intval($p['production_shiftreport']['print_film']);
+    $ct1 += intval($p['production_shiftreport']['CT']);
+    $output1 += intval($p['production_shiftreport']['output']);
 
 endforeach;
 
@@ -159,12 +160,26 @@ $html .="<td>Total-B :</td>";
 $html .="<td></td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>".$base_ut."</td>";
-$html .="<td>".$base_mt."</td>";
-$html .="<td>".$base_ot."</td>";
-$html .="<td>".$print_film."</td>";
-$html .="<td>".$ct."</td>";
-$html .="<td>".$output."</td>";
+$html .="<td>".number_format($base_ut1,2)."</td>";
+$html .="<td>".number_format($base_mt1,2)."</td>";
+$html .="<td>".number_format($base_ot1,2)."</td>";
+$html .="<td>".number_format($print_film1,2)."</td>";
+$html .="<td>".number_format($ct1,2)."</td>";
+$html .="<td>".number_format($output1,2)."</td>";
+$html .="</tr>";
+
+//ToDay
+$html .="<tr>";
+$html .="<td>Total ToDay :</td>";
+$html .="<td></td>";
+$html .="<td></td>";
+$html .="<td></td>";
+$html .="<td>".number_format(($base_ut1+$base_ut),2)."</td>";
+$html .="<td>".number_format(($base_mt1+$base_mt),2)."</td>";
+$html .="<td>".number_format(($base_ot1+$base_ot),2)."</td>";
+$html .="<td>".number_format(($print_film1+$print_film),2)."</td>";
+$html .="<td>".number_format(($ct1+$ct),2)."</td>";
+$html .="<td>".number_format(($output1+$output),2)."</td>";
 $html .="</tr>";
 
 //ToMonth
@@ -173,12 +188,12 @@ $html .="<td>Total ToMonth</td>";
 $html .="<td></td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>".$shiftReportToMonth['base_ut']."</td>";
-$html .="<td>".$shiftReportToMonth['base_mt']."</td>";
-$html .="<td>".$shiftReportToMonth['base_ot']."</td>";
-$html .="<td>".$shiftReportToMonth['print_film']."</td>";
-$html .="<td>".$shiftReportToMonth['CT']."</td>";
-$html .="<td>".$shiftReportToMonth['output']."</td>";
+$html .="<td>".number_format($shiftReportToMonth['base_ut'],2)."</td>";
+$html .="<td>".number_format($shiftReportToMonth['base_mt'],2)."</td>";
+$html .="<td>".number_format($shiftReportToMonth['base_ot'],2)."</td>";
+$html .="<td>".number_format($shiftReportToMonth['print_film'],2)."</td>";
+$html .="<td>".number_format($shiftReportToMonth['CT'],2)."</td>";
+$html .="<td>".number_format($shiftReportToMonth['output'],2)."</td>";
 $html .="</tr>";
 
 //ToYear
@@ -187,12 +202,12 @@ $html .="<td>Total ToYear</td>";
 $html .="<td></td>";
 $html .="<td></td>";
 $html .="<td></td>";
-$html .="<td>".$shiftReportToYear['base_ut']."</td>";
-$html .="<td>".$shiftReportToYear['base_mt']."</td>";
-$html .="<td>".$shiftReportToYear['base_ot']."</td>";
-$html .="<td>".$shiftReportToYear['print_film']."</td>";
-$html .="<td>".$shiftReportToYear['CT']."</td>";
-$html .="<td>".$shiftReportToYear['output']."</td>";
+$html .="<td>".number_format($shiftReportToYear['base_ut'],2)."</td>";
+$html .="<td>".number_format($shiftReportToYear['base_mt'],2)."</td>";
+$html .="<td>".number_format($shiftReportToYear['base_ot'],2)."</td>";
+$html .="<td>".number_format($shiftReportToYear['print_film'],2)."</td>";
+$html .="<td>".number_format($shiftReportToYear['CT'],2)."</td>";
+$html .="<td>".number_format($shiftReportToYear['output'],2)."</td>";
 $html .="</tr>";
 
 $html .= "</table><br><br>";
@@ -267,6 +282,35 @@ $html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
 $html .="<tr><td></td><td></td><td><strong>Total Loss BreakDown</strong></td><td><strong>".time_elapsed($totalLossSecBreak)."</strong></td><td></td></tr>";
 $html .="<tr><td></td><td></td><td></td><td></td><td></td></tr>";
 $html .="<tr><td></td><td></td><td><strong>Total Loss</strong></td><td><strong>".time_elapsed($totalLossSecBreak+$totalLossSecLoss)."</strong></td><td></td></tr>";
+$html .="</table>";
+
+/* CT Table */
+$html .="<h4>CT KG Consumption</h4>";
+$html .="<table border=\"0.5px;\" style=\"padding-left:5px;\">
+            <tr style=\"font-weight: bold\">
+                <td></td>
+                <td>Today</td>
+                <td>ToMonth</td>
+                <td>ToYear</td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>2 Yard</td>
+                <td>".$ctArr['ToDay']['two_yard']."</td>
+                <td>".$ctArr['ToMonth']['two_yard']."</td>
+                <td>".$ctArr['ToYear']['two_yard']."</td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>2 Meter</td>
+                <td>".$ctArr['ToDay']['two_meter']."</td>
+                <td>".$ctArr['ToMonth']['two_meter']."</td>
+                <td>".$ctArr['ToYear']['two_meter']."</td>
+            </tr>
+            <tr style=\"font-weight: bold\">
+                <td>Dull Ct</td>
+                <td>".$ctArr['ToDay']['dull_ct']."</td>
+                <td>".$ctArr['ToMonth']['dull_ct']."</td>
+                <td>".$ctArr['ToYear']['dull_ct']."</td>
+            </tr>";
 $html .="</table>";
 
 
