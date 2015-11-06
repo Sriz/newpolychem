@@ -1835,7 +1835,7 @@ class TCPDF {
 	 * @public
 	 * @see getPageSizeFromFormat(), setPageFormat()
 	 */
-	public function __construct($orientation='P', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false, $pdfa=false) {
+	public function __construct($orientation='L', $unit='mm', $format='A4', $unicode=true, $encoding='UTF-8', $diskcache=false, $pdfa=false) {
 		/* Set internal character encoding to ASCII */
 		if (function_exists('mb_internal_encoding') AND mb_internal_encoding()) {
 			$this->internal_encoding = mb_internal_encoding();
@@ -1906,7 +1906,7 @@ class TCPDF {
 		// set scale factor
 		$this->setPageUnit($unit);
 		// set page format and orientation
-		$this->setPageFormat($format, $orientation);
+		$this->setPageFormat($format, "L");
 		// page margins (1 cm)
 		$margin = 28.35 / $this->k;
 		$this->SetMargins($margin, $margin);
