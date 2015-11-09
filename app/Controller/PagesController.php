@@ -156,23 +156,26 @@ class PagesController extends AppController
             if ($l['laminating_targets']['type'] == 'Dull CT') {
                 foreach ($production_shiftreport as $p) {
                     if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
-                        $data['dull_ct'] = $p['production_shiftreport']['CT'];
+                        $data['dull_ct'] += floatval($p['production_shiftreport']['CT']);
                     }
                 }
+                $data['dull_ct'] = $data['dull_ct'] * $l['laminating_targets']['weight'];
             }
             if ($l['laminating_targets']['type'] == '2 yard') {
-                foreach ($production_shiftreport as $p) {
+                foreach ($production_shiftreport as $p){
                     if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
-                        $data['two_yard'] = $p['production_shiftreport']['CT'];
+                        $data['two_yard'] += floatval($p['production_shiftreport']['CT']);
                     }
                 }
+                $data['two_yard'] = $data['two_yard'] * $l['laminating_targets']['weight'];
             }
             if ($l['laminating_targets']['type'] == '2 meter') {
                 foreach ($production_shiftreport as $p) {
                     if ($p['production_shiftreport']['brand'] == $l['laminating_targets']['brand']) {
-                        $data['two_meter'] = $p['production_shiftreport']['CT'];
+                        $data['two_meter'] += floatval($p['production_shiftreport']['CT']);
                     }
                 }
+                $data['two_meter'] = $data['two_meter'] * $l['laminating_targets']['weight'];
             }
         }
 

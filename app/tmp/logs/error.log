@@ -30995,3 +30995,48 @@ Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
 Stack Trace:
 #0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2015-11-08 15:56:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-08 15:58:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-09 14:56:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-09 14:59:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2015-11-09 14:59:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /newpolychem/css/font-asome/css/font-awesome.min.css
+Stack Trace:
+#0 D:\www\newpolychem\app\webroot\index.php(111): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

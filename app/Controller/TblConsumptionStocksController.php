@@ -245,7 +245,7 @@ class TblConsumptionStocksController extends AppController
 
         echo "<option value=''>--Choose One--</option>";
         foreach ($arr as $t):
-            echo "<option value=$t>$t</option>";
+            echo "<option value='$t'>$t</option>";
         endforeach;
         exit;
     }
@@ -264,7 +264,6 @@ class TblConsumptionStocksController extends AppController
         $this->layout = null;
 
         $this->autoLayout = false;
-
         Configure::write('debug', '2');
     }
 
